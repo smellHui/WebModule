@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+	<title>选择随访方案</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="follow cbox" id="selective_up_progra">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="xzfz_box">
+		<ul class="fnonne" page="doctor" inter="addVisitRecord">
+			<!-- <li class="csfsd"><i class="radio"></i><span>XXX</span></li>
+			<li><i class="radio"></i><span>XXX</span></li> -->
+		</ul>
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but">
+		<button class="btn-zyradius">新增方案</button>
+	</div>
+
+	<div class="tcsjob" style="display: none;">
+		<i class="icon-xxx"></i>
+		<input maxlength="8">	
+		<button>确定</button>	
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+
+	<script type="text/javascript">
+		$(function(){
+
+			$(".xzfz_but button").ontouch(function(){
+				gm.pul.toUrl("/html/follow_up/toolbox/increase_plan.shtml?returnurl=" + window.location.href);
+			});
+
+			var _customerUuid = gm.para.get(window.location.href,"customerUuid");
+			var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+			var _medicalRecordUuid =  gm.para.get(window.location.href,"medicalRecordUuid");
+
+			// gm.user.addVisitRecord(_customerUuid,_applyUuid);
+
+			gm.follow_up.selective_up_program();
+
+			gm.follow_up.getAllVisitPreceptList(function(data){
+				var _k = '<dt class="_xzfa"><a href="increase_plan.shtml"></a><i class="logo-xzfa"></i>新增方案\
+				  <i class="icon-thearrowx"></i></dt><dt class="_wdfa">我的方案</dt>';
+
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					var arr = [];
+					var err = [];
+
+					$(data.relist).each(function(i,o){
+						arr.push('<dd class="dsasw" visitUuid="'+o["visitUuid"]+'"><div class="kua"><div class="newszu"><p>'+o["preceptName"]+'</p>\
+							<i class="sdsv">已关联<span>'+o["num"]+'</span>人</i></div></div><div class="kua_scnut"></div>\
+							<div class="ndh"><i class="icon-mycoltrash"></i></div></dd>');
+						err.push('<li visitUuid="'+o["visitUuid"]+'"><i class="radio"></i><span>'+o["preceptName"]+'</span></li>');
+					});
+
+					$("#follow_up_plan .sffa_box dl").html(_k + arr.join(""));
+					$("#selective_up_progra .xzfz_box ul").html(err.join(""));
+
+					$("#follow_up_plan .sffa_box dd").lrTouchMove();
+					// $("#selective_up_progra .xzfz_box ul").lrTouchMove();
+					$(".xzfz_box li").ontouch(function(){
+						$(".xzfz_box li").removeClass("csfsd");
+						$(this).addClass("csfsd");
+						
+						var _medicalRecordUuid =  gm.para.get(window.location.href,"medicalRecordUuid");
+						var applyUuid = gm.para.get(window.location.href,"applyUuid");
+						var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+						var _visitUuid = $(this).attr("visitUuid");
+						if (!_visitUuid) {
+							$.alert("请选择随访方案!");
+						}else{
+							if(applyUuid){
+								$.getDate({
+									page:"doctor",
+									inter:"addVisitRecord",
+									data:{visitPreceptUuid:_visitUuid,visitUuid:applyUuid},
+									callback:function(data){
+										if(!data){
+											$.alert("服务器出错!");
+										}
+										if(data.query.success=="1"){
+											$.alert({
+												val:"关联成功",
+												timer:1500,
+												type:"flash",
+												callback:function(){
+													gm.pul.toUrl("/html/follow_up/followed_up_for.shtml");
+												}
+											})	
+										}else{
+											$.alert(data.query.message);
+										}
+									}
+								});
+							}else{
+								$.getDate({
+									page:"doctor",
+									inter:"updateVisitRecord",
+									data:{visitPreceptUuid:_visitUuid,customerUuid:customerUuid,doctorUuid:gm.user.getDoctor()},
+									callback:function(data){
+										if(!data){
+											$.alert("服务器出错!");
+										}
+										if(data.query.success=="1"){
+											gm.pul.toUrl( "/html/follow_up/index.shtml");
+										}else{
+											$.alert(data.query.message);
+										}
+									}
+								});
+							}
+							
+						}
+					});
+
+				}else{
+					$.alert(data.query.message);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

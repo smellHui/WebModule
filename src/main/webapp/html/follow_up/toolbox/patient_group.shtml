@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>患者分组管理</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 患者分组 -->
+<body class="followed cbox" id="patient_grouping">
+	<!-- 内容 -->
+	<div class="hzfz_box fnonne">
+		<dl page="user" inter="deleteCaseGroup">
+			<dt page="user" inter="addCaseGroup"><i class="icon-lstjn"></i>添加分组</dt>
+		</dl>
+	</div>
+	<!-- 弹出框 -->
+	<div class="tcsjob">
+		<i class="icon-xxx"></i>
+		<input maxlength="8"></input>	
+		<button>确定</button>	
+	</div>
+
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+
+	<script type="text/javascript">
+		$(function(){
+			gm.user.getCaseGroupByDoctorId();
+
+			gm.follow_up.patient_group();
+
+			$("#patient_grouping .tcsjob button").bind({
+				touchend:function(){
+					gm.user.addCaseGroup();
+					$(".tcsjob").hide();
+				}
+			})
+
+			gm.pul.returnurl = function(){
+				var _r = gm.para.get(window.location.href,"returnurl");
+				if(_r == "index"){
+					gm.pul.toUrl('/html/follow_up/index.shtml')
+				}else{
+					gm.pul.toUrl('/html/follow_up/toolbox/toolbox.shtml')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

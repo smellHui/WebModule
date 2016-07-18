@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<title>拒绝咨询理由</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 电话咨询-拒绝理由 -->
+<body class="task cbox" id="refuse_consult">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="zaogin">
+		<div class="smgui">
+			<p>您拒绝理由</p>
+			<!-- 对话样输入框 -->
+			<div class="diaput">
+				<textarea name="message" placeholder=""></textarea>
+				<div class="jiao"></div>
+			</div>
+			<!-- 头像 -->
+			<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx4.png"></div>
+		</div>
+		
+	</div>
+	<!-- 按钮 -->
+	<div class="angbox">
+		<button class="btn-zyradius">提交</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl("/html/task/my_task.shtml");
+	}
+	$(".btn-zyradius").ontouch(function(){
+		var _msg = $("textarea").val(),
+			_orderMainUuid = gm.para.get(window.location.href,"orderMainUuid"),
+			_reurl = gm.para.get(window.location.href,"returnurl");
+		if(!_msg){
+			$.alert("请填写拒绝理由");
+			return false;
+		}
+		$.confirm("确定拒绝咨询么？",function(){
+			$.getDate({
+				page:"doctor",
+				inter:"checkOrder",
+				data:{state:0,refuse:_msg,orderMainUuid:_orderMainUuid},
+				callback:function(data){
+					if(!data){
+						$.alert("服务器出错!");
+					}
+					if(data.query.success=="1"){
+						$.alert({
+							"val" : "已拒绝该咨询请求",
+							"type" : "flash",
+							"callback" : function(){
+								gm.pul.toUrl(_reurl);
+							}
+						});
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			});
+		});
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+/patient/tools/normal_results.shtml				测试结果
+/patient/tools/test_results.shtml				测试结果异常

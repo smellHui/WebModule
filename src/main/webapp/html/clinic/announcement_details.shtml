@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>公告详情</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body>
+	<!-- 标题 -->
+		
+	
+		<!-- 内容 -->
+		<div class="thene_cement">
+			<div class="tingztz">
+				<div class="tingzhen_tz">
+					<h2>停诊通知</h2>
+					<span>2015.09.30</span>
+				</div>
+				<div class="tingztz_notice">
+					<div class="idocumenty">
+						<p>即日起张医生停诊一周敬请谅解，谢谢合作即日起张医生一周敬请敬请谅解，谢谢合作即日起张医生停诊一周敬请谢谢合作即日起张医敬请即日起张医生停诊一周敬请谅解谢合作即日起张医生一周敬请敬请谅解，谢谢合作即张医生停诊一周敬请谅解，谢谢合作即日起张医生停诊一周敬请谅解，谢谢合作即日起张医生一周敬请敬请谅解，即日起张医生停诊一周敬请谅解，谢谢合作即日起张医生敬请谢谢合作</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/announcement.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/announcement.shtml');
+	}
+	$(function(){
+		gm.clinic.announcement_details();
+	});
+	</script>
+</body>
+</html>

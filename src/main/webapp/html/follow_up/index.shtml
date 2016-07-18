@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+<body class="followed cbox" id="followed">
+	<div class="sf_box">
+		<ul class="fnonne">
+			<li class="livbdk"><a href="/html/follow_up/followed_up_for.shtml"></a><i class="logo-sfsqn"></i><p>随访申请 </p><b><i class="icon-thearrowx"></i></b></li>
+			<li class="dsnjbw"><a href="/html/follow_up/toolbox/toolbox.shtml"></a><i class="logo-gjxn"></i><p>工具箱</p> <b><i class="icon-thearrowx"></i></b></li>
+			<li><i class="logo-sfhzn"></i><p>随访患者</p> 
+			<b><a href="/html/follow_up/toolbox/patient_group.shtml?returnurl=index"></a><i class="logo-bxn"></i></b></li>
+		</ul>
+		<div class="content fnonne">
+			
+		</div>
+		<div class="content fnonne" id="content" page="user" inter="getCustomerListByDoctorUuidAndGroupId">
+			
+		</div>
+	</div>
+	<!-- 右侧加号按钮 -->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/jsuy_img.png","menuevent":"gm.follow_up.gotoAdd"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl=gm.pul.returnIndex;
+	$(document).ready(function(){
+		gm.follow_up.inde();
+
+		gm.user.getCaseGroupByDoctorId();
+
+		//通过医生id和分组id获取患者列表
+		gm.user.getCustomerListByDoctorUuidAndGroupId();
+		// $("#followed .sydns dd .ndh2").ontouch(function(){
+		// 	var _gid = $(this).parent().parent().parent().parent().attr("gid");
+		// 	gm.user.deleteCustomerByCostomerUuidAndGid(_gid);
+		// },true);
+	})
+	</script>
+</body>
+</html>

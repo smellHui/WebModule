@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>药物不良反应</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+	    <style type="text/css">
+	    #list{padding: 0rem .2rem}
+	    #list div{ border-bottom: 1px solid #999;}
+	    #list div p{padding:.05rem .3rem .1rem;line-height: 1.4;}
+	    </style>
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 药物不良反应 -->
+		<div class="sheet" id="list">
+			<p style="text-align:center;">没有填写药物不良反应</p>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<script>
+	var visitRecordUuid = gm.para.get(window.location.href, "applyUuid");
+	$.getDate({
+        page: "patient",
+        inter: "getDrugReactionList",
+        data: {
+            preceptUuid: visitRecordUuid
+        },
+        callback: function(r) {
+            var relist = r.relist,
+                _dosageTime = ["一周","两周","三周","四周"],
+              html = '';
+                    if (!relist.length) {
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }
+                    for (var i = 0; i < relist.length; i++) {
+                        html += '<div><p>时间：' + relist[i]['occurrenceTime'] + ' 周期：' + _dosageTime[relist[i]['dosageTime']-1] +'</p>\
+						<p>症状描述:' + relist[i]['frequency'] + '</p>\
+						<p>影响:' + relist[i]['impact'] + '</p>\
+					</div>'
+                    }
+            $("#list").show().html(html)
+        }
+    })
+	</script>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+</body>
+</html>

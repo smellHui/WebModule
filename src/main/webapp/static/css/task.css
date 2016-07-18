@@ -1,0 +1,199 @@
+/* 任务 */
+.task{background-color: #f7f7f7;width:auto;overflow-y:scroll;-webkit-overflow-scrolling:touch;}
+	/*我的任务*/
+	#my_task{}
+		#my_task .uziop{}
+			#my_task .uziop ul.dunpds li{background-color: #fff;}
+			#my_task .uziop ul.dunpds li h2 span{font-size: .36rem;right: 1.4rem;}
+			#my_task .uziop ul.dunpds li h2 i{position: relative;top: -.04rem;margin-right: .4rem;}
+			#my_task .uziop ul.dunpds li h2 i.icon-thearrowx{position: absolute;right: .2rem;top: .64rem;}
+
+	/*在线咨询*/
+	#online_advisory{}
+		/*未回复—已回复*/
+		.state{width: 100%;height: .92rem;border-bottom: 1px solid #ebebeb;background-color: #fff;}
+			.state .reply{height: 100%;width: 50%;float: left;}
+			.state p{display: block;margin: 0 auto;width: 1.3rem;text-align: center;line-height: .92rem;font-size: .42rem;color: #464646;margin: 0 auto;height: 100%;position: relative;}
+			.state .scjs{border-bottom: 2px solid #3396cf;color: #3396cf;}
+			.jshd{color: #fff;font-size: .36rem;display: inline-block;background-color: #ef1d1d;width: .44rem;height: .44rem;position: absolute;right: -.5rem;top: .22rem;border-radius: .22rem;text-align: center;line-height: .44rem;opacity: 0;}
+		/*信息*/
+		.message ul{position: absolute;width: 100%;display: none;}
+			.message li{width: 100%;padding: .3rem 0;background-color: #fff;border-bottom: 1px solid #ebebeb;border-top: 1px solid #ebebeb;overflow: auto;margin-bottom: .22rem;position: relative;}
+			.message li a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 11;}
+			.message .date{position: relative;display: block;text-align: right;padding-right: .3rem;font-size: .3375rem;}
+			#online_advisory .message .date{font-size: .27rem;}
+			.comment{width: 7rem;}
+
+	/*电话咨询*/
+	#phone_advisory{}
+		#phone_advisory .state .reply{width: 33.3%;}
+		.duof button{padding:0;display: inline-block;width: 2.08rem;background-color: transparent;color: #3b90c0;border: 1px solid #3b90c0;height: .57rem;line-height: .57rem;margin-top: .2rem;position: absolute;top: -.12rem;right: .1rem;}
+		#phone_advisory .nagent h3{font-size: .375rem;position: relative;width: 100%;}
+		#phone_advisory .nagent span{font-size: .27rem;}
+		#phone_advisory .nagent p{font-size: .3375rem;}
+	/*预约加号*/
+	#reservation{}
+		#reservation .state .reply{width: 33.3%}
+
+/*-----------------------在线咨询-----------------------*/
+	/*在线咨询-咨询页面*/
+	#chat_consultation{background-color: #e4e4e4;}
+		/*聊天小插件*/
+		.plug_in_unit{width: 100%;background-color: #fff;position: fixed;bottom:0;left: 0;}
+			/*输入*/
+			.plug_in_unit .enter{height: 1.2rem;widows: 100%;border-top: 1px solid #e9e9e9;}
+				.plug_in_unit .enter .icon-voice{margin: .24rem .1rem 0 .3rem;float: left;}
+				.plug_in_unit .enter .ndsfid{height: .74rem;padding: .21rem;position: relative;}
+				.ndsfid input{border: 1px solid #cdcdcd;background-color:#f7f7f7;padding: 0 .2rem 0 .1rem;width:100%;height: .74rem;line-height: .74rem;color: #000;}
+				.ndsfid .bfc{height: .74rem;width: 1.1rem;background-color: #cdcdcd;position: absolute;right: .21rem;top: .21rem;}
+					.ndsfid .bfc i.icon-dfdj{margin: .12rem auto 0 auto;display: block;}
+			/*功能*/
+			.plug_in_unit .ftion{width: 100%;}
+			.ftion ul{overflow: hidden;}
+			.ftion li{width: 33.3%;height: 1.25rem;box-sizing:border-box;float: left;border-top: 1px solid #e9e9e9;border-left: 1px solid #e9e9e9;}
+			.ftion li i{margin: .1rem auto 0 auto;display: block;}
+			.ftion li p{text-align: center;line-height: .55rem;color: #464646;font-size: .27rem;}
+			/*结束咨询弹框*/
+			.end_bomb{background:rgba(0,0,0,0.6);display: none;position: absolute;top: -5.16rem;width: 100%;height: 5.16rem;}
+				.end_bomb .olikss{width: 8.38rem;margin: 0 auto;}
+				.end_bomb h2{line-height: 1.05rem;font-weight: normal;display: block;color: #e2e2e2;font-size: .338rem;text-align: center;border-bottom: 1px solid #e0e0e0;}
+				.end_bomb button{width: 100%;margin-top: .4rem;}
+				.end_bomb .bs_but{background-color: #fff;color: #3595cf;}
+
+	/*在线咨询-快捷回复*/
+	#quick_reply{position: fixed;-webkit-transform:translate3d(0,100%,0);-webkit-transition:all .55s ease;left: 0;bottom: 0;width: 100%;background-color: #fff;}
+	#quick_reply.show {-webkit-transform:translate3d(0,0,0);}
+		#quick_reply .kjhf_box dt,#quick_reply .kjhf_box dd{width: 86%;padding: 0 7%;background-color: #fff;border-top: 1px solid #ededed;border-bottom: 1px solid #ededed;margin-top: .22rem;}
+		#quick_reply .kjhf_box dt{height: 1rem;font-size: .3375rem;line-height: 1rem;border: 0;}
+		#quick_reply .kjhf_box dd{font-size: .375rem;padding: .4rem 7%;color: #747474;}
+
+		#quick_reply .kjhf_box .tj_kjhf i.icon-lstjn{position: relative;top: -1px;left: .1rem;}
+
+
+/*-------------------电话咨询-----------------------*/
+	/*电话咨询-拒绝理由*/
+	#refuse_consult{background-color: #e4e4e4;position: relative;}
+	#refuse_consult .zaogin{width: 8.3rem;margin: 0 auto;}
+		#refuse_consult .smgui{margin-top: .4rem;}
+			#refuse_consult .smgui p{line-height: .8rem;color: #747474;font-size: .375rem;text-indent: .4rem;}
+			.smgui .head_portrait{float: right;margin: .3rem .3rem 0 0;width: 1.22rem;height: 1.22rem;border-radius: .61rem;}
+		/*内容*/
+		#refuse_consult .diaput{float: left;}
+		.diaput{width: 6.1rem;height: 2.7rem;background-color: #fff;border-radius: .3rem;position: relative;-webkit-box-shadow:-4px 2px 11px -4px #B1A7A7;}
+			.diaput .jiao{width: .3rem;height: .3rem;-webkit-transform:rotate(45deg);background-color: #fff;position: absolute;right: -.15rem;top: .55rem;z-index: -1;}
+			.diaput textarea{width: 92%;height:  81%;padding: 4%;border-radius: .3rem;border: 0;font-size: .337rem;color: #333;}
+		/*按钮*/
+		.angbox{width: 100%;position: absolute;bottom:10%;}
+		.angbox button.btn-zyradius{width: 8.3rem;display: block;margin: 0 auto;}
+
+/*-------------------预约加号-----------------------*/
+	/*预约加号-加号详情*/
+	#plus_details{}
+		#plus_details .lbabox dt,#plus_details .lbabox dd{width: 86%;padding: 0 7%;border-bottom: 1px solid #e7e7e7;line-height: .95rem;}
+		#plus_details .lbabox dt{font-size: .42rem;}
+		#plus_details .lbabox dd{background-color: #fff;font-size: .3375rem;color: #696969;}
+		#plus_details .lbabox dd *{font-weight: normal;font-style: normal;}
+		/*就诊信息*/
+		dl.jzxx{}
+			dl.jzxx i{width: 3.5rem;display: inline-block;}
+		/*疾病描述*/
+		dl.jbms{}
+			#plus_details dl.jbms dd{line-height: .55rem;padding: .4rem 7%;}
+		/*基本信息*/
+		dl.jbxx{}
+			dl.jbxx i{width: 1.6rem;display: inline-block;border-right:1px solid #e7e7e7;}
+			dl.jbxx span{text-indent: 1.9rem;display: inline-block;}
+
+		/*按钮*/
+		#plus_details .bshuw{width: 8.06rem;margin: .7rem auto 0 auto;}
+			#plus_details .bshuw button{height: .88rem;width: 3.58rem;border: 1px solid #3b9ed7;color: #3b9ed7;background-color: transparent;}
+			.left_but{float: left;}
+			.right_but{float: right;}
+
+	/*预约加号-加号详情-患者病历*/
+	#newszu{}
+		.znksdhylm{width: 100%;padding: .4rem 0;background-color: #fff;border-bottom: 1px solid #ebebeb;border-top: 1px solid #ebebeb;overflow: auto;margin-top: .22rem;position: relative;}
+			#newszu .nagent .comment{width: 5rem;}
+			#newszu .head_portrait{width: 1.24rem;height: 1.24rem;border-radius: .62rem;}
+			#newszu i.icon-thearrowx{position: absolute;right: .5rem;top: 49%;}
+			#newszu .nagent h3{width: 2.6rem;}
+		/*日期表*/
+		#newszu .bdgfy{width: 100%;height: 2.97rem;overflow-y: hidden;}
+			#newszu .bdgfy ul{margin-top: .62rem;display: inline-block;width: 200%;padding-left: .4rem;}
+			#newszu .bdgfy li{width: 1.77rem;height: 1.77rem;border: 1px solid #1f80b8;border-radius: .88rem;float: left;position: relative;margin-right: .4rem;}
+				/*日*/
+				#newszu .bdgfy li i{font-size: .42rem;font-style: normal;position: absolute;top: .3rem;left: .27rem;color: #828282;}
+				/*月*/
+				#newszu .bdgfy li b{font-size: .375rem;font-weight: normal;position: absolute;right: .24rem;bottom: .44rem;color: #828282;}
+				/*线*/
+				#newszu .bdgfy li span{display: block;height: 1.3rem;border-left:1px solid #828282;position: absolute;top: 12%;left: 48%;-webkit-transform:rotate(19deg);}
+			/*命中状态class*/
+			#newszu .bdgfy .riqxzzt{background-color: #1f80b8;}
+				#newszu .bdgfy .riqxzzt i,#newszu .bdgfy .riqxzzt b{color: #fff;}
+				#newszu .bdgfy .riqxzzt span{border-left:1px solid #fff;}
+
+		/*诊断*/
+		#newszu .fovrsn{width: 100%;border-bottom: 1px solid #ebebeb;border-top: 1px solid #ebebeb;background-color: #fff;padding-bottom: .2rem;}
+			.fovrsn h2{font-size: .42rem;line-height: 1.1rem;text-indent: .7rem;font-weight: normal;}
+			.zdneirong{width: 7.4rem;height: 1.2rem;margin: 0 auto;display: block;color: #333;font-size: .3375rem;padding: .1rem;border: 0;background-color: transparent;}
+
+
+	/*预约加号-加号详情-同意加号&删除*/
+	#nushng{}
+		#nushng .bguenb dt,#nushng .bguenb dd{width: 84%;padding: 0 8%;background-color: #fff;}
+		#nushng .bguenb dt{height: 2.75rem;margin: .22rem 0;}
+		#nushng .bguenb dd{height: .85rem;line-height: .85rem;margin-top: .22rem;}
+			#nushng .bguenb dd p{font-size: .42rem;display: inline-block;}
+
+		#nushng .bguenb dt textarea{width: 100%;height: 2.2rem;margin-top: .2rem;border: 0;background-color: transparent;}
+		/*开关按钮*/
+		.kaiguan{background-image: url(../imgs/efde2.png);width: .93rem;height: .45rem;display: inline-block;background-size: 100% 100%;float: right;margin-top: .2rem;}
+		.bguenb .on,.bguenb .off{margin-top: .2rem;}
+
+
+	/*预约加号-平台病历*/
+	#case{}
+		.dsfvss li{width: 100%;margin-top: .22rem;background-color: #fff;overflow: auto;padding: .4rem 0;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;}
+		.dsfvss .comment i{font-style: normal;color: #7f7f7f;font-size: .337rem;padding-right: .3rem;}
+		.dsfvss .duof h3{font-size: .42rem;}
+		.dsfvss .duof span{font-size: .337rem;}
+
+	/*预约加号-咨询记录*/
+	#advice_history,.sjrics p{background-color: #e4e4e4;}
+		/*聊天*/
+		.vfesc{width:100%;margin: 0 auto!important;overflow: hidden; box-sizing:border-box;padding:0 .5rem 4.5rem;height:100%; overflow-y:auto; }
+			.vfesc ._p{width: 5.4rem;padding: .4rem .5rem;border-radius: .3rem;background-color: #fff;position: relative;}
+			.vfesc ._p .jiao{background-color: #fff;width: .3rem;height: .3rem;-webkit-transform:rotate(45deg);position: absolute;z-index: -1;top: .45rem;}
+			.vfesc .head_portrait{display: block;margin-top: .15rem;}
+			.vfesc ul{padding-top: .55rem;}
+			.vfesc li{margin: .25rem 0;float: left;width: 100%;}
+			/*患者*/
+			.patient_sd p{font-size: .375rem;display: inline;word-wrap: break-word;}
+			.patient_sd ._p{float: right;margin-right: .4rem;-webkit-box-shadow:4px 2px 11px -4px #B1A7A7;}
+			.patient_sd .head_portrait{float: left;}
+			.patient_sd .jiao{left: -.15rem;}
+			.patient_sd img,.user_sd img {width: 100%;}
+			/*用户*/
+			.user_sd p{font-size: .375rem;display: inline;word-wrap: break-word;}
+			.user_sd ._p{float: left;margin-left: .4rem;-webkit-box-shadow:-4px 2px 11px -4px #B1A7A7;}
+			.user_sd ._p ul{padding: 0;}
+			.user_sd .head_portrait{float: right;}
+			.user_sd .jiao{right: -.15rem;}
+			/*时间*/
+			.vfesc .sjrics{width: 100%;height: 0;border-bottom: 1px solid #b6b6b6;position: relative;margin: .3rem 0;}
+				.sjrics p{text-align: center;position: relative;top: -.16rem;display: block;width: 4.68rem;margin: 0 auto;border: 0;font-size: .34rem;color: #696969;overflow-x: hidden;white-space:nowrap;}
+
+/*私人套餐详情页*/
+.task_box { height:100%; overflow-y:auto; position:relative; }
+	.task_title { text-indent:.5rem; line-height:1rem; font-size:.4rem; font-weight:bolder; }
+	.task_list,
+	.task_cont { background:#fff; }
+	.task_list ul,
+	.task_cont { padding:.2rem .5rem; }
+	.task_list li { height:.8rem; line-height:.8rem; border-bottom:.03rem solid #ddd; padding:0 .2rem; }
+	.task_list li strong { float:left; width:45%; }
+	.task_list li span { float:right; width:45%; text-align:right; }
+	.task_cont p { min-height:2rem; line-height:.5rem; }
+	.task_btns { padding:.5rem 0 1.5rem; text-align:center; }
+	.task_btns button { display:inline-block; margin:0 .3rem; padding:0 1rem; border-radius:.5rem; }
+

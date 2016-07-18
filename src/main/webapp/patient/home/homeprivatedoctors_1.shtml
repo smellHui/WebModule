@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+	<title>私人套餐</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+
+</head>
+<body id="home_doctor" class="cbox curpage">
+	<!-- 1-个人中心 -->
+	<aside id="test_results">
+		<!-- home私人医生列表 -->
+		<div id="thepls_start">
+			<ul>
+				<li id="bacjkloa">
+					<a href="/patient/home/detailsofthedoctor.shtml">
+						<div class="doctor">
+							<div class="icon1">
+							</div>
+							<div class="p_fbjn">
+								<h3>未知</h3>
+								<p>未知</p>
+							</div>
+							<div class="p_yvbu">
+								<p class="p_hjf"></p>
+								<p></p>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<!-- home私人医生服务 -->
+			<div class="Pd_service">
+				<span></span>
+			</div>
+			<!-- home私人医生服务套餐 -->
+			<div class="doctors_packagey">
+				<!-- 套餐列表 -->
+				<div class="package_a">
+					<h2></h2>
+					<div class="price_a">
+						<i></i><span></span>
+					</div>
+				</div>
+			</div>
+			<!-- home私人医生提醒 -->
+			<div class="doctori_remind">
+			</div>
+			<!-- home私人医生支付 -->
+			<div class="recharge1">
+				<ul>
+					<li><button class="give_money"><span>确认购买</span></button></li>
+    			</ul>
+			</div>
+		</div>
+
+
+		<!-- this遮罩 -->
+		<div class="zez_box1 zez_box">
+			<!-- 支付是否成功？ -->
+			<div class="vgtu_cs">
+				<p>支付是否成功？</p>
+				<div class="but_bx">
+					<button class="vd1">支付成功</button>
+					<button class="vd2">支付失败</button>
+				</div>
+			</div>
+			<!-- 已购买提示 -->
+			<div class="cden_cs">
+				<i class="logo-xoj"></i>
+				<div class="u1">
+					<h2>您已成功购买：</h2>
+					<p><span>白金子</span> 医生的私人医生服务</p>
+				</div>
+				<div class="u2">
+					<h3>服务时间：</h3>
+					<p><span>2015-11-16 16:48</span> 至 <span>2015-12-16 16:48</span></p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 支付密码 -->
+		<div class="mask_cen">
+			<div class="zf_box">
+				<p>请输入支付密码</p>
+				<input type="password" class="ipt-def password" placeholder="请输入密码" id="newName">
+				<span>
+					<button class="btn-radius left_btn" onclick="document.getElementById('newName').value='';"/>取消</button>
+					<button class="btn-radius right_btn">确认</button>
+				</span>
+			</div>
+		</div>
+
+		<!-- 余额不足 -->
+		<div class="zez_box2 zez_box">
+			<div class="dsuuc">
+				<i class="logo-xoj"></i>
+				<div class="p_vndas">
+					<h2>当前余额：<span>120</span>元</h2>
+					<p>您当前余额不足支付本次消费，请选择</p>
+				</div>
+				<div class="but_bx">
+					<button class="vd1">去充值</button>
+					<button class="vd2">其他方式支付</button>
+				</div>
+			</div>
+		</div>
+
+	</aside>
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.home.persona2();
+			$("#home_doctor .mask_cen .zf_box .left_btn").bind({
+				touchend:function(){
+					$("#home_doctor .mask_cen").hide();
+				}
+			});
+			
+		});
+	</script>
+</body>
+</html>

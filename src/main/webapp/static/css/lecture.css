@@ -1,0 +1,164 @@
+/* 讲堂 */
+.forum{background-color: #f7f7f7;}
+	/* 搜索 */
+	.forum .search{height: .68rem;width: 100%;background-color: #e4e4e4;padding: .16rem 0;position: relative;}
+	.forum .search input{height: .68rem;width: 8.02rem;margin: 0 0 0 .15rem;line-height: .68rem;display: block;background-color: #fff;padding: 1px 0;float: left;}
+	.forum .search i{display: block;background-image: url(../imgs/search.jpg);height: .68rem;width: 1.31rem;position: absolute;top: .16rem;left: 8.13rem;border: 0;background-size: 100%;}
+	/* 视频 */
+	.forum .video{background-image: url(../imgs/video.jpg);height: 5.38rem;width: 100%;position: relative;background-size: 100%;}
+		/* 播放 */
+		.forum .play1 img{height: 1.34rem;width: 1.34rem;margin: 1.57rem 4.12rem 0;}
+		/* 视频描述 */
+		.forum .des{display:none;width: 100%;height: .9rem;background-color:rgba(0,0,0,.3);position: absolute;left: 0;bottom: 0;}
+			.forum .des p{line-height: .9rem;font-size: .34rem;color: #fff;margin-left: .36rem;opacity: 1;}
+		/* 小点 */	
+		.forum .dot{position: absolute;bottom:.32rem;right: .43rem;width: auto;}
+			.forum .dot li{width: .25rem;height: .25rem;background-color: #7f7f7f;display: inline-block;border-radius: .25rem;}
+			.forum .dot .white{background-color: #fff;}
+	/* 内容标题 */
+	.forum .conti{height: .9rem;width: 100%;border-bottom: 2px solid #dddddd;margin-bottom: 18px;}
+		.forum .conti div{display: inline-block;}
+		/* 正在播放 */
+		.forum .playing{height: .9rem;width: 50%;float: right;}
+			.forum .playing h2{font-size: .42rem;color: #747474;line-height: .9rem;margin: 0 auto;display: block;width: 1.8rem;font-weight: normal;}
+		/* 全部课程 */
+		.forum .all{height: .9rem;width: 50%;float: left;}
+			.forum .all h2{font-size: .42rem;line-height: .9rem;margin: 0 auto;display: block;width: 1.8rem;font-weight: normal;}
+		.forum .cjj h2{border-bottom: 3px solid #1f80b8;color: #1f80b8;}
+	/* 全部课程内容 */
+	.forum .alllive ul{width: 100%;display: none;}
+		.forum .alllive li{height: 1.5rem;width: 100%;padding: .34rem 0 .3rem;border-bottom: 1px solid #e3e3e3;}
+
+			.forum .live img{height: 1.5rem;width: 2.26rem;float: left;margin-left: .42rem;}
+			.forum .text{width: 45%;height: 1.5rem;float: left;margin-left: .3rem;margin-right: .3rem;}
+				.forum .text p{line-height: .49rem;font-size: .37rem;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+				.forum .text p.time{line-height: .42rem;font-size: .34rem;margin-top: .12rem;color: #747474;}
+			.forum .ics{width: auto;height: 1.5rem;}
+			.forum .star{
+				position: absolute;
+				right:.6rem;
+				height: 1.5rem;
+			}
+			.forum .searchStar{
+				position: absolute;
+				right:.6rem;
+				height: 1.5rem;
+			}
+				.forum  p.care{font-size: .27rem;line-height: .43rem;text-align: center;margin: .72rem 0 0;float: left;width: .72rem;}
+				.forum .icon-care p.care{color: #f36c4e;}
+				.forum .icon-care2 p.care{color: #e9e9e9;}
+
+	/* 视频 */
+	.forum .video2{width: 100%;position: relative;background-size: 100% 100%;background-repeat: no-repeat;background-color: #000;}
+	.forum .video2 video,
+	.forum .videoBox {width: 100%;max-height: 7rem;min-height:5rem; background:#000;}
+	/* 视频介绍 */
+	.forum .intro{width:90%;padding: .1rem 5% .2rem;border-bottom: 1px solid #d3d3d3;border-top: 1px solid #d3d3d3;background-color: #ececec;margin: 0 auto;}
+		.forum .intro h2{font-size: .42rem;line-height: .88rem;}
+		.forum .intro p{font-size: .34rem;line-height: .42rem;}
+		.forum span.color{color: #464646;}
+	/* 评论 */
+	.forum .lecture_comment{
+		margin-top: .08rem;
+		width: 90%;
+		margin:0 5%;
+		height:inherit;
+		font-size: .36rem;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		}
+		.comcon{
+			border-bottom: 1px solid #e7e7e7;
+			padding: .18rem 0;
+		}
+		.forum .lecture_comment .load { padding-bottom:1rem; }
+		.forum .lecture_comment h2{font-size: .38rem;line-height: .86rem;font-weight: normal;color: #747474;border-bottom: 1px solid #e7e7e7;}
+		.forum .lecture_comment{
+			padding: .18rem .1rem;
+			
+			} 
+		.forum .lecture_comment p{font-size: .34rem;line-height: .46rem;}
+		.forum .lecture_comment span.time{color: #c0c0c0;margin-left: .85rem;}
+		.forum .lecture_comment p.content{color: #747474;}
+		/* 加载更多 */
+		.forum .load p{line-height: .94rem;text-align: center;font-size: .27rem;color: #747474;}
+		/* 发送 */
+		.forum .receive {position: fixed;padding: .1rem 0;width: 100%;background-color: #fff;bottom: 0;left: 0;}
+		.forum .receive form{position: relative;left: 50%;margin-left: -4.35rem;top: 0;overflow: hidden;}
+		.forum .receive input{float: left;height: .63rem;width: 7.5rem;line-height: .63rem;}
+		.forum .receive i{display: block;float: left;width: 1.2rem;height: .63rem;line-height: .63rem;text-align: center;padding: 0;font-style: normal;}
+
+	/* 预告 */
+	/* 预告视频 */
+	.forum .prevideo{background-image: url(../imgs/prevideo.jpg);height: 6rem;width: 100%;position: relative;background-size: 100% 100%;background-repeat: no-repeat;}
+	/* 预告图片 */
+	.pic{margin: .23rem auto .7rem auto;}
+	.forum .pic img{max-width: 8.67rem;min-width: 6rem;height: auto;margin: 0 auto;display: block;}
+	/* 预约 */
+	.forum button.appointment{width: 8.32rem;margin: 0 auto;font-size: .36rem;font-family: SimHei;}
+
+	.focus_map { height:5.68rem; position:relative; }
+	    .focus_map .border { height:100%; }
+	    .focus_map ul { width:38.4rem; height:100%; }
+	    .focus_map li { width:9.6rem; height:100%; overflow:hidden; position: relative;}
+	    .focus_map img { width:100%; vertical-align:middle; }
+	    .focus_map nav { position:absolute; right:.2rem; bottom:.3rem; width:100%; text-align:center; }
+	    .focus_map nav i { display:inline-block; margin:0 .1rem; border-radius:50%; width:.16rem; height:.16rem; border-radius:.25rem; background:#bbbbbb; }
+	    .focus_map nav i.cur { background:#1f80b8; }
+
+/* 搜索 */
+#search{background-color: #fff;}
+	#search .search_box { height:100%; overflow-y:auto; }
+	.odu_sq{width: 100%;height: 1.1rem;background-color: #e4e4e4;}
+		._osc{width: 9.32rem;height: .7rem;border: 1px solid #1f80b8;position: relative;overflow: hidden;margin: 0 auto;top: .15rem;}
+		._osc input{box-sizing:border-box;width: 8rem;height: .7rem;border: 0;background-color: #fff;float: left;padding: 0 .2rem;}
+		._osc div{width: 1.3rem;height: 100%;box-sizing:border-box;background-color: #1f80b8;float: right;position: relative;}
+		._osc div i{position: absolute;left: 50%;top: 50%;margin: -.215rem 0rem 0rem -.23rem;}
+	/*搜索结果*/
+	.sshjg{}
+		.sshjg dt{padding: .37rem 0rem .1rem 0rem;text-indent: .7rem;font-size: .27rem;}
+			.sshjg dt span{padding: 0 .1rem;color: #1f80b8;}
+		.sshjg dd{border-bottom: 1px solid #e5e5e5;padding: .35rem 0rem;position: relative;height: 1.5rem;}
+	
+	
+.comcon_header{
+	width:1rem;
+	height:1rem;
+	float:left;
+}
+.comcon_header img{
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width:1rem;
+    height:1rem;
+    display:block;
+}
+
+.comcon_content{
+	height:auto;
+}
+#ddsmd{
+	height: auto;
+}
+#comment_context{
+	height:auto;
+}
+.comcon_content div{
+	min-height: 1rem;
+
+ }
+ .comti{
+ 	width:100%;
+ }
+ .comcon_header{
+ 	display:inline;
+ }
+ .comcon_text{
+ 	margin-left:1.28rem;
+ }
+ #mycollectiongray{
+ 	margin-left:.15rem;
+ }

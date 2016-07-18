@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<title>临床推荐</title>
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_header.shtml"-->
+</head>
+
+<body class="cbox search" id="search1">
+	<div class="diswngu">
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+				</a>
+			</form>
+		</div>
+	</div>
+
+	<!-- 列表内容 -->
+	<div class="pvdow">
+		<div class="btsr">
+			<!-- 临床推荐内容 -->
+			<div class="gsid_1">
+				<!-- 正在播放 -->
+				<ul class="varioustype fnio_thereis">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 遮罩层 -->
+	<div class="cuisd">
+		<!-- 临床推荐 -->
+		<div class="quanzdp sds1">
+			<div class="filterlayer_a">
+				<div class="sdnes">
+					<h2><p>取消</p>筛选<b>确定</b></h2>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>疾病</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="illness">
+								<span>精神分裂症</span>
+								<span>抑郁障碍</span>
+								<span>焦虑障碍</span>
+								<span>双相障碍</span>
+								<span>物质依赖</span>
+								<span>强迫症</span>
+								<span>睡眠障碍</span>
+								<span>其他</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>症状</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="symptom">
+								<span>智力障碍</span>
+								<span>交流障碍</span>
+								<span>运动障碍</span>
+								<span>分裂型障碍</span>
+								<span>妄想障碍</span>
+								<span>精神障碍</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>病种</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="entity">
+							<span>DSM-5</span>
+							<span>ICD-10</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.thedoctorinformation.searchs();
+	})
+	</script>
+</body>
+</html>

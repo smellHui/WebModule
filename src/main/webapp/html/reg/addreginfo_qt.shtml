@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<title>完善注册信息</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 完善注册信息-完善其他信息 -->
+	<aside class="addreginfo_qt">
+		<div class="w645">
+			<div class="login_box2">
+				<h2>完善其他信息</h2>
+				<ul>
+					<li id="selectp">
+						<p>选择省市县/区</p>
+					</li>
+
+					<li id="selecti">
+						<p>选择执业医院</p>
+						<select id="i">
+							<option value="0">选择执业医院</option>
+						</select>
+					</li>
+					<li id="selectk">
+						<p>选择科室</p>
+						<select id="k">
+							<option value="0">选择科室</option>
+						</select>
+					</li>
+					<li id="selectd"><input type="tel" maxlength="13" placeholder="科室电话"/></li>
+					<li id="doctor_title" class="dcrn">
+						<p>职称</p>
+						<select></select>
+					</li>
+					<li class="li_fe"><span>选择擅长</span></li>
+					<li class="li_fes"><input type="text" placeholder="输入个人简介"/></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 按钮块 -->
+		<div class="login_but">
+			<div class="w645" page="user" inter="registerThree">
+				<button class="btn-radius button1">下一步</button>
+				<!-- <button class="btn-radius button2">以后再说</button> -->
+			</div>
+		</div>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		gm.reg.addreginfo_qt();
+	});
+</script>
+</body>
+</html>

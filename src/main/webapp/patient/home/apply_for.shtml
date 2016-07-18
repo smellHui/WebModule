@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>申请随访</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="apply_for">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+			<li>
+				<h3>病情变化<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>服药记录<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>药物不良反应<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>睡眠情况<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>进食情况<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>其他情况<i class="pts-thearrow"></i></h3>
+			</li>
+			<li>
+				<h3>其他检查及结果<i class="pts-thearrow"></i></h3>
+			</li>
+		</ul>
+		<button class="btn-zyradius">提交</button>		
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+
+</body>
+</html>

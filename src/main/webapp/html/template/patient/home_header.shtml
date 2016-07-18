@@ -1,0 +1,3 @@
+<!--#include virtual="/html/template/patient_header.shtml"-->
+<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/tools.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+

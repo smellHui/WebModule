@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>选择患者</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 工具箱-群发消息-选择患者 -->
+<body class="followed cbox" id="select_patients">
+
+	<!-- 标题 -->
+	<h2 class="bnhduas">选择随访患者</h2>
+	<!-- 内容 -->
+	<div class="xzhz_box">
+		<!-- 患者列表 -->
+		<ul class="newszu fnonne">
+			
+		</ul>
+	</div>
+
+	<!-- 全选 -->
+	<div class="select">
+		<div class="select-box"></div>
+		全选
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but">
+		<button class="btn-zyradius">选择</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/mass_message.shtml')
+	}
+	$(function(){
+		gm.user.getCustomerListByDoctorUuid();
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var _p = [];
+				var _content = gm.para.get(window.location.href,"content");
+
+
+				$("._mz").each(function(i,o){
+					_p[i] = $(this).parent().attr("customerUuid");
+				});
+
+				gm.pul.toUrl( "/html/follow_up/toolbox/mass_message.shtml?customerUuids="+_p.join(",") + "&content=" + _content);
+			}
+		})
+	})
+	</script>
+</body>
+</html>

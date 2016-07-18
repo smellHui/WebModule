@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+	<title>充值</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cbox" id="recharge">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div>
+	    	<h4>注意：充值行为为自愿行为，充值成功后，不可提现</h4>
+	    	<h3>充值金额（元）<input class="money" type="text"></h3>
+	    	<h5>选择支付方式</h5>
+	    	<ul class="paybtns">
+	    		<li></li>
+	    		<li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/zhifb.png"><span>支付宝</span></p></button></li>
+	    		<li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/weixin.png"><span>微信</span></p></button></li>
+	    		<!-- <li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/yinlian.png"><span>银联</span></p></button></li> -->
+	    	</ul>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/home.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+		$(function(){
+			//gm.user.vcLogin();
+			gm.menu.hiddenBottomBar();
+			$(".paybtns li").bind({
+				touchend:function(){
+					var _index = $(this).index();
+					var money = $(".money").val();
+					var name = "好心情充值";
+					var desc = "好心情充值";
+
+					if(!/^[0-9\.]{1,20}$/g.test(money)){
+						$.alert({
+							val:"请输入正确的数值信息。",
+							type:"flash"
+						});
+						return;
+					}
+
+					money = money.split(".");
+					if(money.length > 2){
+						money.length = 2;
+					}
+					money = money.join(".");
+
+					gm.callback=function(data){
+						if(!data){
+							$.alert("服务器出错");
+						}
+
+						if(data.query.success == "1"){
+							var data =  {
+								orderUuid : data.orderId,
+								customerUuid : gm.patient.getPatient(),
+								callback : {
+									success:function(data){
+										$.alert({
+											val:"支付成功",
+											type:"flash",
+											callback:function(){
+												gm.pul.toUrl("/patient/my/account_balance.shtml");
+											}
+										})
+									},
+									failure:function(data){
+										$.alert({
+											val:"支付失败，如遇到问题，请联系客服 ： <a href='tel:400-135-8858'>客服电话 400-135-8858</a>"
+										});
+									},
+									cancel:function(data){
+										$.alert({
+											val:"支付取消",
+											type:"flash"
+										});
+									}
+								},
+								name : name,
+								desc : desc,
+								money : data.operAmount,
+								payType:_index,
+								userType:2
+							};
+
+							gm.toPay(data);
+						}else{
+							$.alert(data.query.message);
+						}
+					}
+					$.getDate({
+						page:"patient",
+						inter:"balance",
+						method:"POST",
+						dataType:"script",
+						data:{
+							customerUuid:gm.patient.getPatient(),
+							balancePrice:money,
+							callback:"gm.callback"
+						}
+					})
+				}
+			})
+
+			gm.pul.returnurl = function(){
+				gm.pul.toUrl('/patient/my/index.shtml')
+			}
+		})
+	</script>
+</body>
+</html>

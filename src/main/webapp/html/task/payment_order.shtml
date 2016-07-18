@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<title>电话咨询患者详情</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+	<style>
+	.h h3 { padding:.4rem; line-height:.4rem; font-size:.4rem; font-weight:normal; background:#eee; }
+	.h div { padding:.4rem .6rem; background:#fff; }
+	.h strong,
+	.h p span,
+	.h li span { font-size:.36rem; font-weight:normal; }
+	.h p { line-height:.6rem; font-size:.36rem; }
+	.h p strong { line-height:.8rem; font-size:.4rem; }
+	.h p span { margin-right:.5rem; }
+	.h li { line-height:.8rem; border-bottom:.03rem solid #eee; }
+	.h li strong { display:inline-block; width:50%; }
+	</style>
+</head>
+
+<!-- 电话咨询 -->
+<body class="task cbox" id="phone_advisory">
+
+	<div class="h">
+
+		<!-- <h3>电话咨询信息</h3>
+		<div>
+			<p><strong>周三 19:00 - 21:00</strong></p>
+			<p><span>时间：15分钟</span> <span>费用：200元</span></p>
+		</div>
+		<h3>疾病描述</h3>
+		<div>
+			<p>双手大声的阿斯顿</p>
+		</div>
+		<h3>基本信息</h3>
+		<div>
+			<ul>
+				<li><strong>姓名</strong> <span>患者</span></li>
+				<li><strong>性别</strong> <span>女</span></li>
+				<li><strong>年龄</strong> <span>18</span></li>
+				<li><strong>出生日期</strong> <span>1960-01-02</span></li>
+			</ul>
+		</div> -->
+
+	</div>
+
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	// gm.pul.returnurl = function(){
+	// 	gm.pul.toUrl("/html/mypatient/index.shtml");
+	// }
+	function createHTML(orderMainUuid){
+		var _loading = new mask("loading");
+		_loading.show();
+		$.getDate({
+			page:"doctor",
+			inter:"getOrderMainDetail",
+			data:{orderMainUuid:orderMainUuid},
+			callback:function(data){
+				_loading.hide();
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					var _w = "",_day = ["","一","二","三","四","五","六","日"];
+					if(data.orderInfo.bookTime){
+						_w = "周" + _day[new Date(data.orderInfo.bookTime.replace(/\-/g,"/")).getDay()];
+					}
+					var html = $('<h3>电话咨询信息</h3>\
+							<div>\
+								<p><strong>' + _w + ' ' + data.orderInfo.receiveTime + ' - ' + data.orderInfo.endTime + '</strong></p>\
+								<p><span>时间：' + data.orderInfo.consultDuration + '分钟</span> <span>费用：' + data.orderInfo.orderPrice + '元</span></p>\
+							</div>\
+							<h3>疾病描述</h3>\
+							<div>\
+								<p>' + data.customerInfo.illnessDescription + '</p>\
+							</div>\
+							<h3>基本信息</h3>\
+							<div>\
+								<ul>\
+									<li><strong>姓名</strong> <span>' + data.customerInfo.customerName + '</span></li>\
+									<li><strong>性别</strong> <span>' + data.customerInfo.customerSex + '</span></li>\
+									<li><strong>年龄</strong> <span>' + data.customerInfo.customerAge + '</span></li>\
+									<li><strong>出生日期</strong> <span>' + data.customerInfo.birthday + '</span></li>\
+								</ul>\
+							</div>');
+					$(".h").append(html);
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	};
+	$(function(){
+		var orderMainUuid = gm.para.get(window.location.href,"orderMainUuid");
+		// gm.user.getConsultRecordMSG(_type,_unread);
+		createHTML(orderMainUuid);
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>预约加号</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+<!-- 预约加号 -->
+<body class="task cbox" id="reservation">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="soofmut">
+		<!-- 未回复—已回复 -->
+		<div class="state">
+			<div class="no_handle reply">
+				<p class="scjs">未处理<span class="jshd">99</span></p>
+			</div>
+			<div class="off_handle reply">
+				<p>已处理</p>
+			</div>
+			<div></div>
+			<div class="finish reply">
+				<p>已完成</p>
+			</div>
+		</div>
+		<!-- 消息 -->
+		<div class="message">
+			<!-- 未回复 -->
+			<ul class="no_answer" style="display: block;">
+			</ul>
+			<!-- 已回复 -->
+			<ul class="has_answer">
+			</ul>
+			<!-- 已完成 -->
+			<ul class="doucuns">
+			</ul>
+		</div>
+	</div>
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl("/html/task/my_task.shtml");
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		var _type = gm.para.get(window.location.href,"type");
+		var _unread = gm.para.get(window.location.href,"unread");
+		gm.user.getConsultRecordMSG(_type,0);
+
+		gm.task.booking_plus();
+		
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title>完善注册信息</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 完善注册信息-姓名匹配 -->
+	<aside class="addreginfo_name">
+		
+		<div class="login_box2">
+			<h2>下面哪个是您？</h2>
+			<ul>
+				<li>
+					<b>张明</b>
+					<span class="sdogpan">
+						<p>主治医师</p>
+						<p><i>北医三院</i><i>神经内科</i></p>
+					</span>
+				</li>
+				<li>
+					<b>张明</b>
+					<span class="sdogpan">
+						<p>主治医师</p>
+						<p><i>北医三院</i><i>神经内科</i></p>
+					</span>
+				</li>
+				<li>
+					<b>张明</b>
+					<span class="sdogpan">
+						<p>主治医师</p>
+						<p><i>北医三院</i><i>神经内科</i></p>
+					</span>
+				</li>
+			</ul>
+			<p class="p_sd"><a class="atz1_but">都不是，点这里</a></p>
+		</div>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		$(".reg_protocol i").click(function(){
+			if(this.className == "gou"){
+				this.className = "";
+			}else{
+				this.className = "gou";
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

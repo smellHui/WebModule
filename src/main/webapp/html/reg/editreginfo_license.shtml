@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<title>资质信息</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	
+	<div class="editlicense">
+		
+		<div class="editlicense_pages">
+			<span></span>
+		</div>
+
+		<div class="editlicense_imgs">
+			<div class="focus_map" id="tabs">
+				<div class="border">
+					<ul class="atlas">
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="editlicense_btn">
+			<span>更换</span>
+		</div>
+
+	</div>
+
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		var index = 0,li_len = 0,upimgsurl = [];
+
+		function focusbind(){
+			//对象&变量 缓存
+			var $tab = $("#tabs"),
+				$ul = $tab.find("ul"),
+				$li = $ul.children(),
+				// $nav = $("<nav>"),
+				li_w = $li.eq(0).width();
+			
+			li_len = $li.length;
+
+			//容器 初始化
+			$li.css({
+				"float" : "left",
+				"width" : li_w
+			})
+			$li.eq(0).clone().appendTo($ul);
+			$li.eq(-1).clone().css("marginLeft",-li_w).prependTo($ul);
+			$ul.css("float","left").width(li_w * $ul.children().length);
+
+
+			//切换 方法
+			var eventOff,startX,clientX,
+				// index = 0,
+				eventMaxWidth = li_w,
+				objStatus = {},
+				eventTo,
+				time=5000,
+				tab = {
+					//开始
+					start : function (event){
+						//重置水平位置
+						clientX = 0;
+						//滑动激活
+						eventOff = true;
+						//获取鼠标||触点水平坐标
+						var touch = event.touches && event.touches[0] || event;
+						//记录初始坐标
+						startX = touch.clientX;
+						//记录切换前对象状态
+						objStatus.left = $ul.get(0).style.marginLeft;
+						//阻止对象默认行为
+						// event.preventDefault();
+						console.log("准备切换");
+						clearInterval(eventTo);
+					},
+					//移动
+					move : function (event){
+						var touch = event.touches && event.touches[0] || event,
+							_x = touch.clientX - startX;
+						if(eventOff){
+							clientX = parseInt(_x/eventMaxWidth * 100);
+							$ul.get(0).style.marginLeft = (li_w * clientX / 100) - li_w * index + "px";
+							//console.log("滑动进度：" + clientX + "%");
+						}
+						event.preventDefault();
+					},
+					//结束
+					end : function (event){
+						var _clientX = clientX > 0 ? clientX : -(clientX);
+						//滑动激活，且滑动百分比超过50
+						if(eventOff){
+							if(_clientX >= 30){
+								index = clientX > 0 ? index - 1 : index + 1;
+								tab.to();
+								console.log("切换完成");
+							}
+							else{
+								console.log("放弃切换");
+
+								$ul.animate({
+									"marginLeft" : objStatus.left
+								});
+							}
+							
+							eventOff = false;
+						}
+					},
+					to:function(){
+						var moveCallback;
+						objStatus.left = -(li_w * index) + "px";
+						//复位
+						if(index >= li_len){
+							index = 0;
+							moveCallback = function(){
+								$ul.get(0).style.marginLeft = -(li_w * index) + "px";
+							};
+						}
+						else if(index < 0){
+							index = li_len - 1;
+							moveCallback = function(){
+								$ul.get(0).style.marginLeft = -(li_w * index) + "px";
+							};
+						}
+						
+						$(".editlicense_pages span").html((index + 1) + "/" + li_len);
+
+						$ul.animate({
+							"marginLeft" : objStatus.left
+						},moveCallback);
+					}
+				};
+
+			$(".editlicense_pages span").html((index + 1) + "/" + li_len);
+
+			//触摸事件 注册
+			$tab.get(0).addEventListener("touchstart",tab.start,false);
+			$tab.get(0).addEventListener("touchmove",tab.move,false);
+			$tab.get(0).addEventListener("touchend",tab.end,false);
+		}
+
+		var _arr = [];
+
+		$.getDate({
+			page:"doctor",
+			inter:"getIconList",
+			data:{doctorUuid:gm.user.getDoctor()},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success == "1"){
+					
+					for(var i = 0; i < data.relist.length; i++){
+						var ii = i + 1;
+						if(data.relist[i]["image" + ii] != ""){
+							_arr.push('<li><div><img src="' + data.relist[i]["image" + ii] + '" upsrc="' + data.relist[i]["icon" + ii] + '"></div></li>');
+						}else{
+							_arr.push('<li><div><img style="width:3.73rem;" src="http://app.hxqydyl.com/imgs/temp.png"></div></li>');
+						}
+					}
+
+					$(".atlas").html(_arr.join(""));
+					
+					focusbind();
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+
+		//添加上传头像绑定事件
+		$(".editlicense_btn span").upimage(function(data){
+
+				if(!data){
+					$.alert("服务器出错!");
+				}
+
+				if(data.query.success == "1"){
+					var imgs = $(".focus_map li img"),
+						img = imgs.eq(index + 1);
+					if(index == 0){
+						img = img.add(imgs.eq(li_len + 1));
+					}
+					if(index == (li_len - 1)){
+						img = img.add(imgs.eq(0));
+					}
+					img.attr({
+						"src" : data.imageUrl,
+						"upsrc" : data.icon,
+						"style" : ""
+					});
+
+					var upimg = [];
+
+					imgs.each(function(i){console.log(i,i > 0,i < (li_len - 1),$(this).attr("upsrc"))
+						if(i > 0 && i <= li_len && $(this).attr("upsrc")){
+							upimg.push($(this).attr("upsrc"));
+						}
+					});
+
+					$.getDate({
+						page:"user",
+						inter:"saveUserIconList",
+						data:{doctorUuid:gm.user.getDoctor(),userIconList:upimg.join(",")},
+						callback:function(data){
+							if(!data){
+								$.alert("服务器出错!");
+							}
+							if(data.query.success){
+								$.alert({
+									"val" : "更换信息成功",
+									"type" : "flash"
+								});
+								// gm.pul.toUrl( "/html/index/page.shtml");
+							}else{
+								$.alert(data.query.message);
+							}
+						}
+					});
+
+				}else{
+					$.alert(data.query.message);
+				}
+			// console.log(url);
+		});
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/html/user/personal_information.shtml')
+		}
+	});
+</script>
+</body>
+</html>

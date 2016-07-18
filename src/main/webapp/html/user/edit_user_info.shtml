@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+	<title>个人信息</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 3-个人简介二维码 -->
+	<aside class="edit_user_info">
+
+		<div class="user_info_img upload_photo">
+			<span><img src="" alt=""></span>
+			<p><span>更换头像</span></p>
+		</div>
+
+		<div class="user_info_name">
+			<strong>姓名</strong>
+			<input type="text">
+		</div>
+
+		<div class="user_info_pro">
+			<strong>职称</strong>
+			<p></p>
+			<select></select>
+
+		</div>
+
+		<div class="user_info_btn">
+			<button class="btn-radius">更新信息</button>
+		</div>
+
+	</aside>
+
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/jquery.qrcode.min.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/reg.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script>
+	$(function(){
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/html/user/personal_information.shtml')
+		}
+		//展示默认信息
+		var luser = gm.para.get(window.location.href,"doctorUuid");
+		var userid =  luser || gm.user.getDoctor();
+		var _icon;
+
+		gm.user.upusericon = function(data){
+			gm.pul.toUrl("/html/user/personal_information.shtml");
+		}
+		//获取图片
+		gm.user.getuserimg=function(smallImage,smallUrl){
+			if(smallImage!=undefined && smallUrl!=undefined){
+				$(".user_info_img img").attr("src",smallUrl);//头像
+				_icon = smallImage;
+			}
+		}
+		
+		gm.user.getUserInfo(userid,function(data){
+			if(data && data.doctorInfo){
+
+				$(".user_info_img img").attr("src",data.doctorInfo.doctorIcon);//头像
+				$(".user_info_name input").val(data.doctorInfo.doctorName);//名称
+				console.log($(".user_info_pro").length)
+				$(".user_info_pro").getChangeVal(data.doctorInfo.professional)
+				// $(".user_info_pro input").val(___professional[data.doctorInfo.professional]);//职称
+
+		
+				gm.upimgmaxwidth = 200;
+				$(".upload_photo").upimage(function(data){
+					console.log("data"+data.smallUrl);
+					$(".user_info_img img").attr("src",data.smallUrl);//头像
+					_icon = data.smallImage;
+				});
+				
+
+				gm.upimgmaxwidth = 200;
+				$(".user_info_btn button").on("touchend",function(){
+					//提交用户信息
+					$.getDate({
+						page:"user",
+						inter:"updateImg",
+						method:"POST",
+						dataType:"script",
+						data:{
+							"doctorUuid":gm.user.getDoctor(),
+							"image":_icon,
+							"professional" : $(".user_info_pro p").html(),
+							"realName" : $(".user_info_name input").val(),
+							"callback":"gm.user.upusericon"
+						}
+					});
+				});
+			}else{}
+		});
+	});
+	</script>
+</body>
+</html>

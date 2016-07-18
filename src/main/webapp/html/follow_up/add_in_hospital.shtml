@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/follow_up_header.shtml"-->
+</head>
+
+<body class="follow cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		<div class="title"><a href="/html/follow_up/patient_details.shtml"><i class="fh"></i></a><h2>创建病历</h2></div>
+		<!-- 内容 -->
+		<!-- 添加门诊病例 -->
+		<!-- 患者名字 -->
+		<div class="name">
+			<p>患者<span class="na">张路</span></p>
+		</div>
+		<!-- 就诊信息 -->
+		<div class="diagnose">
+			<h2>就诊信息</h2>
+		</div>
+		<div class="information">
+			<table>
+				<tr>
+					<th>就诊类型</th>
+					<td>
+						<div class="inhos">住院</div>
+						<div class="inhos">住院</div>
+					</td>
+				</tr>
+				<tr>
+					<th>就诊时间</th>
+					<td>2015-10-22</td>
+				</tr>
+				<tr>
+					<th>就诊医院</th>
+					<td>北医三院</td>
+				</tr>
+				<tr>
+					<th>医生</th>
+					<td>白金子</td>
+				</tr>
+			</table>
+		</div>
+		<!-- 病历记例 -->
+		<div class="diagnose">
+			<h2>病历记例<span class="selt">请至少选择下面的一种方式</span></h2>
+		</div>
+		<div class="photo">
+			<h3>拍照 （&#8804;5张）</h3>
+			<div class="photos">
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+			</div>
+		</div>
+		<a href="/html/follow_up/outpatient_records.shtml"><div class="manual">
+			<p>手动输入<i class="icon-thearrowx"></i></p>
+		</div></a>
+		<button class="btn-zyradius dirc">保存</button>
+	</div>
+	<!--#include virtual="/html/template/follow_up_bottom.shtml"-->
+</body>
+</html>

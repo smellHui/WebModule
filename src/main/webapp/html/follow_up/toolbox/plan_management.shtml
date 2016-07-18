@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访方案管理</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访方案管理 -->
+<body class="followed cbox" id="follow_up_plan">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="sffa_box">
+		<dl>
+			<a href="/html/follow_up/toolbox/increase_plan.shtml">
+			<dt class="_xzfa"><a href="increase_plan.shtml"></a><i class="logo-xzfa"></i><p>新增方案</p><i class="icon-thearrowx"></i></dt>
+			<dt class="_wdfa">我的方案</dt>
+
+		</dl>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/toolbox.shtml');		
+	}
+	$(function(){
+		gm.follow_up.getAllVisitPreceptList(function(data){
+			var _k = '<dt class="_xzfa"><a href="increase_plan.shtml"></a><i class="logo-xzfa"></i>新增方案\
+			  <i class="icon-thearrowx"></i></dt><dt class="_wdfa">我的方案</dt>';
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){console.log(data)
+				var arr = [];
+				var err = [];
+
+				$(data.relist).each(function(i,o){
+					arr.push('<dd data-index=' + i + ' class="dsasw" visitUuid='+o["visitUuid"]+' link="'+o["num"]+'"><div class="kua"><div class="newszu"><a href="edit_plan.shtml?visitUuid='+o["visitUuid"]+'">'+o["preceptName"]+'</a>\
+						<i class="sdsv">已关联<span>'+o["num"]+'</span>人</i></div></div><div class="kua_scnut"><div class="ndh">\
+						<i class="icon-mycoltrash"  visitUuid="'+o["visitUuid"]+'"></i></div></div></dd>');
+					err.push('<li><i class="radio" visitUuid="'+o["visitUuid"]+'"></i><span>'+o["preceptName"]+'</span></li>');
+				});
+
+				$("#follow_up_plan .sffa_box dl").html(_k + arr.join(""));
+				$("#selective_up_progra .xzfz_box ul").html(err.join(""));
+
+				$("#follow_up_plan .sffa_box dd .kua").lrTouchMove();
+				$("#selective_up_progra .xzfz_box ul").lrTouchMove();
+
+				//点击删除
+				$("#follow_up_plan .sffa_box dd .ndh").ontouch(function(){
+					gm.follow_up.delPreceptDetailId = $(this).parent().parent().attr("data-index");
+					var _vis = $(this).parent().parent().attr("visitUuid");
+					if($(this).closest("dd").attr("link") != "0"){
+						$.alert("当前方案已关联患者，不可删除");
+					}else{
+						$.confirm("确定要删除吗？",function(){
+							$.getDate({
+								page:"doctor",
+								inter:"delPreceptDetail",
+								data:{visitUuid:_vis,callback:"gm.follow_up.delPreceptDetail"},
+								method:"POST",
+								dataType:"script"
+							},this);
+						});
+					}
+				});
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+		gm.follow_up.plan_management();
+
+	});
+	</script>
+</body>
+</html>

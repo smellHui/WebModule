@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>患教库</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+<body class="followed cbox" id="patient_education">
+	<!-- 内容 -->
+	<div class="hjk_box gjx_box">
+		<ul class="fnonne">
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+<script type="text/javascript">
+	$(function(){
+		gm.user.getCustomerTeachType(function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				var arr = [];
+
+				$(data.relist).each(function(i,o){
+					arr.push('<li><a href="patient_education_list.shtml?contentUuid='+o["categoryId"]+'"></a>'+o["category"]+'<i class="icon-thearrowx"></i></li>');
+				});
+
+				$("#patient_education .hjk_box ul").html(arr.join(""));
+
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+
+		gm.isIndex = true;
+		gm.pul.returnurl=function(){//退回首页
+			if(!gm.isMobile){return;}
+				gm.pul.toUrl("goodm://returnIndexPage");
+		}
+		
+	})
+</script>
+</body>
+</html>

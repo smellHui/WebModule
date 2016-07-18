@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+	<title>电话咨询患者</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+	<style>
+	#phone_advisory .state .reply { width:50%; }
+	#phone_advisory .state .reply p { width:auto; }
+	</style>
+</head>
+
+<!-- 电话咨询 -->
+<body class="task cbox" id="phone_advisory">
+
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="soofmut">
+		<!-- 未回复—已回复 -->
+		<div class="state">
+			<!-- <div class="no_handle reply">
+				<p class="scjs">未处理<span class="jshd"></span></p>
+			</div> -->
+			<div class="off_handle reply">
+				<p class="scjs">已处理</p>
+			</div>
+			<div class="finish reply">
+				<p>已完成</p>
+			</div>
+		</div>
+		<!-- 消息 -->
+		<div class="message">
+			<!-- 未回复 -->
+			<!-- <ul class="no_answer" style="display: block;">
+			</ul> -->
+			<!-- 已回复 -->
+			<ul class="has_answer" style="display: block;">
+			</ul>
+			<!-- 已w完成 -->
+			<ul class="doucuns">
+			</ul>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	var from=gm.para.get(window.location.href,"from");
+	if(from=="mypatient"){
+		gm.pul.returnurl = function(){
+			gm.isIndex = true;
+			gm.pul.returnurl=function(){//退回首页
+				if(!gm.isMobile){return;}
+					gm.pul.toUrl("goodm://returnIndexPage");
+			}
+		}
+	}else{
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl("/html/mypatient/index.shtml");
+		}
+	}
+	
+	function createHTML(_type){
+
+		// 电话咨询&预约加号  列表切换
+		$(".no_handle p").bind({
+			touchend:function(){
+				$(".state p").removeClass("scjs");
+				$(this).addClass("scjs");
+				$(".message ul").hide();
+				$("ul.no_answer").show();
+			} 
+		});
+		$(".off_handle p").bind({
+			touchend:function(){
+				$(".state p").removeClass("scjs");
+				$(this).addClass("scjs");
+				$(".message ul").hide();
+				$("ul.has_answer").show();
+			} 
+		});
+		$(".finish p").bind({
+			touchend:function(){
+				$(".state p").removeClass("scjs");
+				$(this).addClass("scjs");
+				$(".message ul").hide();
+				$("ul.doucuns").show();
+			} 
+		});
+		var _loading = new mask("loading");
+		_loading.show();
+		$.getDate({
+			page:"doctor",
+			inter:"getOrderList",
+			data:{orderType:_type,stateType:"1",doctorUuid:gm.user.getDoctor()},
+			callback:function(data){
+				_loading.hide();
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					addhtml_1(data,$("#phone_advisory .soofmut .has_answer"));
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+		$.getDate({
+			page:"doctor",
+			inter:"getOrderList",
+			data:{orderType:_type,stateType:"2",doctorUuid:gm.user.getDoctor()},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					addhtml_1(data,$("#phone_advisory .soofmut .doucuns"));
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+
+		function addhtml_1(data,obj){
+			var arr = [];
+			$(data.relist).each(function(i,o){
+				o.imgUrl = (o.imgUrl || (o.sex == "1" ? window.___defaultImage_p_man : window.___defaultImage_p_woman));
+				o.sex = (o["sex"] == 1?'<i class="icon-boy"></i>':'<i class="icon-girl"></i>');
+				// o.button = (o["state"] == 3 ? '<button>审核</button></div>' : '');
+				var tmp = '<li>\
+					<div class="newszu" orderMainUuid="{orderMainUuid}">\
+						<p class="date">{bookTime} {startTime}</p>\
+						<div class="head_portrait"><img src="{imgUrl}"></div>\
+						<div class="nagent">\
+							<div class="duof">\
+								<h3>{realName}{sex}<span>年龄：{age}岁</span></h3>\
+							</div>\
+							<p class="comment">{illnessDescription}</p>\
+						</div>\
+					</div>\
+					</li>';
+				arr.push(gm.replace(tmp,o));
+			});
+			obj.html(arr.join(""));
+			obj.find(".newszu").ontouch(function(){
+				var orderMainUuid = $(this).attr("orderMainUuid");
+				gm.pul.toUrl("/html/task/payment_order.shtml?orderMainUuid=" + orderMainUuid);
+			});
+		};
+	};
+	$(function(){
+		var _type = gm.para.get(window.location.href,"type");
+		var _unread = gm.para.get(window.location.href,"unread");
+		// gm.user.getConsultRecordMSG(_type,_unread);
+		createHTML(_type);
+	});
+	</script>
+</body>
+</html>

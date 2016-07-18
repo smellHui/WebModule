@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>课程详细</title>
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/refer.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+</head>
+
+<body class="refer cbox">
+	<!-- 内容 -->
+	<div>
+		<!-- CTPA诊断肺栓塞内容a -->
+		<div class="theauthor_introduce">
+			<div class="payatten_tiondetailed">
+				<div class="js_introduce">
+					<h3>作者：白金子</h3>
+					<h3>出处：《今日科技》</h3>	
+				</div>
+				<p>概要：正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。</p>
+			</div>
+		</div>
+		<!-- 秋季进补的禁忌内容b -->
+		<div class="thearticley">
+			<div class="detailed_ctionsa">
+				<p>正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌俗正俗话说,"一夏无病三分虚",由此在民间素有"秋补"习俗俗万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也不能乱补,应注意八忌。不能乱补,应注意八忌。</p>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+<script type="text/javascript">
+	$(function(){
+		gm.refer.informationfordetails();
+	})
+</script>
+</body>
+</html>

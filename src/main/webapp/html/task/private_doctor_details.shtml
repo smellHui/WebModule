@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+	<title>私人医生</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<body class="task cbox">
+
+	<div class="task_box">
+
+		<div class="task_title">私人医生服务信息</div>
+
+		<div class="task_list">
+			<ul>
+				<li id="orderInfoType">
+					<strong></strong><span></span>
+				</li>
+				<li>
+					<strong>图文咨询次数</strong><span id="picTimes"></span>
+				</li>
+				<li>
+					<strong>电话咨询次数</strong><span id="phoneTimes"></span>
+				</li>
+				<li>
+					<strong>支持加号次数</strong><span id="plusTimes"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="task_title">疾病描述</div>
+
+		<div class="task_cont">
+			<p id="orderDescription"></p>
+		</div>
+
+		<div class="task_title">基本信息</div>
+
+		<div class="task_list">
+			<ul>
+				<li>
+					<strong>姓名</strong><span id="customerName"></span>
+				</li>
+				<li>
+					<strong>性别</strong><span id="customerSex"></span>
+				</li>
+				<li>
+					<strong>年龄</strong><span id="customerAge"></span>
+				</li>
+				<li>
+					<strong>出生日期</strong><span id="birthday"></span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 按钮 -->
+		<div class="task_btns">
+			<button class="btn-no">拒绝</button>
+			<button class="btn-ok">同意</button>
+		</div>
+
+	</div>
+
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	
+	<script type="text/javascript">
+		var _orderMainUuid = gm.para.get(window.location.href,"orderMainUuid");
+
+		$.getDate({
+			page:"patient",
+			inter:"toOrderMainDetail",
+			data:{orderMainUuid:_orderMainUuid},
+			callback:function(data){
+				//设置标题
+				gm.pul.setTitle(data.customerInfo.customerName);
+
+				//设置套餐类型
+				$("#orderInfoType strong").html(data.orderInfo.packageName);
+				//设置套餐价格
+				$("#orderInfoType span").html(data.orderInfo.orderPrice + "/月");
+				//设置图文咨询次数
+				$("#picTimes").html(data.orderInfo.picTimes);
+				//设置电话咨询次数
+				$("#phoneTimes").html(data.orderInfo.phoneTimes);
+				//设置加号次数
+				$("#plusTimes").html(data.orderInfo.plusTimes);
+
+				//设置疾病描述
+				$("#orderDescription").html(data.orderInfo.orderDescription);
+
+				//设置患者姓名
+				$("#customerName").html(data.customerInfo.customerName);
+				//设置患者年龄
+				$("#customerSex").html(data.customerInfo.customerSex ? "男" : "女");
+				//设置患者性别
+				$("#customerAge").html(data.customerInfo.customerAge);
+				//设置患者出生日期
+				$("#birthday").html(data.customerInfo.birthday);
+			}
+		});
+
+		$(".task_btns button").ontouch(function(){
+			var _reurl = gm.para.get(window.location.href,"returnurl"),_data;
+			if($(this).is(".btn-no")){
+				$.confirm("确定拒绝么？",function(){
+					sendCheckOrder({
+						state:0,refuse:"",orderMainUuid:_orderMainUuid
+					});
+				});
+			}else{
+				sendCheckOrder({
+					state:1,refuse:"",orderMainUuid:_orderMainUuid
+				},1);
+			}
+			function sendCheckOrder(data,type){
+				$.getDate({
+					page:"doctor",
+					inter:"checkOrder",
+					data:data,
+					callback:function(data){
+						if(!data){
+							$.alert("服务器出错!");
+						}
+						if(data.query.success=="1"){
+							var _t = type ? "通过" : "拒绝";
+							$.alert({
+								"val" : "已" + _t + "该套餐请求",
+								"type" : "flash",
+								"callback" : function(){
+									gm.pul.toUrl(_reurl);
+								}
+							});
+						}else{
+							$.alert(data.query.message);
+						}
+					}
+				});
+			}
+		});
+
+	</script>
+</body>
+</html>

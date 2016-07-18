@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>测试结果</title>
+	<!--#include virtual="/html/template/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="normal_results">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<h2 class="guide_language">引导语：引导语详情引导语详情引导语详情</h2>
+		<h3 class="p_dfdf">分数<span>1</span>分</h3>
+		<h3 class="p_bnjv">测试结果<b>正常</b></h3>
+
+		<p class="p_nfjd">结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面</p>
+
+        <button class="btn-zyradius2">重新测试</button>
+	</div>
+
+
+
+	<!--#include virtual="/html/template/task_bottom.shtml"-->
+
+</body>
+</html>

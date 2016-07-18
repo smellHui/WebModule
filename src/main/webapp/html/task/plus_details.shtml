@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<title>加号处理</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情 -->
+<body class="task cbox" id="plus_details">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="lbabox">
+		<!-- 就诊信息 -->
+		<dl class="jzxx">
+			<dt>就诊信息</dt>
+			<dd>
+				<i>疾病</i>
+				<span></span>
+			</dd>
+			<dd>
+				<i>本次预约目的</i>
+				<span></span>
+			</dd>
+			<!-- <dd>
+				<i>上次就诊地点</i>
+				<span></span>
+			</dd> -->
+		</dl>
+		<!-- 疾病描述 -->
+		<dl class="jbms">
+			<dt>疾病描述</dt>
+			<dd></dd>
+		</dl>
+		<!-- 基本信息 -->
+		<dl class="jbxx">
+			<dt>基本信息</dt>
+			<dd>
+				<i>姓名</i>
+				<span></span>
+			</dd>
+			<dd>
+				<i>性别</i>
+				<span></span>
+			</dd>
+			<dd>
+				<i>年龄</i>
+				<span></span>
+			</dd>
+		</dl>
+	</div>
+	<!-- 按钮 -->
+	<div class="bshuw">
+		<!-- <a href="/html/task/booking_plus.shtml"> -->
+		<button class="left_but">拒绝加号</button>
+		<!-- </a> -->
+		<!-- <a href="/html/task/agreed_plus_delete.shtml"> -->
+		<button class="right_but">同意加号</button>
+		<!-- </a> -->
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	
+	$(function(){
+		gm.task.plus_details();
+	})
+	</script>
+</body>
+</html>

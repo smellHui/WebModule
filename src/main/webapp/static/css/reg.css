@@ -1,0 +1,121 @@
+/* 公共部分 */
+.w645{width: 6.45rem;margin: 0 auto;position: relative;}
+	.w645 *{width: 100%;margin: 0 auto;}
+	.w645 h2{text-align: center;font-weight: normal;}
+#logon_register .p_sd a{color: #1f80b8;}
+.addreginfo .login_box1{margin-top: ;}
+
+/* 登录页 */
+#logon_register .login {}
+	.login .login_box2{}
+	.login_box1{height: 4.5rem;margin-top: 10%;}
+		.login_box1 i,.login_box1 div{width: 2.13rem;margin: 0 auto;display: block;position: relative;top: 1rem;}
+
+	.login_box2 h2{font-size: .45rem;color: #696969;line-height: .8rem;text-align: center;font-weight: normal;}
+	.login_box2 input{margin-top: .35rem;font-size: .36rem;}
+			.login_box2 p,.login_forget .login_but p{text-align: right;line-height: .9rem;font-size: .27rem;}
+			.addreginfo_qt .login_box2 p { text-align:center; }
+			.login_box2 p a{color: #1f80b8;}
+
+	.login_but{margin-top: .45rem;}
+			.login_but input{font-size: .45rem;}
+			.login_but h2{line-height: .9rem;font-size: .36rem;}
+			.login_but h2 a,.login_forget .login_but p a{color: #1f80b8;}
+
+/* 注册页 */
+#logon_register .reg {width: 100%;}
+	.reg .reg_box1{}
+		/*获取验证码*/
+		.reg .reg_box1 .login_box2 p a{color: #1f80b8;}
+		/*勾选协议*/
+		body .reg_protocol{text-align: left;line-height: 1.7rem;font-weight: normal;}
+			body .reg_protocol a{color: #757575;font-size: .25rem;margin-left: .18rem;}
+			.reg_protocol i{display: inline-block;width: .21rem;height: .21rem;border: 1px solid #757575;}
+			.gou{background-image: url(../imgs/gou.jpg);background-size: 100% 100%;}
+    .login_box2{
+    	margin-top:10%;
+    }
+    
+/* 忘记密码 */
+#logon_register .login_forget{/*display: none;*/}
+	/*#logon_register .login_forget #findv{margin-top: .35rem;}*/
+
+/* 完善注册信息页 */
+#logon_register .addreginfo {/*display: none;*/}
+	.addreginfo .upload_photo{background-image: url(../imgs/upload_photo1.png);width: 2.25rem;height: 2.25rem;background-size: 100% 100%;}
+	.addreginfo .login_but,.addreginfo_qt .login_but,.addreginfo_license .login_but{position: absolute;top: 12.5rem;margin-bottom: 1rem;display: block;width: 100%;}
+	.addreginfo .btn-checkbox{width: 4.38rem;margin: .5rem 0rem;}
+		.addreginfo .btn-checkbox span{width: 50%;}
+
+/* 完善注册信息-完善其他信息 */
+#logon_register .addreginfo_qt{/*display: none;*/}
+	.addreginfo_qt .login_box2{padding-top: 22%;}
+	/*下拉选择框*/
+	.addreginfo_qt ul{margin-top: 1rem;}
+		.addreginfo_qt ul li{height: .95rem;border: 1px solid #3595cf;text-align: center;line-height: .95rem;color: #7f7f7f;margin-bottom: 2%;position: relative;overflow: hidden;}
+		.addreginfo_qt li,
+		.addreginfo_qt li p { font-size: .36rem; }
+		
+		.addreginfo_qt ul .li_fe{margin-top: 1rem;position: relative;}
+		.addreginfo_qt ul .li_fe span{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 11;}
+		.addreginfo_qt .login_box2 ul .li_fe input {position: absolute;z-index: 0;left: 0;}
+	.addreginfo_qt .login_but button{width: 46%;}
+	.addreginfo_qt .login_but .button1{/*float: left;*/margin:0 auto;}
+	.addreginfo_qt .login_box2 input{border:0;margin-top:0rem;height:90%;text-align: center;font-family: SimHei;color: #7f7f7f;width: 99%;}
+	.addreginfo_qt .login_but .button2{float: right;background-color: #fff;color: #3595cf;border: 1px solid #3595cf;}
+	.addreginfo_qt select {position: absolute;width: 100%;height: 100%;opacity: 0;z-index: 99;left: 0;top: 0;}
+
+/* 完善注册信息-姓名匹配 */
+#logon_register .addreginfo_name{/*display: none;*/background-color: #fafafa;}
+	.addreginfo_name .login_box2{}
+	.addreginfo_name .login_box2 h2{color: #464646;line-height: 1.8rem;}
+	.addreginfo_name .login_box2 ul{border-top: 1px solid #3595cf;}
+	.addreginfo_name .login_box2 ul *{font-style: normal;font-weight: normal;color: #7f7f7f;}
+	.addreginfo_name .login_box2 ul li{background-color:#fff;height: 1.83rem;border-bottom: 1px solid #3595cf;}
+	.addreginfo_name .login_box2 ul li b{font-size: .45rem;line-height: 1.2rem;padding:0 .2rem 0 .7rem;}
+	.sdogpan{display: inline-table;color: #7f7f7f;font-size: .36rem;}
+    .sdogpan p{text-align: left;font-size: .36rem;line-height: .55rem;}
+        .sdogpan p i{padding-right: .45rem;font-style: normal;}
+	.addreginfo_name .p_sd{padding-right: .5rem;line-height: 1.4rem;}
+
+.sel-married,#testar_bl{
+	margin-bottom:.6rem;
+	border-color: #28c3b1;
+}
+
+/* 完善注册信息-注册协议 */
+/*#logon_register .addreginfo_amet{-webkit-transform:translate3d(9.6rem,0,0);-webkit-transition:all .5s ease;}
+	#logon_register .addreginfo_amet.show{-webkit-transform:translate3d(0,0,0);}*/
+	.addreginfo_amet .addreginfo_amet_p{width: 8.3rem;margin: 0 auto;padding-top: .6rem;}
+		.addreginfo_amet .addreginfo_amet_p p{font-size: .36rem;color: #464646;line-height: .6rem;padding-bottom: .5rem;}
+		.addreginfo_amet .addreginfo_amet_p p span{display: block;}
+		.addreginfo_amet .addreginfo_amet_p h2{color: #000;font-size: .4rem;line-height: .7rem;}
+
+/* 完善注册信息-医生执照 */
+#logon_register .addreginfo_license{/*display: none;*/}
+	.tz2_zc{background-color: #fff;color: #1f80b8;border: 1px solid #1f80b8;position: relative;top: -.4rem;}
+	
+	/*注释文字*/
+	.addreginfo_license .w810{width: 8.1rem;height: 100%;margin: 0 auto;position: relative;}
+	.addreginfo_license .notes{font-size: .36rem;color: #696969;padding: 1rem 0;}
+	/*上传图片*/
+	.img_box div{display: inline-block;}
+	.img_box img{width: 2.33rem;height: 2.33rem;float: left;}
+	.sc_gfd{width: auto;height: 2.34rem;margin-right: .1rem;overflow-y: hidden;display: inline-block;}
+	.sc_gfd img{max-height: 100%;}
+	.addreginfo_license .upload_photo{background-image: url(../imgs/upload_photo2.png);background-size: 100% 100%;width: 2.33rem;height: 2.33rem;position: relative;display: inline-block;}
+		.addreginfo_license .upload_photo p{width: 3rem;font-size: .27rem;text-align: center;color: #a9a9a9;position: absolute;bottom:-.7rem;margin-left: -.3rem;}
+	/*按钮*/
+	.addreginfo_license .login_but{width: 100%;}
+		.addreginfo_license .login_but button{display: block;width: 6.45rem;margin: 0 auto;}
+
+.editlicense { height:100%; overflow-y:auto; }
+	.editlicense_pages { position:absolute; left:0; top:0; z-index:1; width:100%; height:1.2rem; line-height:1.2rem; background:#fff; text-align:center; color:#7f7f7f; font-size:.39rem; }
+	.editlicense_imgs { position:absolute; left:0; top:0; width:100%; height:100%; padding:1.2rem 0 1.1rem; box-sizing:border-box; background:#b2b2b2; }
+	.editlicense_btn { position:absolute; left:0; bottom:0; z-index:1; width:100%; height:1.1rem; line-height:1.1rem; text-align:right; color:#7f7f7f; background:#fff; font-size:.52rem; }
+	.editlicense_btn span { display:inline-block; padding:0 .6rem; }
+	.editlicense .focus_map { height:100%; }
+	.editlicense .focus_map li { display:table; }
+	.editlicense .focus_map li div { display:table-cell;; text-align:center; vertical-align:middle; }
+	.editlicense .focus_map li div img { width:auto; max-width:100%; max-height:100%; }
+

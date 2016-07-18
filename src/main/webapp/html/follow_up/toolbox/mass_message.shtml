@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<title>群发消息</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 工具箱-群发消息 -->
+<body class="followed cbox" id="mass_message">
+
+	<!-- 内容 -->
+	<div class="qfxx_box">
+		<textarea class="feedbackcontent" placeholder="群发内容" maxlength="100"></textarea>
+		<a href="/html/follow_up/toolbox/choice_patient.shtml"><button class="btn-def zhdf_1">选择患者</button></a>
+	</div>
+	<!-- 按钮 -->
+	<div class="fonusn_but">
+		<button class="btn-zyradius">群发</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/toolbox.shtml')
+	}
+	$(function(){
+		var _customerUuids = gm.para.get(window.location.href,"customerUuids");
+
+		var _content = gm.para.get(window.location.href,"content");
+		if(_content){
+			$(".qfxx_box textarea").val(decodeURIComponent(_content));
+		}
+
+		if(_customerUuids){
+			var _length = _customerUuids.split(",").length;
+			$(".zhdf_1").html($(".zhdf_1").html() + "("+_length+")");
+		}
+
+		$(".qfxx_box a").bind({
+			touchend:function(e){
+				var href = $(this).attr("href");
+				href = gm.para.set(href,"content",encodeURIComponent($(".qfxx_box textarea").val()));
+				$(this).attr("href",href);
+			}
+		});
+
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var _content = $(".qfxx_box textarea").val();
+				if(!_content.replace(/\s+/gi,"")){
+					$.alert({
+						val:"请填写消息内容",
+						timer:1500,
+						type:"flash"
+					});
+					return;
+				}
+
+				if (_customerUuids) {
+					$.getDate({
+						page:"doctor",
+						inter:"addInnerMessage",
+						data:{doctorUuid:gm.user.getDoctor(),content:_content,customerUuids:_customerUuids},
+						callback:function(data){
+							if(!data){
+								$.alert("服务器出错!");
+							}
+							if(data.query.success=="1"){
+								$.alert({
+									"val" : "消息发送成功",
+									"type" : "flash",
+									"callback" : function(){
+										gm.pul.toUrl( "/html/follow_up/toolbox/toolbox.shtml");
+									}
+								});
+								$(".feedbackcontent").val("");
+							}else{
+								$.alert(data.query.message);
+							}
+						}
+					});
+				}else{
+					$.alert({
+						val:"请选择发送患者",
+						type:"flash",
+						timer:2000
+					});
+				}
+			}
+		})
+		
+	})
+	</script>
+</body>
+</html>

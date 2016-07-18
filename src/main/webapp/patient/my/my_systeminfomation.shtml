@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>系统消息详情</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="system cbox" id="my_system">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div>
+		<!-- 内容 -->
+		<ul>
+			<!-- <li>
+				<div class="share">
+					<h2>分享好心情客户端<span class="time">10-11 22:30</span></h2>
+					<p>分享好心情客户端给更多的患友吧，让他们找到好大夫，而且你还可以得积分啊</p>
+				</div>
+			</li>
+			<li>
+				<div class="share">
+					<h2>分享好心情客户端<span class="time">10-11 22:30</span></h2>
+					<p>分享好心情客户端给更多的患友吧，让他们找到好大夫，而且你还可以得积分啊</p>
+				</div>
+			</li>
+			<li>
+				<div class="share">
+					<h2>分享好心情客户端<span class="time">10-11 22:30</span></h2>
+					<p>分享好心情客户端给更多的患友吧，让他们找到好大夫，而且你还可以得积分啊</p>
+				</div>
+			</li> -->
+		</ul>
+		<p id="dont_show">您目前还没有系统消息/(ㄒoㄒ)/~~</p>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/my_system.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>测试</title>
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/tools.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="depressiontest cbox" id="intheheart">
+	<!-- 内容 -->
+	<div>
+		<!-- 焦点图 -->
+		<div class="dvimg">
+			<img src="">
+		</div>
+		<!-- 测试名称 -->
+		<div class="thetestcontent">
+			<div class="tenamethead">
+				<div class="yiyu">
+					<h2></h2>
+				</div>
+				<div class="the_titlea">
+					<div class="sinfiolg">
+					<p></p>
+					</div>
+				</div>
+				<div class="questionumber">
+					<i>题数: 0题</i>
+					<p>填写说明:</p>
+				</div>
+			</div>
+		</div>
+			<!-- 开始测试按钮 -->
+			<div class="start">
+				<a href="/patient/refer/testsubjectsa.shtml" class="btn-radius">开始测试</a><!-- 默认圆角按钮 -->
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.refer.intheheart();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('index.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>设置电话咨询</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head> 
+<body class="task cbox" id="sheizhi3">
+	<!-- 标题 -->
+	<div class="thene_cement">
+		<ul>
+		</ul>
+		
+	</div>
+	<div class="sett">
+		<h2>设置平台托管</h2>
+		<div class="price_a"><div class="off"><i class="switch"></i>					<span class="off-font">OFF</span><span class="on-font">ON</span></div>					</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<div class="nfsu_1"><p>内容为空</p></div>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/psd_add.png","menuevent":"gm.clinic.addshezhi"}</div>
+	
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.sheizhi3();
+	});
+	</script>
+	</body>
+</html>

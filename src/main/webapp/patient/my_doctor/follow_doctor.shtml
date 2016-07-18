@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访医生</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+
+<body class="cbox" id="follow_doctor">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="sfsqxq_box scroll-y">
+		<div class="wecoto">
+			
+		</div>
+		<ul>
+		</ul>
+		<!-- 按钮 -->
+		<div class="hzxx_but" style="z-index:1000">
+			<a href="/patient/my_doctor/follow_up_list.shtml"><button class="btn-zyradius">填写随访表单</button></a>
+			<a href="/patient/my_doctor/remind.shtml"><button class="btn-zyradius">添加服药提醒</button></a>
+			<a href="/patient/my_doctor/communicate_patient.shtml"><button class="btn-zyradius">和医生沟通</button></a>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.my_doctor.follow_doctor();
+
+			var doctorUuid = gm.para.get(window.location.href,"doctorUuid");
+			gm.pul.returnurl = function(){
+				gm.pul.toUrl('/patient/my_doctor/index.shtml')
+			}		
+		});
+	</script>
+</body>
+</html>

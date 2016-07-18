@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>阅读</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="../../static/css/read.css" />
+<link rel="stylesheet" href="../../static/css/common.css" />
+<link rel="stylesheet" href="../../static/css/lib/pullToRefresh.css" />
+<link rel="stylesheet" href="../../static/css/lib/reset.css" />
+<script src="../../static/js/lib/iscroll.js"></script>
+<script src="../../static/js/lib/pullToRefresh.js"></script>
+<script src="../../static/js/lib/colorful.js"></script>
+<style type="text/css" media="all">
+        body, html {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Microsoft YaHei;
+            color: #111;
+        }
+		ul{
+			height:100%;
+		}
+        li {
+		}
+        #wrapper{
+        } 
+        .scroller{
+			padding-bottom:2.48rem !important;/***头部的高度****/
+		}
+    </style>
+</head>
+<body>
+<header class="diswngu">
+		<div class="clinical_screening">
+			<!-- 切换 -->
+			<div class="qhs_box">
+				<div class="clinical_medical">
+					<div class="menulist">
+						<span class="cur" contentCategoryUuid="D">最新资讯</span>
+						<span contentCategoryUuid="F">专家言论</span>
+					</div>
+					<b></b>
+				</div>
+			</div>
+		</div>
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+					<span class="sx2">筛选</span>
+				</a>
+			</form>
+		</div>
+	</header>
+<div id="wrapper" class="gsid_1">
+	
+  <ul class="varioustype fnio_thereis">
+ 
+  </ul>
+</div>
+<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/js/config.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script type="text/javascript" src="../../static/js/thedoctorinformation_temp.js"></script>
+<script type="text/javascript" src="../../static/js/module.js"></script>
+<script>
+$(function(){
+	gm.menu.hiddenBottomBar();//隐藏菜单
+	gm.thedoctorinformation.init();
+	gm.isIndex = true;
+	gm.pul.returnurl=function(){//退回首页
+		if(!gm.isMobile){return;}
+			gm.pul.toUrl("goodm://returnIndexPage");
+	}
+	
+	
+});
+																					
+var generatedCount = 0;																			
+function Refresh() {																
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		var el, li, i;																		
+		el =document.querySelector("#wrapper ul");									
+		el.innerHTML='';																
+		for (i=0; i<11; i++) {																		 
+			li = document.createElement('li');													
+			li.appendChild(document.createTextNode('async row ' + (++generatedCount)));				
+		el.insertBefore(li, el.childNodes[0]);	
+		console.log("Refresh");
+		}																							 
+		wrapper.refresh();/****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+			
+	}, 1000);
+
+}
+
+function Load() {
+	setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+		var el, li, i;
+		el =document.querySelector("#wrapper ul");
+		for (i=0; i<2; i++) {
+			li = document.createElement('li');
+			li.appendChild(document.createTextNode('async row ' + (++generatedCount)));
+			el.appendChild(li, el.childNodes[0]);
+			console.log("Load");
+		}
+		wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+		
+	}, 1000);	
+}
+	
+    </script>
+</body>
+</html>

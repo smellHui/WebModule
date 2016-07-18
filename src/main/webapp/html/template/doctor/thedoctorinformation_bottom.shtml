@@ -1,0 +1,4 @@
+<!--#include virtual="/html/template/common_bottom.shtml"-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/thedoctorinformation.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/clinic.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/m-myscrollLoading-myscrollLoading.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>

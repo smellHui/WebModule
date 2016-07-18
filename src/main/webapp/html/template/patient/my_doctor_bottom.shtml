@@ -1,0 +1,2 @@
+<!--#include virtual="/html/template/patient_bottom.shtml"-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/my_doctor.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>

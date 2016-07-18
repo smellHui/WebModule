@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加新公告</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="thene_cement">
+		<div class="cement_tetx">
+			<strong>标题</strong>
+			<input type="text" class="ipt-def"><!-- placeholder = 默认提示文本 -->
+		</div>
+		<div class="contentof_the">
+			<strong>公告内容</strong>
+			<textarea name="message" placeholder=""></textarea>
+		</div>
+		<div class="tminsc">
+			<strong>时间</strong>
+			<input type="date" class="ipt-def"><!-- placeholder = 默认提示文本 -->
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+</body>
+</html>

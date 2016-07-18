@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<title>好心情</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register" style="overflow-x: hidden;">
+	<!-- 注册 -->
+	<aside class="reg">
+		<div class="w645">
+			<div class="login_box1">
+				<div class="icon-aut6"></div>
+			</div>
+			<!-- 输入框模块 -->
+			<div class="login_box2">
+				<h2>注册</h2>
+				<input type="text" class="ipt-def mobile" placeholder="请输入手机号码">
+				<div class="verify_code" page="user" inter="verification">
+					<input type="text" class="ipt-def" placeholder="请输入验证码">
+					<div class="baobe">
+						<button class="btn-def" id="mobilev">获取手机验证码</button>
+						<div class="btn-def">倒计时</div>
+					</div>
+				</div>
+				<input type="password" class="ipt-def password" placeholder="请输入登录密码">
+				<p><a href="/html/reg/index.shtml" class="relogin">已有账号</a></p>
+			</div>
+			<!-- 按钮块 -->
+			<div class="login_but" page="user" inter="reg">
+				<button class="btn-radius">完成</button>
+				<h2 class="reg_protocol"><i class="gou"></i><a class="zcxy" href="/html/reg/addreginfo_amet.shtml">我已阅读并同意《好心情用户服务协议》</a></h2>
+			</div>
+		</div>
+
+		<!-- 协议 -->
+		<!-- <aside class="addreginfo_amet">
+			<div class="addreginfo_amet_p">
+				<p>   俗话说，“一夏无病三分虚”，由此在民间素有“秋补”习俗。万物正可谓:“春生、夏长、秋收、冬藏”。尽管秋季有必要进补，但也不能乱补，应注意八忌。忌无病乱补。乱补，既增加开支，又害自身。如长期服用葡萄糖会引起发胖、增高血中胆固醇、易诱发心血管疾病;服用鱼肝油。</p>
+
+	     		<p>如长期服用葡萄糖会引起发胖、增高血中胆固醇易诱发心血管疾病;服用鱼肝油过量可引起中毒。所以进补一定要根据体内"缺什么,补什么"才能事半功倍</p>
+
+	    		<p>俗话说，“一夏无病三分虚”，由此在民间素有“秋补”习俗。万物正可谓:“春生、夏长、秋收、冬藏”。尽管秋季有必要进补，但也不能乱补，应注意八忌。忌无病乱补。乱补，既增加开支，又害自身。如长期服用葡萄糖会引起发胖、增高血中胆固醇、易诱发心血管疾病;服用鱼肝油。</p>
+
+	    		<p>如长期服用葡萄糖会引起发胖、增高血中胆固醇易诱发心血管疾病;服用鱼肝油过量可引起中毒。所以进补一定要根据体内“缺什么，补什么”才能事半功倍</p>
+	       </div>
+		</aside> -->
+	</aside>
+
+	
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		gm.reg.reg();
+		// 跳转
+		$(".reg .zcxy").bind({
+			touchend:function(){
+				gm.pul.toUrl( "/html/reg/addreginfo_amet.shtml");
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

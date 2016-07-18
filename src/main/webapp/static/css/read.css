@@ -1,0 +1,234 @@
+/* 医生资讯 */
+.doctorinformation {}
+	#read{background-color: #f7f7f7;}
+	/* 医学医用 */
+	.qhs_box{width: 100%;height: 1rem;border-bottom:1px solid #dfdfdf;background-color: #1f80b8;}
+	.clinical_medical{width: 5.17rem;height: .73rem;border:1px solid #fff;border-radius: .5rem;  position: absolute;top: .1rem; left: 50%; margin-left: -2.53rem;text-align: center;background-color: #1f80b8;}
+		.clinical_medical .menulist{width: 100%;position: absolute;z-index: 2;border-radius: .36rem;}
+		.clinical_medical span{font-size: .34rem;line-height: .75rem;text-align: center;color: #fff;display: inline-block;width:2.48rem;-webkit-transition:all .5s ease;}
+		.clinical_medical span.cur {color: #1f80b8;}
+		.clinical_medical b{width:2.58rem;height: .77rem;border-radius: .5rem;background-color: #fff;position: absolute;left: -1px;top: -1px;z-index: 1;-webkit-transition:all .5s ease;}
+
+
+		.clinical_medical b.recmended {left: 2.62rem;}
+/*---------------------------------------------------*/
+	.diswngu{
+		position: relative;
+	    top: 0;
+	    width: 100%;
+	    z-index: 999;
+	    background-color: #f7f7f7;
+	}
+	/* 包装内容的框 */
+	.pvdow{width: 100%;height:100%;overflow:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;position: relative; box-sizing:border-box;}
+	.search .pvdow{top: 1.58rem;}
+	.btsr{width: 100%;overflow: hidden;position: relative;-webkit-transform:translate3d(0,0,0)!important;}
+		/*临床推荐 & 医学医用， 内容*/
+		.btsr .gsid_1{width:9.6rem;float:left;overflow:hidden;}
+		.btsr .gsid_2{width:9.6rem;float:right;display: none;}
+		.dmljs{-webkit-transition:all .55s ease;-webkit-transform:translate3d(-50%,0,0);}
+		.dmljs1{-webkit-transition:all .55s ease;-webkit-transform:translate3d(0,0,0);}
+			.dmljs .gsid_2,.dmljs1 .gsid_1{display: block;}
+			.dmljs .gsid_1,.dmljs1 .gsid_2{display: none;}
+	/*遮罩层*/
+	.cuisd{position: fixed;top: 0;left: 0;z-index: 999;width: 100%;height: 100%;-webkit-transform:translate3d(100%,0,0);}
+		.cuisd .sdc{-webkit-transition:all .5s ease;-webkit-transform:translate3d(-100%,0,0);}
+		.sdc1{-webkit-transition:all .5s ease;-webkit-transform:translate3d(0,0,0);}
+
+/*---------------------------------------------------*/
+	/* 医学医用筛选 */
+		.clinical_screening{width: 100%;background-color: #f7f7f7;}
+			.cklamngy{height: 1.48rem;width: 100%;border-bottom: 1px solid #d3d3d3;}
+			.cklamngy form{display: block;position: relative;padding-top: .33rem;margin: 0 auto;width: 8.5rem;}
+			.cklamngy input{width: 6.72rem;height: .76rem;border: 1px solid #63a6ce;text-indent: .2rem;line-height: .4rem;float: left;}
+			.cklamngy b{
+    display: block;width: 1.02rem;height: .76rem;
+    background-size: 100%;float: left;background-position: center;background-color: #1f80b7;background-repeat: no-repeat;position: relative;
+			/*	display: block;width: 1.02rem;height: .76rem;border: 0;background-image: url(../imgs/shousuoa1.png);background-size: 100%;float: left;*/
+			}
+			.cklamngy b i{position: absolute;top: 50%;left: 50%;margin: -.215rem 0rem 0rem -.23rem;}
+			.cklamngy .shaixuh{position: relative;top: .2rem;right: .13rem;display: inline-block;float: left;margin-left: .3rem;}
+			.cklamngy .shaixuh span{line-height: .4rem;font-size: .42rem;color: #1f80b7;position: absolute;left: 0;width: 1rem;display: none;}
+			.cklamngy .shaixuh .sx1{display: block;}
+
+	/* 医学医用筛选下滑 */
+		.clinical_screening .claodiern input{width: 7.7rem;}
+		.theflashlighty{width: 8.1rem; border-right: 1px solid #f0f0f0;}
+		.shlightyass button{width: 1.3rem;height: 1.1rem;background-image: url(../imgs/shoudiant1.png);background-size: 100%;position: absolute;top: 2.9rem;left: 8.2rem;background-color: #f7f7f7;border: 0;}
+	/* 资讯列表 */
+		.cvde{width: 200%;overflow: hidden;-webkit-user-select:none;user-select:none;}
+		.fniortlist,.fniortlist_au{width: 50%;height: 1.15rem;border-bottom: 2px solid #dddddd;text-align: center;float: left;}
+			.thelatest_zixu,.themedicalliterature,.expertcomments{width: 30%;display: inline-block;}
+			.thelatest_zixu span,.themedicalliterature span,.expertcomments span,.thelatest_zixua span,.themedicalliteraturea span,.expertcommentsa span,.medicalmanuala span{font-size: .42rem;color: #000;line-height: 1.15rem;display: inline-block;}
+			.dospan span{border-bottom: 3px solid #3396cf;color: #3396cf;}
+
+	/* 资讯列表2 */
+			.fniortlist_au{float: right;}
+			.fniortlist_au div,.fniortlist div{width: 33%;text-align: center;display: block;float: left;box-sizing:border-box;}
+			.medicalmanuala{padding-left: .3rem;width: 30%;display: inline-block;}
+
+
+	/* 播放中 */
+		.fnio_thereis{height: 100%;background-color: #fff;position: relative;}
+			.fnio_thereis ul{width: 100%;}
+				.fnio_thereis li{border: 0;border-bottom:1px solid #e8e8e8;width: 100%;height: auto; padding:0.4rem 0rem;background-color: #fff;position: relative;}
+					.fnio_thereis .kua_cvnfus{overflow: auto;width: 100%;height: 100%;}
+						.redmyu{display: none;position: absolute;right: .8rem;top: 0.5rem;}
+							.redmyu i.icon-redstars,.redmyu i.icon-greystars{position: relative;    margin-right: .16rem;}
+							.redmyu i.icon-mycollection,.redmyu i.icon-mycollectiongray{position: relative;}
+							.fnio_thereis span{display: block;padding-top: .2rem;}
+	/* 临床推荐遮罩 */
+		.filterlayer_a{width: 8.85rem;height: 100%;background-color: #fff;position: absolute;top: 0rem;left: .75rem;border: 1px solid#cdcdcd;}
+			.shuaixfnea{width: 100%;height: .84rem;background-color: #e4e4e4;border-bottom: 1px solid#cdcdcd;}
+				/*.cancely,.saixuan,.determine{display: inline-block;}*/
+				.cancely{width:1.6rem;position: absolute;left: 0;}
+				.saixuan{text-align:center;line-height: 0.84rem;height: 0.84rem;}
+				.saixuan span,.saixuan_disease span{font-size: .34rem;color: #464646;}
+				.determine{width:1.20rem;position: absolute;right: 0;text-align: center;line-height: .84rem;height: .84rem;top: 0;}
+				.shuaixfnea span{color: #9d9d9d;display: inline-block;line-height: .9rem;padding-left: .47rem;font-size: .34rem;}
+				.determine strong{color: #1f80b8;text-align: right;font-size: .34rem;}
+				.saixuan_disease{width: 100%;height: auto;/*border-bottom:1px solid#e8e8e8;*/padding:0.3rem 0;}
+				.saixuan span{font-size: .42rem;color: #464646;}
+				.rosdol{padding-left: .3rem;}
+				.asiso{padding-left: .15rem;}
+				.slekascvg span{
+					font-size: .3375rem;
+					color: #1e80b6;
+					word-wrap: break-word;
+					word-break: normal;
+					float: left;
+					padding: .3rem;
+					line-height: .4rem;
+					display: inline-block;
+					border:1px solid #1e80b6;
+					-moz-border-radius: 5px;      /* Gecko browsers */
+				    -webkit-border-radius: 5px;   /* Webkit browsers */
+				    border-radius:5px;            /* W3C syntax */
+				    margin:.1rem .2rem;
+				}
+				.filter_btn{
+					clear: both;
+					text-align: center;
+					width:100%;
+				}
+				.filter_btn button{
+					border:1px solid #1e80b6;
+					-moz-border-radius: 5px;      /* Gecko browsers */
+				    -webkit-border-radius: 5px;   /* Webkit browsers */
+				    border-radius:5px;            /* W3C syntax */
+				    padding: .3rem;
+					border:1px solid #1e80b6;
+					line-height: .5rem;
+					width:30%;
+					color: #1e80b6;
+					background-color:#fff;
+					font-size: .3375rem;
+					margin:10% 10px;
+					font-weight: bold;
+				}
+				.select_btn{
+					background-color:#1e80b6 !important;
+					color:#fff !important;
+				}
+
+					.type span{padding-left: .3rem;line-height: 1.2rem;font-size: .42rem;color: #464646;text-align: right;}
+				.slekascvg {width: 100%;padding-bottom: 0.4rem}
+				/*.soerlsda{padding-bottom: 1.4rem}*/
+				.symptom{overflow: hidden;}
+				.aioerk{padding-top: .3rem;}
+				.aioerk span.lan,.illness span.lan,.symptom span.lan,.suoyou_gj span.lan,.entity span.lan{
+				background-color:#1e80b6 !important;
+					color:#fff !important;
+				}
+				.aioerka{padding-top: .1rem;}
+			.symptoms_zz{width: 100%;height: 2.16rem;border-bottom:1px solid#e8e8e8;}
+				.symptoms_zz span{line-height: 1.5rem;}
+	/* 医学医用遮罩 */
+		.alistodical{width: 100%;height: 1.27rem;display:inline-block;border-bottom: 1px solid#cdcdcd;}
+			.alistodical ul{margin: .24rem 0 0 .1rem;}
+				.alistodical li{width: 1.8rem;display: inline-block;border: 1px solid#d3d3d3;text-align: center;height: .78rem;margin-left: .2rem;background-color: #f2f2f2;}
+					.alistodical li span{line-height: .8rem;font-size: .34rem;}
+					.alistodical .sanmslog{background-color: #1f80b8;color: #fff;}
+		.categoryar_jb{width: 100%;padding-bottom: .2rem;border-bottom: 1px solid#cdcdcd;overflow: hidden;}
+			.aisieqer{padding-top: .25rem;}
+		.gj_baoguo{padding-top: .2rem;}
+		.suoyou_gj{padding-top: .3rem;float: right; width: 6.75rem;}
+			.suoyou_gj ul{width: 6.8rem;display: inline-block;}
+				.suoyou_gj ul li{width: 1.3rem;display: inline-block;line-height: .8rem;font-size: .34rem;color: #7f7f7f;}
+
+	/* 秋季进补的禁忌 */
+		.tisnamg{width: .6rem;float: right;position: relative;bottom: .8rem;right: .4rem;}
+	/* 秋季进补的禁忌内容 */
+		.theauthor_introduce{width: 100%;margin-bottom: .7rem}
+		._scdv{width: 9.6rem;height:100%;overflow-x: hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;}
+			.payatten_tiondetailed{background-color: #ececec;}
+			.payatten_tiondetailed,.thearticley{padding: 4% 4%;box-sizing:border-box;}
+				.sds-po{padding-top: .2rem;}
+				/*.thearticley table{width: 95% !important;}*/
+				.thearticley img{max-width: 100%;}
+				.js_introduce{padding: .3rem 0 .2rem 0;}
+				.payatten_tiondetailed h2{font-size: .54rem;color: #000;line-height: .6rem;padding-bottom:.2rem;}
+			.payatten_tiondetailed p { min-height:.5rem;padding-bottom: .2rem;line-height: .5rem;font-size: .4rem;}
+				.payatten_tiondetailed p i,.payatten_tiondetailed p b{font-weight: normal;font-style: normal;float: right;}
+				/*.payatten_tiondetailed p b{margin-left: .5rem;}*/
+		.thearticley{width: 100%;overflow-x: hidden;}
+			.thearticley p{font-size: .4rem;color: #696969;line-height: .55rem;}
+
+		.dsds{width: 100%;position: relative;margin: .5rem 0rem 1rem 0rem;}
+			.dsds button{color: #1f80b8;border: 1px solid #1f80b8;background-color: transparent;height: .93rem;width: 83%;margin: 0 auto;display: block;font-size: .36rem;font-family: SimHei;}
+
+	/* 秋季进补的禁忌内容a */
+		.bjz_content{width: 100%;height: 100%;background-color: #ececec;}
+		.clickonthes{width: 100%;height: 100%;display: inline-block;text-align: center;}
+			.wichaka{width: 8.4rem;height: .96rem;display: inline-block;position: relative;top: 7.2rem;}
+			.wichaka button{width: 8.40rem;height: .96rem;background-color: #fff;color: #1f80b8;font-size: .36rem;border: 1px solid#1f80b8;font-weight: bolder;}
+
+
+	/* 秋季进补的禁忌弹出层a*/
+	.ftollcas{width: 100%;height:1.3rem;background-color: #ebebeb;position: fixed;bottom: 0;left: 0;border: 1px solid#d3d3d3;display: none;}
+		.setthefontsize{width: 1.6rem; position: absolute;left: 1.3rem; top: .4rem;}
+		.shouc_set{line-height: 0.65rem;height: 0.84rem;width: 1.2rem;position: relative;left: 4.5rem;top: .1rem;display: inline-block;}
+		.fx_share{width: 1.20rem;position: absolute;right: 1.3rem;text-align: center;line-height: .5rem;height: .84rem; top: .24rem;}
+	.cancely_loal{width: 1.6rem;position: absolute;left: 1.1rem;top: .3rem;}
+	.ftollcas span{line-height: .5rem;font-size:.36rem;color: #545454;}
+	.skalakd{position: relative;left: .5rem;bottom: .2rem;width: 1.2rem;}
+	.skalakdb{position: relative;bottom: .1rem;}
+	/* 秋季进补的禁忌弹出层遮罩*/
+	.quanzdp{width: 100%;height: 100%; background: rgba(0,0,0,.4);position: fixed;top: 0rem;left: 0;}
+	.sdnes{width: 100%;height: 1.16rem;background-color: #e4e4e4;border-bottom: 1px solid #bebebe;}
+	.sdnes *{font-weight: normal;font-style: normal;font-size: .337rem;line-height: 1.16rem;}
+	.sdnes p{color: #9d9d9d;float: left;margin-left: .5rem;}
+	.sdnes h2{color: #464646;font-size: .42rem;text-align: center;}
+	.sdnes b{color: #1f80b8;float: right;margin-right: .5rem;}
+
+	.mediationz-zhez{background-color: #fff;width: 100%;height: 3.41rem;position: absolute;bottom: 1.3rem;}
+		.zh_setthe{width: 100%;height: 1.36rem;border: 1px solid#c4c4c4;}
+			.zh_setthe span{text-align: center;display:block;line-height: 1.5rem;}
+		.dazxinao{width:100%;height: 1.16rem;}
+			.dazxinao ul{width: 6.9rem;height: 1.16rem;margin: 0 auto;border: 1px solid#dedede;border-radius: .2rem;margin-top: .4rem;overflow: hidden;}
+				.dazxinao ul li{width: 33.3%;float: left;text-align: center;border-right:1px solid#dedede;height: 1.16rem;background-color: #fff;box-sizing:border-box;}
+				.dazxinao .baml{border: 0;}
+				.dazxinao span{font-size: .37rem;line-height: 1.1rem;}
+				.dazxinao .bghs{background-color: #e7e7e7;}
+
+	.zhuenqw{display: none;}
+	
+	/*字体大小*/
+		/*小*/
+		.xiaozi .payatten_tiondetailed .js_introduce h2{font-size: .38rem;}
+		.xiaozi .payatten_tiondetailed p,.xiaozi .thearticley p{font-size: .3rem;}
+		/*中*/
+		.zhongzi .payatten_tiondetailed .js_introduce h2{font-size: .42rem;}
+		.zhongzi .payatten_tiondetailed p,.zhongzi .thearticley p{font-size: .34rem;}
+		/*大*/
+		.dazi .payatten_tiondetailed .js_introduce h2{font-size: .46rem;}
+		.dazi .payatten_tiondetailed p,.dazi .thearticley p{font-size: .38rem;}
+	
+	/*显示字体大小框*/
+	.scdkiw{display: block;}
+	.gsid_2,.gsid_1,.gsid_2 ul,.gsid_1 ul{
+	 	 -webkit-overflow-scrolling:touch; 
+	}
+	.contentcount span{
+		display: inline-block !important;
+	}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+	<title>重要医嘱</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 重要医嘱 -->
+		<div class="sheet">
+			<table>
+				<tr>
+					<th>其他治疗</th>
+					<td><p class="qtzl"></p></td>
+				</tr>
+			</table>
+		</div>
+		<div class="imp">
+			<div class="sheet2">
+			</div>
+			<div class="mas"></div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var doctorUuid = gm.para.get(window.location.href,"doctorUuid");
+
+		var tmp = '<div class="add {adivceType}" doctorAdviceUuid="{doctorAdviceUuid}">\
+				<table>\
+					<tbody><tr>\
+						<th class="header">药品名称</th>\
+						<td class="header import"><input type="text" class="con" placeholder="(点击可编辑)" value="{productName}"></td>\
+					</tr>\
+					<tr>\
+						<th>单　　量</th>\
+						<td class="import">\
+							<input type="tel" class="con single" value="{dosage}">\
+							<select class="yz_pl">\
+								<option value="1" {d1}>粒</option>\
+								<option value="2" {d2}>袋</option>\
+								<option value="3" {d3}>mg</option>\
+								<option value="4" {d4}>ml</option>\
+							</select>\
+						</td>\
+					</tr>\
+					<tr>\
+						<th>频　　率</th>\
+						<td class="import">\
+							<ul class="yz_pl">\
+								<li frequency="1" {p1}>早上</li>\
+								<li frequency="2" {p2}>中午</li>\
+								<li frequency="3" {p3}>晚上</li>\
+							</ul>\
+						</td>\
+					</tr>\
+					<tr>\
+						<th>用　　法</th>\
+						<td class="import">\
+							<select class="yz_yf">\
+								<option value="1" {s1}>饭前</option>\
+								<option value="2" {s2}>饭后</option>\
+								<option value="3" {s3}>随餐</option>\
+								<option value="4" {s4}>空腹</option>\
+							</select>\
+						</td>\
+					</tr>\
+				</tbody></table>\
+		</div>';
+
+		$.getDate({
+			page:"patient",
+			inter:"getDoctorAdvicesByDoctorUuid",
+			data:{doctorUuid:doctorUuid,customerUuid:gm.patient.getPatient()},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					var arr = [];
+					var arr2 = [];
+					var _k = "";
+					var _l = "";
+
+					$(".qtzl").html(data.cureNote);
+					$(data.relist).each(function(i,o){
+						o["s" + o["directions"]] = " selected='selected'";
+
+						if (o["frequency"]) {
+							var newstart = o["frequency"];
+
+							var _arr = newstart.split(",");
+
+							$(_arr).each(function(i,_o){
+								o["p" + _o] = " class='mzzt'";
+							});
+				                        };
+						o["d" + o["unit"]] = " selected='selected'";
+
+						o['adivceType'] = o['adivceType'] == "1" ? "adivce" : "";
+
+						arr.push(gm.replace(tmp,o));
+					});
+					$(".sheet2").append(arr.join(""));
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	})
+	</script>
+</body>
+</html>

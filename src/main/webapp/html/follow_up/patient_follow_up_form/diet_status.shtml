@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>进食情况列表</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 进食情况列表 -->
+		<div class="sheet">
+			<table>
+				<!-- <tr>
+					<th>随访第二周</th>
+					<td>良好</td>
+				</tr>
+				<tr>
+					<th>随访第一周</th>
+					<td>良好</td>
+				</tr> -->
+			</table>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+			
+			gm.follow_up.getVisitPreceptExtendList(_applyUuid,2);
+		})
+	</script>
+</body>
+</html>

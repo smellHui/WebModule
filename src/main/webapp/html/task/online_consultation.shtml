@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>在线咨询</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+<!-- 在线咨询 -->
+<body class="task cbox" id="online_advisory">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="soofmut">
+		<!-- 未回复—已回复 -->
+		<div class="state">
+			<div class="no_reply reply">
+				<p class="scjs">未回复<span class="jshd"></span></p>
+			</div>
+			<div class="off_reply reply">
+				<p>已回复</p>
+			</div>
+		</div>
+		<!-- 消息 -->
+		<div class="message">
+			<!-- 未回复 -->
+			<ul class="no_answer" style="display: block;">
+				
+			</ul>
+			<!-- 已回复 -->
+			<ul class="has_answer">
+				
+			</ul>
+		</div>
+	</div>
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl("/html/task/my_task.shtml");
+	}
+	
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		var _type = gm.para.get(window.location.href,"type");
+		var _unread = gm.para.get(window.location.href,"unread");
+		gm.user.getConsultRecordMSG(_type,0);
+		gm.task.online_consultation();
+	});
+	</script>
+</body>
+</html>

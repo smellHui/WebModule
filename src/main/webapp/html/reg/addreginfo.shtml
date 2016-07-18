@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<title>完善注册信息</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 完善注册信息页 -->
+	<aside class="addreginfo">
+		
+		<div class="w645">
+			<div class="login_box1">
+				<div class="upload_photo"></div>
+			</div>
+			<div class="login_box2">
+				<input type="text" class="ipt-def nickname" placeholder="你的姓名">
+				<input type="text" class="ipt-def email" placeholder="邮箱">
+
+				<div class="btn-checkbox">
+					<span class="btn-checkbox-a btn-checkbox-a-on">男士</span>
+					<span class="btn-checkbox-b">女士</span>
+				</div>
+			</div>
+		</div>
+		<!-- 按钮块 -->
+		<div class="login_but" page="user" inter="infoup">
+			<button class="btn-radius w645" id="d-but">下一步</button>
+		</div>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		//注册信息第一阶段
+		$("#logon_register .addreginfo .btn-radius").bind({
+			touchend:function(){
+				var _submitObj = $(this).parent();
+				var _email = $(".addreginfo .email").val();
+				var _sex = "";
+				var _icon = $(".addreginfo .upload_photo img").attr("upsrc");
+				var _wee = $(".addreginfo .btn-checkbox-a").attr("class").split(' ');
+				var _nickname = $(".addreginfo .nickname").val();
+				var _doctorUuid = gm.para.get(window.location.href,"doctorUuid");
+				// var _tp = "";
+				console.log(_icon);
+				//邮箱格式
+				var reg = {
+					"email" : /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+				};
+
+				//判断性别
+				if (_wee[1]){
+					_sex = "1";
+				}else{
+					_sex = "2";
+				}
+
+				if(!_nickname){
+					$.alert("请输入姓名");
+					return false;
+				}
+				if(!reg.email.test(_email)){
+					$.alert("请输入有效邮箱！");
+					return false;
+				}
+				window._loading = new mask("loading");
+				_loading.show();
+				$.getDate({
+					page:_submitObj.attr("page"),
+					inter:_submitObj.attr("inter"),
+					data:{email:_email,sex:_sex,icon:_icon,doctorName:_nickname,callback:"gm.user.reg",uuid:_doctorUuid,callback:"gm.user.regTwo"},
+					method:"POST",
+					dataType:"script"
+				});
+
+				$(".addreginfo_name").addClass("curpage");
+				$(".addreginfo").removeClass("curpage");
+			}
+		});
+
+		//添加上传头像绑定事件
+		gm.upimgmaxwidth = 200;
+		$(".upload_photo").upimage(function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+
+			if(data.query.success){
+			        	$(".addreginfo .upload_photo").html("<img src="+data.smallUrl+" style=height:100%;-webkit-border-radius:50px;>");
+			        	
+				$(".upload_photo img").attr("upsrc",data.smallImage);
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

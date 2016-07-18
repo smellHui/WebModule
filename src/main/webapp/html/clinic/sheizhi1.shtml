@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的出诊时间</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+		
+		<!-- 内容 -->
+	<div class="thene_cement">
+		<div class="cvenpas">
+			<strong>添加出诊时间</strong>
+			<div class="solscd5">
+				<i class="icon-addya"></i>
+			</div>
+		</div>
+		<ul class="onwednesday">
+			<!-- <li>
+				<strong>周三</strong>
+				<span>上午</span>
+				<div class="tz_saeq">
+					<b>停诊</b>
+					
+				</div>
+				<div class="kua_scnut"><div class="ndh"><i class="icon-mycoltrash"></i></div></div>
+			</li> -->
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.sheizhi1();
+	});
+	</script>
+</body>	
+</html>

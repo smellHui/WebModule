@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<title>健康指导</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+
+<body class="cbox" id="health_guide">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+		</ul>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.my_doctor.health_guide_list();
+		})
+	</script>
+
+</body>
+</html>

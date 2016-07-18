@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+	<title>心灵氧吧</title>
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+</head>
+
+<body class="refer cbox" id="refer_soul">
+<div id="______goodmoodbottommenu" class="appconfig">{"isShow":"YES"}</div>
+	<!-- 内容 -->
+	<div class="xlyb_box">
+		<!-- 内容标题 -->
+		<div class="conti">
+			<div class="help">
+				<h2 class="dserfa">心理自助</h2>
+			</div>
+			<div class="all">
+				<h2>在线视频</h2>
+			</div>
+		</div>
+		<div class="alllive">
+			<!-- 心理自助 -->
+			<ul class="list1" data="1">
+				<!-- <li>
+					<div class="asbg">
+						<div class="scvideo">
+							<img src="http://app.hxqydyl.com/imgs/live.jpg">
+						</div>
+						<div class="videomz">
+							<h2>医学的四大误会</h2><p>2016-01-05 10:42:15</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="ics">
+						<i class="icon-care">
+							<p class="care">112</p>
+						</i>
+						<i class="pts-greencollection"></i>
+					</div>
+					<div class="clear"></div>
+					</li> -->
+			</ul>
+			<!-- 在线视频内容 -->
+			<ul class="list2" data="2">
+				<!-- <li>
+					<div class="live">
+						<img src="http://app.hxqydyl.com/imgs/live.jpg">
+					</div>
+					<div class="text">
+						<p>正在直播：吴雅峰-心脏超声在肺血栓栓塞症...</p>
+						<p class="time">2015.09.12 14:30</p>
+					</div>
+					<div class="ics">
+						<i class="icon-care">
+							<p class="care">112</p>
+						</i>
+						<i class="pts-greencollection"></i>
+					</div>
+				</li>
+				<li>
+					<div class="live">
+						<img src="http://app.hxqydyl.com/imgs/live2.jpg">
+					</div>
+					<div class="text">
+						<p>预告：杨媛华-如何能够想到病人患了肺血栓栓塞症</p>
+						<p class="time">2015.09.12 14:30</p>
+					</div>
+					<div class="ics">
+						<i class="icon-care2"></i>
+						<i class="icon-mycollectiongray"></i>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<!-- 弹出层 -->
+	<div class="xlybtcc">
+		<div class="dspla">
+			<dl>
+				<!-- <dd>压力管理</dd>
+				<dd>缓解焦虑</dd>
+				<dd>走进抑郁</dd>
+				<dd>新闻心解</dd>
+				<dd>心理新闻</dd>
+				<dd>心理百科</dd> -->
+			</dl>
+		</div>
+	</div>
+
+	<!-- <div class="hz_foot">
+		<ul>
+			<li class="in_1"><a href="/patient/index/page.shtml"><i class="dls-hxqsx"></i></a></li>
+			<li class="in_2"><a href="/patient/my_doctor/index.shtml"><i class="dls-wdyssx"></i></a></li>
+			<li class="in_3"><a href="/patient/refer/refer_soul.shtml"><i class="dls-xlybsx"></i></a></li>
+			<li class="in_4"><a href="/patient/my/index.shtml"><i class="dls-wdsx"></i></a></li>
+		</ul>
+	</div> -->
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.refer.refer_soul();
+			
+		})
+	</script>
+</body>
+</html>

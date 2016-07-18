@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的患者</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="followed cbox" id="followed" style="width:100%;overflow-x:hidden;">
+	<div class="sf_box" style="box-sizing:border-box;padding-bottom:1.5rem;">
+		<div class="content fnonne">
+			
+		</div>
+		<div class="content fnonne" id="content" page="user" inter="getCustomerListByDoctorUuidAndGroupId">
+			
+		</div>
+	</div>
+	<!-- 底部 -->
+	<!--<div id="mypatient">
+		<div class="foot">
+			<ul>
+				<li><a href="/html/index/page.shtml"></a><div class="_as1 _as"></div></li>
+				<li><a href="/html/mypatient/index.shtml"></a><div class="_as2 _as"></div></li>
+				<li><a href="/html/task/my_task.shtml"></a><div class="_as3 _as"></div></li>
+				<li><a href="/html/user/index.shtml"></a><div class="_as4 _as"></div></li>
+			</ul>
+		</div>
+	</div>-->
+	<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/follow_up.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	
+	<script>
+	$(function(){
+		gm.menu.showBottomBar();//显示菜单
+		var _loading = new mask("loading");
+		_loading.show();
+		// gm.user.getCaseGroupByDoctorId();
+		$.getDateAjax({
+			page:"doctor",
+			inter:"getPatientGrops",
+			data:{doctorUuid:gm.user.getDoctor()},
+			callback:function(data){
+				_loading.hide();
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.code==200){
+					if(data.value){
+						createList("在线咨询",data.value);
+					}
+					/* if(data.orderlist){
+						createList("电话咨询",data.orderlist);
+					} */
+					/*if(data.visitlist){
+						createList("随访患者",data.visitlist);
+					}*/
+					/* if(data.appointlist){
+						createList("预约加号",data.appointlist);
+					} */
+				}else{
+					$.alert("数据加载错误!");
+				}
+				
+				
+				
+			}
+		});
+
+		//通过医生id和分组id获取患者列表
+		// gm.user.getCustomerListByDoctorUuidAndGroupId();
+
+		//gm.pul.returnurl = gm.pul.returnIndex;
+		
+		function createList(name,data){console.log(name,data);
+
+		var tmpDl = $('<dl><dt><i class="logo-triangle"></i><b>' + name + '[' + data.onlinelistSize + ']</b><span></span></dt></dl>');
+
+		tmpDl.children("dt").ontouch(function(){
+			//$(this).parent().siblings().removeClass("sydns");//清除父元素的状态
+			$(this).parent().toggleClass("sydns");
+		});
+		var ifreadCount=0;
+		if(data.onlinelist && data.onlinelist.length > 0){
+
+			$(data.onlinelist).each(function(i,o){
+				//统计未读消息数量
+				if(o.ifread=="0")
+					ifreadCount++;
+				var tmpDD = $('<dd>\
+					<div class="newszu">\
+						<div class="head_portrait">\
+							<img src='+(o["customerImg"]||(o.sex == "1" ? window.___defaultImage_p_man : window.___defaultImage_p_woman))+'>\
+							<i class="newMessageRemind '+(o["ifread"]==0?"":"newhide")+'"></i>\
+						</div>\
+						<div class="nagent">\
+							<div class="duof">\
+								<h3>' + o["customerName"] + '<i class="icon-' + (o["sex"] == 1 ? "boy" : "girl") + '"></i></h3>\
+								<span>年龄：'+ (o["age"] ? o["age"] + "岁" : "无") + '</span>\
+								<span class="createTime">'+o["createTime"].substring(0,10)+'</span>\
+							</div>\
+							<p class="comment">'+o["content"]+'</p>\
+						</div>\
+						<span class="recordDetails">详情</span>\
+					</div>\
+				</dd>').ontouch(function(){
+					var url = "",
+						customerUuid = o["customerUuid"],
+						consultRecordUuid = o["consultRecordUuid"];
+						$(this).find(".newszu .head_portrait i").hide();//消息已读标识
+						var isUnRead=$(this).find(".newszu .head_portrait i").hasClass("newhide");//已读
+						if(!isUnRead){
+							ifreadCount--;
+						}
+						if(ifreadCount==0){
+							gm.pul.toUrl("goodm://hideBadgeOnItemIndex");
+						}else{
+							gm.pul.toUrl("goodm://showBadgeOnItemIndex");
+						}
+					if(name == "在线咨询"){
+						url = "/html/task/consultation_page.shtml?from=mypatient&customerUuid=" + customerUuid;
+					}/* else if(name == "电话咨询"){
+						url = "/html/task/phone_consultation_new.shtml?from=mypatient&type=1&unread=0";
+					}else if(name == "随访患者"){
+						url = "/html/follow_up/patient_details.shtml?from=mypatient&customerUuid=" + customerUuid;
+					}else if(name == "预约加号"){
+						url = "/html/task/booking_plus_new.shtml?from=mypatient&type=2&unread=1";
+					} */
+					setTimeout(function(){
+						gm.pul.toUrl(url);
+					},100);
+					
+				});
+				tmpDl.append(tmpDD);
+			});
+
+		}
+		
+		$("#content").append(tmpDl);
+	};
+	});
+	
+
+	</script>
+</body>
+</html>

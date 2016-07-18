@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<title>个人信息</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/module/date.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="cbox" id="personal_information">
+	<!-- 右侧菜单 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"编辑","menuevent":"gm.user.editMess"}</div>
+	<div class="scroll-y">
+		<div class="bbndf_"></div>
+		<!-- 内容 -->
+		<div class="">
+			<dl class="options">
+				<!-- 图像 -->
+				<dd class="gnents">
+				   	头像:
+				   	<div class="feng_avatar"><img src="/static/imgs/ngudwda.png"></div>
+				</dd>
+				<!--  -->
+				<dd>
+					昵称：
+					<input id="nickName" disabled="true" class="isuserEdit" type="text" value=""/>
+				</dd>
+				<dd>
+					性别：
+					<!--  <input id="sex" type="text" disabled="true"/>-->
+					<div class="editSex isuserEdit" disabled="true">
+						<span></span>
+					</div>
+				</dd>
+				<dd>
+					年龄：
+					<span id="spanbirthday" class="person_span_right isuserEdit" disabled="true">
+						<span id="birthday"></span>
+					</span>
+				</dd>
+				<!-- 后期添加 -->
+			</dl>
+		</div>
+		<!-- 按钮 -->
+		<button class="btn-zyradius" id="personal_save">保存</button>
+		<div id="datePlugin"></div>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/lib/date.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/lib/iscroll.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	//个人信息可修改，添加保存状态
+	gm.user.editMess=function(){
+		$(".options .gnents i").css("visibility","visible");//显示修改图像
+		//性别女
+		$(".editSex .btn-checkbox-b").bind({
+			touchend:function(){
+				$(".btn-checkbox-a").removeClass("btn-checkbox-a-on");
+				$(".btn-checkbox-b").addClass("btn-checkbox-b-on");
+				var arr = $(".btn-checkbox-b").attr("class").split(" ");
+			}
+		});
+
+		//性别男
+		$(".editSex .btn-checkbox-a").bind({
+			touchend:function(){
+				$(".btn-checkbox-b").removeClass("btn-checkbox-b-on");
+				$(".btn-checkbox-a").addClass("btn-checkbox-a-on");
+			}
+		});
+		
+		$("#personal_save").css("display","block");//显示 保存按钮
+		//显示可编辑项目
+		$(".isuserEdit").removeAttr("disabled");
+		$("#spanbirthday").date({},function(data){
+			$("#spanbirthday span").html(data)
+		});
+		$("#spanfirstDiagnosis").date({},function(data){
+			$("#spanfirstDiagnosis span").html(data)
+		});
+	}
+	gm.pul.returnurl = function(){
+		//判断是否已经处于修改状态，
+		//$.alert($("#personal_save").css("display"));
+		if($("#personal_save").css("display")=='none')//非编辑状态
+			gm.pul.toUrl('/patient/my/index.shtml');
+		else{//编辑状态
+			$.confirm("是否取消编辑?",
+					function(){
+						gm.pul.toUrl('/patient/my/index.shtml');
+					});
+		}
+		
+	}
+	$(function(){
+		//$("#personal_save").css("display","block");//显示 保存按钮
+		//$(".isuserEdit").removeAttr("disabled");
+		
+		gm.my.personal_information();
+		
+		
+	});
+	</script>
+</body>
+</html>

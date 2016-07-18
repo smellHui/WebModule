@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的同行</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 8-同行 -->
+	<aside id="invite_peer">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 邀请同行头标 -->
+		<div class="the_header">
+			<div class="header_tou">
+				<!--邀请同行 -->
+				<i class="icon-tnvitecolleagues"></i>
+				<span>邀请同行</span>
+			</div>
+		</div>
+		<!--边框 -->
+		<div class="header_doubletube"></div>
+		<!--内容 -->
+		<div class="header_introducey">
+			<p>好心情将不断完善功能，一定会成为您行医路上的有力助手，邀请您的小伙伴们一起来吧!</p>
+		</div>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(function(){
+		gm.user.invite_peer();
+		gm.menu.hiddenBottomBar();//隐藏菜单
+	});
+	</script>
+</body>
+</html>

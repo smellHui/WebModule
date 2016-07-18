@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<title>临床推荐</title>
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_header.shtml"-->
+</head>
+
+<body class="cbox search" id="search2">
+	<div class="diswngu">
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+				</a>
+			</form>
+		</div>
+	</div>
+
+	<!-- 列表内容 -->
+	<div class="pvdow">
+		<div class="btsr">
+			<!-- 临床推荐内容 -->
+			<div class="gsid_1">
+				<!-- 正在播放 -->
+				<ul class="varioustype fnio_thereis">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 遮罩层 -->
+	<div class="cuisd">
+		<!-- 医学医用 -->
+		<div class="quanzdp sds2">
+			<div class="filterlayer_a">
+				<div class="sdnes">
+					<h2><p>取消</p>筛选<b>确定</b></h2>
+				</div>
+				<div class="alistodical">
+					<ul>
+						<li class="sanmslog"><span>指南共识</span></li>
+						<li><span>医疗标准</span></li>
+						<li><span>临床量表</span></li>
+					</ul>
+				</div>
+				<div class="categoryar_jb">
+					<div class="aisieqer">
+						<div class="type">
+							<span>疾病</span>
+						</div>
+						<div class="slekascvg">
+							<div class="soerlsda">
+								<div class="aioerk">
+
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+				<div class="gj_countries">
+					<div class="gj_baoguo">
+						<div class="type">
+							<span>国家</span>
+						</div>
+						<div class="suoyou_gj slekascvg">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.thedoctorinformation.searchs();
+	})
+	</script>
+</body>
+</html>

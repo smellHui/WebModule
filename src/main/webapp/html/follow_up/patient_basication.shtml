@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/follow_up_header.shtml"-->
+</head>
+
+<!-- 添加患者 -->
+<body class="followed cbox" id="patient_basication">
+	<!-- 标题 -->
+	<div class="title"><i class="fh"></i><h2>添加患者</h2></div>
+	<!-- 内容 -->
+	<div class="tjhz_box">
+		<ul class="fnonne">
+			<li class="tj_hzxx">患者信息
+				<span>
+					<p>王志玲</p><i>女</i><b>36岁</b>
+					<h4>2015-04-12 就诊</h4>
+				</span>
+				<i class="icon-thearrowx"></i>
+			</li>
+			<li class="tj_hzzs">患者主诉<i class="icon-thearrowx"></i></li>
+			<li class="tj_jbjc">基本检查<i class="icon-thearrowx"></i></li>
+			<li class="tj_zd">诊断<i class="icon-thearrowx"></i></li>
+			<li class="tj_hzfz">患者分组<i class="icon-thearrowx"></i></li>
+		</ul>
+	</div>
+
+</body>
+</html>

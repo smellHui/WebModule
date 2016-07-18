@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+	<title>诊所-布局修改</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="clinic cbox">
+	<!-- 1-个人中心 -->
+	<div class="curpage" id="clinic">
+
+		<!-- 收入 -->
+		<div class="thedetaily">
+			<div class="bill_left">
+				<ul>
+					<li><span>总 收 入:</span><i> 988</i></li>
+					<li><span>账户余额:</span><i> 233</i></li>
+					<li><span>昨日收入:</span><i>+300</i></li>
+				</ul>
+			</div>
+			<!-- 按钮 -->
+			<div class="bill_ringht">
+				<div class="bupslas">
+					<a href="/html/clinic/bill.shtml?action=tx" class="btn-def">提现</a>
+					<a href="/html/clinic/bill.shtml?action=zd" class="btn-defa">账单</a>
+				</div>
+			</div>
+		<!--我的出诊公告，时间 -->
+			<dlv class="options">
+				<!--  -->
+				<dl>
+				    <dd id="mypoin">
+				    	<div class="solscd1">
+				    		<a href="/html/clinic/announcement.shtml"></a>
+				    		<i class="icon-thehorn"></i>
+				    		<span>我的公告</span>
+				    	</div>
+				    	<div class="solscd2">
+				    		<i class="icon-thearrowx"></i>
+				    	</div>
+				    </dd>
+				    <dd class="dd_as" id="grlop">
+				    	<div class="solscd1">
+				    		<a href="/html/clinic/sheizhi1.shtml"></a>
+				    		<i class="icon-visittime"></i>
+				    		<span>我的出诊时间</span>
+				    	</div>
+				    	<div class="solscd2">
+				    		<i class="icon-thearrowx"></i>
+				    	</div>
+				    </dd>
+			    </dl>
+			</dlv>
+
+		<!--开通列 -->
+		<div class="openthecolumn">
+			<div class="kuangtiao"></div>
+			<dl class="options">
+			    <dd id="mypoin">
+			    	<div class="solscd1">
+			    		<i class="icon-makeanappointment"></i><span><a href="/html/clinic/sheizhi2.shtml">开通加号预约</a></span>
+						<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			    	</div>
+			    </dd>
+			    <dd class="dd_as" id="grlop">
+			    	<div class="solscd1">
+			    		<i class="icon-byconsulting"></i><span><a href="###">开通图文咨询</a></span>
+						<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			    	</div>
+			    </dd>
+			    <dd id="mypoin">
+			    	<div class="solscd1">
+			    		<i class="icon-thephonebyconsulting"></i>
+			    		<!--//缺失 开通电话咨询链接-->
+			    		<span><a href="/html/clinic/sheizhi3.shtml">开通电话咨询</a></span>
+						<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			    	</div>
+			    	<div class="solscda2">
+		    			<i class="icon-thearrowx"></i>
+		    		</div>
+			    </dd>
+			    <dd class="dd_as" id="grlop">
+			    	<div class="solscd1">
+			    		<i class="icon-privatedoctors"></i><span><a href="/html/clinic/kaitong.shtml">开通私人医生</a></span>
+						<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			    	</div>
+			    </dd>
+			</dl>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	</script>
+</body>
+</html>

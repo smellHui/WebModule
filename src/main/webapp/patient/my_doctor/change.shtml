@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>病情记录-病情变化</title>
+    <!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<body class="change bad">
+    <div class="cbox">
+        <!-- 标题 -->
+        <!-- 内容 -->
+        <div class="sheet">
+            <table id="list" style="display:none">
+            </table>
+        </div>
+        <!-- 病情变化 -->
+        <div class="condition">
+            <dl>
+                <dt>
+                    <h2>病情变化<span class="status">痊愈</span><i class="pts-andthearow"></i></h2>
+                </dt>
+                <dd class="grey white">好转</dd>
+                <dd class="grey white">无效</dd>
+                <dd class="grey">其他</dd>
+            </dl>
+        </div>
+        <!-- 原因 -->
+        <div class="reason">
+            <h2>原因请注明</h2>
+            <textarea></textarea>
+        </div>
+        <!-- <button class="btn-zyradius submit" id="add">添加</button> -->
+        <button class="btn-zyradius submit" id="add">提交</button>
+    </div>
+    <!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+    <script type="text/javascript">
+    $(function() {
+            var visitRecordUuid = gm.para.get(window.location.href,"visitRecordUuid");
+            var doctorUuid= gm.para.get(window.location.href,"doctorUuid");
+            var action = gm.para.get(window.location.href,"action");
+            var previons = 1;
+
+            if(action == "edit"){
+                $(".submit,.condition,.reason").hide(); 
+                getIllnessRecordByVisitRecordUuid();
+            }
+        function getIllnessRecordByVisitRecordUuid(){
+            $.getDate({
+                page:"patient",
+                inter:"getIllnessRecordByVisitRecordUuid",
+                data:{visitRecordUuid:visitRecordUuid},
+                callback:function(r){
+                    var relist  =r.relist, html = '<tr>\
+                        <th>发生时间</th>\
+                        <th>病情变化</th>\
+                        <th>原因描述</th>\
+                    </tr>', arr= ['',"痊愈","好转","无效","其他"];
+                    
+                    if(!relist.length){
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }else{
+                        $(".submit,.condition,.reason").hide();
+                    }
+                    for(var i =0;i<relist.length;i++){
+                        html+= '<tr>\
+                            <td>'+relist[i].createTime+'</td>\
+                            <td>'+arr[relist[i].previons]+'</td>\
+                            <td>'+relist[i].note+'</td>\
+                    </tr>'
+                    }
+                    $("#list").html(html).show();
+                }
+            })
+        }
+        gm.func = function(data) {
+            window.loading = new mask("loading");
+            window.loading.show();
+            setTimeout(function(){
+                gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+                },800);
+        }
+
+        $("#add").on("touchend", function() {
+            var previonsObj = {
+            	"其他":4,
+            	"无效":3,
+            	"好转":2,
+            	"痊愈":1
+            }
+            previons = previonsObj[$(".status").text()];
+            var _note = $("textarea").val();
+            if(_note == ""){
+                $.alert("请输入原因");
+                return false;
+            }
+            $.getDate({
+                page: "follow_up",
+                inter: "addIllnessRecord",
+                data: {
+                    callback: "gm.func",
+                    visitRecordUuid:visitRecordUuid,
+                    note:_note,
+                    previons:previons
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        })
+    })
+    </script>
+</body>
+
+</html>

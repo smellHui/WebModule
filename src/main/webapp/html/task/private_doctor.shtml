@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+	<title>私人医生</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 电话咨询 -->
+<body class="task cbox" id="phone_advisory">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="soofmut">
+		<!-- 未回复—已回复 -->
+		<div class="state">
+			<div class="no_handle reply">
+				<p class="scjs">未处理<span class="jshd"></span></p>
+			</div>
+			<div class="off_handle reply">
+				<p>已处理</p>
+			</div>
+			<div class="finish reply">
+				<p>已完成</p>
+			</div>
+		</div>
+		<!-- 消息 -->
+		<div class="message">
+			<!-- 未回复 -->
+			<ul class="no_answer" style="display: block;">
+				<!-- <li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+						<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+								<button>审核</button>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+						<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+								<button>审核</button>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li> -->
+			</ul>
+			<!-- 已回复 -->
+			<ul class="has_answer">
+				<!-- <li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+						<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li> -->
+			</ul>
+			<!-- 已w完成 -->
+			<ul class="doucuns">
+				<!-- <li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+						<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="newszu">
+						<p class="date">2015-04-12</p>
+	
+						<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+		
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志玲<i class="icon-girl"></i></h3>
+								<span>年龄：36岁</span>
+							</div>
+							<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+						</div>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl("/html/task/my_task.shtml");
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		var _type = gm.para.get(window.location.href,"type");
+		var _unread = gm.para.get(window.location.href,"unread");
+		// gm.user.getConsultRecordMSG(_type,_unread);
+		gm.task.phone_consultation(_type);
+		
+	});
+	</script>
+</body>
+</html>

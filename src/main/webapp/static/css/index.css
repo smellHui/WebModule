@@ -1,0 +1,76 @@
+/* 首页 */
+.index .section{overflow-y:hidden;}
+.index .cbox{margin: 0 auto;height:100%;overflow-y:auto;}
+.index .cbox { position:absolute; top:0; left:0; padding-top:1.81rem; box-sizing:border-box; }
+	/*头部*/
+	.index .head{ position:relative; z-index:1; width: 100%;height: 1.8rem;background-color: #3496ce;border-bottom: 1px solid #cce6f2;position: relative;}
+		.uos_a,.uos_b{width: 100%;height: 100%;position: absolute;background-color:#3496ce;}
+		/*未登录的状态*/
+		.uos_a{}
+			.uos_a .w{width: 5.45rem;height: 100%;margin: 0 auto;position: relative;}
+			.left_p{float: left;}
+			.right_p{float: right;}
+			.uos_a i{position: absolute;top: 50%;left: 50%;margin: -.575rem 0rem 0rem -.575rem;}
+			.uos_a p a{font-size: .5rem;color: #fff;display: inline-block;line-height: 1.8rem;}
+
+		/*登录后的状态*/
+		.uos_b{display: none;}
+		.index .box_a{width: 65%;float: left;}
+		.index .box_b{width: 35%;float: right;}
+		.index .box_a,.box_b{padding-top: .3rem;height: 1.2rem;white-space:nowrap; text-overflow:ellipsis;overflow-x:hidden;}
+		/*用户头像&名字*/
+		.index .user_information{margin-left: 8%;position: relative;}
+			/*头像*/
+			.index .user_avatar{width: 1.1rem;height: 1.1rem;background-color: #56a7d5;border-radius: .57rem;overflow: hidden;border: .05rem solid #80c1e6;position: absolute;left: 0;}
+					.index .user_avatar img{width: 100%;height: 100%;border-radius:.57rem;}
+			/*名字&记录*/
+			.index .user_unpv{margin-left: .35rem;position: absolute;left: 1.2rem;}
+				/*名字*/
+				.index .user_name{color: #fff;display: block;font-weight: normal;line-height: .8rem;max-width: 2.4rem;white-space:nowrap; text-overflow:ellipsis;overflow:hidden;position: relative;float: left;}
+				.index .sanm{display: none; color: #fff;padding-left: .2rem;font-size: .27rem;line-height: .8rem;position: relative;top: .03rem;}
+				/*记录*/
+				.index .patients_visit{clear: both;}
+					.index .patients_visit i,.patients_visit b,.index .my_income h2{font-size: .27rem;color: #7ed0ff;font-weight: normal;font-style: normal;display: inline-block;white-space:nowrap; text-overflow:ellipsis;overflow:hidden;}
+					.index .patients_visit i{border-right: 1px solid #7ed0ff;padding-right: .2rem;}
+		/*我的收入*/
+		.index .my_income{padding-left: 10%;}
+			.index .my_income h2{line-height: .55rem;}
+			.index .my_income p{color: #fff;font-size: .675rem;font-weight: bold;line-height: .6rem;}
+
+
+	/*导航*/
+	.index .navigation{width: 100%;margin-bottom: 1.08rem; overflow:hidden;}
+		.index .navigation ul{overflow: hidden;border-bottom: 1px solid #d4d4d4;}
+		.index .navigation li{width: 50%;height: 3.3rem;float: left;border-top: 1px solid #d4d4d4;border-right: 1px solid #d4d4d4;box-sizing:border-box;position: relative;background-color: #fff;}
+		.index .navigation li a{width: 100%;height: 100%;display: block;position: absolute;top: 0;left: 0;}
+		.index .navigation .sc_bor{border-right: 0;}
+		.index .navigation li div{background-size:7.26rem auto;margin: 0 auto;margin-top: .4rem;}
+		.index .navigation li p{text-align: center;font-size: .44rem;letter-spacing:.06rem;line-height: .9rem;}
+		.index .navigation li.in_sf_off p { color:#ebebeb; }
+		/*图标*/
+			.index .ds{background-image: url(../imgs/ds.png);width: 1.77rem;height: 1.97rem;}
+			.index .ds1{background-position: 0 0;}
+			.index .ds2{background-position: 33% 0;}
+			.index .ds3{background-position: right 0;  }
+			.index .in_sf_off .ds3{background-position: right -2.12rem;  }
+			.index .ds4{background-position: 66% 0;}
+
+
+
+/* 医生信息 */
+.index .doctor-info {}
+	.index .doctor-info {}
+	.index .doctor-info {}
+
+/* 焦点图 */
+.index .focus-imgs {}
+	.index .focus-imgs {}
+	.index .focus-imgs {}
+	.index .focus-imgs {}
+
+/* 底部工具栏 */
+.bottom-tools { }
+	.bottom-tools { }
+	.bottom-tools { }
+	.bottom-tools { }
+	.bottom-tools { }

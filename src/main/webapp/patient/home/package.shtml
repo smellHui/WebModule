@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>私人医生</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="package">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+			<!-- <li>
+				<div class="h_taocan">
+					<a href="/patient/home/homeprivatedoctors.shtml"></a>
+					<h4>套餐A</h4>
+					<p><b>200</b>元/月</p>
+				</div>
+				<div class="p_zhujie">
+					<p>图文咨询次数：无限</p>
+					<p>电话咨询次数：无限</p>
+					<p>支持加号次数：5次</p>
+				</div>
+			</li>
+			<li>
+				<div class="h_taocan">
+					<a href="/patient/home/homeprivatedoctors.shtml"></a>
+					<h4>套餐B</h4>
+					<p><b>500</b>元/季</p>
+				</div>
+				<div class="p_zhujie">
+					<p>图文咨询次数：无限</p>
+					<p>电话咨询次数：无限</p>
+					<p>支持加号次数：15次</p>
+				</div>
+
+			</li>
+			<li>	
+				<div class="h_taocan">
+					<a href="/patient/home/homeprivatedoctors.shtml"></a>
+					<h4>套餐C</h4>
+					<p><b>1600</b>元/年</p>
+				</div>
+				<div class="p_zhujie">
+					<p>图文咨询次数：无限</p>
+					<p>电话咨询次数：无限</p>
+					<p>支持加号次数：25次</p>
+				</div>
+			</li> -->
+		</ul>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+
+	<script type="text/javascript">
+		$(function(){
+			gm.home.pack();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>登录</title>
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/reg.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<!--#include virtual="/html/template/patient/reg_sign_header.shtml"-->
+</head>
+
+<body class="cbox" id="sign">
+	<div class="w645">
+		<!-- 图标 -->
+		<div class="login_box1">
+			<i class="pts-logo"></i>
+		</div>
+		<!-- 输入框模块 -->
+		<div class="login_box2">
+			<h2>登录</h2>
+			<input type="text" class="ipt-def mobile" placeholder="请输入手机号码">
+			<input type="password" class="ipt-def password" placeholder="请输入密码">
+			<p><a class="wjmm" href="/patient/reg/back_password.shtml" style="color:#28c3b1;">忘记密码？</a></p>
+		</div>
+		<!-- 按钮块 -->
+		<div class="login_but" page="user" inter="login">
+			<button class="btn-radius">登录</button>
+			<h2><a class="ljzc" href="/patient/reg/registration.shtml">没有账号？立即注册</a></h2>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/reg_sign_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.reg.login();
+	})
+	</script>
+</body>
+</html>

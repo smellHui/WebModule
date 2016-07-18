@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加银行卡</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	<!-- 添加银行卡 -->
+	<div class="zensuo_tianjia">
+		<div class="add_pake">
+			<dt><p>请绑定持卡人本人的银行卡</p></dt>
+			<dd class="realName"><span>持卡人</span><div class="aidoi"><input type="text" class="ipt-def cardholder"></div></dd>
+			<dd class="ID"><span>身份证号</span><div class="aidoi"><input type="tel" maxlength="18" class="ipt-def identity"></div></dd>
+			<dd class="bankUuid">
+				<span>银行卡类型</span>
+					<div class="aidoi">
+						<strong class="bank" bank="1">农业银行储蓄卡</strong>
+					</div>
+			</dd>
+			<dd class="bankCode"><span>卡号</span><div class="aidoi"><input type="tel" maxlength="19" class="ipt-def car"></div></dd>
+		</div>
+		<!-- 按钮块 -->
+		<div class="queding_a">
+			<a href="###" class="btn-radius">下一步</a><!-- 默认圆角按钮 -->
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user){
+			gm.pul.toUrl('/html/clinic/card_null.shtml?from=user');
+		}else
+			gm.pul.toUrl('/html/clinic/card_null.shtml');
+	}
+	$(function(){
+		gm.clinic.card_add();
+	});
+	</script>
+	</body>
+</html>

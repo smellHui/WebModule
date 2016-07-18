@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+	<title>创建病历</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="follow cbox">
+	<div class="cbox">
+		<!-- 详细门诊记录 -->
+		<div class="medhis">
+			<div class="case zhusu">
+				<h2>主诉</h2>
+				<textarea ></textarea>
+			</div>
+			<div class="case xianbingshi">
+				<h2>现病史</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case jiwangshi">
+				<h2>既往史</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case gerenshi">
+				<h2>个人史</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case zhuangkuang">
+				<h2>需要关注的躯体状况</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case jingshen">
+				<h2>精神检查</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case fuzhu">
+				<h2>辅助检查</h2>
+				<textarea class=""></textarea>
+				<i class="logo-xj"></i>
+				<i class="icon-voice"></i>
+			</div>
+			<div class="case yichang">
+				<h2>需要关注的异常结果</h2>
+				<textarea></textarea>
+			</div>
+			<div class="case zhuyao">
+				<h2>主要诊断</h2>
+				<textarea></textarea>
+				<i class="logo-xj"></i>
+				<i class="icon-voice"></i>
+			</div>
+			<div class="frame fabingcishu">
+				<p>发病次数 <strong>0</strong> <i class="icon-thearrowx"></i></p>
+			</div>
+
+			<div class="case gongbing">
+				<h2>共病</h2>
+				<textarea></textarea>
+			</div>
+
+			<div class="frame frame1 zhz">
+				<p>合并症<i class="icon-thearrowx"></i></p>
+				<div class="selectlist">
+					<span>糖尿病</span>
+					<span>高血压</span>
+					<span>冠心病</span>
+					<b>其他</b>
+					<p>
+						<input type="text" placeholder="糖尿病,高血压,冠心病...">
+					</p>
+				</div>
+			</div>
+			<!-- <div class="frame frame1">
+				<p>精神科量表测评<i class="icon-thearrowx"></i></p>
+			</div> -->
+			<div class="frame frame1 zlfa">
+				<p>治疗方案<i class="icon-thearrowx"></i></p>
+			</div>
+			<button class="btn-zyradius dirc">保存</button>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_outpatient_cases.shtml?customerUuid='+customerUuid)
+	}
+	$(function(){
+		gm.follow_up.addrecord();
+	});
+	</script>
+</body>
+</html>

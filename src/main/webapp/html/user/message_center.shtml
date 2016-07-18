@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>消息中心</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 5-消息中心 -->
+	<aside id="message_center">
+		<!--  -->
+		<ul class="dunpds">
+			<li id="zkcoll"><h2>关注我的患者<span>0</span></h2></li>
+			<li id="sfxx"><h2>随访消息<span>0</span></h2></li>
+			<li id="zxzx"><h2>系统通知<span>0</span></h2></h2></li>
+		</ul>
+	</aside>
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		gm.user.message_center();
+		$(".dunpds li").eq(0).bind({
+			touchend:function(){
+				var _l = $(this).find("span").html();
+				gm.pul.toUrl( "/html/user/collection_my.shtml");
+			}
+		})
+		$(".dunpds li").eq(1).bind({
+			touchend:function(){
+				var _l = $(this).find("span").html();
+//				if (_l == 0) {
+//					$.alert("您暂时没有随访消息");
+//				}else{
+					gm.pul.toUrl( "/html/user/visit_news.shtml");
+//				}
+				
+			}
+		})
+		$(".dunpds li").eq(2).bind({
+			touchend:function(){
+				var _l = $(this).find("span").html();
+//				if (_l == 0) {
+//					$.alert("您暂时没有在线咨询消息");
+//				}else{
+					gm.pul.toUrl( "/html/user/online_consult.shtml");
+//				}
+				
+			}
+		})
+	})
+	</script>
+</body>
+</html>

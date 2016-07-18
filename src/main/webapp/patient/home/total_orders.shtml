@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>医嘱指导</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="total_orders">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="total_orders_list">
+		<ul>
+		</ul>
+		<p id="dont_show" style="display:none;">您目前还没有任何医嘱</p>			
+	</div>
+
+	<div class="total_orders_gq">
+		<ul></ul>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.home.total_orders();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/home/advice_index.shtml');
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>治疗方案</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 用药指导 -->
+<body class="followed cbox" id="treatmentoptions">
+	<!-- 标题 -->
+	
+	<!-- 治疗方案 -->
+	<div class="treatmentoptions">
+		<ul class="fnonne">
+			<li><a href="/html/follow_up/medication.shtml"></a>药物治疗<i class="icon-thearrowx"></i></li>
+			<li><a href="/html/follow_up/other_treatment.shtml"></a>其他治疗<i class="icon-thearrowx"></i></li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid");
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+		// gm.pul.returnurl = function(){
+		// 	gm.pul.toUrl('/html/follow_up/record_patient_detail.shtml?medicalRecordUuid='+medicalRecordUuid+'&customerUuid='+customerUuid)
+		// }
+
+		$(".fnonne a").bind({
+			touchend:function(){
+				$(this).attr("href",$(this).attr("href")+"?medicalRecordUuid="+medicalRecordUuid+"&customerUuid="+customerUuid+"");
+			}
+		});
+	});
+	</script>
+</body>
+</html>

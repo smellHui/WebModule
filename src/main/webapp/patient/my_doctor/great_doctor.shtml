@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>重要医嘱</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+
+<body class="cbox" id="great_doctor">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="ypxq_box">
+		<div class="p_nbwkf"><p>2015-11-17</p></div>
+		<dl>
+			<dt>
+				<h2>阿司匹林</h2>
+				<p>60mg/次 <span class="frequency">每天三次</span> <span class="directions">饭后半小时服用</span></p>
+			</dt>
+			<dt>
+				<h2>阿奇霉素</h2>
+				<p>60mg/次 <span class="frequency">每天三次</span> <span class="directions">饭后半小时服用</span></p>
+			</dt>
+			<dd>
+				<h2>其他治疗</h2>
+				<p>其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗</p>
+			</dd>
+			<dd>
+				<h2>药物不治疗</h2>
+				<p>其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗</p>
+			</dd>
+			<dd>
+				<h2>药物不良反应处理</h2>
+				<p>其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗其他治疗</p>
+			</dd>
+		</dl>
+		<!-- 过期 -->
+		<ul class="vdja">
+			<li>
+				<h2>阿司匹林<span>2015-10-15</span></h2>
+				<p>60mg/次 每天三次 饭后半小时服用</p>
+				<i class="logo-ygqs"></i>
+			</li>
+
+			<li>
+				<h2>阿司匹林<span>2015-10-15</span></h2>
+				<p>60mg/次 每天三次 饭后半小时服用</p>
+				<i class="logo-ygqs"></i>
+			</li>
+		</ul>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+
+</body>
+</html>

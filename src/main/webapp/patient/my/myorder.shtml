@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的订单</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="depressiontest cbox" id="myorder">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="scroll-y">
+		<!-- 我的订单头部 -->
+		<div class="my_navigation">
+			<div class="my_state">
+				<ul>
+					<li stateType="0"><span class="_d1 dserf">全部</span></li>
+					<li stateType="1"><span class="_d2">待执行</span></li>
+					<li stateType="2"><span class="_d3">已完成</span></li>
+				</ul>
+			</div>
+			<ul class="dd_jos">
+			</ul>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/patient/my/index.shtml');
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.myorder();
+	})
+	</script>
+</body>
+</html>

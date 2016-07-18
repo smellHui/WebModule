@@ -1,0 +1,5 @@
+<!--#include virtual="/html/template/common_header.shtml"-->
+<link rel="stylesheet" href="http://app.hxqydyl.com/css/follow_up.css">
+<script src="http://app.hxqydyl.com/js/follow_up.js"></script>
+
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<title>其他治疗</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox" id="o_treat">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 其他情况描述 -->
+		<div class="desc">
+			<h2>其他治疗</h2>
+			<textarea class="feedbackcontent" placeholder="其他治疗" maxlength="100"></textarea>
+		</div>
+		<div class="top_125">
+			<button class="btn-zyradius">保存</button>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid") || 0;
+		var customerUuid = gm.para.get(window.location.href,"customerUuid") || 0;
+
+		gm.func = function(data){
+			gm.pul.toUrl("/html/follow_up/treatment_plan.shtml?medicalRecordUuid="+medicalRecordUuid+"&customerUuid="  + customerUuid);
+		}
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var text = $(".feedbackcontent").val();
+
+				$.getDate({
+					page:"follow_up",
+					inter:"addDoctorAdviceModel",
+					data:{
+						medicalRecordUuid:medicalRecordUuid,
+						type:1,
+						cureNote:text,
+						callback:"gm.func"
+					},
+					method:"POST",
+					dataType:"script"
+				});
+			}
+		});
+	});
+	</script>
+</body>
+</html>

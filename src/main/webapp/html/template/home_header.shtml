@@ -1,0 +1,5 @@
+<!--#include virtual="/html/template/common_header.shtml"-->
+<link rel="stylesheet" href="http://app.hxqydyl.com/p_css/tools.css">
+<link rel="stylesheet" type="text/css" href="http://app.hxqydyl.com/p_css/common.css">
+<script src="http://app.hxqydyl.com/p_js/home.js"></script>
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>

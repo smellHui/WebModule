@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-患者病历 -->
+<body class="task cbox" id="newszu">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<!--  -->
+	<div class="znksdhylm">
+		<div class="newszu message">
+			<div><p class="date">2015-04-12</p></div>
+			<!-- 头像 -->
+			<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+			<!-- 名字、性别、年龄、评论 -->
+			<div class="nagent">
+				<div class="duof">
+					<h3>王志玲<i class="icon-girl"></i></h3>
+					<span>年龄：36岁</span>
+				</div>
+				<p class="comment">之前一直锻炼，膝盖有问题，一年前有过腰疼理疗后有了好转……</p>
+			</div>
+		</div>
+		<i class="icon-thearrowx"></i>
+	</div>
+	<!--  -->
+	<div class="bdgfy">
+		<ul>
+			<li class="riqxzzt">
+				<span></span>
+				<!-- 日 -->
+				<i>22</i>
+				<!-- 月 -->
+				<b>9月</b>
+			</li>
+			<li>
+				<span></span>
+				<!-- 日 -->
+				<i>12</i>
+				<!-- 月 -->
+				<b>9月</b>
+			</li>
+			<li>
+				<span></span>
+				<!-- 日 -->
+				<i>22</i>
+				<!-- 月 -->
+				<b>8月</b>
+			</li>
+			<li>
+				<span></span>
+				<!-- 日 -->
+				<i>12</i>
+				<!-- 月 -->
+				<b>8月</b>
+			</li>
+			<li>
+				<span></span>
+				<!-- 日 -->
+				<i>22</i>
+				<!-- 月 -->
+				<b>7月</b>
+			</li>
+			<li>
+				<span></span>
+				<!-- 日 -->
+				<i>12</i>
+				<!-- 月 -->
+				<b>7月</b>
+			</li>
+		</ul>
+	</div>
+	<!-- 复诊— -->
+	<div class="fovrsn">
+		<h2>复诊</h2>
+		<textarea class="zdneirong" placeholder="诊断内容"></textarea>
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+		})
+	</script>
+</body>
+</html>

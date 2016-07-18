@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/thedoctorinformation_header.shtml"-->
+</head>
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	<!-- 秋季进补的禁忌 -->
+		<div class="title"><a href="guidenoticedetails.shtml"><i class="fh"></i></a><h2>秋季进补的禁忌</h2></div>
+		<!-- 下载地址 -->
+		<div class="downlo_addressot">
+			<div class="download_theconnection">
+				<span>下载链接地址</span>
+			</div>
+			<div class="edu_cugb">
+				<p>http:www.edu.cugb.com</p>
+			</div>
+			<div class="theconnection_ma">
+				<span>下载码</span>
+				<i>13523</i>
+			</div>
+		</div>
+</div>
+	<!--#include virtual="/html/template/thedoctorinformation_bottom.shtml"-->
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>二维码</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+
+</head>
+<body id="home">
+	<section class="section">
+	<!-- 1-个人中心 -->
+	<aside class="cbox curpage" id="personal_center">
+		<!-- 标题 -->
+		
+		<!-- 患者端home二维码 -->
+		<aside class="cbox" id="personal_curpage">
+			
+			<div class="pw">
+				<div class="ledongt">
+					<div class="theterms_of">
+						<h2>我的专属联系方式</h2>
+						<!-- 二维码图片 -->
+						<div class="qrcode_img">
+							<img src="http://app.hxqydyl.com/p_img/hometou1.png">
+						</div>
+						<!-- 名字_职位_医院 -->
+						<h2>柴平 <span>主任医师</span></h2>
+						<div class="luoksa">
+							<p>北一三院</p>
+							<strong>我的二维码</strong>
+						</div>
+					</div>
+				</div>
+			<div class="tivshi">
+				<i class="icon-gthn"></i>
+				<b>打开微信扫一扫，与我建立长期联系</b>
+			</div>
+		</div>
+	</aside>
+	<!-- 临床推荐遮罩 -->
+	<div id="quanzdp">
+		<div class="pomet">
+			<div class="theterms_of">
+				<h2>我的专属联系方式</h2>
+				<!-- 二维码图片 -->
+				<div class="qrcode_img">
+					<img src="http://app.hxqydyl.com/p_img/hometou1.png">
+				</div>
+				<!-- 名字_职位_医院 -->
+				<h2>柴平 <span>主任医师</span></h2>
+			</div>
+		</div>
+		<div class="warder">
+			<p>将二维码/条码放入框内，即可自动扫描</p>
+			<strong>我的二维码</strong>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<title>意见反馈</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 12—意见反馈 -->
+	<aside id="feedback">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<div class="nusbag">
+			<!-- 意见填写框 -->
+			<textarea class="feedbackcontent" name="message" placeholder="请填写您的意见或建议，我们会及时跟进"></textarea>
+			<!-- 联系方式 -->
+			<div class="dsmbuecs">
+				<p>联系方式</p>
+				<input type="text" class="ipt-def mobile" placeholder="手机号码">
+				<!-- <input type="text" class="ipt-def email" placeholder="邮箱"> -->
+				<!-- <input type="text" class="ipt-def qq" placeholder="QQ号码"> -->
+			</div>
+		</div>
+		<!-- 按钮 -->
+		<div class="anbox" page="public" inter="saveFavorite">
+			<button class="btn-zyradius">提交</button>
+		</div>
+	</aside>
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		// $("input:text,textarea").diySetText();
+		gm.content.getFeedback(0,gm.user.getDoctor(),function(data){
+			$("#feedback .nusbag .mobile").val(data.mobile);
+		});
+		//意见反馈
+		$("#feedback .btn-zyradius").bind({
+			touchend:function(){
+				var _submitObj = $(this).parent();
+				var _opinion = $("#feedback .nusbag textarea").val();
+				var _mobile = $("#feedback .nusbag .mobile").val();
+				var _email = $("#feedback .nusbag .email").val();
+				var _qq = $("#feedback .nusbag .qq").val();
+
+				// var _doctorUuid = localStorage.getItem("_doctorUuid");
+				var reg =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+
+				//如果没有内容
+				if (!_opinion) {
+					$.alert("请输入反馈内容！");
+					return;
+				}
+
+				//三选一输入
+				if(_mobile || _email || _qq){
+					//验证手机
+					if(_mobile && !/[\d+]{11}/.test(_mobile)){
+						$.alert("失败，手机验证不通过");
+						return;
+					}
+
+					//验证邮箱
+					if(_email && !reg.test(_email)){
+						$.alert("请输入有效邮箱！");
+						return;
+					}
+
+					//验证QQ号码
+					if(_qq &&  !/[\d+]/gi.test(_mobile)){
+						$.alert("请输入有效QQ号码！");
+						return;
+					}
+
+					$.getDate({
+						page:_submitObj.attr("page"),
+						inter:_submitObj.attr("inter"),
+						data:{opinion:_opinion,mobile:_mobile,email:_email,qq:_qq,customerId:gm.user.getDoctor(),callback:"gm.user.saveFavorite"},
+						method:"POST",
+						dataType:"script"
+					});
+				}
+			}
+		});
+	});
+	</script>
+</body>
+</html>

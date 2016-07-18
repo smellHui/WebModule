@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访方案-查看方案 -->
+<body class="followed cbox" id="viewing_scheme">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="xzfa_box">
+		<ul class="tx_xang fnonne">
+			<!-- 方案名称 -->
+			<li class="xzfa_famc">
+				<h2>方案名称：</h2>
+				<p class="xzfa_name">妄想症随访方案</p>
+			</li>
+			<!-- 药物治疗 -->
+			<li class="xzfa_ywzk">
+				<h2>药物治疗</h2>
+				<p class="xzfa_nims">药物及调整药物方式详情药物及调整药物方式详情药物</p>
+			</li>
+			<!-- 药物不良反应处理 -->
+			<li class="xzfa_ywbnfy">
+				<h2>药物不良反应处理</h2>
+				<p class="xzfa_dnupon">不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理不良反应处理</p>
+			</li>
+		</ul>
+		<ul class="tx_dsvba fnonne">
+			<li class="period">
+				<h2>随访周期</h2>
+				<p>3周</p>
+			</li>
+			<li class="electrocardiogram">
+				<h2>心电图检查周期</h2>
+				<p>3周</p>
+			</li>
+			<li class="bloodRoutine">
+				<h2>血常规</h2>
+				<p>3周</p>
+			</li>
+			<li class="hepatic">
+				<h2>肝功能</h2>
+				<p>3周</p>
+			</li>
+		</ul>
+		<!-- 添加检查项周期 -->
+		<div class="_tjqtjcxzq">已关联患者<i class="icon-thearrowx"></i></div>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/bj_img.png","menuevent":""}</div>
+
+	<script type="text/javascript">
+	$(function(){
+		
+	})
+	</script>
+</body>
+</html>

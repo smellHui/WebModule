@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访申请详情</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访申请详情 -->
+<body class="followed cbox" id="follow_up_for_details">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="sfsqxq_box">
+		<div class="gercnsd">
+			<div style="line-height:.7rem;"><i></i><b></b><span></span></div>
+			<p style="line-height:.7rem;"><span>病情描述：</span></p>
+		</div>
+		<ul>
+			<li href="/html/follow_up/patient_follow_up_form/disease_change.shtml">病情变化<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/record_list.shtml">服药记录<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/adverse_reaction.shtml
+">药物不良反应<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/sleep_status.shtml
+">睡眠情况<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/diet_status.shtml
+">进食情况<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/other_status.shtml">其他情况<b><i class="icon-thearrowx"></i></b></li>
+			<li href="/html/follow_up/patient_follow_up_form/check_result.shtml">其他检查及结果<b><i class="icon-thearrowx"></i></b></li>
+		</ul>
+	</div>
+	<!--  按钮 -->
+	<div class="hzxx_but">
+		<button class="btn-zyradius accept">接受并关联随访方案</button>
+		<button class="btn-zyradius rtghrk">拒绝</button>
+	</div>
+
+	<!-- 拒绝弹出层 -->
+	<div class="refuse_details" page="doctor" inter="refuseVivistApply">
+		<textarea placeholder="请输入原因"></textarea>
+		<button class="btn-zyradius">确定</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/followed_up_for.shtml');
+	}
+	$(function(){
+		var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+
+		//随访申请详情  接受
+		$("#follow_up_for_details .accept").bind({
+			touchend:function(){
+				var _submitObj = $(this).parent();
+				var _customerUuid = $("#follow_up_for_details .sfsqxq_box ul").attr("customerUuid");
+				gm.pul.toUrl( "/html/follow_up/selective_up_program.shtml?customerUuid="+_customerUuid+"&applyUuid="+_applyUuid);
+			}
+		});
+
+		$(".sfsqxq_box li").ontouch(function(){
+			var _ = $(this);
+			gm.pul.toUrl( _.attr("href") + "?applyUuid=" + _applyUuid);
+		});
+
+		//获取详细
+		gm.follow_up.getApplyDetail(_applyUuid);
+
+		//医生拒绝关联患者
+		gm.follow_up.refuseVivistApply(_applyUuid);		
+	});
+	</script>
+</body>
+</html>

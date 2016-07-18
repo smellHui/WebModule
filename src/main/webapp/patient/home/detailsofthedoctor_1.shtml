@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/home_header.shtml"-->
+
+</head>
+<body id="home_doctor">
+	<section class="section">
+	<!-- 1-个人中心 -->
+	<aside class="cbox curpage" id="personal_center">
+		<!-- 标题 -->
+		<div class="title"><a href="detailsofthedoctor.shtml"><i class="fh"></i></a><h2>关注医生</h2></div>
+		<!-- 关注医生 -->
+		<div class="dalastsof">
+			<ul>
+				<li>
+					<div class="backlas">
+						<img src="/static/p_img/home_renwu.png">
+						<div class="dynamic_als"></div>
+						<div class="call">
+							<strong>Echo Chen</strong>
+						<div class="z_tai"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 主治医生 -->
+		<div class="aphysician">
+			<div class="neurology">
+				<ul><li><span>主治医师</span></li><li class="shoid"><span>北京协和医院</span></li><li><span>神经内科</span></li></ul>
+			</div>
+			<!-- 主治医生接诊量 -->
+			<div class="acepts_mount">
+				<ul>
+					<li>
+						<span>接诊量<i>687</i></span>
+					</li>
+					<li>
+						<span>咨询量<i>9936</i></span>
+					</li>
+					<li>
+						<span class="fensi">粉丝数<i>999981</i></span>
+					</li>
+				</ul>
+			</div>
+			<!-- 主治医生擅长 -->
+			<div class="good_at">
+				<div class="a_overview">
+					<h2>擅长</h2>
+					<div class="good_content">
+						<p>精神病性障碍 情绪障碍 </p>
+					</div>
+				</div>
+ 			</div>
+ 			<!-- 主治医生个人简介 -->
+ 			<div class="personal_profilea">
+ 					<div class="a_overview">
+					<h2>个人简介</h2>
+					<p>在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色在神经早起干预上形成了显著学科优势和特色</p>
+				</div>
+ 			</div>
+ 			<!-- 主治医生关注按钮 -->
+			<div class="cancel_start">
+				<a class="btn-radius">取消关注</a><!-- 默认圆角按钮 -->
+			</div>
+		</div>
+</body>
+</html>

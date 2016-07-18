@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>病例列表</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="case_notrs">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+			<!-- <li>
+				<p>1511-11-18<a href="/patient/my_doctor/my_records.shtml"><i class="pts-myorder"></i>门诊病例</a></p>
+			</li>
+			<li>
+				<p>1511-11-18<a href="/patient/my_doctor/my_records.shtml"><i class="pts-myorder"></i>门诊病例</a></p>
+			</li>
+			<li>
+				<p>1511-11-18<a href="/patient/my_doctor/my_records.shtml"><i class="pts-myorder"></i>门诊病例</a></p>
+			</li> -->
+		</ul>			
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.home.case_notes();
+	})
+	</script>
+
+</body>
+</html>

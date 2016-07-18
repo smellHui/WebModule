@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>病情变化-其他</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 病情变化描述 -->
+		<div class="desc">
+			<h2>病情变化描述</h2>
+			<p>病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情病情变化描述详情</p>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+</body>
+</html>

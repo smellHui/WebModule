@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+	<title>重要医嘱</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 重要医嘱 -->
+		<div class="sheet">
+			<table>
+				<tr>
+					<th>用药指导</th>
+					<td><select class="type"><option value="1">维持原治疗</option><option value="2">调整治疗方案</option></select><span class="ic ic1"><i class="icon-thearrowx"></i></span></td>
+				</tr>
+				<tr>
+					<th>其他治疗</th>
+					<td><input type="text" class="qtzl" /> </td>
+				</tr>
+			</table>
+		</div>
+		<div class="imp">
+			<div class="sheet2">
+			</div>
+			<div class="mas"></div>
+		</div>
+		<button class="btn-zyradius dirc adds hide">添加其他医嘱信息</button>
+		<button class="btn-zyradius dirc save hide">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		if(!gm.isIndex)history.go(-1);
+		//gm.pul.toUrl('/html/follow_up/patient_follow_up_form/follow_list.shtml?applyUuid='+_applyUuid + "&customerUuid=" + customerUuid)
+	}
+	$(function(){
+		var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+		$(".sheet2").on("touchend",".yz_pl li",function(){
+			if ($(this).hasClass("mzzt")) {
+			    $(this).removeClass("mzzt");
+			}else{
+			    $(this).addClass("mzzt");
+			}
+		});
+
+		$("button").hide();
+
+		$(".qtzl").diySetText();
+
+		$(".type").bind({
+			change:function(e){
+				switch($(this).val()){
+					case "1":
+					$(".mas").show();
+					$(".btn-zyradius").hide();
+					break;
+					case "2":
+					$(".mas").hide();
+					$(".btn-zyradius").show();
+					break;
+				}
+			}
+		});
+
+
+		var tmp = '<div class="add" doctorAdviceUuid="{doctorAdviceUuid}">\
+				<table>\
+					<tbody><tr>\
+						<th class="header">药品名称</th>\
+						<td class="header import"><input type="text" class="con" placeholder="(点击可编辑)" value="{productName}"></td>\
+					</tr>\
+					<tr>\
+						<th>单　　量</th>\
+						<td class="import">\
+							<input type="tel" class="con single" value="{dosage}">\
+							<select class="yz_pl">\
+								<option value="1" {d1}>粒</option>\
+								<option value="2" {d2}>袋</option>\
+								<option value="3" {d3}>mg</option>\
+								<option value="4" {d4}>ml</option>\
+							</select>\
+						</td>\
+					</tr>\
+					<tr>\
+						<th>频　　率</th>\
+						<td class="import">\
+							<ul class="yz_pl">\
+								<li frequency="1" {p1}>早上</li>\
+								<li frequency="2" {p2}>中午</li>\
+								<li frequency="3" {p3}>晚上</li>\
+							</ul>\
+						</td>\
+					</tr>\
+					<tr>\
+						<th>用　　法</th>\
+						<td class="import">\
+							<select class="yz_yf">\
+								<option value="1" {s1}>饭前</option>\
+								<option value="2" {s2}>饭后</option>\
+								<option value="3" {s3}>随餐</option>\
+								<option value="4" {s4}>空腹</option>\
+							</select>\
+						</td>\
+					</tr>\
+				</tbody></table>\
+		</div>';
+		$(".adds").bind({
+			touchend:function(){
+				var objs = $(".sheet2 .add");
+				if(objs.length > 0){
+					var o = $(objs[objs.length-1]);
+
+					var _doctorAdviceUuid = o.attr("doctorAdviceUuid");
+					var _medicineUuid = o.find("tr").eq(0).find("input").val();
+					var _dosage = o.find("tr").eq(1).find("input").val();
+					var _unit = o.find("tr").eq(1).find(".yz_pl").val();
+					var _o = [];
+				            o.find("tr").eq(2).find(".mzzt").each(function(i,o){
+				                _o.push($(this).attr("frequency"));
+				            });
+				            var _frequency = _o.join(",");
+				            var _directions = o.find("tr").eq(3).find(".yz_yf").val();
+
+					if (_medicineUuid && _dosage && _unit && _frequency && _directions) {
+						$(".sheet2").append(gm.replace(tmp,{}));
+					}else{
+						$.alert({
+							val:"请填写完整信息",
+							type:"flash"
+						})
+					}
+				}				
+			}
+		});
+
+		$(".save").bind({
+			touchend:function(){
+				var arr = [];
+				var data = {};
+
+				$(".add").each(function(i,o){
+					o = $(o);
+
+					var _doctorAdviceUuid = o.attr("doctorAdviceUuid");
+					var _medicineUuid = o.find("tr").eq(0).find("input").val();
+					var _dosage = o.find("tr").eq(1).find("input").val();
+					var _unit = o.find("tr").eq(1).find(".yz_pl").val();
+					var _o = [];
+				            o.find("tr").eq(2).find(".mzzt").each(function(i,o){
+				                _o.push($(this).attr("frequency"));
+				            });
+				            var _frequency = _o.join(",");
+				            var _directions = o.find("tr").eq(3).find(".yz_yf").val();
+
+				            arr.push(JSON.stringify({
+						type:"0",
+						doctorAdviceUuid:_doctorAdviceUuid,
+						medicineUuid:_medicineUuid,
+						doctorUuid:gm.user.getDoctor(),
+						dosage:_dosage,
+						frequency:_frequency,
+						directions:_directions,
+						unit:_unit
+					}));
+				});
+
+				data.cureNote = $(".qtzl").val();
+				data.lists = "[" + arr.join(",") + "]";
+				data.callback = "gm.callback";
+				data.applyUuid = _applyUuid;
+
+				gm.callback = function(data){
+					if(!data){
+						$.alert("服务器出错");
+						return;
+					}
+					if(data.query.success == "1"){
+						var customerUuid = gm.para.get(window.location.href,"customerUuid");
+						$.alert({
+							val:"保存完毕",
+							type:"flash",
+							callback:function(){
+								gm.pul.toUrl("/html/follow_up/patient_follow_up_form/follow_list.shtml?applyUuid=" + _applyUuid + "&customerUuid="+customerUuid)
+							}
+						})
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+
+				$.getDate({
+					page:"doctor",
+					inter:"updateDoctorAdvice",
+					method:"POST",
+					dataType:"script",
+					data:data
+				});
+			}
+		})
+
+		$.getDate({
+			page:"patient",
+			inter:"getDoctorAdviceList",
+			data:{doctorUuid:gm.user.getDoctor(),visitRecordUuid:_applyUuid},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					var arr = [];
+					var _k = "";
+					var _l = "";
+					$(".qtzl").val(data.cureNote || "");
+					$(data.relist).each(function(i,o){
+						o["s" + o["directions"]] = " selected='selected'";
+
+
+						if (o["frequency"]) {
+							var newstart = o["frequency"];
+
+							var _arr = newstart.split(",");
+
+							$(_arr).each(function(i,_o){
+								o["p" + _o] = " class='mzzt'";
+							});
+				                        };
+						o["d" + o["unit"]] = " selected='selected'";
+
+						arr.push(gm.replace(tmp,o));
+					});
+					$(".sheet2").append(arr.join(""));
+
+					$(".sheet2").append(gm.replace(tmp,{}));
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	})
+	</script>
+</body>
+</html>

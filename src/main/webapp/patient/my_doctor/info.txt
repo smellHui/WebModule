@@ -1,0 +1,34 @@
+/--------------------- 我的医生 ---------------------/
+/patient/my_doctor/index.shtml				首页-我的医生
+
+/patient/my_doctor/use_query.shtml			用药查询。
+/patient/my_doctor/druails.shtml			用药查询-药品详情。
+/patient/my_doctor/records_img.shtml			图片咨询。
+/patient/my_doctor/telephone_counseling.shtml		电话咨询。
+/patient/my_doctor/appointment.shtml			预约加号。
+/patient/my_doctor/personal.shtml                       私人医生。
+/patient/my_doctor/consultation_record.shtml		咨询记录详情。
+/patient/my_doctor/follow_doctor.shtml			随访医生。
+
+/--- 随访列表 ---/
+/patient/my_doctor/remind.shtml                         服药提醒。
+/patient/my_doctor/communicate_patient.shtml		医患沟通（聊天页面）。
+/patient/my_doctor/change.shtml                         病情记录-病情变化。
+/patient/my_doctor/medicine.shtml                       病情记录-服药记录。
+/patient/my_doctor/bad_reaction.shtml                   病情记录-药物不良反应。
+/patient/my_doctor/other_situations.shtml               其他情况。
+/patient/my_doctor/inspection_result.shtml              其他检查及结果。
+/patient/my_doctor/follow_up_list.shtml                 病情记录。
+
+
+/patient/my_doctor/my_records.shtml			病历
+/patient/my_doctor/great_doctor.shtml			重要医嘱
+/patient/my_doctor/health_guide.shtml			健康指导
+/patient/my_doctor/other_cure_record.shtml              其他治疗记录
+
+
+
+
+
+
+

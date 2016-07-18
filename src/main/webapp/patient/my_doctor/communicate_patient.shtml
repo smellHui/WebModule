@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>医患沟通</title>
+    <!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+    <link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/task.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+    <link rel="stylesheet" type="text/css" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css">
+</head>
+
+<body class="cbox" id="communicate_patient">
+    <!-- 标题 -->
+    <!-- 内容 -->
+    <div class="vfesc">
+        <ul>
+            <!-- 患者  patient_sd user_sd-->
+            <my-list v-for="item in items" :item="item" :index="$index">
+            </my-list>
+        </ul>
+    </div>
+    <!--  弹出框 -->
+    <!-- <div class="tu_dfs">
+        <p>本次免费咨询医生已结束</p>
+        <p>请确认</p>
+        <a href="/patient/home/thedoctorlist.shtml"><button class="btn-zyradius">确认</button></a>
+    </div> -->
+    <!-- 功能栏 -->
+    <div class="plug_in_unit">
+        <!-- 输入 -->
+        <div class="enter">
+            <i class="logo-lsht" style="display:none;"></i>
+            <!--  -->
+            <div class="ndsfid">
+                <input @keyup.enter="sendTextMsg" type="text" class="ipt-disabled" id="input-send">
+            </div>
+            <i class="logo-lsxjp" style="right:1.4rem;"></i>
+            <span @click="sendTextMsg" style="position:absolute;right:.2rem;top:.25rem;width:1.1rem;height:.75rem;line-height:.75rem;text-align:center;background:#28c3b1; color:#fff;">发送</span>
+        </div>
+    </div>
+    <!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/vue.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/AV.realtime.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/realtime.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script type="text/javascript">
+    gm.pul.returnurl=function(){
+    	var from=gm.para.get(window.location.href,"device");
+    	if(from=="Client"){
+    		gm.isMobile=true;
+    		if(!gm.isMobile){return;}
+				gm.pul.toUrl("goodm://returnIndexPage");	
+    	}else{
+    		history.go(-1);
+    	}
+    		
+    }
+    $(function() {
+        
+        var _doctorUuid = gm.para.get(window.location.href, "doctorUuid");
+        var user = {
+            id: "",
+            icon: "",
+            sex:""
+        }
+		
+        var _loading = new mask("loading");
+        _loading.show(); //10秒后不关闭，则弹出延迟警告，然后自动关闭
+        //查询患者个人信息
+
+        window.showWallpaper = function(_this) {
+            $.onShowPic.call(_this, "data-src")
+        }
+
+        //用户登录判断，没登录，跳转登录页面
+        //gm.user.vcLogin();
+
+        $.getDate({
+            page: "patient",
+            inter: "toCustomerInfo",
+            data: {
+                customerUuid: gm.patient.getPatient()
+            },
+            callback: function(data) {
+                //服务器传输回应
+                if (!data) {
+                    $.alert("服务器出错!");
+                }
+                if (data.query.success == "1") {
+
+
+                    user.id = gm.patient.getPatient();
+                    user.icon = data.imgUrl;
+                    user.sex=data.sex;
+                        //用户链接服务器
+                    IM.connect(user.id, {
+                        succ: function(msg) {
+
+                            IM.getHistory(function(data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    filterMsg(data[i].data)
+                                }
+                                _loading.hide(); //关闭
+
+                                goBottom()
+                            });
+
+                            IM.receive(function(data) {
+                                filterMsg(data.msg)
+                                goBottom()
+                            })
+                        }
+                    });
+                } else {
+                    $.alert(data.query.message);
+                }
+            }
+        });
+
+        function goBottom() {
+            setTimeout(function() {
+                $(".vfesc").scrollTop(9999);
+            }, 300)
+        }
+
+
+        var message = new Vue({
+                el: '#communicate_patient',
+                components: {
+                    'my-list': {
+                        props: ['item'],
+                        template: '<li class="{{item._class}}">' +
+                            '<div class="head_portrait" v-if="!item.isUser"><img src="{{item.icon}}"/></div>' +
+                            '<div class="_p" v-if="!item.isUser">' +
+                            '<div class="jiao"></div>' +
+                            '<p>{{{item.message}}}</p>' +
+                            '</div>' +
+                            '<div class="_p" v-if="item.isUser">' +
+                            '<div class="jiao"></div>' +
+                            '<p>{{{item.message}}}</p>' +
+                            '</div>' +
+                            '<div class="head_portrait" v-if="item.isUser"><img src="{{item.icon}}"></div>' +
+                            '</li>',
+                    }
+                },
+                methods: {
+                    sendTextMsg: function() {
+                        var text = document.getElementById("input-send"),
+                            val = $.trim(text.value);
+                        if(val == ""){
+                            text.value = '';
+                            return false;
+                        }
+                        IM.sendTextMsg({
+                            text: val,
+                            attr: {
+                                form: user.id,
+                                to: _doctorUuid,
+                                icon: user.icon ? user.icon :user.sex=="1"?window.___defaultImage_p_man:window.___defaultImage_p_woman
+                            },
+                            succ: function(msg) {
+
+                                message.items.push({
+                                    message: val,
+                                    icon: user.icon ? user.icon : user.sex=="1"?window.___defaultImage_p_man:window.___defaultImage_p_woman,
+                                    _class: "user_sd",
+                                    isUser: true
+                                });
+
+                                //发送消息
+                                gm.pul.sendMsg({
+                                    customerUuid:user.id,
+                                    doctorUuid:_doctorUuid,
+                                    content:val,
+                                    imageUrl:"",
+                                    userType:2
+                                });
+
+                                text.value = '';
+                                goBottom()
+                            }
+                        })
+                    }
+                },
+                data: {
+                    items: []
+                }
+            })
+
+        function filterMsg(data) {
+            //console.log(data)
+            if (!data.attr || !data.attr.form) {
+                return
+            }
+
+
+            if(data.attr.form != user.id && data.attr.to != user.id){
+                return
+            }
+
+            if(data.attr.form != _doctorUuid && data.attr.to != _doctorUuid){
+                return
+            }
+
+
+            if (data.attr.form == user.id) {
+                data.isUser = true;
+                data._class = "user_sd";
+                data.icon = user.icon ? user.icon : "http://app.hxqydyl.com/imgs/woman2.png"
+            } else {
+                data.isUser = false
+                data._class = "patient_sd";
+                data.icon = data.attr.icon ? data.attr.icon : user.sex=="1"?window.___defaultImage_p_man:window.___defaultImage_p_woman
+            }
+            if (data.type == "text") {
+                message.items.push({
+                    message: data.text,
+                    isUser: data.isUser,
+                    _class: data._class,
+                    icon: data.icon
+                })
+            } else {
+                message.items.push({
+                    message: data.text + '<img onclick="showWallpaper(this)" data-src="' + data.attr.bigurl + '" src="' + data.url + '"/>',
+                    isUser: data.isUser,
+                    _class: data._class,
+                    icon: data.icon
+                })
+            }
+        }
+
+
+
+        $(".logo-lsxjp").upimage(function(data) {
+            IM.sendImgMsg({
+                text: "",
+                url: data.smallUrl,
+                attr: {
+                    bigurl: data.imageUrl,
+                    form: user.id,
+                    icon: user.icon ? user.icon : user.sex=="1"?window.___defaultImage_p_man:window.___defaultImage_p_woman,
+                    to: _doctorUuid
+                },
+                succ: function(msg) {
+                    message.items.push({
+                        message: '<img onclick="showWallpaper(this)" data-src="' + data.imageUrl + '" src="' + data.smallUrl + '"/>',
+                        _class: "user_sd",
+                        icon: user.icon ? user.icon : user.sex=="1"?window.___defaultImage_p_man:window.___defaultImage_p_woman,
+                        isUser: true
+                    });
+
+                    //发送消息
+                    gm.pul.sendMsg({
+                        customerUuid:user.id,
+                        doctorUuid:_doctorUuid,
+                        content:"",
+                        imageUrl:data.imageUrl,
+                        userType:2
+                    });
+                    goBottom()
+                }
+            })
+        });
+    })
+    </script>
+</body>
+
+</html>

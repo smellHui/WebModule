@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="task cbox" id="nushng">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="bguenb">
+		<dl>
+			<dd>
+				<p>加号时间</p>
+			</dd>
+			<!-- 备注 -->
+			<dt>
+				<textarea class="feedbackcontent" name="message" placeholder="备注"></textarea>
+			</dt>
+			<!-- 备注end -->
+			<dd>
+				<p>提醒我</p>
+				<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			</dd>
+			<dd>
+				<p>提醒患者</p>
+				<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+			</dd>
+			<dd>
+				<p>设置提醒时间</p>
+			</dd>
+		</dl>
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+<script type="text/javascript">
+	$(function(){
+		gm.task.agreed_plus_delete();
+	});
+</script>
+</body>
+</html>

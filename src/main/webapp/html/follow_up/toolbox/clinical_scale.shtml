@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+	<title>临床量表</title>
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="../../../static/css/common.css">
+	
+<link rel="stylesheet" href="../../../static/css/follow_up.css"/>
+<link rel="stylesheet" href="../../../static/css/lib/pullToRefresh.css" />
+<link rel="stylesheet" href="../../../static/css/lib/reset.css" />
+</head>
+
+<!-- 临床量表 -->
+<body class="followed cbox" id="diagnostic_criteria">
+
+	<!-- 内容 -->
+	<div class="zlzn_box varioustype" id="wrapper">
+		<ul></ul>
+	</div>
+<script src="../../../static/js/jquery.min.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="../../../static/js/common.js"></script>
+<script src="../../../static/js/module.js"></script>
+<script src="../../../static/js/follow_up.js"></script>
+<script src="../../../static/js/lib/iscroll.js"></script>
+<script src="../../../static/js/lib/pullToRefresh.js"></script>
+<script type="text/javascript">
+$(function(){
+	setTimeout(function(){gm.pul.setTitle(document.title);},200);
+	if(navigator.userAgent.indexOf("apple") == -1){
+		gm.menu.clearRight();
+		
+		setTimeout(function(){
+			$("#viewport").attr("content","width=device-width, initial-scale=1.0, minimum-scale=1.000001, maximum-scale=1.0, user-scalable=no");
+		});
+	}
+	$("body").on("touchend","a",function(e){
+		var href = $(this).attr("href");
+		if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+		href = gm.para.set($(this).attr("href"),"rnd",window.______version || Math.random());
+		$(this).attr("href",href);
+	});
+	if(gm.para.get(window.location.href,"from")=="user"){//给所有的a加上from=user
+		$("body").on("touchend","a",function(e){
+			var href = $(this).attr("href");
+			if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+			href = gm.para.set($(this).attr("href"),"from",gm.para.get(window.location.href,"from"));
+			$(this).attr("href",href);
+		});
+	}
+
+	
+	var totalPage=0;
+		gm.content.getContentScale("C",function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				var arr = [];
+
+				$(data.relist).each(function(i,o){
+					arr.push('<a href="/html/thedoctorinformation/informationfordetails.shtml?contentUuid='+o["contentUuid"]+'&action=all"><li contentUuid="'+o["contentUuid"]+'"><div class="kua"><div class="kua_cvnfus"><div class="asbg"><div class="scvideo">\
+							<img src="'+o["imgUrl"]+'"></div><div class="videomz"><h2>'+o["contentTitle"]+'</h2>\
+							<p>'+o["creatime"]+'</p></div></div></div></div></li></a>');
+				});
+				
+				$(".zlzn_box ul").html(arr.join(""));
+				//绑定下一页面的touch事件
+				/* $(".zlzn_box ul li").bind({
+					touchend:function(){
+						var contentUuid=$(this).attr("contentUuid");
+						gm.pul.toUrl("/html/thedoctorinformation/informationfordetails.shtml?contentUuid="+contentUuid+"&action=all");
+					}
+				}); */
+				if(data.relist.length>=20){//出现下拉 加载
+					/**分页功能**/
+					refresher.init({
+						id:"wrapper",//<------------------------------------------------------------------------------------┐
+						pullDownAction:Refresh,                                                            
+						pullUpAction:Load 																			
+					});	
+					totalPage=data.totalPage;
+				}
+				
+				
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+
+		/**最新资讯**/
+		var generatedCount = 1;
+	
+		function Refresh() {
+		    setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		    	
+		    	var ____loading = new mask("loading");
+		    	____loading.show();
+		    	refreshdata(20,1,"C",function(data){
+		    		____loading.hide();
+		    		$(".zlzn_box ul").html(bindData(data)).collectnews();
+		    		totalPage=data.totalPage;
+		    		generatedCount=1;
+		    		$(".pullUp").show();
+		    		wrapper.refresh();
+		    	});
+		    	
+		        //wrapper.refresh();/****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+		    }, 1000);
+
+		}
+
+		function Load() {
+		    setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+		    	++generatedCount;
+		    	console.log(totalPage);
+		    	if(generatedCount<=totalPage)
+			    	refreshdata(20,generatedCount,"C",function(data){
+		    			$(".zlzn_box ul").append(bindData(data)).collectnews();
+		    			if(generatedCount==data.totalPage)
+		        			$(".pullUp").hide();
+			    		wrapper.refresh();
+			    		
+			    	});
+		    	else{
+		    		$(".pullUp").hide();
+		    	}
+		        //wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+		    }, 1000);
+		}
+		/**
+		 * 阅读页面加载更多时调用
+		 * @param page 当前页面有多少条记录
+		 * @param pageno 当前第几页面
+		 * @param _contentCategoryUuid
+		 * @param callback
+		 */
+		function refreshdata(page,pageno,_contentCategoryUuid,callbak){
+			$.getDate({
+				page:"content",
+				inter:"getAllContentList",
+				data:{doctorUuid:gm.user.getDoctor(),contentCategoryUuid:_contentCategoryUuid,pageCount:page,pageNo:pageno},
+				callback:function(data){
+					callbak && callbak(data);
+				}
+			});
+		}
+		//分页功能结束
+		// 绑定数据
+		function bindData(data){
+			var arr = [];
+
+			$(data.relist).each(function(i,o){
+				arr.push('<a href="/html/thedoctorinformation/informationfordetails.shtml?contentUuid='+o["contentUuid"]+'&action=all"><li contentUuid="'+o["contentUuid"]+'"><div class="kua"><div class="kua_cvnfus"><div class="asbg"><div class="scvideo">\
+						<img src="'+o["imgUrl"]+'"></div><div class="videomz"><h2>'+o["contentTitle"]+'</h2>\
+						<p>'+o["creatime"]+'</p></div></div></div></div></li></a>');
+			});
+			
+			return arr.join("");
+		}
+		
+	});
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/toolbox.shtml')
+	}
+	
+	</script>
+
+	
+</body>
+</html>

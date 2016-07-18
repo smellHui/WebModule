@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+<!-- 工具箱-患教库3 -->
+<body class="followed cbox" id="patient_education_2">
+	<!-- 内容 -->
+	<div class="hjknr_box">
+	</div>
+	<!-- 按钮 -->
+	<div class="bc_but">
+		<button class="btn-zyradius">发送给我的患者</button>
+	</div>
+	<div class="yxzzc">
+		<div class="tjob">
+			<p>请确认邮箱地址</p>
+			<input type="text" class="ipt-disabled">
+			<div>
+				<button class="btn-radius qr">确定</button>
+				<button class="btn-radius qx">取消</button>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var _contentUuid = gm.para.get(window.location.href,"contextUuid");
+		var _action = gm.para.get(window.location.href,"action");
+
+		if(_action=="show"){
+			$(".bc_but").hide();
+			gm.pul.returnurl = gm.pul.returnIndex;
+		}
+		$(".bc_but").bind({
+			touchend:function(){
+
+				gm.pul.toUrl( "/html/follow_up/toolbox/choice_patients.shtml?contextUuid="+_contentUuid);
+			}
+		})
+		// var _getCustomerTeachType = gm.para.get(window.location.href,"contextUuid");
+		gm.user.getCustomerTeach(_contentUuid,function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				document.title=data.contentTitle;
+				var arr = [];
+
+				if(data.img){
+					data.img = '<img src="'+data.img+'">';
+				}
+
+				var tmp = '<h2>{contentTitle}</h2>\
+				<div class="tuoiun" contentId="{contentId}">\
+					{img}\
+					<p class="author">作者：{author}  来源：{provenance}</p>\
+					<div class="contentNote">{contentNote}</div>\
+					<div class="contentText">{introduction}</div>\
+				</div>';
+
+
+				$(".hjknr_box").html(gm.replace(tmp,data));
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+	})
+	</script>
+</body>
+</html>

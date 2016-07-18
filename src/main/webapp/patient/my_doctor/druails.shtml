@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<title>用药查询-药品详情</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<link rel="stylesheet" type="text/css" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css">
+</head>
+
+<body class="cbox" id="use_query">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="ypxq_box"><dl>
+	  <!-- 药品 -->
+		<dt>
+			<!-- 图 -->
+			<div class="yp_img">
+				<img src="http://app.hxqydyl.com/imgs/yp_img.jpg">
+			</div>
+			<!-- 名称 -->
+			<div class="yp_name">
+				<h2>药品名称：<span>阿司匹林</span></h2>
+				<p>英文名称：<span>aspirin</span></p>
+			</div>
+		</dt>
+	  <!-- 详情 -->
+		<!-- 适应症 -->
+		<dd class="xq_1">
+			<h2>适应症</h2>
+			<p>具有良好的解热镇痛作用，用于治感冒、发热、头痛、牙痛、关节痛、风湿病，还能抑制血小板具有良好的解热镇痛作用，用于治感冒、发热、头痛</p>
+		</dd>
+		<!-- 用法用量 -->
+		<dd class="xq_2">
+			<h2>用法用量</h2>
+			<p>成人：每次1-2片，需要时每4-6小时可重复用药1溶童解水：后；服入将</p>
+		</dd>
+		<!-- 不良反应 -->
+		<dd class="xq_3 text_pshou">
+			<h2>不良反应</h2>
+			<p>作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机制详情作用机</p>
+			<div class="tisfccb"><i class="pts-andthearow"></i></div>
+		</dd>
+		<!-- 禁用 -->
+		<dd class="xq_4">
+			<h2>禁用</h2>
+			<p>应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查应该做的化验检查</p>
+		</dd>
+		<!-- 注意事项 -->
+		<dd class="xq_8 text_pshou">
+			<h2>注意事项</h2>
+			<p>1.列情况应咨询医师，慎用本品：?对其它镇痛剂、抗炎药或抗风湿药过敏，或存在其它过敏反应；?同时使用抗凝药物（如香豆素衍生物，肝素，低剂量板</p>
+			<div class="tisfccb"><i class="pts-andthearow"></i></div>
+		</dd>
+		<!-- 特殊人群 -->
+		<dd class="xq_9">
+			<h2>特殊人群</h2>
+			<p>肾功能损害患者：尚不明确；哺乳：尚不明确肾功能损害患者：尚不明确；哺乳：尚不明确肾功能损害患者：尚不明确；哺乳：尚不明确肾功能损害患者：尚不明确；哺乳</p>
+		</dd>
+		<!-- 药物相互作用 -->
+		<dd class="xq_10">
+			<h2>药物相互作用</h2>
+			<p>1.本品不宜与抗凝血药（如双香豆素、肝素）及溶栓药（链激酶）同用。2.抗酸药如碳酸氢钠等可增加本品自尿中的排泄，使血药浓度下降，不宜同用。</p>
+		</dd>
+		</dd>
+		<!-- 储藏 -->
+		<dd class="xq_17">
+			<h2>储藏</h2>
+			<p>常温，避免阳光直晒。</p>
+		</dd>
+	</dl></div>
+
+
+<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.my_doctor.query();
+		});
+	</script>
+</body>
+</html>

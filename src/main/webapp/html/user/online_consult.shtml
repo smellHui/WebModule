@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>系统消息</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+
+</head>
+
+<body class="user cbox">
+	<!-- 7-消息中心_收藏我的人 -->
+	<aside id="collection_my">
+		<ul class="newszu">
+		</ul>
+	</aside>
+
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl("/html/user/message_center.shtml");
+	}
+	$(function(){
+        // $.alert({
+        //     val : "您暂时没有在线咨询消息",
+        //     callback : function(){
+        //         window.history.back();
+        //     }
+        // })
+		gm.user.online_consult();
+	})
+	</script>
+</body>
+</html>

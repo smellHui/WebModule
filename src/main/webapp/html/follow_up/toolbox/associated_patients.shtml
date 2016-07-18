@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>已关联的患者</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="cbox" id="associated_patients">
+	<ul>
+		<li>
+			<div class="newszu">
+				<!-- 头像 -->
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+				<!-- 名字、性别、年龄、评论 -->
+				<div class="nagent">
+					<div class="duof">
+						<h3>王志文<i class="icon-boy"></i></h3>
+						<span>年龄：36岁</span>
+						<b class="date">2015-04-12</b>
+					</div>
+					<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/thedoctorinformation_header.shtml"-->
+</head>
+
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+		<div class="title"><a href="index.shtml"><i class="fh"></i></a>
+			<div class="clinical_medical">
+				<div class="menulist">
+					<span class="cur">临床推荐</span>
+					<span>医学医用</span>
+				</div>
+				<b></b>
+			</div>
+		</div>
+		<div class="clinical_screening">
+			<!-- 筛选 -->
+			<div class="cklamngy claodiern">
+				<form>
+					<input type="text" class="ipt-def">
+					<button></button>
+				</form>
+			</div>
+			<!-- 最新资讯 -->
+			<div class="fniortlist">
+				<div class="theflashlighty">
+					<div class="thelatest_zixu">
+						<span>最新资讯</span>
+					</div>
+					<div class="themedicalliterature">
+						<span>医学文献</span>
+					</div>
+					<div class="expertcomments">
+						<span>专家言论</span>
+					</div>	
+					<div class="shlightyass">
+						<button></button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<!-- 正在播放 -->
+		<div class="zlzn_box varioustype fnio_thereis">
+			<ul>
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<p>2015.11.12</p>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<p>2015.11.12</p>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-greystars"></i>
+							<i class="icon-mycollectiongray"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/thedoctorinformation_bottom.shtml"-->
+		<script type="text/javascript">
+		$(function(){
+			$(".clinical_medical").clinical_medical_tab();
+		});
+		</script>
+	</body>
+</html>

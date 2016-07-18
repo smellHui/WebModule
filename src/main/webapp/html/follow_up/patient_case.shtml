@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<title>病历详情</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 患者病例 -->
+<body class="followed cbox case" id="patient_case">
+	<!-- 内容 -->
+	<div class="hzbme_box ypxq_box scroll-y">
+		<div class="record_hzxx">
+			<div class="newszu">
+				<a href="/html/follow_up/patient_details.shtml"></a>
+				<!-- 头像 -->
+				<div class="head_portrait"><img src=""></div>
+				<!-- 名字、性别、年龄、评论 -->
+				<div class="nagent">
+					<div class="duof">
+						<h3><i class="icon-boy"></i></h3>
+						<span></span>
+						<b class="date"></b>
+					</div>
+					<p class="comment"></p>
+				</div>
+				<!-- 箭头 -->
+				<i class="icon-thearrowx"></i>
+			</div>
+		</div>
+		<!-- 门诊病历 -->
+		<div class="mz_record" style="display:none">
+			<dl>
+				<!-- 表格 -->
+				<dd class="ssddo">
+					<div class="frequency_tetx type">
+						<div class="sp_yaowu">
+							<span>就诊类型</span>
+						</div>
+						<p>门诊</p>
+					</div>
+					<div class="frequency_tetx time">
+						<div class="sp_yaowu">
+							<span>就诊时间</span>
+						</div>
+						<p></p>
+					</div>
+					<div class="frequency_tetx site">
+						<div class="sp_yaowu">
+							<span>就诊医院</span>
+						</div>
+						<p></p>
+					</div>
+					<div class="frequency_tetx doctor">
+						<div class="sp_yaowu">
+							<span>医　　生</span>
+						</div>
+						<p></p>
+					</div>
+				</dd>
+				<!-- 提示 -->
+				<!-- <dd class="vnireh_io">
+					<p><span>病历记录</span>请至少选择下面的一种方式</p>
+				</dd> -->
+
+				<dd class="gn_dgh">
+					<p>拍照<!-- （<=5张) --></p>
+					<i class="logo-tjzpn"></i>
+					<i class="logo-tjzpn"></i>
+					<i class="logo-tjzpn"></i>
+					<i class="logo-tjzpn"></i>
+					<i class="logo-tjzpn"></i>
+				</dd>
+			  <!-- 详情 -->
+			</dl>
+		</div>
+		<!-- 住院病历 -->
+		<div class="zy_record" style="display:none">
+			<dl>
+				<!-- 表格 -->
+				<dd class="ssddo">
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>就诊类型</span>
+						</div>
+						<p>住院</p>
+					</div>
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>住院时间</span>
+						</div>
+						<p></p>
+					</div>
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>出院时间</span>
+						</div>
+						<p></p>
+					</div>
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>就诊医院</span>
+						</div>
+						<p></p>
+					</div>
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>医　　生</span>
+						</div>
+						<p></p>
+					</div>
+				</dd>
+				<!-- 
+				<dd>
+					<h2>精神检查</h2>
+					<p></p>
+				</dd>
+				<dd>
+					<h2>辅助检查</h2>
+					<p></p>
+				</dd>
+				<dd>
+					<h2>病程</h2>
+					<p></p>
+				</dd>
+
+				<dd class="ssddo">
+					<div class="frequency_tetx">
+						<div class="sp_yaowu">
+							<span>发作次数</span>
+						</div>
+						<p></p>
+					</div>
+				</dd>
+				
+				<dd>
+					<h2>个人史</h2>
+					<p></p>
+				</dd>
+
+				<dd class="hzxx_box">
+					<ul>
+						<li class="dt"><h2>服药记录</h2></li>
+						<li><h2>药物名称</h2><p></p></li>
+						<li><h2>单　　量</h2><p></p></li>
+						<li><h2>频　　率</h2><p></p></li>
+						<li><h2>用　　法</h2><p></p></li>
+					</ul>
+				</dd>
+
+				<dd class="other">
+					<h2>其他治疗</h2>
+					<p></p>
+				</dd> -->
+			</dl>
+		</div>
+
+	</div>
+	
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script>
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/patient_details.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		gm.follow_up.patient_case();
+	});
+	</script>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/jsuy_img.png","menuevent":""}</div>
+</body>
+</html>

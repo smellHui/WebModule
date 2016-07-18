@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+    <title>好心情</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <style type="text/css">
+     /* iPhone 4/5 */
+html { font-size:50px; }
+/* Android */
+@media (min-width:360px){
+    html { font-size:56.25px; }
+}
+/* iPhone6 */
+@media (min-width:375px){
+    html { font-size:58.59375px; }
+}
+/* iPhone6 Plus */
+@media (min-width:414px){
+    html { font-size:64.6875px; }
+}
+
+html,body { height:100%; overflow:hidden;}
+body { color:#fff; background:#fff;}
+body,h1,h2,h3,h4,h5,h6,p,ol,ul,dl,dt,dd,li,cite,fieldset { margin:0; padding:0; list-style:none; font-size:.14rem; font-family:"Microsoft YaHei";color: #000;}
+sup,sub { vertical-align:baseline; }
+a { color:#333; text-decoration:none;}
+
+#scene { position:absolute; left:0; top:0; width:100%; height:100%; overflow:hidden; }
+    #scene section {position:absolute; left:0; top:0; width:100%; height:100%; display:block; overflow:hidden; -webkit-transform:translate3d(-100%,-100%,0);}
+    #scene section .bg { -webkit-transition-delay:.2s; -webkit-transform:translate3d(0,0,0) scale(0.0001); opacity:0; position:absolute; left:50%; top:30%; margin-left:-3.025rem; width:6.05rem; height:6.05rem; background:url(http://app.hxqydyl.com/p_img/cover-focus-bg.png) no-repeat 50% 0;background-size:6.05rem; }
+    .transition { -webkit-transition:all 1s ease; }
+    #scene section > div{ -webkit-transition:all .5s ease; background-repeat: no-repeat;position: absolute;background-size: 100% 100%;}
+    #scene section.show > div { -webkit-transform:translate3d(0,0,0) scale(1); opacity:1; }
+
+.dirc ul{position: absolute;left: 50%;bottom: .54rem;margin-left: -.75rem;width: 1.5rem;height: .2rem;z-index: 1000;}
+.dirc ul li{font-size:0;background-color:rgba(0,0,0,.5);margin: 0 .05rem;height: .15rem;width: .15rem;border-radius:50%;list-style-type: none;float: left;}
+.dirc ul li.select{height: .18rem;width: .18rem;background:url(http://app.hxqydyl.com/p_img/icon-cover-focuson.png) no-repeat; background-size:.18rem; }
+
+/* 1 */
+#p0{background-color:#62d9b3!important;}
+    #p0 .a,
+    #p0 .b { -webkit-transition-delay:.4s; -webkit-transform:translate3d(0,0,0) scale(0.0001); opacity:0; left:6%; top:28%; width:.65rem; height:.66rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg2.png) no-repeat; background-size:.65rem; }
+    #p0 .b { -webkit-transition-delay:.6s; left:74.6%; top:50%; width:1.3rem; height:1.37rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg3.png) no-repeat; background-size:1.3rem; }
+    #p0 .c,
+    #p0 .d,
+    #p0 .e { -webkit-transition-delay:1.2s; -webkit-transform:translate3d(0,-.5rem,0) scale(1); opacity:0; left:50%; top:.62rem; margin-left:-3.2rem; width:6.4rem; height:1.2rem; background:url(http://app.hxqydyl.com/p_img/cover-focus-1.png) no-repeat 50% -.62rem; background-size:6.4rem; }
+    #p0 .d { -webkit-transition-delay:1.4s; top:2.04rem; height:.34rem; background-position:50% -2.04rem; }
+    #p0 .e { -webkit-transform:translate3d(0,0,0) scale(.9); -webkit-transition-delay:1s; top:2.67rem; height:8.5rem; background-position:50% -2.67rem; }
+
+/* 2 */
+#p1{background-color: #b3d465!important;}
+    #p1 .a,
+    #p1 .b { -webkit-transition-delay:.4s; -webkit-transform:translate3d(0,0,0) scale(0.0001); opacity:0; left:6%; top:28%; width:.65rem; height:.66rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg2.png) no-repeat; background-size:.65rem; }
+    #p1 .b { -webkit-transition-delay:.6s; left:77.6%; top:50%; width:1.3rem; height:1.37rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg4.png) no-repeat; background-size:1.3rem; }
+    #p1 .c,
+    #p1 .d,
+    #p1 .e { -webkit-transition-delay:1.2s; -webkit-transform:translate3d(0,-.5rem,0) scale(1); opacity:0; left:50%; top:.62rem; margin-left:-3.2rem; width:6.4rem; height:1.2rem; background:url(http://app.hxqydyl.com/p_img/cover-focus-2.png) no-repeat 50% -.62rem; background-size:6.4rem; }
+    #p1 .d { -webkit-transition-delay:1.4s; top:2.04rem; height:.34rem; background-position:50% -2.04rem; }
+    #p1 .e { -webkit-transform:translate3d(0,0,0) scale(.9); -webkit-transition-delay:1s; top:2.67rem; height:8.5rem; background-position:50% -2.67rem; }
+    
+/* 3 */
+#p2{background-color: #69baff!important;}
+    #p2 .a,
+    #p2 .b { -webkit-transition-delay:.4s; -webkit-transform:translate3d(0,0,0) scale(0.0001); opacity:0; left:6%; top:28%; width:.65rem; height:.66rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg2.png) no-repeat; background-size:.65rem; }
+    #p2 .b { -webkit-transition-delay:.6s; left:76.6%; top:50%; width:1.3rem; height:1.37rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg5.png) no-repeat; background-size:1.3rem; }
+    #p2 .c,
+    #p2 .d,
+    #p2 .e { -webkit-transition-delay:1.2s; -webkit-transform:translate3d(0,-.5rem,0) scale(1); opacity:0; left:50%; top:.62rem; margin-left:-3.2rem; width:6.4rem; height:1.2rem; background:url(http://app.hxqydyl.com/p_img/cover-focus-3.png) no-repeat 50% -.62rem; background-size:6.4rem; }
+    #p2 .d { -webkit-transition-delay:1.4s; top:2.04rem; height:.34rem; background-position:50% -2.04rem; }
+    #p2 .e { -webkit-transform:translate3d(0,0,0) scale(.9); -webkit-transition-delay:1s; top:2.67rem; height:8.5rem; background-position:50% -2.67rem; }
+
+/* 4 */
+#p3{background-color: #ff7585!important;}
+    #p3 .a,
+    #p3 .b { -webkit-transition-delay:.4s; -webkit-transform:translate3d(0,0,0) scale(0.0001); opacity:0; left:6%; top:28%; width:.65rem; height:.66rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg2.png) no-repeat; background-size:.65rem; }
+    #p3 .b { -webkit-transition-delay:.6s; left:77.6%; top:50%; width:1.3rem; height:1.37rem; background:url(http://app.hxqydyl.com/p_img/icon-cover-focusbg6.png) no-repeat; background-size:1.3rem; }
+    #p3 .c,
+    #p3 .d,
+    #p3 .e { -webkit-transition-delay:1.2s; -webkit-transform:translate3d(0,-.5rem,0) scale(1); opacity:0; left:50%; top:.62rem; margin-left:-3.2rem; width:6.4rem; height:1.2rem; background:url(http://app.hxqydyl.com/p_img/cover-focus-4.png) no-repeat 50% -.62rem; background-size:6.4rem; }
+    #p3 .d { -webkit-transition-delay:1.4s; top:2.04rem; height:.34rem; background-position:50% -2.04rem; }
+    #p3 .e { -webkit-transform:translate3d(0,0,0) scale(.9); -webkit-transition-delay:1s; top:2.67rem; height:8.5rem; background-position:50% -2.67rem; }
+     </style>
+</head>
+<body>
+<div class="dirc">
+    <ul>
+        <li class="select"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<article id="scene">
+    <section id="p0">
+        <div class="bg"></div>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+    </section>
+    <section id="p1">
+        <div class="bg"></div>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+    </section>
+    <section id="p2">
+        <div class="bg"></div>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+    </section>
+    <section id="p3">
+        <div class="bg"></div>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+    </section>
+</article>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/jquery.min.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/config.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/common.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/common.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+    <script type="text/javascript">
+    //触屏点击（无延迟）
+    $.fn.ontouch = function(callback,bool){
+        var _x,_y,_s,
+            _t = {
+                s : function(event){
+                    var t = getTouch(event);
+                    _x = t.clientX;
+                    _y = t.clientY;
+                    _s = true;
+                },
+                m : function(event){
+                    if(_s){
+                        var t = getTouch(event);
+                        if(_x != t.clientX || _y != t.clientY){
+                            _s = false;
+                        }
+                    }
+                },
+                e : function(event){
+                    if(_s){
+                        callback.call(this);
+                        if(bool){
+                            event.preventDefault();
+                            return false;
+                        }
+                    }
+                }
+            };
+
+        function getTouch(event){
+            return event.originalEvent.touches[0] ? event.originalEvent.touches[0] : event;
+        };
+
+        this.bind({
+            "touchstart" : _t.s,
+            "touchmove" : _t.m,
+            "touchend" : _t.e
+        });
+        return this;
+    };
+    setTimeout(function(){
+        if(localStorage.getItem("ad") == "true"){
+            gm.pul.toUrl( "page.shtml?rdn=" + Math.random());
+        }else{
+            setTimeout(function(){gm.pul.toUrl("goodm://hiddenHeadView");},200);
+        }
+        localStorage.setItem("ad","true");
+    });
+
+    var page = new pageCore({
+        "p0" : {
+            "obj" : $("#p0"),
+            "name" : "初始页"
+        },
+        "p1" : {
+            "obj" : $("#p1"),
+            "name" : "第二页"
+        },
+        "p2" : {
+            "obj" : $("#p2"),
+            "name" : "第三页"
+        },
+        "p3" : {
+            "obj" : $("#p3"),
+            "name" : "第四页"
+        }
+    });
+
+    window.addEventListener("load",function(){
+
+        //显示初始页
+
+        page.tabScene("p0","bottom",function(){
+            console.log("执行完毕");
+        });
+
+        //触屏滑动事件
+        touchTab({
+            "obj" : $("#scene section"),//触发对象
+            "type" : true,//默认方向：上下
+            "maxLength" : $(window).height(),
+            "pct" : 20,//滑动量百分比：上或者下20%触发回调
+            "startCallback" : function(event){
+                //console.log("开始滑动");
+            },
+            "moveCallback" : function(a,b){
+                //console.log("滑动量：",a,b);
+            },
+            "endCallback" : function(type){
+                if(type == 1){
+                    page.prev("right");
+                }else if(type == 0){
+                    if(page.index() == 3){
+                        gm.pul.toUrl("goodm://showHeadView");
+                        setTimeout(function(){
+                            gm.pul.toUrl("page.shtml");
+                        },300);
+                    }else{
+                        page.next("left");
+                    }
+                }
+                $(".dirc ul li").removeClass("select");
+                $($(".dirc ul li")[page.index()]).addClass("select");
+                //console.log("滑动结果：",type);
+            }
+        });
+    },false);
+</script>
+
+</body>
+</html>

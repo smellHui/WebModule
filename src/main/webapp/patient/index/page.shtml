@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>好心情</title>
+	<!--#include virtual="/html/template/patient_header.shtml"-->
+	<link rel="stylesheet" type="text/css" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css">
+	<link rel="stylesheet" type="text/css" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/index.css">
+	<link rel="stylesheet" type="text/css" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/index.css">
+</head>
+
+<body class="cbox index" id="home_page">
+
+	<!-- 内容 -->
+	<div class="index_box">
+		<!-- <div class="head">
+			<div class="uos_a">
+				<div class="w">
+					<p class="left_p"><a href="/patient/reg/index.shtml">登录</a></p>
+					<i class="logo-sytbp1"></i>
+					<p class="right_p"><a href="/patient/reg/registration.shtml">注册</a></p>
+				</div>
+			</div>
+		</div> -->
+		<!-- 焦点图 -->
+		<div class="focus_map" id="tabs">
+			<div class="border">
+				<ul class="atlas">
+				</ul>
+			</div>
+		<nav><i class="cur"></i><i></i><i></i><i></i></nav></div>
+
+		<!-- 导航 -->
+		<div class="navigation">
+			<ul>
+				<li class="in_yd">
+					<a href="/patient/home/thedoctorlist.shtml"></a>
+					<i class="logo-zysn"></i><p>找医生</p>
+				</li>
+				<li class="in_jk sc_bor">
+					<a href="/patient/home/quick_question.shtml"></a>
+					<i class="logo-mftwn"></i><p>免费提问</p>
+				</li>
+				<li class="">
+					<a href="/patient/home/advice_index.shtml"></a>
+					<i class="logo-yzzdn"></i><p>医嘱指导</p>
+				</li>
+				<li class="in_zs sc_bor">
+					<a href="/patient/refer/index.shtml"></a>
+					<i class="logo-zcgjn"></i><p>自测工具</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 今日推荐 -->
+		<div class="tk_jrtj">
+			<div class="hnmsof"><i class="logo-jrtjd"></i></div>
+		</div>
+		<!-- 名医风采 -->
+		<div class="myfcsc">
+			<dl>
+				<dt><h2>名医风采</h2><a href="/patient/home/thedoctorlist.shtml"><b>全部</b></a></dt>
+			</dl>
+		</div>
+	</div>
+
+	<div class="hz_foot">
+		<ul>
+			<li class="in_1"><a href="/patient/index/page.shtml"><i class="dls-hxqsx"></i></a></li>
+			<li class="in_2"><a href="/patient/my_doctor/index.shtml"><i class="dls-wdyssx"></i></a></li>
+			<li class="in_3"><a href="/patient/refer/refer_soul.shtml"><i class="dls-xlybsx"></i></a></li>
+			<li class="in_4"><a href="/patient/my/index.shtml"><i class="dls-wdsx"></i></a></li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/patient_bottom.shtml"-->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/p_img/saoyisao.png","menuevent":"gm.pul.sys"}</div>
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/index.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(function(){
+		//添加 更新遮盖
+		//$("<div style='opacity:0.7' class='maskBar show'><i></i></div>").appendTo("body");
+		//$("<div id='upload_version' class='show' style='opacity:1;z-index:999999;position: fixed;text-align:center;width:100%;left:50%;margin-left:-50%;'>"+
+		//"<div style='position: relative;text-align:center;width:70%;left:50%;margin-left:-35%;margin-top:40px;'><img style='max-width:100%;display:block;text-align:center;' src='http://admin.hxqydyl.com/static/imgs/up001.png?v=﻿4.373'></div>"+
+		//"<div style='position: relative;text-align:center;width:80%;left:50%;margin-left:-40%;margin-top:10px;'><img style='max-width:100%;display:block;text-align:center;' src='http://admin.hxqydyl.com/static/imgs/up002.png?v=﻿4.373'></div>"+
+		//"<div id='upload_btn' style='position: relative;text-align:center;width:40%;left:50%;margin-left:-20%;margin-top:10px;'><img style='max-width:100%;display:block;text-align:center;' src='http://admin.hxqydyl.com/static/imgs/up003.png?v=﻿4.373'></div>"+
+		//"<div style='position: relative;text-align:center;width:20%;left:50%;margin-left:-5%;margin-top:-10px;'><img style='max-width:100%;display:block;text-align:center;' src='http://admin.hxqydyl.com/static/imgs/up004.png?v=﻿4.373'></div>"+
+		//"</div>").appendTo("body");
+		$("#upload_btn").bind({
+			touchend:function(e){
+				window.location.href="http://www.hxqydyl.com/page/doctorMain.html";
+			}
+		});
+		gm.index.init();
+		gm.user.getfocus();
+
+		gm.isIndex = true;
+		setTimeout(function(){
+			if(!gm.isMobile){return;}
+				gm.pul.toUrl('goodm://setLeftMenu/{"menuimg":"http://app.hxqydyl.com/imgs/nullmenu.png","menuevent":"gm.n"}');
+				setTimeout(function(){
+					gm.pul.toUrl("goodm://returnIndexPage");
+				},200);
+		},200);
+	});
+	</script>
+</body>
+</html>

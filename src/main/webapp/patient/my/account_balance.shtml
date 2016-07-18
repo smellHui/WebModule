@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<title>账户余额</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cbox" id="account_balance">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<dl>
+			<dt>
+				<h3>账户余额</h3>
+				<h4>0<span>元</span></h4>
+			</dt>
+
+			<!-- <dd>
+				<h2>10-09</h2>
+				<span>
+					<i class="fe_js">-40</i>
+					<p>电话咨询</p>
+				</span>
+			</dd>
+			<dd>
+				<h2>10-09</h2>
+				<span>
+					<i class="fe_zj">+50</i>
+					<p>充值</p>
+				</span>
+			</dd>
+			<dd>
+				<h2>10-09</h2>
+				<span>
+					<i class="fe_js">-40</i>
+					<p>电话咨询</p>
+				</span>
+			</dd>
+			<dd>
+				<h2>10-09</h2>
+				<span>
+					<i class="fe_js">-40</i>
+					<p>电话咨询</p>
+				</span>
+			</dd> -->
+		</dl>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.account_balance();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/index.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

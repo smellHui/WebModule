@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>病情记录-药物不良反应</title>
+    <!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+    <style type="text/css">
+    .addform { padding-top:0; }
+    .bad .influence,.bad .sheet table { width:9.2rem; margin-top:.2rem; }
+    #list,#list td { color:#666; }
+    #list td { text-align:left; text-indent:.2rem; }
+    #list .desc { padding-bottom:0; }
+    #list .influence p { clear:both; padding:.05rem .3rem .1rem;line-height: 1.4;}
+    #submit { margin-bottom:.8rem; }
+    </style>
+</head>
+
+<body class="bad" id="">
+    <div class="cbox">
+        <!-- 标题 -->
+        <!-- 内容 -->
+        <div class="sheet" id="list">
+        </div>
+        <!-- 时间 -->
+        <div class="sheet addform">
+            <table>
+                <tr>
+                    <th>发生时间</th>
+                    <td>
+                        <input id="occurrenceTime" type="date" class="con">
+                    </td>
+                </tr>
+                <tr>
+                    <th>持续时间</th>
+                    <td>
+                        <select id="dosageTime" class="selec">
+                            <option value="1">一周</option>
+                            <option value="2">两周</option>
+                            <option value="3">三周</option>
+                            <option value="4">四周</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 描述 -->
+        <div class="desc addform">
+            <div class="influence">
+                <h2>症状描述</h2>
+                <textarea id="frequency"></textarea>
+            </div>
+            <div class="influence">
+                <h2>影响</h2>
+                <textarea id="impact"></textarea>
+            </div>
+        </div>
+        <button class="btn-zyradius submit" id="add">添加</button>
+        <button class="btn-zyradius submit" id="submit">提交</button>
+    </div>
+    <!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+    <script type="text/javascript">
+    $(function() {
+        var visitRecordUuid = gm.para.get(window.location.href, "visitRecordUuid");
+        var doctorUuid = gm.para.get(window.location.href, "doctorUuid");
+            var action = gm.para.get(window.location.href,"action");
+            if(action=="edit"){
+                $(".cbox").addClass("pointer-events");
+                $(".addform").hide();
+            }
+        
+        getIllnessRecordByVisitRecordUuid()
+
+        gm.func = function(data) {
+            $.alert({
+                val:data.query.message,
+                type:"flash"
+            });
+            getIllnessRecordByVisitRecordUuid()
+        }
+
+        function getIllnessRecordByVisitRecordUuid() {
+            $.getDate({
+                page: "patient",
+                inter: "getDrugReactionList",
+                data: {
+                    preceptUuid: visitRecordUuid
+                },
+                callback: function(r) {
+                    var relist = r.relist,
+                        _dosageTime = ["一周","两周","三周","四周"],
+                        html = '';
+                    if (!relist.length && action=="edit") {
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }
+                    for (var i = 0; i < relist.length; i++) {
+
+                        html += '<div class="sheet addform">\
+                                    <table>\
+                                        <tr>\
+                                            <th>发生时间</th>\
+                                            <td>' + relist[i]['occurrenceTime'] + '</td>\
+                                        </tr>\
+                                        <tr>\
+                                            <th>持续时间</th>\
+                                            <td>' + _dosageTime[relist[i]['dosageTime']-1] +'</td>\
+                                        </tr>\
+                                    </table>\
+                                </div>\
+                                <div class="desc addform">\
+                                    <div class="influence">\
+                                        <h2>症状描述</h2>\
+                                        <p>' + relist[i]['frequency'] + '</p>\
+                                    </div>\
+                                    <div class="influence">\
+                                        <h2>影响</h2>\
+                                        <p>' + relist[i]['impact'] + '</p>\
+                                    </div>\
+                                </div>';
+
+                        // html += '<div><p>时间：' + relist[i]['occurrenceTime'] + ' 周期：' + _dosageTime[relist[i]['dosageTime']-1] +'</p>\
+						// <p>症状描述:' + relist[i]['frequency'] + '</p>\
+						// <p>影响:' + relist[i]['impact'] + '</p>\
+					    // </div>'
+                    }
+                    $("#list").show().html(html);
+                }
+            })
+        }
+        
+
+        $("#submit").ontouch(function(){
+            window._loading = new mask("loading");
+            window._loading.show();
+
+            gm.func = function(data) {
+                $.alert({
+                    val:"保存...",
+                    type:"flash"
+                });
+                setTimeout(function(){
+                    gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+                },800); 
+            }
+
+            var _voccurrenceTime = $("#occurrenceTime").val();
+            var _dosageTime = $("#dosageTime").val();
+            var _frequency = $("#frequency").val();
+            var _impact = $("#impact").val();
+
+            if(!_voccurrenceTime){
+                $.alert("请选择发生时间");
+                window._loading.hide();
+                return false;
+            }
+            if(!_dosageTime){
+                $.alert("请选择持续时间");
+                window._loading.hide();
+                return false;
+            }
+            if(!_frequency){
+                $.alert("请填写病情描述");
+                window._loading.hide();
+                return false;
+            }
+            if(!_impact){
+                $.alert("请填写影响");
+                window._loading.hide();
+                return false;
+            }
+
+            $.getDate({
+                page: "follow_up",
+                inter: "addDrugReaction",
+                data: {
+                    callback: "gm.func",
+                    occurrenceTime: _voccurrenceTime,
+                    dosageTime: _dosageTime,
+                    frequency: _frequency,
+                    impact: _impact,
+                    visitRecordUuid: visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        });
+
+        $("#add").on("touchend", function() {
+
+            var _voccurrenceTime = $("#occurrenceTime").val();
+            var _dosageTime = $("#dosageTime").val();
+            var _frequency = $("#frequency").val();
+            var _impact = $("#impact").val();
+
+            if(!_voccurrenceTime){
+                $.alert("请选择发生时间");
+                return false;
+            }
+            if(!_dosageTime){
+                $.alert("请选择持续时间");
+                return false;
+            }
+            if(!_frequency){
+                $.alert("请填写病情描述");
+                return false;
+            }
+            if(!_impact){
+                $.alert("请填写影响");
+                return false;
+            }
+
+            $.getDate({
+                page: "follow_up",
+                inter: "addDrugReaction",
+                data: {
+                    callback: "gm.func",
+                    occurrenceTime: _voccurrenceTime,
+                    dosageTime: _dosageTime,
+                    frequency: _frequency,
+                    impact: _impact,
+                    visitRecordUuid: visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        })
+    })
+    </script>
+</body>
+
+</html>

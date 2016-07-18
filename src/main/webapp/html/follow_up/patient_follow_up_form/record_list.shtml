@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<title>服药记录列表</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 服药记录列表 -->
+		<div class="sheet2">
+			<!-- <table>
+				<tr>
+					<th class="header">药品名称</th>
+					<td class="header">阿司匹林</td>
+				</tr>
+				<tr>
+					<th>用药时间</th>
+					<td>2015/10/1 至 2015/10/20</td>
+				</tr>
+				<tr>
+					<th>单　　量</th>
+					<td>0.5Mg</td>
+				</tr>
+				<tr>
+					<th>频　　率</th>
+					<td>0.5Mg</td>
+				</tr>
+				<tr>
+					<th>用　　法</th>
+					<td>随餐口服</td>
+				</tr>
+			</table> -->
+		</div>
+
+		<div class="nullfont">
+			<p><span>暂无服药记录！</span></p>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+
+			gm.follow_up.getDoctorAdviceModelByVisitRecordUuid(_applyUuid);
+		})
+	</script>
+</body>
+</html>

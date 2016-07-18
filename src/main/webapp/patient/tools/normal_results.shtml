@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>测试结果</title>
+	<!--#include virtual="/html/template/patient/tools_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="normal_results">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<div class="_uevd">
+			<div class="_scs">
+				<h3 class="p_dfdf">分数<span>9</span>分</h3>
+				<h3 class="p_bnjv">测试结果<b>异常</b></h3>
+			</div>
+			<div class="_fjb0">
+				<p class="p_nfjd">结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面结果书面</p>
+			</div>
+		</div>
+
+		<div class="_burbs">
+       		<button class="btn-zyradius2">重新测试</button>
+        </div>
+	</div>
+
+
+
+	<!--#include virtual="/html/template/patient/tools_bottom.shtml"-->
+
+</body>
+</html>

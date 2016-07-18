@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/common_header.shtml"-->
+	<link rel="stylesheet" href="http://app.hxqydyl.com/css/lecture.css">
+	<script type="text/javascript" src="http://app.hxqydyl.com/js/lecture.js"></script>
+</head>
+	
+<body class="forum">
+	<div class="cbox">
+		<!-- 视频 -->
+		<div class="video2"></div>
+		<!-- 视频介绍 -->
+		<div class="intro">
+			
+		</div>
+		<!-- 评论 -->
+		<div class="comment">
+			<div class="comti">
+				<h2>评论：</h2>
+			</div>
+			<ul>
+			</ul>
+			<!-- 加载更多 -->
+			<div class="load">
+				<p>加载更多...</p>
+			</div>
+			<!-- 发送 -->
+			<div class="receive">
+				<form>
+					<input type="text" class="ipt-def">
+					<i class="btn-def">发送</i>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/common_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var _gflag = false;
+
+		gm.lecture.playing();
+		$(".receive .btn-def").bind({
+			touchend:function(){
+				if(_gflag){
+					$.alert("休息休息，恢复好心情状态。");
+					return;
+				}
+				_gflag = true;
+
+				setTimeout(function(){
+					_gflag = false;
+				},3000);
+
+				var _p = $(".receive input").val();
+				gm.lecture.addPlatformCommunication(_p);
+			}
+		})
+	})
+	</script>
+</body>
+</html>

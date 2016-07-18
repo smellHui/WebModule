@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>提现</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+	
+<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="clinic_withdrawal">
+		<div class="thebalanceofy">
+			<span>余额 ( <i></i>元)</span>
+		</div>
+		<div class="china_commercial">
+			<div class="commercial_logo">
+				<img src="">
+			</div>
+			<p></p>
+			<div class="solscd3">
+				<i class="icon-thearrowx"></i>
+			</div>
+		</div>
+		<div class="transferamount">
+			<strong>转出金额 <i></i>(元)<input type="tel" id="money"></strong>
+			<div class="remind_no">
+				<p>提现不能低于50元</p>
+			</div>
+		</div>
+		<div class="queding_a">
+			<button class="btn-radius1">确定</button>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/card_null.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/card_null.shtml');
+	}
+	$(function(){
+		gm.clinic.card_list();
+	});
+	</script>
+	</body>
+</html>

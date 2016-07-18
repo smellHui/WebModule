@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+	<title>讲堂</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/lecture.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="forum">
+	<div class="cbox" style="overflow-y: scroll;">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 视频 -->
+		<div class="video2"></div>
+		<!-- 视频介绍 -->
+		<div class="intro">
+			
+		</div>
+		<!-- 评论 -->
+		<div class="lecture_comment">
+			<div class="comti">
+				<h2>评论：</h2>
+			</div>
+			<div id="ddsmd">
+				<ul id="comment_context">
+				</ul>
+				<!-- 加载更多 -->
+				<div class="load">
+					<p id="play_loadMoreComment">点击查看更多评论...</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 发送 -->
+	<div class="receive">
+		<form>
+			<input type="text" class="ipt-def">
+			<i class="btn-def">发送</i>
+		</form>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://172.168.1.46:8080/static/imgs/icon-share.png","menuevent":"gm.my_task.tanchu"}</div>
+	<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/lecture.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		var _gflag = false;
+
+		gm.lecture.playing();
+		
+		//判断医患端
+		//未登录隐藏评论栏
+		var isFrom=gm.para.get(window.location.href,"from");
+		if(isFrom == "refer_soul"){
+			if(!gm.patient.isLogin()){
+				$(".receive").hide();
+			}else{
+				$(".receive").show();
+			}
+		}else{
+			if(!gm.user.isLoginDoctor()){
+				$(".receive").hide();
+			}else{
+				$(".receive").show();
+			}
+		}
+		
+		
+		//新增评论接口
+		gm.lecture.videoComment();
+		$(".receive .btn-def").bind({
+			touchend:function(){
+				//判断是否已经登录 
+				if(window.location.href.indexOf("#b") > 0)//是否为患者
+					if(!gm.patient.isLogin()){
+						gm.pul.toUrl("goodm://login");
+						return;
+					}
+				else
+					if(!gm.user.isLoginDoctor()){
+						gm.pul.toUrl("goodm://login");
+						return;
+					}
+			    window._loading = new mask("loading");
+				window._loading.show();
+
+				var _p = $(".receive input").val();
+				gm.lecture.addPlatformCommunication(_p);
+			}
+		});
+
+		$(".ipt-def").bind({
+			keyup:function(e){
+				var _event = window.event;
+				if(event.keyCode == 13){
+					window._loading = new mask("loading");
+					window._loading.show();
+
+					var _p = $(this).val();
+					gm.lecture.addPlatformCommunication(_p);
+				}
+			}
+		});
+
+		$("form").bind({
+			submit:function(e){
+				return false;
+			}
+		});
+		
+		
+		
+	})
+
+	gm.pul.returnurl=function(){
+		var from=gm.para.get(window.location.href,"from");
+		if(from=="refer_soul")
+			gm.pul.toUrl("/patient/refer/refer_soul.shtml?rnd=4.373#b");
+		else//回去医生端
+			gm.pul.toUrl("/html/lecture/all_course.shtml");
+	}
+	gm.my_task.tanchu=function (){
+		
+		var _ = $(this);
+		var _title=$(".intro h2").html();
+		var _img=$("#video").attr("poster")||getvedioimg;
+		
+		var isFrom=gm.para.get(window.location.href,"from");
+		if(isFrom == "refer_soul"){
+			if(!gm.patient.isLogin()){
+				gm.pul.toUrl("goodm://login");
+				return;
+			}
+		}else{
+			if(!gm.user.isLoginDoctor()){
+				gm.pul.toUrl("goodm://login");
+				return;
+			}
+		}
+		var _link=window._interfacePath + "/html/lecture/playing.shtml?vidoUuid=" + gm.para.get(window.location.href,"vidoUuid");
+		var obj = {
+			title:_title,//获取文章title
+			desc:_title,//获取文章desc
+			img:_img,//获取文章img
+			link:_link
+		}
+		
+		gm.share(obj,function(){
+			/* $.getDate({
+				page:"doctor",
+				inter:"addDoctorShare",
+				data:{contentUuid:contentUuid,doctorUuid:gm.user.getDoctor()},
+				callback:function(data){	}
+			}); */
+		});
+	}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+	<title>电话咨询</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<body id="teleconsult">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 医师简介 -->
+		<div class="doc">
+			<ul>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<a href="/patient/home/detailsofthedoctor.shtml"></a>
+						<div class="icon1">
+							<img src="">
+						</div>
+						<div class="p_fbjn">
+							<h3><i class="pts-figureinsets"></i></h3>
+							<p></p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf"></p>
+							<p></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 话费 -->
+		<div class="charge feiyo">
+			<!-- <div class="kind">
+				<h2></h2>
+				<p></p>
+			</div>
+			<div class="kind1">
+				<h2></h2>
+				<p></p>
+			</div>
+			<div class="kind1">
+				<h2></h2>
+				<p></p>
+			</div> -->
+		</div>
+		<!-- 预约通话时间 -->
+		<div class="ap">
+			<p>预约通话时间：<span class="aptime"></span></p>
+		</div>
+		<!-- 咨询描述 -->
+		<div class="desc">
+			<h2>咨询描述</h2>
+			<p>
+				<textarea name="" placeholder="请详细描述您的症状及持续时间，是否对您的工作、生活产生了影响，是否在医院就诊及诊断和治疗情况"></textarea>
+			</p>
+		</div>
+		<!-- 付款 -->
+		<div class="doctori_remind">
+			<p>你需要支付<b></b>元</p>
+			<!-- <p>选择支付方式</p> -->
+		</div>
+
+		<!-- this遮罩 -->
+		<div class="zez_box1 zez_box">
+			<!-- 支付是否成功？ -->
+			<div class="vgtu_cs">
+				<p>是否确定支付？</p>
+				<div class="but_bx">
+					<button class="vd1">确定支付</button>
+					<button class="vd2">取消支付</button>
+				</div>
+			</div>
+			<!-- 已购买提示 -->
+			<div class="cden_cs">
+				<i class="logo-xoj"></i>
+				<div class="u1">
+					<h2>您已成功购买：</h2>
+					<p><span></span> 医生的电话咨询服务</p>
+				</div>
+				<div class="u2">
+					<h3>服务时间：</h3>
+					<p><span>2015-11-16 16:48</span> 至 <span>2015-12-16 16:48</span></p>
+				</div>
+			</div>
+		</div>
+		<!-- 余额不足 -->
+		<div class="zez_box2 zez_box">
+			<div class="dsuuc">
+				<i class="logo-xoj"></i>
+				<div class="p_vndas">
+					<h2>当前余额：<span>0</span>元</h2>
+					<p>您当前余额不足支付本次消费，请选择</p>
+				</div>
+				<div class="but_bx">
+					<button class="vd1">去充值</button>
+					<button class="vd2">其他方式支付</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="recharge">
+			<ul>
+				<li><button class="give_money qdgm"><p><span>确定购买</span></p></button></li>
+		    	<!-- <li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/zhifb.png"><span>支付宝</span></p></button></li>
+		    	<li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/weixin.png"><span>微信</span></p></button></li> -->
+		    	<!-- <li><button class="give_money"><p><img src="http://app.hxqydyl.com/p_img/yinlian.png"><span>银联</span></p></button></li> -->
+    		</ul>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.home.teleconsult();
+	})
+	</script>
+</body>
+</html>

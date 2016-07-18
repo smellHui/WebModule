@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的收藏</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox" id="my_collection">
+	<!-- 10-我的收藏 -->
+	<aside>
+		<!-- 内容 -->
+		<div class="varioustype">
+			<dl></dl>
+			<!-- <dl id="ucnsh">
+				<dt>文字型<b><i class="icon-thearrowx"></i></b></dt>
+			</dl>
+			<dl id="fcjas">
+				<dt>视频型<b><i class="icon-thearrowx"></i></b></dt>
+			</dl> -->
+		</div>
+	</aside>
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+
+	<script type="text/javascript">
+	gm.pul.returnurl=function(){//后退到个人中心
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+		$(function(){
+			gm.menu.hiddenBottomBar();//隐藏菜单
+			gm.user.getFavoriteModelList();
+			gm.user.delFavorite();//删除阅读数据
+			gm.user.my_collection();
+			if(gm.para.get(window.location.href,"from")=="collection"){//给所有的a加上from=collection
+				$("body").on("touchend","a",function(e){
+					var href = $(this).attr("href");
+					if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+					href = gm.para.set($(this).attr("href"),"from",gm.para.get(window.location.href,"from"));
+					$(this).attr("href",href);
+				});
+			}
+		});
+	</script>
+
+	
+</body>
+</html>

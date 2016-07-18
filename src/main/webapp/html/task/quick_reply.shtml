@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>快捷回复</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 在线咨询-快捷回复 -->
+<body class="task cbox" id="quick_reply">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="kjhf_box">
+		<dl>
+			<dt class="tj_kjhf">添加新的快捷回复<i class="icon-lstjn"></i></dt>
+
+			<dd>您好，今天比较忙，稍后回复。您可以先将病情资
+			您好，今天比较忙，稍后回复。您可以先将病情资</dd>
+			<dd>您好，今天比较忙，稍后回复。您可以先将病情资
+			您好，今天比较忙，稍后回复。您可以先将病情资</dd>
+			<dd>您好，今天比较忙，稍后回复。您可以先将病情资
+			您好，今天比较忙，稍后回复。您可以先将病情资
+			</dd>
+		</dl>
+	</div>
+
+	<div class="tcsjob">
+		<i class="icon-xxx"></i>
+		<textarea maxlength="50"></textarea>
+		<button>确定</button>
+
+	</div>
+
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/bj_img.png","menuevent":""}</div>
+
+<script type="text/javascript">
+	$(function(){
+		gm.my_task.quick_reply();
+		gm.task.quick_reply();
+	});
+</script>
+</body>
+</html>

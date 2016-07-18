@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加银行卡</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+	<body class="task cbox" id="card_null">
+	<!-- 标题 -->
+	<!-- 银行卡 -->
+	<div class="dsusa">
+		<ul class="liensbalo">
+			<!-- <li>
+				<div class="wd_bankcard">
+					<div class="commercial_logo">
+						<img src="http://app.hxqydyl.com/imgs/gongsyh.jpg">
+					</div>
+					<p>中国工商银行(尾号7508储蓄卡)</p>
+					<i class="icon-gouxuan"></i>
+					<div class="kua_s">
+						<div class="ndh ndh2"><i class="icon-mycoltrash"></i></div>
+						<div class="ndh"><i class="icon-grxxn"></i></div>
+					</div>
+				</div>
+			</li> -->
+		</ul>
+		<div class="queding_a">
+			<a href="card_add.shtml" class="btn-radius" style="margin-bottom:.4rem">添加银行卡</a>
+			<button class="btn-radius">确定</button><!-- 默认圆角按钮 -->
+		</div>
+	</div>
+
+	<!-- 内容 -->
+	<div class="addacopy">
+		<div class="reviewtips">
+			<p>你还没有添加银行卡</p>
+			<p>请先添加银行卡再继续操作</p>
+		</div>
+		<div class="queding_a">
+			<a href="card_add.shtml" class="btn-radius">添加银行卡</a><!-- 默认圆角按钮 -->
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user"){
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		}else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.card_select();
+	});
+	</script>
+
+</body>
+</html>

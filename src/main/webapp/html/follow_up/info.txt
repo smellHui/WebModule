@@ -1,0 +1,58 @@
+/** 随访结构 **/
+
+/html/follow_up/follow_up.shtml 			随访
+
+/** 工具箱 toolbox **/
+/html/follow_up/toolbox/toolbox.shtml			工具箱
+/html/follow_up/toolbox/patient_group.shtml		患者分组管理
+/html/follow_up/toolbox/plan_management.shtml		随访方案管理
+/html/follow_up/toolbox/increase_plan.shtml		随访方案-新增方案
+/html/follow_up/toolbox/check_plan.shtml		随访方案-查看方案
+/html/follow_up/toolbox/edit_plan.shtml			随访方案-编辑方案
+/html/follow_up/toolbox/mass_message.shtml		群发消息
+/html/follow_up/toolbox/choice_patient.shtml		群发消息-选择患者
+/html/follow_up/toolbox/patient_education.shtml		患教库
+/html/follow_up/toolbox/patient_education_list.shtml	患教库-患教库列表
+/html/follow_up/toolbox/patient_content.shtml		患教库-患教内容
+/html/follow_up/toolbox/treatment_guide.shtml		治疗指南
+/html/follow_up/toolbox/diagnosis_standard.shtml	诊断标准
+/html/follow_up/toolbox/medicine_picture.shtml		医学美图
+/html/follow_up/toolbox/drugs_manual.shtml		用药手册
+/html/follow_up/toolbox/drugs_details.shtml		药品详情
+
+/** 添加患者 **/
+/html/follow_up/add_patients.shtml			添加患者
+/html/follow_up/mobile_packet.shtml			选择分组
+/html/follow_up/patient_information.shtml		患者信息
+/html/follow_up/basic_check.shtml			基本检查
+/html/follow_up/detailed_record.shtml			详细记录基本检查
+/html/follow_up/common_term.shtml			常用项
+/html/follow_up/diagnostic_content.shtml		诊断内容
+
+/** 患者基本信息 **/
+/html/follow_up/patient_basication.shtml		患者基本信息
+
+/** 随访申请 **/
+/html/follow_up/followed_up_for.shtml			随访申请
+/html/follow_up/followed_for_details.shtml		随访申请详情
+
+/** 患者详情 **/
+/html/follow_up/patient_details.shtml			患者详情
+/html/follow_up/patient_case.shtml			患者病例
+/html/follow_up/follow_up_record.shtml			随访记录
+/html/follow_up/add_outpatient_cases.shtml		添加门诊病例
+/html/follow_up/treatment_plan.shtml			治疗方案
+/html/follow_up/medication.shtml			药物治疗
+/html/follow_up/record_patient_detail.shtml		详细记录基门诊记录
+/html/follow_up/selective_up_program.shtml		选择随访方案
+/html/follow_up/add_in_hospital.shtml			添加住院病例
+/html/follow_up/outpatient_records.shtml		详细记录基门诊记录 住院
+/html/follow_up/the_patients_complain.shtml		患者主述
+
+
+-------------------------------------------------------------------------------
+/** 随访脚本 **/
+/static/follow_up.js
+
+/** 随访样式 **/
+/static/follow_up.css

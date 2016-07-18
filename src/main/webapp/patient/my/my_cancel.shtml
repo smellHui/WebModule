@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<title>充值</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cancels cbox">
+	<div>
+		<!-- 内容 -->
+		<div class="attention">
+			<p>注意： 订单取消后，费用会自动打入您平台账户余额中</p>
+		</div>
+		<div class="status">
+			<p>您的订单已取消</p>
+		</div>
+		<button class="btn-zyradius confirm">确定</button>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+</body>
+</html>

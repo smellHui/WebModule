@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/thedoctorinformation_header.shtml"-->
+</head>
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	<!-- 秋季进补的禁忌 -->
+		<div class="title"><a href="informationlayerthicknessfordetails_1.shtml"><i class="fh"></i></a><h2>秋季进补的禁忌</h2></div>
+
+		<div class="tisnamg">
+			<i class="icon-jumppoint"></i>
+		</div>
+			<!-- 秋季进补的禁忌内容a -->
+		<div class="theauthor_introduce">
+			<div class="payatten_tiondetailed">
+				<div class="js_introduce">
+					<h2>作者：白金子</h2>
+					<h2>出处：《今日科技》</h2>	
+				</div>
+				<p>概要：正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。</p>
+			</div>
+		</div>
+		<!-- 秋季进补的禁忌内容b -->
+		<div class="thearticley">
+			<div class="detailed_ctionsa">
+				<p>俗话说，“一夏无病三分虚”，由此在民间素有“秋补”习俗。万物正可谓:“春生、夏长、秋收、冬藏”。尽管秋季有必要进补，但也不能乱补、忌无病乱补。乱补、既增加开支，又害自身。如长期服用葡萄糖会引发发胖、增高血中胆固醇、易诱发心血管疾病:服用鱼肝油。</p>
+			</div>
+			<div class="detailed_ctionsb">
+				<p>如长期服用葡萄糖会引发发胖、增高血中胆固醇、易诱发心血管疾病:服用鱼肝油过量可引起中毒。所以进补一定要根据体内"缺什么,补什么"才能事半功倍。</p>
+			</div>
+			<div class="detailed_ctionsc">
+				<p>俗话说，“一夏无病三分虚”，由此在民间素有“秋补”习俗。万物正可谓:“春生、夏长、秋收、冬藏”。尽管秋季有必要进补，但也不能乱补、忌无病乱补。乱补、既增加开支，又害自身。如长期服用葡萄糖会引发发胖、增高血中胆固醇、易诱发心血管疾病:服用鱼肝油。</p>
+			</div>
+		</div>
+	</div>
+		<!-- 秋季进补的禁忌内容遮罩 -->
+		<div class="quanzdp">
+			<!-- 秋季进补的禁忌内容遮罩 -->
+			<div class="mediationz-zhez">
+				<div class="zh_setthe">
+					<span>字号设置</span>
+				</div>
+				<div class="dazxinao">
+					<ul>
+						<li class="shenh"><span>小</span></li>
+						<li class="danh"><span>中</span></li>
+						<li class="baml"><span>大</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

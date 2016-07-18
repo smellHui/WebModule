@@ -1,0 +1,82 @@
+.refer{}
+.refer .focus_map{height: 4.71rem;}
+#intheheart{background-color: #f7f7f7;}
+#intheheart .focus_map{height: 4.74rem;}
+
+	/* 视频 */
+	.refer .video2{background-image: url(../imgs/video2.jpg);height: 6rem;width: 100%;position: relative;background-size: 100% 100%;background-repeat: no-repeat;}
+	/* 视频介绍 */
+	.refer .intro{height: 3.45rem;width: 8.8rem;padding: 0 .4rem;border-bottom: 1px solid #d3d3d3;border-top: 1px solid #d3d3d3;background-color: #ececec;}
+		.refer .intro h2{font-size: .42rem;line-height: .88rem;}
+		.refer .intro p{font-size: .34rem;line-height: .42rem;}
+		.refer span.color{color: #464646;}
+	/* 评论 */
+	.refer .comment{margin-top: .08rem;padding: 0 .4rem;width: 8.8rem;height: auto;overflow: hidden;}
+		.refer .comti h2{font-size: .38rem;line-height: .86rem;font-weight: normal;color: #747474;border-bottom: 1px solid #e7e7e7;}
+		.refer .comcon{height: .91rem;padding: .18rem .1rem;width: 8.6rem;border-bottom: 1px solid #e7e7e7;} 
+		.refer .comcon p{font-size: .34rem;line-height: .46rem;}
+		.refer .comcon span.time{color: #c0c0c0;margin-left: .85rem;}
+		.refer .comcon p.content{color: #747474;}
+		/* 加载更多 */
+		.refer .load p{line-height: .94rem;text-align: center;font-size: .27rem;color: #747474;}
+		/* 发送 */
+		.refer .receive input{float: left;height: .63rem;width: 7.5rem;line-height: .63rem;}
+		.refer .receive button{float: left;width: 1.2rem;height: .63rem;line-height: .63rem;text-align: center;padding: 0;}
+
+	/* CTPA诊断肺栓塞 */
+		/* CTPA诊断肺栓塞内容 */	
+		.refer .theauthor_introduce{width: 100%;height: 100%;background-color: #ececec;}
+			.refer .payatten_tiondetailed{padding-left: .33rem;}
+				.refer .js_introduce{padding: .3rem 0 0 0;}
+				.refer .payatten_tiondetailed h3{font-size: .34rem;color: #000;line-height: .6rem;}
+			.refer .payatten_tiondetailed p{padding-bottom: .2rem;line-height: .5rem;font-size: .34rem;}
+		.refer .thearticley{width: 100%;height: 100%;} 
+			.refer .detailed_ctionsa,.detailed_ctionsb,.detailed_ctionsc,.detailed_ctionsd{padding: .6rem .33rem 0 .33rem;}
+			.refer .detailed_ctionsb,.detailed_ctionsc,.detailed_ctionsd{text-indent: .6rem;}
+				.refer .detailed_ctionsa p,.detailed_ctionsb p,.detailed_ctionsc p,.detailed_ctionsd p{font-size: .34rem;color: #696969;line-height: .55rem;}
+		/* CTPA诊断肺栓塞内容a */
+		.refer .bjz_content{width: 100%;height: 100%;background-color: #ececec;}
+		.refer .clickonthes{width: 100%;height: 100%;display: inline-block;text-align: center;}
+			.refer .wichaka{width: 8.4rem;height: .96rem;display: inline-block;position: relative;top: 7.2rem;}
+			.refer .wichaka button{width: 8.40rem;height: .96rem;background-color: #fff;color: #1f80b8;font-size: .36rem;border: 1px solid#1f80b8;font-weight: bolder;}
+
+
+	/* 内容标题 */
+	.refer .conti{height: .9rem;width: 9.6rem;border-bottom: 3px solid #dddddd;position: fixed;top: 0;left: 50%;margin-left: -4.8rem;background-color: #fff;z-index: 99;}
+		/* 心理自助 */
+		.refer .help{height: .9rem;width: 50%;float: left;position: relative;}
+			.conti div{text-align: center;}
+			.conti div h2{font-size: .42rem;color: #747474;line-height: .91rem;font-weight: normal;display: inline-block;}
+			.conti i.pts-downlvarrow{position: absolute;right: .9rem;top: .27rem;}
+		/* 在线视频 */
+		.conti .all{height: .9rem;width: 50%;float: right;}
+		.conti .dserfa{border-bottom: 3px solid #33cfb7;color: #33cfb7;}
+	/* 心理自助内容 */
+	.refer .alllive ul{width: 100%;margin-top: 1rem;margin-bottom: 1.28rem;display: none;}
+		/*心理自助*/
+		.refer .alllive .list1{display: block;}
+			.list1 li{border: 0;border-bottom:1px solid #e8e8e8;width: 100%;height: auto; padding:0.4rem 0rem;background-color: #fff;position: relative;}
+				.list1 .scvideo{width: 2.27rem;height: 1.51rem;float: left;margin-left: .4rem;overflow: hidden;}
+				.list1 .scvideo img{width: 100%;height:100%;}
+				.list1 .videomz {float: left;width: 4rem;margin-left: .22rem;}
+				.list1 .videomz h2{font-size: .42rem;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;color: #000;font-weight: normal;}
+				.list1 .videomz p{margin-top: .12rem;font-size: .34rem;color: #7f7f7f;}
+				.list1 .kua_cvnfus{overflow: auto;width: 100%;height: 100%;}
+					.list1 .redmyu{display: none;position: absolute;right: .7rem;top: 0.5rem;}
+						.list1 .redmyu i.pts-greencollection{position: relative;left: .2rem;}
+						.list1 span{display: block;padding-top: .2rem;}
+		/**/
+		.refer .alllive li{height: 1.5rem;width: 100%;padding: .34rem 0 .3rem;border-bottom: 1px solid #e3e3e3;position: relative;}
+			.refer .live img{height: 1.5rem;width: 2.26rem;float: left;margin-left: .42rem;}
+			.refer .text{width: 45%;height: 1.5rem;float: left;margin-left: .3rem;margin-right: .3rem;}
+				.refer .text p{line-height: .49rem;font-size: .37rem;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+				.refer .text p.time{line-height: .42rem;font-size: .34rem;margin-top: .12rem;color: #747474;}
+			.refer .ics{position: absolute;right: .5rem;top: .4rem;}
+				.refer .ics i{float: left;margin-right: .16rem;}
+				.refer p.care{font-size: .27rem;color: #f36c4e;line-height: .43rem;text-align: center;margin: .72rem 0 0;float: left;width: .72rem;}
+
+	/*弹出层*/
+	.xlybtcc{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 100;background: rgba(0,0,0,.3);display: none;}
+	.xlybtcc .dspla{width: 9.6rem;position: absolute;top: 0;left: 50%;margin-left: -4.8rem;}
+		.xlybtcc dl{width: 3rem;position: absolute;background-color: #fff;top: .98rem;left: 1rem;}
+		.xlybtcc dd{line-height: 1rem;height: 1rem;text-align: center;font-size: .375rem;color: #747474;}

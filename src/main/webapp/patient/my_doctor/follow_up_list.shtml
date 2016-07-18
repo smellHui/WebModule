@@ -1,0 +1,115 @@
+ <!doctype html>
+<html>
+<head>
+	<title>随访表单</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<body class="followup">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 随访表单 -->
+		<div class="list">
+			<dl>
+				<dt>
+					<a href="/patient/my_doctor/change.shtml"><h2><i class="logo-nvnds"></i>病情变化<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>
+				<dt>
+					<a href="/patient/my_doctor/medicine.shtml"><h2><i class="logo-ntbg"></i>服药记录<i class="pts-andthearow"></i></h2></a>
+				</dt>
+
+			</dl>
+			<dl>
+				<dt>
+					<a href="/patient/my_doctor/bad_reaction.shtml"><h2><i class="logo-uohgp"></i>药物不良反应<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>
+				<dt>
+					<a href="/patient/my_doctor/sleep.shtml"><h2><i class="logo-bfggrf"></i>睡眠情况<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>
+				<dt>
+					<a href="/patient/my_doctor/diet.shtml">
+					<h2><i class="logo-gdfsv"></i>进食情况<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>	
+				<dt>
+					<a href="/patient/my_doctor/other_situations.shtml"><h2><i class="logo-nvue"></i>其他情况<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>	
+				<dt>
+					<a href="/patient/my_doctor/inspection_result.shtml"><h2><i class="logo-vuer"></i>其他检查及结果<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>	
+				<dt>
+					<a href="/patient/my_doctor/self_scale.shtml"><h2><i class="logo-nvue"></i>自评量表<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+			<dl>	
+				<dt>
+					<a href="/patient/my_doctor/doctor_scale.shtml"><h2><i class="logo-vuer"></i>医评量表<i class="pts-andthearow"></i></h2></a>
+				</dt>
+			</dl>
+		</div>
+		<div class="btn-radius">提交方案</div>
+	</div>
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+	var visitRecordUuid = gm.para.get(window.location.href,"visitRecordUuid");
+	var doctorUuid = gm.para.get(window.location.href,"doctorUuid");
+	var action = gm.para.get(window.location.href,"action");
+	$(".list dt > a").each(function(){
+		this.href += "?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid + "&action=" + action;
+	});
+
+	$(".btn-radius").ontouch(saveForm);
+
+	if(action == "edit"){
+		$(".btn-radius").hide();
+	}
+
+	gm.pul.returnurl = function(){
+		if(!!action){
+			gotoReturnurl();
+		}else{
+			$.confirm("是否保存随访表单？",saveForm,gotoReturnurl);
+		}
+	};
+	
+	function saveForm(){
+		var _l = new mask("loading");
+		_l.show();
+		$.getDate({
+			page:"patient",
+			inter:"toUpdateVisit",
+			data:{visitRecordUuid:visitRecordUuid},
+			callback:function(data){
+				_l.hide();
+				if(data.query.success=="1"){
+					// gotoReturnurl();
+					gm.pul.toUrl('/patient/my_doctor/follow_doctor.shtml?doctorUuid='+doctorUuid);
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	}
+	function gotoReturnurl(){
+		if(!!action){
+			gm.pul.toUrl('/patient/my_doctor/follow_doctor.shtml?doctorUuid='+doctorUuid);
+		}else{
+			gm.pul.toUrl('/patient/home/thedoctorlistdetails.shtml?return=tolist&doctorUuid='+doctorUuid);
+		}
+	}
+	</script>
+</body>
+</html>

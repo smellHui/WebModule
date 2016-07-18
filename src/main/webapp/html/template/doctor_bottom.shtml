@@ -1,0 +1,34 @@
+<!--#include virtual="/html/template/common_bottom.shtml"-->
+
+<script type="text/javascript">
+$(function(){
+	var doctorUuid = gm.user.getDoctor();
+	if(!doctorUuid){return;}
+	$.getDate({
+	    page: "doctor",
+	    inter: "getDoctorInfo",
+	    data: {
+	        doctorUuid: gm.user.getDoctor()
+	    },
+	    callback: function(data) {
+	        //服务器传输回应
+	        if (!data) {
+	            $.alert("服务器出错!");
+	        }
+	        if (data.query.success == "1") {
+	        	if(data.delFlag && data.delFlag == "1"){
+	        		$.alert({
+	        			val:"该医生已被删除，请联系客服 400-135-8858",
+	        			callback:function(){
+	        				gm.user.clearDoctor();
+	        				gm.pul.returnIndex();
+	        			}
+	        		})
+	        	}
+	        } else {
+	            $.alert(data.query.message);
+	        }
+	    }
+	});
+});
+</script>

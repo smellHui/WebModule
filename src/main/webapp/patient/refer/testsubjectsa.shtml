@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<title>抑郁测试</title>
+	<!--#include virtual="/html/template/patient/tools_header.shtml"-->
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="depressiontest cbox">
+	<!-- 测试计题 -->
+	<div class="counter">
+		<div class="dig_device">
+			<i><span>1</span>/<b>16</b></i>
+		</div>
+	</div>
+	<!-- 测试题目 -->
+	<div class="test_questions">
+		<div class="ask_questions">
+			<span></span>
+		</div>
+		<div class="options">
+			<ul>
+<!-- 				<li><a href="/patient/refer/testsubjectsa_1.shtml">A.  大步地快走</a></li>
+				<li><a href="/patient/refer/testsubjectsa_1.shtml">B.  小步地快走</a></li>
+				<li><a href="/patient/refer/testsubjectsa_1.shtml">C.  不快，仰着头面对世界</a></li>
+				<li><a href="/patient/refer/testsubjectsa_1.shtml">D.  不快，低着头 </a></li> -->
+			</ul>
+		</div>
+	</div>
+	<!-- 按钮 -->
+	<div class="start1">
+		<a href="/patient/tools/test_results.shtml"><button class="btn-zyradius">提交</button></a>
+	</div>
+
+	<!--#include virtual="/html/template/patient/tools_bottom.shtml"-->
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.refer.testsubjectsa();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('intheheart.shtml')
+		}
+	});
+	</script>
+</body>
+</html>

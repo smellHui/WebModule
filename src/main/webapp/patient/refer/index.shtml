@@ -1,0 +1,45 @@
+ <!doctype html>
+<html>
+<head>
+	<title>自诊自测</title>
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/tools.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="depressiontest cbox refer" id="refer">
+	<div>
+		<!-- 焦点图 -->
+		<div class="focus_map" id="tabs">
+			<div class="border">
+				<ul class="atlas">
+				</ul>
+			</div>
+				<!--<ul class="atlas_dot">
+				<li class="blue"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul> -->
+		</div>
+		<!-- 测试导航内容 -->
+		<div class="thetestcontent">
+			<div class="shecndmya">
+				<ul>
+					<!-- <li><i class="pts-depressiontest"></i><span>抑郁测试</span></li>
+					<li><i class="pts-depressiontest"></i><span>压力测试</span></li>
+					<li><i class="pts-depressiontest"></i><span>焦虑测试</span></li>
+					<li><i class="pts-depressiontest"></i><span>MBTI测试</span></li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/index.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+		$(function(){
+			gm.refer.index();
+			gm.user.getfocus();
+			gm.pul.returnurl = gm.pul.returnIndex;
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的积分</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="integral">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<div class="detail">
+			<h2>积分明细</h2>
+			<h2 class="right">0<span class="record">积分</span></h2>
+		</div>
+		<ul>
+			<!-- <li>
+				<div class="share">
+					<h2>分享<span class="time">+30</span></h2>
+					<p>分享平台 2015-11-30 13:11</p>
+				</div>
+			</li>
+			<li>
+				<div class="share">
+					<h2>注册平台<span class="time">+300</span></h2>
+					<p>注册平台赠送 2015-11-30 13:11</p>
+				</div>
+			</li> -->
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.my_integral();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/index.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<title>咨询记录详情</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/task.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+
+<body class="cbox" id="consultation_record">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="vfesc">
+		<ul>
+			<!-- 患者 -->
+			<li class="patient_sd">
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/p_img/icon2.png"></div>
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>之前一直锻炼，膝盖有问题，腰疼，理疗后有了好转，之前膝盖这几天还是很疼之前一直有问题，一年前有过腰疼，理</p>
+				</div>
+			</li>
+
+			<!-- 用户 -->
+			<li class="user_sd">
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！~</p>
+				</div>
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/p_img/cstouxiang.png"></div>
+			</li>
+
+			<!-- 时间 -->
+			<li class="sjrics"><p>2015-12-13  12:13:14结束</p></li>
+
+			<!-- 患者 -->
+			<li class="patient_sd">
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/p_img/icon2.png"></div>
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>之前一直锻炼，膝盖有问题，腰疼，理疗后有了好转，之前膝盖这几天还是很疼之前一直有问题，一年前有过腰疼，理</p>
+				</div>
+			</li>
+			<!-- 用户 -->
+			<li class="user_sd">
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！~</p>
+				</div>
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/p_img/cstouxiang.png"></div>
+			</li>
+
+			<!-- 时间 -->
+			<li class="sjrics"><p>2015-12-13  12:13:14结束</p></li>
+		</ul>
+
+	</div>
+	
+	<div class="plug_in_unit">
+		<!-- 输入 -->
+		<div class="enter">
+			<i class="logo-lsht"></i>
+			<!--  -->
+			<div class="ndsfid">
+				<input type="text" class="ipt-disabled">
+			</div>
+			<i class="logo-lsxjp"></i>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+
+</body>
+</html>

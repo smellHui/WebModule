@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>更多</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="more cbox">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 内容 -->
+	<div class="box">
+		<ul>
+			<li><a href="/patient/my/about_us.shtml">关于我们</a></li>
+			<li><a href="/patient/my/instead_password.shtml">修改密码</a></li>
+			<li><a href="/patient/my/instead_play_password.shtml">修改支付密码</a></li>
+		</ul>
+	</div>
+
+	<div class="_dsc"><button class="btn-zyradius retreat">退出登录</button></div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl=function(){
+		gm.pul.toUrl('/patient/my/index.shtml');
+	}
+	$(function(){
+		gm.my.my_more();
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<title>设置预约加号</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="task cbox" id="sheizhi2">
+	<!-- 标题 -->
+	
+	<div class="thene_cement">
+		<div class="rernelkal">
+			<div class="canplu_bt">
+				<h2>可加号患者类型</h2>
+			</div>
+			<div class="abvccanplu">
+				<ul>
+					<!-- <li><span>多选框</span></li>
+					<li><span>多选框</span></li>
+					<li><span>多选框</span></li>
+					<li class="gotal"><span>多选框</span></li>
+					<li><span>多选框</span></li>
+					<li><span>多选框</span></li> -->
+				</ul>
+				<i>全部选择</i>
+			</div>
+		</div>
+		<dl class="onmonday_two">
+			
+			<dd>
+				<h2>周一</h2>
+				<div class="onmonday_off">
+					<i>全天</i>
+					<b>是否提供加号</b>
+					<div class="off"><i class="switch"></i><span class="off-font">OFF</span><span class="on-font">ON</span></div>
+				</div>
+			</dd>
+		</dl>
+		<div class="increase_rshu">
+			<h2>设置可加号人数</h2><span><input type="tel" value="" placeholder="0"><b>人</b></span>
+		</div>
+		<!-- 按钮块 -->
+		<div class="queding_a">
+			<button class="btn-radius">保存</button><!-- 默认圆角按钮 -->
+		</div>
+	</div>
+	<!--  -->
+	<div class="tcsjob">
+		<i class="icon-xxx"></i>
+		<input type="text" maxlength="6"/>
+		<button>确定</button>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<!-- <div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/bj_img.png","menuevent":""}</div> -->
+	
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.sheizhi2();
+		// 输入框
+		$(".abvccanplu i").ontouch(function(){
+			if(!this.dataset.status){
+				this.dataset.status = 1;
+				this.innerHTML = "取消全部选择";
+				$(".abvccanplu ul li").addClass("gotal");
+			}else{
+				delete this.dataset.status;
+				this.innerHTML = "全部选择";
+				$(".abvccanplu ul li").removeClass("gotal");
+			}
+		});
+	});		
+	</script>
+</body>
+</html>

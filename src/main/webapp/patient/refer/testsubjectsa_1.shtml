@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/tools_header.shtml"-->
+	<link rel="stylesheet" href="/static/css/common.css">
+	<link rel="stylesheet" href="/static/p_css/common.css">
+</head>
+<body class="depressiontest">
+	<div class="cbox">
+		<section class="section">
+			<!-- 1-个人中心 -->
+			<aside class="cbox curpage" id="personal_center">
+			<!-- 标题 -->
+			<div class="title_las"><a href="##"><i class="fh"></i></a><h2>抑郁测试</h2></div>
+			<!-- 测试名称 -->
+			<div class="t_content">
+				<!-- 测试计题器 -->
+				<div class="counter">
+					<a href="testsubjectsa_last.html">
+						<div class="dig_device">
+							<i>2/16</i>
+						</div>
+					</a>
+				</div>
+			</div>
+			<!-- 测试题目 -->
+			<div class="test_questions">
+				<div class="ask_questions">
+					<span>2.你走路时是什么样的姿态？  </span>
+				</div>
+				<div class="options">
+					<ul>
+						<li><a href="##">A.  大步地快走</a></li>
+						<li><a href="##">B.  小步地快走</a></li>
+						<li><a href="testsubjectsa_last.html">C.  不快，仰着头面对世界</a></li>
+						<li><a href="##">D.  不快，低着头 </a></li>
+					</ul>
+				</div>
+			</div>
+	</div>
+	<!--#include virtual="/html/template/clinic_bottom.shtml"-->
+</body>
+</html>

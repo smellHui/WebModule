@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<title>好心情</title>
+<!--#include virtual="/html/template/doctor_header.shtml"-->
+<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/index.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+</head>
+<body class="index cbox" id="tosy">
+<section class="section">
+	<!-- 头部 -->
+	<div class="head">
+		<!-- 未登录的状态 -->
+		<div class="uos_a">
+			<div class="w">
+				<p class="left_p"><a href="/html/reg/index.shtml">登录</a></p>
+				<i class="logo-sytbp"></i>
+				<p class="right_p"><a href="/html/reg/reg.shtml">注册</a></p>
+			</div>
+		</div>
+		<!-- 登录后的状态 -->
+		<div class="uos_b">
+			<div class="box_a">
+				<!-- 用户头像及名字 -->
+				<div class="user_information">
+					<div class="rzimg_box">
+						<div class="certified certified2"></div>
+						<div class="user_avatar"><img src=""></div>
+					</div>
+					<div class="user_unpv">
+						<div><h2 class="user_name"></h2><span class="sanm"></span></div>
+						<div class="patients_visit">
+							<i>患者：<span>0</span></i>
+							<b>随访：<span>0</span></b>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box_b">
+				<!-- 收入 -->
+				<div class="my_income">
+					<h2>我的收入</h2>
+					<p>0</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cbox">
+		<!-- 焦点图 -->
+		<div class="focus_map" id="tabs">
+			<div class="border">
+				<ul class="atlas">
+				</ul>
+			</div>
+		</div>
+
+		<!-- 导航 -->
+		<div class="navigation">
+			<ul>
+				<li class="in_yd">
+					<a href="/html/thedoctorinformation/index.shtml"></a>
+					<div class="ds1 ds"></div><p>阅  读</p>
+				</li>
+				<li class="in_jk sc_bor">
+					<a href="/html/lecture/all_course.shtml"></a>
+					<div class="ds2 ds"></div><p>讲  堂</p>
+				</li>
+				<li class="in_sf">
+					<a href="/html/follow_up/index_old.shtml"></a>
+					<div class="ds3 ds"></div><p>随  访</p>
+				</li>
+				<li class="in_zs sc_bor">
+					<a href="/html/reg/index.shtml"></a>
+					<div class="ds4 ds"></div><p>诊  所</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 底部 -->
+	<div class="foot">
+		<ul>
+			<li><a href="/html/index/page.shtml"></a><div class="_as1 _as"></div></li>
+			<li><a href="/html/reg/index.shtml"></a><div class="_as2 _as"></div></li>
+			<li><a href="/html/reg/index.shtml"></a><div class="_as3 _as"></div></li>
+			<li><a href="/html/reg/index.shtml"></a><div class="_as4 _as"></div></li>
+		</ul>
+	</div>
+
+</section>
+<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/index.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/dwef_img.png","menuevent":"gm.index.gotoQrcode"}</div>
+<script type="text/javascript">
+	$(function(){
+		
+		gm.user.getUser_infomation(gm.user.getDoctor(),function(data){
+			var o = data;
+
+			if(o.regState == "0"){
+				return;
+			}
+
+			$(".head .user_information .user_name").html(o.realName);
+			//医生头像
+			if(data.imageId!=null){
+				if(data.image.small!=null)
+					$(".head .user_information .user_avatar").html("<img src="+data.image.small+">");
+				else
+					$(".head .user_information .user_avatar").html("<img src="+data.image.large+">");
+			}else
+				$(".head .user_information .user_avatar").html("<img src="+window.___defaultImage+">");
+			//医生称职
+			var professional=o.professional;
+			if(!isNaN(parseInt(professional)))
+				professional=___professional[professional];
+			$(".head .user_information .sanm").html(professional);
+
+			if (localStorage.getItem("professional") == "null" || localStorage.getItem("_professional") == "undefined") {		
+				$(".head .user_information .sanm").hide();
+			};
+			if (localStorage.getItem("_visitNum") == "undefined") {
+				$(".head .user_information .patients_visit b span").html(0);
+			}else{
+				$(".head .user_information .patients_visit b span").html(localStorage.getItem("_visitNum"));
+			}
+			if (localStorage.getItem("_customerNum") == "undefined") {
+				$(".head .user_information .patients_visit i span").html(0);
+			}else{
+				$(".head .user_information .patients_visit i span").html(localStorage.getItem("_customerNum"));
+			}
+			if (localStorage.getItem("_income") == "undefined") {
+				$(".head .box_b .my_income p").html(0);
+			}else{
+				$(".head .box_b .my_income p").html(localStorage.getItem("_income"));
+			}
+			$(".uos_a").hide();
+			$(".uos_b").show();
+
+			if(o.sate=="0"){
+				$(".in_jk a,.in_sf a,.in_zs a,.foot a").attr("href","javascript:;").bind({
+					touchend:function(e){
+						
+						if($(this).next().hasClass("_as1") || $(this).next().hasClass("_as4")){
+							return true;
+						}else{
+							e.preventDefault();
+
+							$.alert({
+								val:"我们会在1-3个工作日里核对您的信息，如有疑问请拨打电话400-135-8858"
+							})
+						}
+					}
+				});	
+			}else{
+				$(".rzimg_box .certified").attr("class","certified certified1");
+				$(".in_jk a").attr("href","/html/lecture/all_course.shtml");
+				// $(".in_sf a").attr("href","/html/follow_up/index_old.shtml");
+				$(".in_zs a").attr("href","/html/clinic/index.shtml");
+
+				$("._as1").prev().attr("href","/html/index/page.shtml");
+				$("._as2").prev().attr("href","/html/mypatient/index.shtml");
+				$("._as3").prev().attr("href","/html/task/my_task.shtml");
+			}
+			$("._as4").prev().attr("href","/html/user/index.shtml");
+		});
+		gm.user.getfocus();
+
+		gm.index = {
+			gotoQrcode:function(){
+				gm.pul.toUrl("/html/user/personal_curpage.shtml");
+			}
+		}
+
+		gm.isIndex = true;
+		setTimeout(function(){
+			if(!gm.isMobile){return;}
+			gm.pul.toUrl("goodm://returnIndexPage");
+		},900);
+	});
+</script>
+</body>
+</html>

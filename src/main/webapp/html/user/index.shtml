@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+	<title>个人中心</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/user.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="user cbox" id="user">
+	<!-- 1-个人中心 -->
+	<aside id="personal_center">
+		<!-- 内容 -->
+		<div class=""> 
+			<dl class="options" page="doctor" inter="getFavoriteModelList">
+				<!--  -->
+				<dt id="gnrnjj">
+					<a href="/html/user/personal_information.shtml"></a>
+					<div class="left_box">
+						<div class="rzimg_box">
+							<div class="certified certified2"></div>
+				   			<div class="user_avatar"><img src=""></div>
+				   		</div>
+				    	<div class="user_unpv">
+							<h2 class="user_name"></h2>
+							<span class="sdogpan">
+								<p>
+									<i class="zhiye"></i>
+									<i class="kemu"></i>
+								</p>
+								<p><i class="yiyuan"></i></p>
+							</span>
+						</div>
+					</div>
+					<div class="right_box"><i class="icon-thearrow"></i></div>
+				</dt>
+				<!-- 
+			    <dd id="mypoin">
+			    	<a href="/html/user/my_points.shtml" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-integral"></i>
+			    		<p>我的积分</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    	<b>0</b>
+			    </dd>
+			    <dd class="dd_as" id="grlop">
+			    	<a href="/html/user/invite_peer.shtml" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-invitation"></i>
+			    		<p>邀请同行</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    <dd class="dd_as">
+			    	<a href="/html/clinic/index.shtml?from=user" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-clinic"></i>
+			    		<p>我的诊所</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			     -->
+			    <!-- 添加工具箱 -->
+			    <dd class="dd_as">
+			    	<a href="/html/follow_up/toolbox/toolbox.shtml?from=user" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="logo-gjxn"></i>
+			    		<p>工具箱</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    <!--
+			    <dd class="dd_as" id="njfye">
+			    	<a href="/html/user/reservation_course.shtml" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-course"></i>
+			    		<p>我预约的课程</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    <dd class="dd_as">
+			    	<a href="/html/user/message_center.shtml" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-news"></i>
+			    		<p>我的消息</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    -->
+			    <dd class="dd_as" id="dmvnw">
+			    	<a href="/html/user/my_collection.shtml?from=collection"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-aut2"></i>
+			    		<p>我的收藏</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    <dd class="dd_bs" id="ysdjfk">
+			    	<a href="/html/user/feedback.shtml"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-opinion"></i>
+			    		<p>意见反馈</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			</dl>
+		</div>
+	</aside>
+	
+	<!-- 底部 -->
+	<!--<div class="foot">
+		<ul>
+			<li><a href="/html/index/page.shtml"></a><div class="_as1 _as"></div></li>
+			<li><a href="/html/mypatient/index.shtml" class="nosate"></a><div class="_as2 _as"></div></li>
+			<li><a href="/html/task/my_task.shtml" class="nosate"></a><div class="_as3 _as"></div></li>
+			<li><a href="/html/user/index.shtml"></a><div class="_as4 _as"></div></li>
+		</ul>
+	</div>-->
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/user.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	//gm.pul.returnurl = gm.pul.returnIndex;
+	</script>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/szx_img.png","menuevent":"gm.user.tiaoz"}</div>
+	<script>
+		$(function(){
+			gm.menu.showBottomBar();//显示菜单
+			var doctorid=gm.para.get(window.location.href,"doctorUuid");
+			if(doctorid!="")
+				gm.user.setDoctor(doctorid);
+			$.getDate({
+				page:"user",
+				inter:"getNowIntegral",
+				data:{doctorUuid:gm.user.getDoctor()},
+				callback:function(data){
+					if(!data){
+						$.alert("服务器出错!");
+					}
+					if(data.query.success){
+						$("#personal_center #mypoin b").html(data.sumIntergralCount);
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			});
+
+			gm.user.getUser_infomation(gm.user.getDoctor(),function(data){
+				
+				//0待审核/未认证； 1审核通过/已认证； 2未通过审核/未通过认证；3认证中
+				if (data.sate == "1") {
+					$(".rzimg_box .certified").attr("class","certified certified1");
+					
+				}else if(data.sate=="2"){
+					console.log("未通过审核/未通过认证");
+				}else if(data.sate=="3"){
+					$(".nosate").attr("href","javascript:;").bind({
+						touchend:function(e){
+							$.alert({
+								val:"医生信息已提交，审核时间1-3天，审核结果将以短信形式通知您，如有疑问，请联系客服电话：400-135-8858"
+							});
+							return false;
+						}
+					});
+				}else if(data.sate=="0"){
+					$(".nosate").attr("href","javascript:;").bind({
+						touchend:function(e){
+							$.alert({
+								val:"您还没有完善个人信息！"
+							});
+							return false;
+						}
+					});
+				}
+				$(".options #gnrnjj .user_name").html(data.realName);
+				//var getDefaultImage=data.sex=="1"?window.___defaultImage:window.___defaultImage_d_woman;
+				if(data.imageId!=null){
+					if(data.image.small!=null)
+						$("#gnrnjj .user_avatar").html("<img src="+data.image.small+">");
+					else
+						$("#gnrnjj .user_avatar").html("<img src="+data.image.large+">");
+				}else
+					$("#gnrnjj .user_avatar").html("<img src="+window.___defaultImage+">");
+				$("#gnrnjj .yiyuan").html(data.hospitalName);//医院
+				$("#gnrnjj .kemu").html(data.departmentName);
+				var professional=data.professional;
+				if(!isNaN(parseInt(professional)))
+					professional=___professional[professional];
+				$("#gnrnjj .zhiye").html(professional);
+			});
+		});
+	</script>
+</body>
+</html>

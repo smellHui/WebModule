@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title>好心情</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 登录 -->
+	<aside class="login">
+		<div class="w645">
+			<!-- 图标 -->
+			<div class="login_box1">
+				<div class="icon-aut6"></div>
+			</div>
+			<!-- 输入框模块 -->
+			<div class="login_box2">
+				<h2>登录</h2>
+				<input type="text" class="ipt-def mobile" placeholder="请输入手机号码">
+				<input type="password" class="ipt-def password" placeholder="请输入密码">
+				<p><a class="wjmm" href="/html/reg/login_forget.shtml">忘记密码？</a></p>
+			</div>
+			<!-- 按钮块 -->
+			<div class="login_but" page="user" inter="login">
+				<button class="btn-radius">登录</button>
+				<h2><a class="ljzc" href="/html/reg/reg.shtml">没有账号？立即注册</a></h2>
+			</div>
+		</div>
+	</aside>
+
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+
+<script type="text/javascript">
+	// $(function(){
+		$(".reg_protocol i").click(function(){
+			if(this.className == "gou"){
+				this.className = "";
+			}else{
+				this.className = "gou";
+			}
+		});
+
+		// 首页-点击登录
+		$("#logon_register .login .btn-radius").bind({
+			touchend:function(){
+				var _submitObj = $(this).parent();
+				var _mobile = $(".login .login_box2 .mobile").val();
+				var _password = $(".login .login_box2 .password").val();
+
+				if (_password && _mobile) {
+					localStorage.clear();
+					gm.user.login(_mobile,_password);
+				}else if(!_mobile){
+					$.alert("请输入帐号！");
+				}else if(!_password){
+					$.alert("请输入密码！");
+				}
+				// $.getDate({
+				// 	page:_submitObj.attr("page"),
+				// 	inter:_submitObj.attr("inter"),
+				// 	data:{mobile:_mobile,password:_password,callback:"gm.user.login"},
+				// 	method:"POST",
+				// 	dataType:"script"
+				// });
+			}
+		});
+	// });
+</script>
+</body>
+</html>

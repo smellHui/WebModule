@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的积分</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 4-我的积分 -->
+	<aside id="my_points">
+		
+		<ul class="nlims">
+			<li>暂无数据</li>
+		</ul>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+		$(function(){
+			gm.menu.hiddenBottomBar();//隐藏菜单
+			$.getDate({
+				page:"doctor",
+				inter:"getNowIntegralDetail",
+				data:{doctorUuid:gm.user.getDoctor()},
+				callback:function(data){
+					if(!data){
+						$.alert("服务器出错!");
+					}
+					if(data.query.success){
+						var arr = [];
+						var _l = '<li class="jfmx"><h2>积分明细 <span>'+data.sumIntergralCount+'</span></h2></li>';
+
+						$(data.relist).each(function(i,o){
+							arr.push('<li><h3><p>'+o["typeName"]+'</p><i>'+o["createTime"]+'</i>\
+								</h3><span>+'+o["intergralCount"]+'</span></li>')
+						});
+						
+						$(".nlims").html(_l + arr.join(""));
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			});
+		})
+	</script>
+</body>
+</html>

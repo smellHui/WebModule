@@ -1,0 +1,37 @@
+/* 患者端首页 */
+#home_page{background-color: #f7f7f7;}
+	#home_page .index_box { height:100%; overflow-y:auto;}
+	/*登入*/
+	#home_page .head .uos_a{background-color: #28c3b1;}
+
+	#home_page .focus_map{height: 4.71rem;}
+	/*图标*/
+	#home_page .title b.logo-judii{position: absolute;top: .24rem;right: .35rem;}
+
+	#home_page .navigation{margin-bottom: .45rem;}
+	#home_page .focus_map{height:4.71rem;}
+	#home_page .navigation i{margin: .4rem auto 0 auto;display: block;}
+	#home_page .navigation ul{border-bottom: 1px solid #d4d4d4;}
+	#home_page .cur{background-color: #28c3b1;}
+	/*今日推荐*/
+	#home_page .tk_jrtj{width: 100%;background-color: #fff;border-top: 1px solid #eee;border-bottom: 1px solid #eee;margin-bottom: .45rem;position: relative;}
+		#home_page .tk_jrtj a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 999;}
+		#home_page .hnmsof{height: .79rem;border-bottom: 1px solid #eee;box-sizing:border-box;padding-left: 6%;}
+			#home_page .hnmsof i{margin-top: .15rem;}
+		#home_page .nuhst_s{width: 88%;height: 2.33rem;margin: 0 auto;box-sizing:border-box;padding-top: .26rem;}
+			.muhst_img{float: left;width: 1.5rem;}
+				.muhst_img img{width: 100%;}
+			.muhst_vn{float: left;width: 6.8rem;padding-left: .2rem;box-sizing:border-box;}
+				.muhst_vn h2{font-size: .337rem;color: #000;font-weight: normal;}
+				.muhst_vn p{font-size: .337rem;line-height: .4rem;color: #747474;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+
+	/*名医风采*/
+	#home_page .myfcsc{background-color: #fff;margin-bottom: 1.3rem;}
+		.myfcsc dt{height: .8rem;line-height: .8rem;}
+			.myfcsc dt h2{display: inline;float: left;color: #747474;font-size: .36rem;}
+			.myfcsc dt b{font-weight: normal;float: right;color: #747474;}
+		.myfcsc dt,.myfcsc dd{width: 100%;box-sizing:border-box;padding: 0 7%;border-bottom: 1px solid #eee;position: relative;}
+		.myfcsc dd a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 11;}
+		.myfcsc dd .user_avatar{border-color: #96cded;}
+		.isc span h2,.isc span p{display: inline-table;}
+		.isc span h3{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}

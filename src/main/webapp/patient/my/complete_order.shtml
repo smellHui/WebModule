@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>订单详情</title>
+	<!--#include virtual="/html/template/my_header.shtml"-->
+</head>
+
+<body class="cbox" id="complete_order">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<div class="doctor">
+			<div class="icon1">
+				<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+			</div>
+			<div class="p_fbjn">
+				<h3>王志玲 <i class="pts-figureinsets"></i></h3>
+				<p>北医三院</p>
+			</div>
+			<div class="p_yvbu">
+				<p class="p_hjf">北医三院</p>
+				<p>早期干预科</p>
+			</div>
+			<b><i class="pts-andthearow"></i></b>
+		</div>
+		<div class="patient">
+			<div class="icon2">
+				<img src="http://app.hxqydyl.com/p_img/icon2.png">
+			</div>
+			<h4>张明明 <i class="pts-figureinsets"></i><span>14岁</span></h4>
+			<div class="p_fcxkj">
+				<p>价格：30元</p>
+				<p>问题描述：之前一直锻炼，膝盖有问题，一年前有过腰疼，理疗后有了好转</p>	
+			</div>
+		</div>
+		<div class="p_yhfcb">
+			<p>价格：30元</p>
+			<p>预约时间：2015-11-12 10:30</p>
+			<p>预约时常：15分钟</p>
+		</div>
+		<div class="p_djsdh">
+			<div class="p_ufvnb">
+				<p>医生回复情况:<span>已拒绝</span></p>
+				<button class="b-def">联系客服</button>
+			</div>
+			<p class="p_hgvhn">拒绝理由：您找错科室了，我不擅长</p>
+		</div>
+		<button class="btn-zyradius">再次咨询</button>
+	</div>
+
+
+	<!--#include virtual="/html/template/task_bottom.shtml"-->
+
+</body>
+</html>

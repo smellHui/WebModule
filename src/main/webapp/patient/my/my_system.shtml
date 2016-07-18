@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<title>系统消息</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="system cbox" id="my_system">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<aside id="message_center">
+		<!--  -->
+		<ul class="dunpds">
+			<li id="zxzx"><h2>系统通知<span>0</span></h2></h2></li>
+			<li id="sfxx"><h2>随访消息<span>0</span></h2></li>
+		</ul>
+	</aside>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/patient/my/index.shtml');
+	}
+	$(function(){
+		//初始化消息
+		gm.my.getsystem_value();
+		//事件绑定
+		$(".dunpds li").eq(0).bind({
+			touchend:function(){
+				gm.pul.toUrl( "/patient/my/my_systeminfomation.shtml?messageType=2");
+			}
+		})
+		$(".dunpds li").eq(1).bind({
+			touchend:function(){
+				gm.pul.toUrl( "/patient/my/my_systeminfomation.shtml?messageType=1");
+				
+			}
+		})
+		
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<title>设置</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 13-设置 -->
+	<aside id="set">	
+		<!-- 内容 -->
+		<div class="set_lis">
+			<ul>
+				<li>
+					<h3>消息免打扰设置</h3>
+					<span class="span" page="doctor" inter="updateDoctorRight">
+						<h2 class="juydng"><p>系统消息</p><div class="off"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div></h2>
+						<h2 class="gndyuj"><p>图文咨询消息</p><div class="off"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div></h2>
+					</span>
+				</li>
+				<li id="xgmm">
+					<a href="/html/user/change_password.shtml"></a>
+					<h3>修改密码</h3>
+				</li>
+				<li><h3>清除缓存</h3></li>
+				<li><h3>使用指南</h3></li>
+				<!-- <li><h3>使用指南</h3></li> -->
+			</ul>
+		</div>
+		<!-- 按钮 -->
+		<div class="anbox" page="user" inter="logout">
+			<button class="btn-zyradius">退出登录</button>
+		</div>
+	</aside>
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+	});
+
+	var _k = 0;
+	var _j = 0;
+	$.getDate({
+		page:"doctor",
+		inter:"getDoctorRight",
+		data:{doctorid:gm.user.getDoctor()},
+		callback:function(data){
+			if(!data){
+				$.alert("服务器出错！")
+				return;
+			}
+			if (data.query.success) {
+				if(data.disturb == 1) {
+					_k = 1;
+					$("#set .set_lis .juydng div").removeClass().addClass("on");
+				}
+				if(data.telDisturb == 1) {
+					_j = 1;
+					$("#set .set_lis .gndyuj div").removeClass().addClass("on");
+				}
+			}
+		}
+	});
+
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	//系统信息开关设置
+	$("#set .set_lis .juydng").bind({
+		touchend:function(){
+			if (_k==0) {
+				_k=1;
+			}else{
+				_k=0;
+			}
+			gm.user.updateDoctorRight({
+				disturb : _k
+			});
+		}
+
+	});
+
+	//图文信息开关设置
+	$("#set .set_lis .gndyuj").bind({
+		touchend:function(){
+			if (_j==0) {
+				_j=1;
+			}else{
+				_j=0;
+			}
+			gm.user.updateDoctorRight({
+				telDisturb : _j
+			});
+		}
+	});
+
+	$(".set_lis li").eq(2).bind({
+		touchend:function(){
+			$.alert("清除成功！");
+		}
+	})
+	</script>
+</body>
+</html>

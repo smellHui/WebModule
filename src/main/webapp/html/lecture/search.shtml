@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+	<title>搜索</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="../../static/css/searchresult.css">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/lecture.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="forum cbox" id="search">
+	<div class="search_box">
+		<div class="odu_sq">
+			<div class="_osc">
+				<input type="text" value=""/>
+				<div><i class="icon-fdjn"></i></div>
+			</div>
+		</div>
+		<!-- 搜索结果 -->
+		<div class="sshjg">
+			<div id="search_empty" style="display:none">
+				<div id="search_empty_img">
+					<img src="../../static/imgs/search_empty.png">
+				</div>
+			</div>
+			<dl>
+				<dt><!-- <div>为您找到相关结果约<span>0</span>个</div> --></dt>
+				<!--  -->
+				<!-- <dd>
+					<div class="live"><img src=""></div>
+					<div class="text"><p>WHO-我有一条黑狗它叫抑郁</p><p class="time">2015-12-31 14:25:12</p></div>
+					<div class="ics">
+						<i class="icon-care2"><p class="care">0</p></i>
+						<i class="icon-mycollection"></i>
+					</div>
+				</dd> -->
+			</dl>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/lecture.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		// 获取URL的参数
+		var _p = gm.para.get(window.location.href,"name");
+		// 转码
+		_p = decodeURIComponent(_p);
+		//友盟统计-讲堂搜索
+		_czc.push(["_trackEvent","讲堂","搜索",_p,'','search i']);
+		// 加载后执行接口
+		$.getDate({
+			page:"doctor",
+			inter:"getVideosByName",
+			data:{doctorUuid:gm.user.getDoctor(),name:_p ||"",callback:"gm.lecture.skk"},
+			method:"POST",
+			dataType:"script"
+
+		})
+
+		//点击搜索按钮
+		$("#search ._osc div").bind({
+			touchend:function(){
+				//获取输入文字
+				var _o = $("#search ._osc input").val();
+				//点击按钮后执行接口
+				$.getDate({
+					page:"doctor",
+					inter:"getVideosByName",
+					data:{doctorUuid:gm.user.getDoctor(),name:_o ||"",callback:"gm.lecture.skk"},
+					method:"POST",
+					dataType:"script"
+				})
+			}
+		});
+		
+		//接口回调
+		gm.lecture.skk = function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				var arr = [];
+				var t = "";
+				
+				//遍历返回参数
+				$(data.relist).each(function(i,o){
+					
+					arr.push('<dd uuid="'+o["uuid"]+'" favid="'+ o["favoriteUuid"] +'"><a href="/html/lecture/playing.shtml?vidoUuid='+o["uuid"]+'"><div class="live">\
+					<img src="'+o["img"]+'"></div><div class="text">\
+					<p>'+o["title"]+'</p><p class="CommonCollectNum"><span>'+o["CoMmonCount"]+'</span>评论&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>'+o["collectNum"]+'</span>收藏</p>\
+					</div></a><div class="ics searchStar"><i class="icon-' + (o["sc"] == "1" ? "redstars": "greystars") + '"></i><i class="icon-mycollection"></i>\
+					</div></dd>');
+					t++;
+				});
+				//代入结果
+				$("#search dl").html("<dt></dt>"+arr.join(""));
+				
+				if(data.empty!=undefined && data.empty){
+					$("#search_empty").show();
+					// 搜索结果
+					$(".sshjg dt").html('<div style="font-size:.37rem">为您推荐以下内容</div>');
+				}else{
+					$("#search_empty").hide();
+					// 搜索结果
+					$(".sshjg dt").html('<div style="font-size:.37rem">为您找到相关结果约<span>'+ t +'</span>个</div>');
+				}
+				
+
+				$(".sshjg .icon-greystars,.sshjg .icon-redstars").ontouch(function(){
+					//判断用户是否登录 
+					if(!gm.user.isLoginDoctor()){
+						gm.pul.toUrl('goodm://login');
+						return;
+					}
+					var _this = this;
+					if($(this).is(".icon-greystars")){
+						var _uuid = $(this).closest("dd").attr("uuid");
+						gm.user.addFavorite(_uuid,2,function(favid){
+							$(_this).closest("dd").attr("favid",favid);
+							$(_this).attr("class","icon-redstars");
+							//收藏 +1
+							var result=$(_this).parent().parent().find("a").find(".text").find(".CommonCollectNum").find("span").eq(1).html();
+							console.log(result);
+							$(_this).parent().parent().find("a").find(".text").find(".CommonCollectNum").find("span").eq(1).html(++result);
+						});
+					}else{
+						var _favid = $(this).closest("dd").attr("favid");
+						gm.user.delFavoriteNew(_favid,function(){
+							$(_this).closest("dd").attr("favid","");
+							$(_this).attr("class","icon-greystars");
+							//收藏-1
+							var result=$(_this).parent().parent().find("a").find(".text").find(".CommonCollectNum").find("span").eq(1).html();
+							console.log(result);
+							$(_this).parent().parent().find("a").find(".text").find(".CommonCollectNum").find("span").eq(1).html(--result);
+						});
+					}
+				})
+				// $(".sshjg .icon-care").ontouch(function(){
+				// 	var _this = this;
+				// 	var _favid = $(this).parent().parent().attr("favid");
+				// 	gm.user.delFavoriteNew(_favid,function(){
+				// 		$(_this).parent().parent().attr("favid","");
+				// 		$(_this).attr("class","icon-care2");
+				// 		$(_this).children("p").get(0).innerHTML = Number($(_this).children("p").get(0).innerHTML) - 1;
+				// 	});
+				// })
+
+				$(".sshjg .icon-mycollection").ontouch(function(){
+					//判断是否登录
+					if(!gm.user.isLoginDoctor()){
+						gm.pul.toUrl('goodm://login');
+						return;
+					}
+					var _ = $(this);
+					var p = _.parent().parent();
+
+					var obj = {
+						title:p.find(".text p").html(),
+						desc:p.find(".text p").html(),
+						img:p.find("img").attr("src"),
+						link:gm.basePath + "/html/lecture/playing.shtml?vidoUuid=" + p.attr("uuid")
+					}
+
+					gm.share(obj,function(){
+						$.getDate({
+							page:"doctor",
+							inter:"addDoctorShare",
+							data:{doctorUuid:gm.user.getDoctor(),contentUuid:p.attr("uuid")},
+							callback:function(data){	}
+						});
+					});
+				});
+
+			}else{
+				$.alert(data.query.message);
+			}
+		
+		}
+		gm.pul.returnurl = function(){gm.pul.toUrl('/html/lecture/all_course.shtml')}
+
+	})
+	</script>
+</body>
+</html>

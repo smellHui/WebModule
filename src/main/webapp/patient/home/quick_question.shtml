@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+	<title>快速提问</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- home快速提问 -->
+<body class="cbox" id="quick_question">
+	<!-- 内容 -->
+	<div class="w930">
+		<textarea placeholder="请详细描述您的症状、疾病和身体情况，好心情为您自动分诊到正确科室并保证您的隐私安全。可上传照片、拍照"></textarea>
+		<div class="tind">
+			<ul>
+				<li><i class="logo-tjzpn"></i></li>
+				<li><i class="logo-tjzpn"></i></li>
+				<li><i class="logo-tjzpn"></i></li>
+				<li><i class="logo-tjzpn"></i></li>
+				<li><i class="logo-tjzpn"></i></li>
+			</ul>
+		</div>
+	</div>
+	<h4>基本信息</h4>
+	<div class="oiba">
+		<ul>
+			<li class="zsxm"><h2>真实姓名</h2><input disabled="disabled"  type="text"/></li>
+			<li class="xb"><h2>性别</h2>
+			<select class="nvxlk" disabled="disabled">   
+			        <option value="1" selected>男</option>   
+			        <option value="2">女</option>
+			    </select>
+      		</li>
+			<li class="csrq" style="border:0;"><h2>出生日期</h2><input disabled="disabled" type="date"/></li>
+		</ul>
+	</div>
+	<h4>请填写您的既往病史</h4>
+	<div class="dilf">
+		<textarea type="text" placeholder="请填写您的既往病史"></textarea>
+	</div>
+	<a href="javascript:;" class="btn-zyradius">提交</a>
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script>
+	$(function(){
+
+		gm.user.vcLogin();
+
+		//选择上传图片的位置
+		var flagObj;
+
+		//记录上传图片的位置
+		//$(".tind li") 选择器，选择被绑定事件的标签、容器
+		//bind 绑定 {点击：方法,双击:方法}
+		//touchend 手机点击完成 touchstart 开始 touchmore 经过
+		$(".tind li").bind({
+			touchend:function(e){
+				//被点击的对象被记录
+				flagObj = $(this);
+			}
+		});
+
+		gm.patient.bindGetPatient = function(data){
+			if(!data){
+				$.alert("服务器出错")
+			}
+
+			if(data.query.success == "1"){
+				//返回首页
+				$.alert({
+					val:"发送成功",
+					callback:function(){
+						//跳转到首页
+						gm.pul.toUrl("/patient/index/page.shtml");
+					}
+				})
+			}else{
+				$.alert(data.query.message);
+			}
+		}
+
+
+		//绑定图片上传操作
+		//$(".tind li") 选择器，哪些标签要做什么
+		//upimage 被选择的标签 需要做upimage 方法 上传图片
+		//(function(){})  callback 当选择图片上传完成之后，把服务器数据传递回来. data 是服务器传递回来的数据
+		$(".tind li").bind({
+			touchend:function(){
+				$("input,textarea").blur();
+			}
+		}).upimage(function(_){
+			var img = flagObj.find("img");
+
+			if(img.length == 0){
+				img = $("<img />");
+
+				flagObj.append(img);
+			}
+			img.attr("src",_.smallUrl);
+			img.attr("upsrc",_.icon);
+		},250);
+
+		$.getDate({
+			page:"patient",
+			inter:"toQuickQuestion",
+			//数据提交
+			data:{
+				customerUuid:gm.patient.getPatient()//患者ID
+			},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错")
+				}
+
+				if(data.query.success == "1"){
+					$(".csrq input").val(data.birthday);
+					$(".zsxm input").val(data.realName);
+					$(".xb select").val(data.sex);
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+		
+		$(".btn-zyradius").bind({
+			touchend:function(e){
+				//阻止冒泡，比如有链接的情况下放弃链接进入操作
+				e.preventDefault();
+
+				var obj = {};
+
+				//寻找上传过的图片信息 存放如obj数组对象中
+				$(".tind img").each(function(i,o){
+					obj[i] = $(this).attr("upsrc");
+				});
+				// 判断是否填写对象
+				var _aq = $("#quick_question .oiba .zsxm input").val();
+				var	_bq = $("#quick_question .oiba .xb option").val();
+				var	_cq = $("#quick_question .oiba .csrq input").val();
+				var _content = $(".dilf textarea").val();
+				// if(!_content){
+				// 	$.alert("请填写您的既往病史");
+				// 	return false;
+				// }
+				if (!_aq) {
+					$.alert("请填写姓名");
+					return false;
+				}
+				if (!_cq) {
+					$.alert("请填写出生日期");
+					return false;
+				}
+
+				$.getDate({
+					page:"patient",
+					inter:"saveQuickQuestion",
+					method:"POST",
+					dataType:"script",
+					//数据提交
+					data:{
+						customerUuid:gm.patient.getPatient(),//患者ID
+						imageUrl:obj[0] || "",//图片信息1
+						imageUrl1:obj[1] || "",//图片信息2
+						imageUrl2:obj[2] || "",//图片信息3
+						imageUrl3:obj[3] || "",//图片信息4
+						imageUrl4:obj[4] || "",//图片信息5
+						content:_content,//病情说明
+						realName:_aq,// 姓名
+						sex:_bq,// 性别
+						birthday:_cq,// 出生日期
+						callback:"gm.patient.bindGetPatient"
+					}
+				});
+
+			}
+		})
+		gm.pul.returnurl = gm.pul.returnIndex;
+	});
+	</script>
+</body>
+</html>

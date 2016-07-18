@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>选择分组</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 选择分组 -->
+<body class="followed cbox" id="select_group">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="xzfz_box">
+		<ul class="fnonne" page="user" inter="updateCustomerGroup">
+		</ul>
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but" style="bottom:0">
+		<button class="btn-zyradius">新增分组</button>
+	</div>
+
+	<div class="tcsjob"  style="display: none;">
+		<i class="icon-xxx"></i>
+		<input maxlength="8" type="text">
+		<button>确定</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_patients.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		var _customerUuid = gm.para.get(window.location.href,"customerUuid");
+		gm.follow_up.mobile_packet(_customerUuid);
+		gm.user.getCaseGroupByDoctorId();
+		$(".tcsjob button").ontouch(function(){
+			$(".tcsjob").hide();
+			gm.user.addCaseGroup();
+		});
+	});
+	</script>
+</body>
+</html>

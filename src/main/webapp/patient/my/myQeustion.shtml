@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>我的提问</title>
+<!--#include virtual="/html/template/patient_header.shtml"-->
+</head>
+<body>
+
+</body>
+</html>

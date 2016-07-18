@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>常用项</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 常用项 -->
+<body class="followed cbox" id="common_term">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="cyx_box">
+		<ul class="fnonne">
+			<li>患有间歇性精神障碍</li>
+			<li>患有间歇性精神障碍</li>
+			<li>患有间歇性精神障碍</li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+
+</body>
+</html>

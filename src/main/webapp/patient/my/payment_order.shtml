@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	<title>订单详情</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cbox" id="payment_order">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<div class="doctor">
+			<div class="icon1">
+				<img src="">
+			</div>
+			<div class="p_fbjn">
+				<h3> <i class="pts-figureinsets"></i></h3>
+				<p></p>
+			</div>
+			<div class="p_yvbu">
+				<p class="p_hjf"></p>
+				<p class="asfg"></p>
+			</div>
+			<i class="pts-andthearow"></i>
+		</div>
+		<div class="patient">
+			<div class="icon2">
+				<img src="">
+			</div>
+			<h4> <i class="pts-figureinsets"></i><span>岁</span></h4>
+			<div class="p_fcxkj">
+				<p class="sdopj">价格：元</p>
+				<p class="oepsjpoj">问题描述：</p>	
+			</div>
+		</div>
+		<div class="p_yhfcb">
+			<div class="text">
+				
+			</div>
+			<button class="b-def">取消订单</button>
+		</div>
+		<div class="p_djsdh">
+			<div class="p_ufvnb">
+				<p>医生回复情况:
+					<span>已拒绝</span>
+				</p>
+				<a href="tel:400-135-8858" class="b-def">联系客服</a>
+			</div>
+			
+			<p class="p_hgvhn"></p>
+		</div>
+		<div class="scsv">
+			<button class="btn-zyradius btn-zczx">再次咨询</button>
+			<button class="btn-zyradius btn-zcxd">再次下单</button>
+			<button class="btn-zyradius btn-qxdd">取消订单</button>
+		</div>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.payment_order();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/myorder.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+	<title>医生详情</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+
+</head>
+<body class="cbox" id="home_doctor">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 1-个人中心 -->
+	<aside class="curpage" id="personal_center">
+		<!-- 标题 -->
+		
+		<!-- 关注医生 -->
+		<div class="dalastsof">
+			<ul>
+				<li>
+					<div class="backlas">
+						<div class="doilo">
+							<img id="icon">
+						</div>
+						<div class="dynamic"></div>
+						<div class="call">
+							<strong id="nick"></strong>
+						<div class="z_tai"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 主治医生 -->
+		<div class="aphysician">
+			<div class="neurology">
+				<ul>
+					<li><span id="zc"></span></li>
+					<li class="shoid"><span id="yy"></span></li>
+					<li><span id="ks"></span></li>
+				</ul>
+			</div>
+			<!-- 主治医生接诊量 -->
+			<div class="acepts_mount">
+				<ul>
+					<li>
+						<span>接诊量<i id="jzl">0</i></span>
+					</li>
+					<li>
+						<span>咨询量<i id="zxl">0</i></span>
+					</li>
+					<li>
+						<span class="fensi">粉丝数<i id="fsl">0</i></span>
+					</li>
+				</ul>
+			</div>
+			<div class="menu">
+			</div>
+			<!-- 主治医生擅长 -->
+			<div class="good_at">
+				<div class="a_overview">
+					<h2>擅长</h2>
+					<div class="good_content">
+						<p id="sc"></p>
+					</div>
+				</div>
+ 			</div>
+ 			<!-- 个人简介 -->
+ 			<div class="pal_profileax">
+ 				<div class="a_overview">
+					<h2>个人简介</h2>
+					<p id="jj"></p>
+				</div>
+				<div class="lv_inla">
+					<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+				</div>
+ 			</div>
+ 			<!-- 医生公告 -->
+ 			<div class="good_at">
+				<div class="a_overview">
+					<h2>医生公告</h2>
+					<div class="good_content">
+						<p id="tzsj"></p>
+					</div>
+				</div>
+ 			</div>
+ 			<!-- 主治医生关注按钮 -->
+			<div class="start">
+				<a class="btn-radius">申请医生随访</a><!-- 默认圆角按钮 -->
+				<!-- <a class="btn-radius">医生服务</a> -->
+			</div>
+		</div>
+		<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+		<script type="text/javascript">
+		$(function(){
+			//用户登录判断，没登录，跳转登录页面
+			//gm.user.vcLogin();
+			//获取url中的doctorUuid 
+			var doctorid = gm.para.get(window.location.href,"doctorUuid")
+			var _r = gm.para.get(window.location.href,"return")
+
+			var _test = false;
+			$(".pts-downlvarrow").ontouch(function(){
+				if(_test){
+					_test = false;
+					$("#jj").removeClass("open");
+					$(this).removeClass("pts-downlvarrow-up");
+				}else{
+					_test = true;
+					$("#jj").addClass("open");
+					$(this).addClass("pts-downlvarrow-up");
+				}
+			});
+			var _loading = new mask("loading");
+			_loading.show();
+			$.getDate({
+				page:"patient",
+				inter:"getVisitRecord",
+				data:{doctorUuid:doctorid,customerUuid:gm.patient.getPatient()},
+				callback:function(data){
+					_loading.hide();
+					if(!data){
+						$.alert("服务器出错");
+						return;
+					}
+
+					if(data.query.success == "1"){
+						if(data.applyState == "1"){
+							$(".btn-radius").html("填写随访表单");
+							$(".btn-radius").bind({
+								touchend:function(){
+									$.confirm("您已经和该医生建立了随访关系，是否前去与医生互动?",function(){
+										gm.pul.toUrl('/patient/my_doctor/follow_doctor.shtml?doctorUuid=' + doctorid)
+									});
+								}
+							});
+						}else if(data.applyState == "0" && data.visitRecordUuid){
+							$(".btn-radius").bind({
+								touchend:function(){
+									gm.pul.toUrl("/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+data.visitRecordUuid+"&doctorUuid="+doctorid);
+								}
+							});
+							
+						}else{
+							$(".btn-radius").ontouch(function(){
+								 $.getDate({
+								 	page:"patient",
+								 	inter:"toVisitRecord",
+								 	data:{customerUuid:gm.patient.getPatient(),doctorUuid:doctorid},
+								 	callback:function(data){
+								 		if(!data){
+								 			$.alert("服务器出错");
+								 			return;
+								 		}
+
+								 		if(data.query.success == "1"){
+								 			gm.pul.toUrl("/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+data.visitRecordUuid+"&doctorUuid="+doctorid);
+								 		}else{
+								 			$.alert(data.query.message);
+								 		}
+								 	}
+								 });	
+							});
+						}
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			})
+
+			gm.user.getDoctorDetail(doctorid,function(data){
+				if(!data){
+					$.alert("服务器出错");
+					return;
+				}
+
+				if(data.query.success == "1"){
+					var o = data.relist[0];
+
+					if(!o){
+						$.alert("没有此医生");
+					}
+
+					var obj = $(".menu");
+					var arr = [];
+					var tmp = '<a href="/patient/home/teleconsult_1.shtml?doctorUuid={doctorUuid}"><i class="zys-phone{telState}"></i><span>电话咨询</span></a>\
+					<a href="/patient/my_doctor/communicate_patient.shtml?doctorUuid={doctorUuid}"><i class="zys-wndsx{teletext}"></i><span>图文咨询</span></a>\
+					<a href="/patient/home/thedoctorappointmentplus.shtml?doctorUuid={doctorUuid}"><i class="zys-dcsos{plus}"></i><span>预约加号</span></a>\
+					<a href="/patient/home/package.shtml?doctorUuid={doctorUuid}"><i class="zys-grqxs{personal}"></i><span>私人医生</span></a>';
+
+					$(data.relist).each(function(i,o){
+						o.professional = window.___professional[o.professional*1];
+						o.doctorUuid = doctorid;
+						o.telState = (o.telState || 0)*1 + 1;
+						o.teletext = (o.teletext || 0)*1 + 1;
+						o.plus = (o.plus || 0)*1 + 1;
+						o.personal = (o.personal || 0)*1 + 1;
+						o.img = o.img || window.___defaultImage;
+						o.sexType = (!o.sex || o.sex == 1) ? "icon-boy" : "icon-girl";
+						arr.push(gm.replace(tmp,o));
+					});
+					obj.html(arr.join());
+					obj.find("i").each(function(i,o){
+						if (o.className.indexOf("1") > -1) {
+							$(o).parent().attr("href","###");
+						};
+					});
+
+					//擅长
+					$("#sc").html(o.territory);
+					//医生的职称
+					$("#zc").html(window.___professional[o.professional*1]);
+					//医生的个人介绍
+					$("#jj").html(o.synopsis);
+					//imgUrl
+					$("#icon").attr("src",o.imgUrl || window.___defaultImage);
+					//医生姓名
+					$("#nick").html(o.realName);
+					//医生所在医院
+					$("#yy").html(o.hospitalName);
+					//医生所在科室
+					$("#ks").html(o.departmentName);
+					//医生的认证状态0:未认证 1：认证通过 2：认证不通过
+					$(".z_tai").attr("class","z_tai" + (o.certificationTyp || 0));
+					//获取关注状态 1代表已关注，0代表未关注
+					$(".dynamic").attr("class","dynamic" + o.concernType);
+					//关注该医生的粉丝数
+					$("#fsl").html(o.concernNum);
+					//咨询量的数量
+					$("#zxl").html(o.totalNum);
+					//接诊的数量
+					$("#jzl").html(o.receTotalNum);
+					//医生公告<
+					$("#tzsj").html(o.content);
+
+					// 关注医生
+					$(".dynamic0,.dynamic1").ontouch(
+						function(){							
+							var cid = gm.patient.getPatient();
+							var did = gm.para.get(window.location.href,"doctorUuid");
+							var flag = $(".dynamic0,dynamic1").hasClass("dynamic0");
+							var num = "";
+
+							num = (flag?1:0);
+
+							gm.home.detailsofthe(cid,did,flag,function(data){
+								$(".dynamic0,.dynamic1").attr("class","dynamic" + num)
+							});
+						},true
+					);
+					// var key = gm.patient.getPatient();
+					// var key = o.realName;
+					// $.getDate({
+					// 	page:"patient",
+					// 	inter:"getDoctorDetail",
+					// 	data:{
+					// 		doctorConditon : key
+					// 		// "callback":"gm.bindDoctorList"
+					// 	},
+					// 	callback:function(data){
+					// 		console.log(data);
+					// 	}
+					// });
+				}else{
+					$.alert(data.query.message);
+				}
+			});
+			
+			if(_r == "tolist"){
+				gm.pul.returnurl = function(){
+					gm.pul.toUrl('/patient/home/thedoctorlist.shtml');
+				}
+			}
+
+			gm.bindDoctorList = function(data){
+				window._loading = new mask("loading");
+				window._loading.show();
+				if(!data){
+					$.alert("服务器出错");
+					return;
+				}
+
+				if(data.query.success == "1"){
+					var obj = $(".menu");
+					var arr = [];
+					var tmp = '<a href="/patient/home/teleconsult_1.shtml?doctorUuid={doctorUuid}"><i class="zys-phone{telState}"></i><span>电话咨询</span></a>\
+					<a href="/patient/my_doctor/communicate_patient.shtml?doctorUuid={doctorUuid}"><i class="zys-wndsx{teletext}"></i><span>图文咨询</span></a>\
+					<a href="/patient/home/thedoctorappointmentplus.shtml?doctorUuid={doctorUuid}"><i class="zys-dcsos{plus}"></i><span>预约加号</span></a>\
+					<a href="/patient/home/package.shtml?doctorUuid={doctorUuid}"><i class="zys-grqxs{personal}"></i><span>私人医生</span></a>';
+
+					$(data.reList).each(function(i,o){
+						o.professional = window.___professional[o.professional*1];
+
+						o.telState = (o.telState || 0)*1 + 1;
+						o.teletext = (o.teletext || 0)*1 + 1;
+						o.plus = (o.plus || 0)*1 + 1;
+						o.personal = (o.personal || 0)*1 + 1;
+						o.img = o.img || window.___defaultImage;
+						o.sexType = (!o.sex || o.sex == 1) ? "icon-boy" : "icon-girl";
+						arr.push(gm.replace(tmp,o));
+					});
+					obj.html(arr.join());
+					obj.find("i").each(function(i,o){
+						if ($(o).className.indexOf("1") > -1) {
+							$(o).parent().attr("href","###");
+						};
+					});
+					setTimeout(function(){
+						window._loading.hide();
+					},100);
+				}else{
+					$.alert(data.query.message);
+					setTimeout(function(){
+						window._loading.hide();
+					},100);
+				}
+			}
+		});
+		
+		</script>
+</body>
+</html>

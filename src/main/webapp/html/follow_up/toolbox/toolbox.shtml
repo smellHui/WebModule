@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>工具箱</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 药品详情 -->
+<body class="followed cbox" id="toolbox">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="gjx_box">
+		<ul class="fnonne">
+			<li class="_yysc"><a href="drugs_manual.shtml"></a>用药查询<i class="icon-thearrowx"></i></li>
+			<li class="_zlzn"><a href="treatment_guide.shtml?getContentList=1"></a>治疗指南<i class="icon-thearrowx"></i></li>
+			<li class="_zdbz"><a href="diagnosis_standard.shtml?getContentList=2"></a>诊断标准<i class="icon-thearrowx"></i></li>
+			<li class="_hj"><a href="clinical_scale.shtml"></a>临床量表<i class="icon-thearrowx"></i></li>
+			<!-- <li class="_mtyx"><a href="medicine_picture.shtml?"></a>医学美图<i class="icon-thearrowx"></i></li>-->
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl("/html/user/index.shtml");
+		else
+			gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(document).ready(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+	});
+	</script>
+</body>
+</html>

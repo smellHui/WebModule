@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>选择患者</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 工具箱-群发消息-选择患者 -->
+<body class="followed cbox" id="select_patients">
+
+	<!-- 标题 -->
+	<h2 class="bnhduas">选择随访患者</h2>
+	<!-- 内容 -->
+	<div class="xzhz_box">
+		<!-- 患者列表 -->
+		<ul class="newszu fnonne">
+			
+		</ul>
+	</div>
+
+	<!-- 全选 -->
+	<div class="select">
+		<div class="select-box"></div>
+		<span id="isallselect">全选</span>
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but">
+		<button class="btn-zyradius">群发</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var _contentUuid = gm.para.get(window.location.href,"contextUuid");
+
+		gm.user.getCustomerListByDoctorUuid();
+
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var _p = [];
+
+				$("._mz").each(function(i,o){
+					_p[i] = $(this).parent().attr("customerUuid");
+				});
+
+				// gm.pul.toUrl( "/html/follow_up/toolbox/patient_content.shtml?customerUuids="+_p+"&contextUuid="+_contentUuid);
+				gm.user.createDocCusCon(_contentUuid,_p);
+			}
+		})
+	})
+	</script>
+</body>
+</html>

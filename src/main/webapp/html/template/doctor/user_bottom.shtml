@@ -1,0 +1,3 @@
+<!--#include virtual="/html/template/common_bottom.shtml"-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/user.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/reg.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>

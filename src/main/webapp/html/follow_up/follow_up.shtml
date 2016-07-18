@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/follow_up_header.shtml"-->
+</head>
+
+<!-- 药品详情 -->
+<body class="followed cbox" id="followed">
+	<!-- 标题 -->
+	<div class="title"><a href="/html/index/index.shtml"><i class="fh"></i></a><h2>随访</h2><a href="/html/follow_up/add_patients.shtml"><b class="icon-setting"></b></a></div>
+	<!-- 内容 -->
+	<div class="sf_box">
+		<ul class="fnonne">
+			<a href="/html/follow_up/followed_up_for.shtml"><li class="livbdk"><i class="logo-sfsqn"></i>随访申请 <b><i class="icon-thearrowx"></i></b></li></a>
+			<a href="/html/follow_up/toolbox/toolbox.shtml"><li class="dsnjbw"><i class="logo-gjxn"></i>工具箱 <b><i class="icon-thearrowx"></i></b></li></a>
+			<li><i class="logo-sfhzn"></i>随访患者 <b><i class="logo-bxn"></i></b></li>
+		</ul>
+
+		<div class="content fnonne">
+			<dl>
+				<dt><i class="logo-triangle"></i><b>妄想症<span>[3]</span></b></dt>
+				<dd>
+					<div class="newszu">
+						<!-- 头像 -->
+						<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+						<!-- 名字、性别、年龄、评论 -->
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志文<i class="icon-boy"></i></h3>
+								<span>年龄：36岁</span>
+								<b class="date">2015-04-12</b>
+							</div>
+							<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="newszu">
+						<!-- 头像 -->
+						<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+						<!-- 名字、性别、年龄、评论 -->
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志文<i class="icon-boy"></i></h3>
+								<span>年龄：36岁</span>
+								<b class="date">2015-04-12</b>
+							</div>
+							<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="newszu">
+						<!-- 头像 -->
+						<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+						<!-- 名字、性别、年龄、评论 -->
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志文<i class="icon-boy"></i></h3>
+								<span>年龄：36岁</span>
+								<b class="date">2015-04-12</b>
+							</div>
+							<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+						</div>
+					</div>
+				</dd>
+			</dl>
+
+			<dl>
+				<dt><i class="logo-triangle"></i><b>脑衰弱<span>[3]</span></b></dt>
+				<dd>
+					<div class="newszu">
+						<!-- 头像 -->
+						<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+						<!-- 名字、性别、年龄、评论 -->
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志文<i class="icon-boy"></i></h3>
+								<span>年龄：36岁</span>
+								<b class="date">2015-04-12</b>
+							</div>
+							<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="newszu">
+						<!-- 头像 -->
+						<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+						<!-- 名字、性别、年龄、评论 -->
+						<div class="nagent">
+							<div class="duof">
+								<h3>王志文<i class="icon-boy"></i></h3>
+								<span>年龄：36岁</span>
+								<b class="date">2015-04-12</b>
+							</div>
+							<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="kua scnut">
+						<div class="newszu">
+							<!-- 头像 -->
+							<div class="head_portrait"><img src="/static/imgs/tx2.png"></div>
+							<!-- 名字、性别、年龄、评论 -->
+							<div class="nagent">
+								<div class="duof">
+									<h3>王志文<i class="icon-boy"></i></h3>
+									<span>年龄：36岁</span>
+									<b class="date">2015-04-12</b>
+								</div>
+								<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+							</div>
+							<!-- 删除块 -->
+							<div class="kua_scnut">
+								<div class="ndh"><i class="icon-mycoltrash"></i></div>
+								<div class="ndh ndh2"><i class="icon-grxxn"></i></div>
+							</div>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+
+</body>
+</html>

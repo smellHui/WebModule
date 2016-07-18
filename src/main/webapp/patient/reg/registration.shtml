@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>注册</title>
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/reg.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<!--#include virtual="/html/template/patient/reg_sign_header.shtml"-->
+</head>
+
+<body class="cbox" id="registration">
+	<div class="w645">
+		<div class="login_box1">
+			<i class="pts-logo"></i>
+		</div>
+		<!-- 输入框模块 -->
+		<div class="login_box2">
+			<h2>注册</h2>
+			<input type="text" class="ipt-def mobile" placeholder="请输入手机号码">
+			<div class="verify_code" page="user" inter="verification">
+				<input type="text" class="ipt-def" placeholder="请输入验证码">
+				<div class="baobe">
+					<button class="btn-def" id="findv">获取手机验证码</button>
+					<div class="btn-def"></div>
+				</div>
+			</div>
+			<input type="password" class="ipt-def password" placeholder="请输入登录密码">
+			<p><a href="/patient/reg/index.shtml">已有账号</a></p>
+		</div>
+		<!-- 按钮块 -->
+		<div class="login_but">
+			<button class="btn-radius">下一步</button>
+			<h3 class="reg_protocol"><i class="gou"></i><a class="zcxy" href="addreginfo_amet.shtml">我已阅读并同意《好心情用户服务协议》</a></h3>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/reg_sign_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		
+		gm.reg.reg();
+		$(".reg_protocol i").click(function(){
+			if(this.className == "gou"){
+				this.className = "";
+			}else{
+				this.className = "gou";
+			}
+		});
+	})
+	</script>
+</body>
+</html>

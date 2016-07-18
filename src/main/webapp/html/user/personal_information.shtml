@@ -1,0 +1,347 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>个人信息</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox" id="personal_information">
+	<!-- 基本信息 -->
+	<div class='persion_message'>
+		<h2>基本信息</h2>
+		<div class='persion_message_content'>
+			<dl>
+				<dd>
+					<div id="persion_img" class='personal_list'>
+						<p>头像</p>
+						<div id='persion_image' class='ddlistright'>
+							<img class="ddlistright_img" src="../../static/imgs/default_head1.png">
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class='personal_list'>
+						<p>医生认证</p>
+						<span id='persion_state' class='ddlistright'>
+							认证中
+						</span>
+					</div>
+				</dd>
+				<dd>
+					<div class='personal_list'>
+						<p>真实姓名<img src="../../static/imgs/star.png"></p>
+						<div class='ddlistright notopmargin'>
+							<input id="nickName" class="isuserEdit" type="text" value="" readonly="readonly"/>
+						</div>
+						
+					</div>
+				</dd>
+				<dd class='ddNoborder'>
+					<div class='personal_list'>
+						<p>性别<img src="../../static/imgs/star.png"></p>
+						<div id='person_sex' class="ddlistright" disabled="true">
+							<span class="btn-checkbox-a">男士</span>
+							<span class="btn-checkbox-b btn-checkbox-b-on">女士</span>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class='persion_message'>
+		
+		<h2>专业信息</h2>
+		<div class='persion_message_content'>
+			<dl>
+				<dd class='ddNoborder ddhasmargin'>
+					<div class='personal_list'>
+						<p>所在城市<img src="../../static/imgs/star.png"></p>
+						<span id="person_city" class='ddlistright isuserEdit'>
+							<span>选择城市</span>
+							<img class="ddlistright_next" src="../../static/imgs/youce1.png" />
+						</span>
+					</div>
+				</dd>
+				<dd>
+					<div class='personal_list'>
+						<p class='ddlisttitle'>医院<img src="../../static/imgs/star.png"></p>
+						<span class="ddlistrightmore">
+							<img class="ddlistright_next" src="../../static/imgs/youce1.png">
+						</span>
+						<div id="person_hospital" class="personal_display_hos">
+							<span class="set_multi_line">选择医院</span>
+							<select id="i">
+								<option value="0">选择执业医院</option>
+							</select>
+						</div>
+						
+					</div>
+				</dd>
+				<dd>
+					<div class='personal_list'>
+						<p>科室<img src="../../static/imgs/star.png"></p>
+						<span id="persion_department" class='ddlistright'>
+							<span>选择科室</span>
+							<select id="k">
+								<option value="0">选择科室</option>
+							</select>
+							<img class="ddlistright_next" src="../../static/imgs/youce1.png" />
+						</span>
+					</div>
+				</dd>
+				<dd>
+					<div class='personal_list'>
+						<p>职称<img src="../../static/imgs/star.png"></p>
+						<span id='person_professional' class='ddlistright'>
+							<span>请选择职称</span>
+							<select></select>
+							<img class="ddlistright_next" src="../../static/imgs/youce1.png" />
+						</span>
+					</div>
+				</dd>
+				<dd class='ddNoborder ddhasmargin'>
+					<div class='personal_list'>
+						<p>科室电话<img src="../../static/imgs/star.png"></p>
+						<div class='ddlistright notopmargin'>
+							<input id="tel" class="isuserEdit" type="tel" readonly="readonly" />
+						</div>
+					</div>
+				</dd>
+				<dd class='ddNoborder ddhasmargin'>
+					<div class='personal_list notopmargin'>
+						<p>邮箱</p>
+						<div class='ddlistright'>
+							<input id="email" class="isuserEdit" type="email" readonly="readonly" />
+						</div>
+					</div>
+				</dd>
+				<dd class='ddNoborder ddhasmargin'>
+					<div class='personal_list'>
+						<p class='ddlisttitle'>擅长</p>
+						<span class='ddlistrightmore'>
+							<img class="ddlistright_next" src="../../static/imgs/youce1.png" />
+						</span>
+						<div class='ddlistbottom'>
+							<textarea></textarea>
+						</div>
+					</div>
+				</dd>
+				<dd class='ddNoborder ddhasmargin'>
+					<div class='personal_list'>
+						<p class='ddlisttitle'>个人简介</p>
+						<span class='ddlistrightmore'>
+							<img class="" src="../../static/imgs/youce1.png" />
+						</span>
+						<div class='ddlistbottom'>
+							<textarea id="person_synopsis" class="moretextarea isuserEdit" readonly="readonly" placeholder="完善个人简介"></textarea>
+						</div>
+					</div>
+				</dd>
+				<dd class='ddNoborder'>
+					<div id="persion_certImage" class='personal_list'>
+						<p>执业医生证或胸牌<img src="../../static/imgs/star.png"></p>
+						<div id='person_certImage' class='ddlistright'>
+							<img class="ddlistright_img" src="../../static/imgs/addimgicon.png">
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="persion_info_bottom">
+		<p id="persion_info_alert">认证完成后，头像、擅长、个人简介可以修改。如需要修改其他信息，需要1-3个工作日重新审核 。想要快速通过审核，请联系客服：400-135-8858</p>
+		<button id="persion_info_btn">提&nbsp;&nbsp;&nbsp;交</button>
+	</div>
+	<script type="text/javascript" src="../../static/js/checkdata.js"></script>
+	
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	
+	//回调图片信息
+	gm.user.getuserimg = function(smallImage,id,fromto){
+		if(fromto=="1" ||fromto==1){
+			$("#persion_image img").attr("src",smallImage);//用户图像
+			$("#persion_image").attr("value",id);
+		}else if(fromto=="2" ||fromto==2){
+			$("#person_certImage img").attr("src",smallImage);
+			$("#person_certImage").attr("value",id);
+		}
+		
+	}
+	
+	
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		userEdit();
+		//页面初始化
+		gm.user.getUser_infomation(gm.user.getDoctor(),function(data){
+			if(data.imageId!=null){
+				var personimg=data.image.small==null?(data.image.large==null?"../../static/imgs/default_head1.png":data.image.large):data.image.small;
+				
+				$("#persion_image img").attr("src",personimg);//用户图像
+				$("#persion_image").attr("value",data.imageId);//用户图像
+				$("#persion_image").attr("data-value",data.imageId);//比较用户图像
+			}
+			var person_state=data.sate;//认证状态 0:待认证 1：认证通过 2 认证不通过
+			var person_state_value="未认证";
+			if(person_state=="0")
+				person_state_value="未认证";
+			else if(person_state=="1")
+				person_state_value="认证通过";
+			else if(person_state=="2")
+				person_state_value="认证不通过";
+			else if(person_state=="3"){
+				person_state_value="认证中";
+				//暂时不能再次提交内容
+				
+			}
+			
+			$("#persion_state").attr("value",person_state);//保存状态
+			$("#persion_state").html(person_state_value);//认证状态
+			$("#nickName").val(data.realName);//真实姓名
+			$("#nickName").attr("data-value",data.realName);//对比真实姓名
+			var person_sex=data.sex;
+			if(person_sex!=null){
+				if(person_sex=="1"){//性别男
+					$(".btn-checkbox-b").removeClass("btn-checkbox-b-on");
+					$(".btn-checkbox-a").addClass("btn-checkbox-a-on");
+				}else if(person_sex=="2"){
+					$(".btn-checkbox-a").removeClass("btn-checkbox-a-on");
+					$(".btn-checkbox-b").addClass("btn-checkbox-b-on");
+				}
+				$("#person_sex").attr("data-value",person_sex);//性别
+				$("#person_sex").attr("value",person_sex);//对比 性别 
+			}
+				
+			if(data.provinceName!=undefined && data.cityName!=undefined && data.regionName!=undefined){
+				$("#person_city span").html(data.provinceName+" "+data.cityName+" "+data.regionName);
+				$("#person_city .p").val(data.province);
+				$("#person_city .c").val(data.city);
+				$("#person_city .q").val(data.region);
+				
+				//对比省份
+				$("#person_city .p").attr("data-value",data.province);
+				$("#person_city .c").attr("data-value",data.city);
+				$("#person_city .q").attr("data-value",data.region);
+
+				$("#i").getHospital();
+			}
+				
+			if(data.hospitalName!=undefined){
+				$("#person_hospital span").html(data.hospitalName);
+				$("#person_hospital span").attr("value",data.hospital);
+				$("#person_hospital span").attr("data-value",data.hospital);//对比医院
+			}
+				
+			if(data.professional!=undefined){//解决称职可能为数字
+				if(!isNaN(parseInt(data.professional))){
+					var index=data.professional;
+					$("#person_professional span").html(window.___professional[index]);
+					$("#person_professional span").attr("data-value",window.___professional[index]);
+				}else{
+					$("#person_professional span").html(data.professional);
+					$("#person_professional span").attr("data-value",data.professional);//对比很称职
+				}
+					
+			}
+				
+			if(data.departmentName!=undefined){
+				$("#persion_department span").html(data.departmentName);
+				$("#persion_department span").attr("value",data.department);
+				$("#persion_department span").attr("data-value",data.department);//对比科室
+			}
+				
+			$("#tel").val(data.departmentLine);
+			$("#email").val(data.email);
+			$("#person_territory").val(data.territory);
+			$("#person_synopsis").val(data.synopsis);
+			//对比
+			$("#tel").attr("data-value",data.departmentLine);
+			$("#email").attr("data-value",data.email);
+			$("#person_territory").attr("data-value",data.territory);
+			$("#person_synopsis").attr("data-value",data.synopsis);
+			if(data.certImageId!=null){
+				var person_certImage=data.certImage.small==null?(data.certImage.large==null?"../../static/imgs/addimgicon.png":data.certImage.large):data.certImage.small;
+				$("#person_certImage img").attr("src",person_certImage);
+				$("#person_certImage").attr("value",data.certImageId);//得到证件的id
+				$("#person_certImage").attr("data-value",data.certImageId);//对比得到证件的id
+			}
+			
+			if(person_state=="3"){
+				//$("#selectBar,.maskBar").hide();
+				//$("#person_city,#person_certImage").unbind("touchend");
+				$(".isuserEdit").removeAttr("readonly");
+				//$("select").attr("disabled","true");
+				$("#email,#person_territory,#person_synopsis").removeAttr("readonly");
+				
+			}
+			
+		});
+		
+	});
+	function userEdit(){
+		//注册上传图像事件
+		$("#persion_image").uploadimage(function(data){
+			if(data!=null){
+				var id=data[0].id;
+				var thumbnail=data[0].thumbnail;
+				$("#persion_image img").attr("src",thumbnail);//用户图像
+				$("#persion_image").attr("value",id);
+			}
+		},100,"1");
+		$("#person_certImage").uploadimage(function(data){
+			if(data!=null){
+				var id=data[0].id;
+				var thumbnail=data[0].thumbnail;
+				$("#person_certImage img").attr("src",thumbnail);
+				$("#person_certImage").attr("value",id);
+			}
+		},100,"2");
+		
+		
+		
+		$(".isuserEdit").removeAttr("disabled");
+		$(".isuserEdit").removeAttr("readonly");
+		//初始化省份
+		//$("#person_city").getProvince();
+		//性别女
+		$("#person_sex .btn-checkbox-b").bind({
+			touchend:function(){
+				$(".btn-checkbox-a").removeClass("btn-checkbox-a-on");
+				$(".btn-checkbox-b").addClass("btn-checkbox-b-on");
+				var arr = $(".btn-checkbox-b").attr("class").split(" ");
+				$("#person_sex").attr("data-value","2");
+			}
+		});
+
+		//性别男
+		$("#person_sex .btn-checkbox-a").bind({
+			touchend:function(){
+				$(".btn-checkbox-b").removeClass("btn-checkbox-b-on");
+				$(".btn-checkbox-a").addClass("btn-checkbox-a-on");
+				$("#person_sex").attr("data-value","1");
+			}
+		});
+		
+		
+		//初始化省份
+		$("#person_city").getProvince();
+		//初始化医院
+		//$("#i").getHospital();
+		//初始化部门
+		$("#persion_department").getDepartment();
+		//选择职称
+		$("#person_professional").getChangeVal();
+		//提交按钮失效
+		
+	}
+	
+	</script>
+
+</body>
+</html>

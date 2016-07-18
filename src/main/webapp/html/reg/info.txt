@@ -1,0 +1,9 @@
+/-- 登录页 --/
+/html/reg/index.shtml				登录
+/html/reg/login_forget.shtml			忘记密码
+/html/reg/reg.shtml				注册
+/html/reg/addreginfo.shtml			完善注册信息页
+/html/reg/addreginfo_qt.shtml			完善注册信息-完善其他信息
+/html/reg/addreginfo_name.shtml			完善注册信息-姓名匹配
+/html/reg/addreginfo_amet.shtml			完善注册信息-注册协议
+/html/reg/addreginfo_license.shtml		完善注册信息-医生执照

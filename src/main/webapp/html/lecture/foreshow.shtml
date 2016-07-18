@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>讲堂-播放</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/lecture.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+	
+<body class="forum">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 预告视频 -->
+		<div class="prevideo"></div>
+		<!-- 视频介绍 -->
+		<div class="intro">
+			<h2>吴雅峰-心脏超声在肺血栓栓塞症诊断中的应用</h2>
+			<p>时间： <span class="color">2015-09-22 20:00</span></p>
+			<p>主讲人：<span class="color">吴雅峰</span></p>
+			<p><span class="color">毕业于北京中医药大学，毕业于北京中医药大学，博士毕业</span></p>
+			<p>课程简介：<span class="color">课程简介课程简介课程简介课程简介课程简介课简介课程简介课程简介课程简介</span></p>
+		</div>
+		<!-- 预告图片 -->
+		<div class="pic">
+			<img src="http://app.hxqydyl.com/imgs/prepic.jpg">
+		</div>
+		<!-- 预约 -->
+		<button class="btn-zyradius appointment">预约</button>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+<!--#include virtual="/html/template/modules/tongji.shtml"-->
+</body>
+</html>

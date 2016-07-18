@@ -1,0 +1,14 @@
+/--- 个人中心 ---/
+/html/user/index.shtml				个人中心
+/html/user/personal_information.shtml		个人简介、个人信息.
+/html/user/personal_curpage.shtml		个人简介二维码.
+/html/user/my_points.shtml			我的积分.
+/html/user/message_center.shtml			消息中心.
+/html/user/visit_news.shtml			消息中心_随访消息.
+/html/user/collection_my.shtml			消息中心_收藏我的人.
+/html/user/invite_peer.shtml			同行.
+/html/user/reservation_course.shtml		我的预约的课程.
+/html/user/my_collection.shtml			我的收藏.
+/html/user/change_password.shtml		修改密码.
+/html/user/feedback.shtml			意见反馈.
+/html/user/set.shtml				设置.

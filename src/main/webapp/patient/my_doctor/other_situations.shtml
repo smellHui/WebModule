@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+	<title>其他情况</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox bad" id="other_situations">
+	<!-- 标题 -->
+		
+		<div class="sheet">
+			<table id="list" style="display:none;">
+			</table>
+		</div>
+	
+	<!-- 内容 -->
+	<div id="dsdm">
+		<div class="symptom">
+			<h2>症状描述</h2>
+			<textarea></textarea>
+		</div>
+        <div class="dsdm">
+    		<button class="btn-zyradius" id="add">提交</button>
+    		<!-- <button class="btn-zyradius" id="submit">增加</button> -->
+        </div>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+
+	<script type="text/javascript">
+    $(function() {
+        var visitRecordUuid = gm.para.get(window.location.href,"visitRecordUuid");
+        var doctorUuid= gm.para.get(window.location.href,"doctorUuid");
+        var state = 1;
+        var action = gm.para.get(window.location.href,"action");
+        if(action=="edit"){
+            $(".cbox").addClass("pointer-events");
+            getVisitPreceptExtendList();
+        }
+        
+        gm.func = function(data) {
+            window.loading = new mask("loading");
+            window.loading.show();
+            setTimeout(function(){
+                gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+                },800);
+        }
+        function getVisitPreceptExtendList(){
+            $.getDate({
+                page:"patient",
+                inter:"getVisitPreceptExtendList",
+                data:{
+                	type:3,
+                	preceptUuid:visitRecordUuid
+                },
+                callback:function(r){
+                    var relist  =r.relist, html = '<tr>\
+                        <th>症状描述</th>\
+                    </tr>';
+                    
+                    if(!relist.length){
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }else{
+                        $(".btn-zyradius,.symptom").hide();
+                    }
+                    for(var i =0;i<relist.length;i++){
+                        html+= '<tr>\
+                            <td>'+relist[i].result+'</td>\
+                    </tr>'
+                    }
+                    $("#list").show().html(html)
+                }
+            })
+        }
+        $("#submit").ontouch(function(){
+            window._loading = new mask("loading");
+            window._loading.show();
+            setTimeout(function(){
+                gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+            },800);            
+        });
+
+        $("#add").on("touchend", function() {
+            _result = $("textarea").val();
+            if(!_result){
+                $.alert("请填写病状描述");
+                return false;
+            }
+            $.getDate({
+                page: "patient",
+                inter: "addVisitRecordExtend",
+                data: {
+                    callback: "gm.func",
+                    type:3,
+                    result:_result,
+                    visitRecordUuid:visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        })
+    })
+    </script>
+</body>
+</html>

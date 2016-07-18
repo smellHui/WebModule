@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访记录 -->
+<body class="followed cbox case" id="patient_case">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="hzbme_box ypxq_box cbox">
+		<dl>
+			<dt>
+				<div class="newszu">
+					<!-- 头像 -->
+					<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+					<!-- 名字、性别、年龄、评论 -->
+					<div class="nagent">
+						<div class="duof">
+							<h3>王志文<i class="icon-boy"></i></h3>
+							<span>27岁</span>
+							<b class="date">2015-04-12</b>
+						</div>
+						<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+					</div>
+					<!-- 箭头 -->
+					<i class="icon-thearrowx"></i>
+				</div>
+			</dt>
+
+			<!-- 表格 -->
+			<dd class="ssddo">
+				<div class="frequency_tetx">
+					<div class="sp_yaowu">
+						<span>就诊类型</span>
+					</div>
+					<p>好转</p>
+				</div>
+			</dd>
+			<dd class="hzxx_box">
+				<ul>
+					<li class="dt"><h2>服药记录</h2></li>
+					<li><h2>药物名称</h2><p>阿司匹林</p></li>
+					<li><h2>用药时间</h2><p>2015/10/1 至 2015/10/20</p></li>
+					<li><h2>单　　量</h2><p>0.5Mg</p></li>
+					<li><h2>频　　率</h2><p>三次/日</p></li>
+					<li><h2>用　　法</h2><p>口服</p></li>	
+				</ul>
+			</dd>
+			<dd class="hzxx_box">
+				<ul>
+					<li class=""><h2>药物名称</h2><p>阿司匹林</p></li>
+					<li><h2>用药时间</h2><p>2015/10/1 至 2015/10/20</p></li>
+					<li><h2>单　　量</h2><p>0.5Mg</p></li>
+					<li><h2>频　　率</h2><p>3次/日</p></li>
+					<li><h2>用　　法</h2><p>口服</p></li>
+				</ul>
+			</dd>
+			<dd class="hzxx_box">
+				<ul>
+					<li class="dt"><h2>　药物不良反应</h2></li>
+					<li><h2>发生时间</h2><p>阿司匹林</p></li>
+					<li><h2>持续时间</h2><p>2015/10/1 至 2015/10/20</p></li>
+				</ul>
+			</dd>
+
+		  <!-- 详情 -->
+			<!-- 症状描述 -->
+			<dd>
+				<h2>症状描述</h2>
+				<p>具有良好的解热镇痛作用，用于治感冒、发热、头痛、牙痛、关节痛、风湿病，还能抑制血小板具有良好的解热镇痛作用，用于治感冒、发热、头痛</p>
+			</dd>
+			<!-- 影响 -->
+			<dd>
+				<h2>影响</h2>
+				<p>常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情常用治疗适应症详情病，还</p>
+			</dd>
+			
+
+			<!-- 表 -->
+			<dd class="hzxx_box">
+				<ul>
+					<li class="dt"><h2>其他的详情</h2></li>
+					<li><h2>睡眠情况</h2><p>良好</p></li>
+					<li><h2>进食情况</h2><p>良好</p></li>
+					<li><h2>其他情况</h2><p>其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况其他情况</p></li>
+				</ul>
+			</dd>
+			<dd class="hzxx_box">
+				<ul>
+					<li class="dt"><h2>　其他检查及结果</h2></li>
+					<li><h2>肾功能检查</h2><p>正常</p></li>
+					<li><h2>肝功能检查</h2><p>正常</p></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+
+	<div class="hzxx_but">
+		<button class="btn-zyradius custUuid">为患者选择新的随访方案</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/jsuy_img.png","menuevent":""}</div>
+
+</body>
+</html>

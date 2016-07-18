@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+	<title>基本检查</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 基本检查 -->
+<body class="followed cbox" id="basic_check">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="jbjc_box">
+		<ul class="fnonne">
+			<li class="jbjc_sd">请至少选择下面的一种方式</li>
+			<li class="jbjc_pz">
+				<p>拍照（<=5张)</p>
+				<i class="logo-tjzpn"></i>
+			</li>
+			<li class="jbjc_sdsr"><a href="#"></a> 手动输入 <i class="icon-thearrowx"></i></li>
+			<li class="jbjc_fzjc">
+				<h2>辅助检查</h2>
+				<i class="logo-xj"></i>
+			</li>
+		</ul>
+	</div>
+
+	<!-- 按钮 -->
+	<div class="hzxx_but">
+		<button class="btn-zyradius">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_patients.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		//$(".")///
+		var imglist = $(".jbjc_pz");
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid");
+
+		$.getDate({
+			page:"patient",
+			inter:"getMedicalRecordDetail",
+			data:{customerUuid:customerUuid,medicalRecordUuid:medicalRecordUuid},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					m = data.relist[0];
+
+					var arr = [],html='';
+					if(m.image1){
+						arr.push([m.image1,m.img1])
+					}
+
+					if(m.image2){
+						arr.push([m.image2,m.img2])
+					}
+
+					if(m.image3){
+						arr.push([m.image3,m.img3])
+					}
+
+					if(m.image4){
+						arr.push([m.image4,m.img4])
+					}
+
+					if(m.image6){
+						arr.push([m.image5,m.img5])
+					}
+					console.log(arr);
+
+					for(var i = 0;i < arr.length;i++){
+						html += '<div class="imgshow"><img src="'+arr[i][0]+'" upimage="'+arr[i][1]+ '" /><a></a></div>'
+					}
+					 $(".jbjc_pz").append(html);
+					 if(m.assistCheckImage){
+					 	$(".jbjc_fzjc").append('<div class="imgshow"><img src="'+m.assistCheckImgUrl+'" upimage="'+m.assistCheckImage+ '" /><a></a></div>');
+					 	$(".logo-xj").hide();
+					 }
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+
+		function sevaBasic(callback){
+			var $jbjc_pzList = $(".jbjc_pz .imgshow");
+			var $jbjc_fzjcList = $(".jbjc_fzjc .imgshow");
+			var obj = {};
+			$jbjc_pzList.each(function(i){
+				obj["img"+(i+1)] = $(this).find("img").attr("upimage")
+			})
+			$jbjc_fzjcList.each(function(i){
+				obj["assistCheckImage"] = $(this).find("img").attr("upimage")
+			});
+			if($.isEmptyObject(obj)){
+				return
+			}
+			obj.medicalRecordUuid = medicalRecordUuid;
+			gm.user.addBasicCheck(obj,function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					callback && callback(data);
+				}else{
+					$.alert(data.query.message);
+				}
+			});
+		}
+
+		$(".jbjc_sdsr a").bind({
+			touchend:function(){
+				sevaBasic(function(){
+					gm.pul.toUrl("/html/follow_up/detailed_record.shtml?customerUuid=" + customerUuid + "&medicalRecordUuid=" + medicalRecordUuid);	
+				})
+			}
+		});
+
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				sevaBasic(function(){
+				gm.pul.toUrl("/html/follow_up/add_patients.shtml?customerUuid=" + customerUuid + "&medicalRecordUuid=" + medicalRecordUuid);	
+				})
+			}
+		});
+
+		
+
+		imglist.on("touchend","a",function(e){
+			var _ = $(this);
+			$.confirm("您确定要删除此图片吗？",function(){
+				_.parent().fadeOut(500,function(){
+					_.parent().remove();
+
+					if(imglist.find("img").length == 4){
+						$(".logo-tjzpn").fadeIn(300);
+					}
+				});
+			});
+			return true;
+		});
+		imglist.find(".logo-tjzpn").upimage();
+
+		imglist.find(".logo-tjzpn").bind({
+			touchend:function(){
+				gm.pul.upimg = function(data){
+					window._loading && window._loading.hide();
+					if(!data){
+						$.alert("网络错误");
+						return;
+					}
+					if(data.query.success == "1"){
+						imglist.append('<div class="imgshow"><img src="'+data.smallUrl+'" upimage="'+data.icon+'" /><a></a></div>');		
+						if(imglist.find("img").length == 5){
+							$(".logo-tjzpn").hide();
+						}else{
+							$(".logo-tjzpn").fadeIn(300);
+						}
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			}
+		});
+		
+
+		var fuzhu = $(".jbjc_fzjc");
+		fuzhu.find(".logo-xj").upimage(function(data){
+			var _ = $(this);
+			if(!data){
+				$.alert("网络错误");
+				return;
+			}
+			if(data.query.success == "1"){
+				fuzhu.append('<div class="imgshow"><img src="'+data.imageUrl+'" upimage="'+data.icon+'" /><a></a></div>');		
+				fuzhu.find(".logo-xj").hide();
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+
+		fuzhu.find(".logo-xj").bind({
+			touchend:function(){
+				gm.pul.upimg = function(data){
+					window._loading && window._loading.hide();
+					
+					var _ = $(this);
+					if(!data){
+						$.alert("网络错误");
+						return;
+					}
+					if(data.query.success == "1"){
+						fuzhu.append('<div class="imgshow"><img src="'+data.imageUrl+'" upimage="'+data.icon+'" /><a></a></div>');		
+						fuzhu.find(".logo-xj").hide();
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			}
+		});
+
+		fuzhu.on("touchend","a",function(e){
+			var _ = $(this);
+			$.confirm("您确定要删除此图片吗？",function(){
+				_.parent().fadeOut(500,function(){
+					_.parent().remove();
+
+					fuzhu.find(".logo-xj").fadeIn(500);
+				});
+			});
+
+			return true;
+		});
+
+
+		
+		//imgshow
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加患者</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 分享按钮 -->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/psd_dian.png","menuevent":"gm.curpage.toshare"}</div>
+	<!-- 3-个人简介二维码 -->
+	<aside id="personal_curpage">
+		<div class="pw">
+			<div class="ledongt">
+				<h2>我的专属联系方式</h2>
+				<!-- 二维码图片 -->
+				<div class="zsewm"></div>
+				<!-- 名字_职位_医院 -->
+				<h2 class="name"></h2>
+				<p></p>
+			</div>
+			<div class="tivshi">
+				<i class="icon-gthn"></i>
+				<b>打开好心情扫一扫，与我建立长期联系</b>
+			</div>
+		</div>
+	</aside>
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/jquery.qrcode.min.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+	});
+	gm.pul.returnurl=function(){
+		if(gm.para.get(window.location.href,"from")=="user"){
+			gm.pul.toUrl('/html/user/personal_information.shtml');
+		}else{
+			gm.menu.showBottomBar();//显示菜单
+			setTimeout(function(){gm.pul.toUrl("goodm://returnIndexPage");},100);//回到首页
+		}
+	}
+	/*gm.curpage.toshare=function(){//分享
+		var obj = {
+				"title":p.find(".videomz h2").text(),
+				"desc":p.find(".videomz h2").text(),
+				"img":p.find("img").attr("src"),
+				"link":gm.basePath + "/html/thedoctorinformation/" + p.find(".videomz h2 a").attr("href")
+			}
+
+		gm.share(obj,function(){
+			$.getDate({
+				page:"doctor",
+				inter:"addDoctorShare",
+				data:{contentUuid:_contentUuid,doctorUuid:gm.user.getDoctor()},
+				callback:function(data){	}
+			});
+		});
+	}*/
+	setTimeout(function(){
+		var luser = gm.para.get(window.location.href,"doctorUuid");
+		var userid =  luser || gm.user.getDoctor();
+		gm.user.getUser_infomation(userid,function(data){
+			if(data && data.doctorUuid){
+				var professionalName=data.professional;//称职professional
+				if(professionalName==undefined ||!professionalName)
+					professionalName="";
+				
+				if(data.professional!=undefined){//解决称职可能为数字
+					if(!isNaN(parseInt(data.professional))){
+						var index=data.professional;
+						$(".name").html(data.realName + ' <span>'+window.___professional[index]+'</span>');
+					}else{
+						$(".name").html(data.realName + ' <span>'+data.professional+'</span>');
+					}
+						
+				}
+				
+				
+				//$(".name").html(data.realName + ' <span>'+professionalName+'</span>');
+
+				$(".ledongt p").html(data.hospitalName);//医院
+
+				if(!data.professional){
+					$(".name span").hide();
+				}
+				if (!data.hospitalName) {
+					$(".ledongt p").hide();
+				};
+				$(".zsewm").qrcode({
+					text:'http://'+window.location.host+'/patient/home/detailsofthedoctor.shtml?doctorUuid=' + userid + '&action=gz&rnd='+Math.random(),
+					width:$(".zsewm").width(),
+					height:$(".zsewm").height()
+				});
+			}else{
+
+			}
+		});
+	});
+	</script>
+</body>
+</html>

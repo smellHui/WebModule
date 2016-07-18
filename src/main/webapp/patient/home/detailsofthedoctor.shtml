@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+	<title>关注医生</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+	<style type="text/css">
+		.quanzdp{
+			    width: 100%;
+			    height: 100%;
+			    background: rgba(0,0,0,.5);
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+		}
+		.quanzdp .disp_content{
+			width:80%;
+			margin:0 auto;
+		}
+		.quanzdp .disp_content img{
+			width:100%;
+			display:block;
+		}
+	</style>
+</head>
+<body id="home_doctor">
+	<section class="section">
+	<!-- 1-个人中心 -->
+	<aside class="cbox curpage" id="personal_center">
+		<!-- 标题 -->
+		
+		<!-- 关注医生 -->
+		<div class="dalastsof">
+			<ul>
+				<li>
+					<div class="backlas">
+						<div class="doilo">
+							<img id="icon">
+						</div>
+						<div id="hasconcern" class="dynamic"></div>
+						<div class="call">
+							<strong id="nick"></strong>
+						<div class="z_tai"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 主治医生 -->
+		<div class="aphysician">
+			<div class="neurology">
+				<ul>
+					<li><span id="zc"></span></li>
+					<li class="shoid"><span id="yy"></span></li>
+					<li><span id="ks"></span></li>
+				</ul>
+			</div>
+			<!-- 主治医生接诊量 -->
+			<div class="acepts_mount">
+				<ul>
+					<li>
+						<span>接诊量<i id="jzl">0</i></span>
+					</li>
+					<li>
+						<span>咨询量<i id="zxl">0</i></span>
+					</li>
+					<li>
+						<span class="fensi">粉丝数<i id="fsl">0</i></span>
+					</li>
+				</ul>
+			</div>
+			<!-- 主治医生擅长 -->
+			<div class="good_at">
+				<div class="a_overview">
+					<h2>擅长</h2>
+					<div class="good_content">
+						<p id="sc"></p>
+					</div>
+				</div>
+ 			</div>
+ 			<!-- 主治医生个人简介 -->
+ 			<div class="personal_profile">
+ 				<div class="a_overview">
+					<h2>个人简介</h2>
+					<p id="jj"></p>
+				</div>
+ 			</div>
+ 			<!-- 主治医生关注按钮 -->
+			<div class="start">
+				<a href="#" class="btn-radius">关注</a>
+			</div>
+			<!-- 主治医生关注按钮 -->
+<!-- 			<div class="cancel_start">
+				<a href="/patient/home/detailsofthedoctor.shtml" class="btn-radius">取消关注</a> -->
+				<!-- 默认圆角按钮 -->
+			<!-- </div> -->
+		</div>
+		<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+		<div id="disp_wx" class="quanzdp">
+			<div class="disp_content">
+				<img src="../../static/imgs/userwx.png">
+			</div>
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			//获取url中的doctorUuid
+			var device=gm.para.get(window.location.href,"device");
+			if(device!=undefined && device=="client"){
+				$("#disp_wx").hide();
+				 if(gm.isIhpone){
+					 console.log("ios");   
+				 }else{
+						//window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.hxqydyl.androidapp";
+						console.log("android"); 
+				 }
+			}else{ //非用户打开
+				if(gm.isIhpone){
+					if(isWeiXin()){
+						 console.log("微信打开");
+						 gm.pul.toUrl("https://itunes.apple.com/us/app/hao-xin-qing-you-ni-jiu-you/id1088578341?l=zh&ls=1&mt=8");
+					 }else{
+						$("#disp_wx").hide();
+				 		gm.pul.toUrl("https://itunes.apple.com/us/app/hao-xin-qing-you-ni-jiu-you/id1088578341?l=zh&ls=1&mt=8");
+			
+					 } 
+				}else{
+					window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.hxqydyl.androidapp";
+				}
+			}
+			
+			var doctorid = gm.para.get(window.location.href,"doctorUuid");
+			gm.user.getDoctorDetail(doctorid,function(data){
+				if(!data){
+					$.alert("服务器出错");
+					return;
+				}
+
+				if(data.query.success == "1"){
+					var o = data.relist[0];
+
+					if(!o){
+						$.alert("没有此医生");
+					}
+					
+					//擅长
+					$("#sc").html(o.territory);
+					//医生的职称
+					$("#zc").html(window.___professional[o.professional*1]);
+					//医生的个人介绍
+					$("#jj").html(o.synopsis);
+					//imgUrl
+					$("#icon").attr("src",o.imgUrl!=null?o.imgUrl:window.___defaultImage);
+					//医生姓名
+					$("#nick").html(o.realName);
+					//医生所在医院
+					$("#yy").html(o.hospitalName);
+					//医生所在科室
+					$("#ks").html(o.departmentName);
+					//医生的认证状态0:未认证 1：认证通过 2：认证不通过
+					$(".z_tai").attr("class","z_tai" + (o.certificationTyp  || 0));
+					//获取关注状态 1代表已关注，0代表未关注
+					$(".dynamic").attr("class","dynamic" + o.concernType);
+					//关注该医生的粉丝数
+					$("#fsl").html(o.concernNum);
+					//咨询量的数量
+					$("#zxl").html(o.totalNum);
+					//接诊的数量
+					$("#jzl").html(o.receTotalNum);
+					//初始化添加关注事件
+					gm.home.detailsofthedoctor();
+					
+				}else{
+					$.alert(data.query.message);
+				}
+
+				
+			});			
+		});
+		function isWeiXin(){
+		    var ua = window.navigator.userAgent.toLowerCase();
+		    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		        return true;
+		    }else{
+		        return false;
+		    }
+		}
+		</script>
+		
+</body>
+</html>

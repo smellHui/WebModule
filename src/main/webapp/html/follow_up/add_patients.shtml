@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加患者</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 添加患者 -->
+<body class="followed cbox" id="add_patients">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="tjhz_box">
+		<ul class="fnonne">
+			<li class="tj_hzxx">
+				患者信息
+				<p>
+					<span></span><i class="sex"></i><b></b>
+					<strong></strong>
+				</p>
+				<i class="icon-thearrowx"></i>
+			</li>
+			<!-- <li class="tj_hzzs">
+				患者主诉
+				<i class="icon-thearrowx"></i>
+			</li>
+			<li class="tj_jbjc">
+				基本检查
+				<i class="icon-thearrowx"></i>
+			</li> -->
+			<li class="tj_zd" style="display:none;">
+				诊断
+				<i class="icon-thearrowx"></i></li>
+			<li class="tj_hzfz" style="display:none;">
+				患者分组
+				<i class="icon-thearrowx"></i>
+			</li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/index.shtml');
+	}
+	$(function(){
+		var _customerUuid = gm.para.get(window.location.href,"customerUuid") || "0";
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid") || "0";
+		
+		gm.follow_up.add_patients();
+		$(".tj_hzxx").bind({
+			touchend:function(){
+				gm.pul.toUrl( "/html/follow_up/patient_information.shtml?_customerUuid="+_customerUuid + "&medicalRecordUuid=" + medicalRecordUuid);
+			}
+		});
+		if(!_customerUuid || _customerUuid == "0"){
+			$(".tj_zd,.tj_hzfz").hide();
+		}else{
+			$(".tj_zd,.tj_hzfz").show();
+			$(".tj_hzzs").bind({
+				touchend:function(){
+					window.location.href = "/html/follow_up/the_patients_complain.shtml?customerUuid="+_customerUuid + "&medicalRecordUuid=" + medicalRecordUuid
+				}
+			});
+			$(".tj_jbjc").bind({
+				touchend:function(){
+					window.location.href = "/html/follow_up/basic_check.shtml?customerUuid="+_customerUuid + "&medicalRecordUuid=" + medicalRecordUuid
+				}
+			});
+			$(".tj_zd").bind({
+				touchend:function(){
+					window.location.href = "/html/follow_up/diagnostic_content.shtml?customerUuid="+_customerUuid + "&medicalRecordUuid=" + medicalRecordUuid
+				}
+			});
+			$(".tj_hzfz").bind({
+				touchend:function(){
+					window.location.href = "/html/follow_up/mobile_packet.shtml?customerUuid="+_customerUuid + "&medicalRecordUuid=" + medicalRecordUuid
+				}
+			});
+		}
+	});
+	</script>
+</body>
+</html>

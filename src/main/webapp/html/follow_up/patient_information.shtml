@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+	<title>患者信息</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 患者信息 -->
+<body class="followed cbox" id="patient_information">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="hzxx_box">
+		<!-- 基本信息 -->
+		<ul>
+			<li class="dt"><h2>基本信息</h2></li>
+			<li class="mobile"><h2>手 机 号</h2><input type="tel" maxlength="11"></li>
+			<li class="name"><h2>姓　　名</h2><input type="text"></li>
+			<li class="sex">
+				<h2>性　　别</h2>
+				<select>
+		                    <option selected="" value="0"></option>
+		                    <option value="1">男</option>
+		                    <option value="2">女</option>
+		                </select>
+               		 <i class="icon-thearrowx"></i>
+            </li>
+			<li class="birthday">
+				<h2>出生日期</h2>
+				<input type="date" >
+            </li>
+			<li class="IDNum"><h2>身份证号</h2><input type="tel" maxlength="18"></li>
+			<li class="industry"><h2>患者职业</h2><input type="text"></li>
+		</ul>
+		<!-- 病患信息 -->
+		<ul>
+			<li class="dt"><h2>病患信息</h2></li>
+			<li class="seeDoctorTime">
+				<h2>就诊时间</h2>
+				<input type="date" >
+            			</li>
+			<li class="departmentName">
+				<h2>科　　室</h2>
+				<select id="k">
+                    <option value="0">选择科室</option>
+	            </select>
+            	<i class="icon-thearrowx"></i>
+            </li>
+			<li class="caseCategoryType">
+				<h2>编号类型</h2>
+				<select>
+                    <option selected="" value="1">门诊号</option>
+                    <option value="0">住院号</option>
+                    <option value="2">床位号</option>
+                    <option value="3">病案号</option>
+                    <option value="4">其他</option>
+                </select>
+                <i class="icon-thearrowx"></i>
+			</li>
+			<li class="medicalNum"><h2>编　　号</h2><input type="text"></li>
+		</ul>
+		<!-- 其他信息 -->
+		<ul>
+			<li class="dt"><h2>其他信息</h2></li>
+			<li class="email"><h2>邮　　箱</h2><input type="text"></li>
+			<li class="address"><h2>住　　址</h2><input type="text"></li>
+			<li class="introduceName"><h2>介 绍 人</h2><input type="text"></li>
+			<li class="alternativeName"><h2>紧急联系人</h2><input type="text"></li>
+			<li class="alternativePhone"><h2>联系人手机号</h2><input type="tel" maxlength="11"></li>
+		</ul>
+		<!-- 按钮 -->
+		<div class="hzxx_but" page="user" inter="addCustomer">
+			<button class="btn-zyradius">保存</button>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_patients.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		gm.follow_up.addCustomer();
+
+		$(".mobile input").keyup(function(){
+			// window._loading = new mask("loading");
+			// window._loading.show();
+			if(this.value.length != 11){return;}
+			gm.user.getCustomerByMobile(this.value,function(data){
+				window._loading&&window._loading.hide();
+				if(!data){
+					$.alert("服务器出错");
+				}
+				if(data.query.success == "1"){
+					if(data.visitHas && data.visitHas == "1"){
+						$.alert({
+							val:"该患者已经与您存在随访关系。",
+							callback:function(){
+								gm.pul.toUrl('/html/follow_up/patient_details.shtml?customerUuid=' + data.customerUuid);
+							}
+						})
+						return;
+					}
+					//姓名
+					$(".name input").val(data.name);
+					//性别
+					$(".sex select").val(data.sex);
+					//生日
+					$(".birthday input").val(data.birthday);
+					//身份证号码
+					$(".IDNum input").val(data.IDNum);
+					//患者职业
+					$(".industry input").val(data.industry);
+					//邮箱
+					$(".email input").val(data.email);
+					//住址
+					$(".address input").val(data.address);
+					//介绍人
+					$(".introduceName input").val(data.introduceName);
+					//紧急联系人
+					$(".alternativeName input").val(data.alternativeName);
+					//紧急联系电话
+					$(".alternativePhone input").val(data.alternativePhone);
+					// window._loading&&window._loading.hide();
+				}else{
+					// $.alert(data.query.message);
+					$(".alertBtn").remove();
+					$(".mobile input").focus();
+					
+					setTimeout(function(){
+						$('.maskBar,.alertBox').remove();
+					},1000);
+				}
+			});
+		})
+	})
+	</script>
+</body>
+</html>

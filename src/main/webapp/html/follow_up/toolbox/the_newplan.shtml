@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>新增方案</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访方案-新增方案 -->
+<body id="the_newplan">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="guidance">
+		<h2>饮食指导</h2>
+		<textarea placeholder="饮食指导"></textarea>
+	</div>
+	<div class="guidance1">
+		<h2>运动指导</h2>
+		<textarea placeholder="运动指导"></textarea>
+	</div>
+	<div class="guidance1">
+		<h2>睡眠指导</h2>
+		<textarea placeholder="睡眠指导"></textarea>
+	</div>
+	<div class="_tjqtjcxzq ortherMap"><i class="icon-lstjn"></i>添加其他检查项周期</div>
+	
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+
+</body>
+</html>

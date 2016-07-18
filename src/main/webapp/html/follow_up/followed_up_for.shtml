@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访申请</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访申请 -->
+<body class="followed cbox" id="follow_up_application">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="sfsq_box">
+		<ul>
+			<!-- <li>
+				<div class="newszu">
+					
+					<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+					
+					<div class="nagent">
+						<div class="duof">
+							<h3><b>王志文</b><i class="icon-boy"></i></h3>
+							<span>年龄：36岁</span>
+							<b class="date">2015-04-12</b>
+						</div>
+						<p class="comment">张大夫谢谢你啦~这两天好多了</p>
+					</div>
+				</div>
+			</li> -->
+		</ul>
+		<div class="nullfont">
+			<p><span>您还没有随访申请</span><span>快邀请您的患者加入好心情吧！</span> </p>
+		</div>	
+	</div>
+
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script>
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/index.shtml')
+	}
+	$(function(){
+		gm.follow_up.getVisitApplyList();
+	})
+	</script>
+</body>
+</html>

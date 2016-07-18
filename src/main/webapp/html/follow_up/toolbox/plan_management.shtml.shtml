@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访方案管理 -->
+<body class="followed cbox" id="follow_up_plan">
+	<!-- 标题 -->
+	<div class="title"><i class="fh"></i><h2>随访方案管理</h2></div>
+	<!-- 内容 -->
+	<div class="sffa_box">
+		<dl>
+			<a href="/html/follow_up/toolbox/increase_plan.shtml"><dt class="_xzfa"><i class="logo-xzfa"></i>新增方案<i class="icon-thearrowx"></i></dt></a>
+			<dt class="_wdfa">我的方案</dt>
+
+			<dd class="dsasw">
+				<div class="kua scnut">
+					<div class="newszu">
+						<p>妄想症初期随访记录</p>
+						<i class="sdsv">已关联<span>1</span>人</i>
+						<!-- 删除块 -->
+						<div class="kua_scnut">
+							<div class="ndh"><i class="icon-mycoltrash"></i></div>
+						</div>
+					</div>
+				</div>
+			</dd>
+
+			<dd class="dsasw">
+				<div class="kua">
+					<div class="newszu">
+						<p>妄想症初期随访记录</p>
+						<i class="sdsv">已关联<span>1</span>人</i>
+						<!-- 删除块 -->
+						<div class="kua_scnut">
+							<div class="ndh"><i class="icon-mycoltrash"></i></div>
+						</div>
+					</div>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<!--#include virtual="/html/template/follow_up_bottom.shtml"-->
+
+</body>
+</html>

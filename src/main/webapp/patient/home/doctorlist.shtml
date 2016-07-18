@@ -1,0 +1,383 @@
+﻿octype html>
+<html>
+<head>
+	<title>找医生</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+	<link rel="stylesheet" href="http://172.168.1.35:80/static/css/lib/reset.css"/>
+	<link rel="stylesheet" href="http://172.168.1.35:80/static/css/lib/pullToRefresh.css"/>
+	<link rel="stylesheet" href="http://172.168.1.35:80/static/p_css/tools.css?v=﻿4.373">
+</head>
+
+<body class="cbox" id="home_doctor">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<aside class="curpage" id="test_results">
+	<!-- 找医生帅选 -->
+	<div class="looking_tofindthe">
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+				</a>
+			</form>
+		</div>
+		<div id="wrapper">
+			<ul>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 医生列表帅选遮罩 -->
+	<div class="quanzdp sdc">
+		<div class="filterlayer_a">
+			<div class="shuaixfnea">
+				<div class="cancely"><a><span>取消</span></a></div>
+				<div class="saixuan"><span>筛选</span></div>
+				<div class="determine"><a><strong>确定</strong></a></div>
+			</div>
+			<div class="addreginfo_qt">
+				<ul>
+					<li id="select_province" style="width:3.2rem;">
+						<p>选择省/直辖市</p>
+						<div class="ajiaska" style="left:2.7rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<li id="select_city" style="width:2.1rem;">
+						<p>选择市</p>
+						<div class="ajiaska" style="left:1.5rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<li id="select_county" style="width:2.5rem;">
+						<p>选择区/县</p>
+						<div class="ajiaska" style="left:1.95rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<!-- <li id="sele_alsp" for="yiyuan" style="clear:both;">
+						<p>医院</p>
+						<div class="ajiaska_op">
+							<i class="pts-downlvarrow"></i>绿色下拉箭头
+						</div>
+					</li> -->
+					<li id="zc" for="tags">
+						<p>医生擅长</p>
+						<div class="ajiaska">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="city baijinzi">
+			<p>点击选择地区</p>
+			</div>
+			<div class="yiyuan baijinzi">
+			医院
+			</div>
+			<div class="tags baijinzi">
+			医生专长
+			</div>
+		</div>
+	</div>
+	
+	</aside>
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+
+<script type="text/javascript">
+window._loading = new mask("loading");
+window._loading.show();
+//gm.pul.returnurl = gm.pul.returnIndex;
+gm.isIndex = true;
+gm.pul.returnurl=function(){//退回首页
+	if(!gm.isMobile){return;}
+		gm.pul.toUrl("goodm://returnIndexPage");
+}
+gm.setReturn = function(){
+	hidesdc();
+}
+
+function showsdc(num){
+	$(".quanzdp").addClass("sdc1");
+	$(".quanzdp").removeClass("sdc");
+	gm.pul.returnurl = gm.setReturn;
+}
+
+function hidesdc(){
+	$(".quanzdp").removeClass("sdc1");
+	$(".quanzdp").addClass("sdc");
+	gm.isIndex = true;
+	gm.pul.returnurl =function(){
+		if(!gm.isMobile){return;}
+		gm.pul.toUrl("goodm://returnIndexPage");
+	}
+	___select_province.hide();
+	___select_city.hide();
+	___select_county.hide();
+	$(".maskBar").removeClass("show");
+	$(".cur").removeClass("cur");
+}
+
+
+
+	// 筛选遮罩层滑动
+	$(function(){
+		
+		//初始化刷新 
+		refresher.init({
+		    id: "wrapper",
+		    pullDownAction: Refresh,
+		    pullUpAction: Load
+		});
+		
+		function searchDoctor(opt){
+			var getdata={
+					"pageno":1,
+					"pagesize":20,
+					"city":"",
+					"territorys":"",
+					"hospitalUuids":""
+					};
+			for(var k in opt){
+				getdata[k]=opt[k];
+			}
+			$.getDateAjax({
+				page:"patient",
+				inter:"getDoctorsBySelect",
+				method:"POST",
+				dataType:"json",
+				data:getdata,
+				callback:function(data){
+					console.log(data);
+					gm.bindDoctorList(data);
+				}
+				
+			});
+		}
+
+		
+		$(".cklamngy form").bind({
+			submit:function(e){
+				return false;
+			}
+		});
+
+		$(".cklamngy input").bind({
+			keyup:function(e){
+				var _event = window.event;
+				if(event.keyCode == 13){
+					var key = $(".cklamngy .ipt-def").val();
+					searchDoctor(key);
+				}
+			}
+		});
+
+		searchDoctor("");
+
+		$(".cklamngy .icon-fdjn").bind({
+			touchend:function(){
+				var key = $(".cklamngy .ipt-def").val();
+				searchDoctor(key);
+			}
+		});
+		//点击进入个人医生
+		gm.bindDoctorList = function(data){
+			if(!data){
+				$.alert("服务器出错");
+				return;
+			}
+			if(data.code==200){
+				var doclist=data.value.reList;
+				var len=doclist.length;
+				if(doclist==null || len==0){
+					obj.html("<li style='text-align:center;padding:1rem;'>无医生信息<li>");
+					return false;
+				}
+				var obj = $(".looking_tofindthe ul");
+				var arr = [];
+				setTimeout(function(){
+					window._loading.hide();
+				},100);
+				var tmp = '<li id="bacjkloa"><div class="doctor"><a href="/patient/home/thedoctorlistdetails.shtml?return=tolist&doctorUuid={doctorUuid}"></a><div class="icon1"><img src="{img}"></div><div class="p_fbjn"><h3>{doctorName}<i class="{sexType}"></i></h3><p>{professional}</p></div><div class="p_yvbu"><p class="p_hjf">{hospitalName}</p><p>{departmentName}</p></div><div class="p_jlfk"><p>服务人次:</p><p>{serviceCount}</p></div></div><div class="menu">\
+					<a href="/patient/home/teleconsult_1.shtml?doctorUuid={doctorUuid}"><i class="zys-phone{telState}"></i><span>电话咨询</span></a>\
+					<a href="/patient/my_doctor/communicate_patient.shtml?doctorUuid={doctorUuid}"><i class="zys-wndsx{teletext}"></i><span>图文咨询</span></a>\
+					<a href="/patient/home/thedoctorappointmentplus.shtml?doctorUuid={doctorUuid}"><i class="zys-dcsos{plus}"></i><span>预约加号</span></a>\
+					<a href="/patient/home/package.shtml?doctorUuid={doctorUuid}"><i class="zys-grqxs{personal}"></i><span>私人医生</span></a></div></li>';
+				
+				$(doclist).each(function(i,o){
+					var professional=o.professional;
+					if(!isNaN(parseInt(professional)))//过滤数字 职称
+						professional=___professional[professional];
+					o.professional=professional;
+
+					o.telState = (o.telState || 0)*1 + 1;
+					o.teletext = (o.teletext || 0)*1 + 1;
+					o.plus = (o.plus || 0)*1 + 1;
+					o.personal = (o.personal || 0)*1 + 1;
+					if(o.img==undefined ||o.img==null){
+						o.img =window.___defaultImage;
+					}else{
+						if(o.img.small!=null)
+							o.img=o.img.small;
+						else if(o.img.large!=null)
+							o.img=o.img.large;
+						else
+							o.img =window.___defaultImage;
+					}
+					o.sexType = (!o.sex || o.sex == 1) ? "icon-boy" : "icon-girl";
+					arr.push(gm.replace(tmp,o));
+				});
+				obj.html(arr.join());
+				$(".looking_tofindthe .menu i").each(function(i,o){
+					if ($(this).hasClass("zys-phone1") || $(this).hasClass("zys-dcsos1") || $(this).hasClass("zys-wndsx1") || $(this).hasClass("zys-grqxs1")) {
+						$(this).parent("a").attr("href","###");
+						$(this).next().css({"color":"#b1b1b1"});//区分颜色
+					};
+				});
+				
+			}else{
+				$.alert(data.message);
+				setTimeout(function(){
+					window._loading.hide();
+				},100);
+			}
+
+		}
+		
+	});
+	
+	var generatedCount = 1;
+	function Refresh() {
+	    setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+
+	        ++generatedCount;
+	        refreshDoctor({"pageno":generatedCount});
+	        
+	        wrapper.refresh();/****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+	    }, 1000);
+
+	}
+
+	function Load() {
+	    setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+	        
+	        ++generatedCount;
+	        loadDoctor({"pageno":generatedCount});
+	        	
+	        wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+	    }, 1000);
+	}
+	function refreshDoctor(opt){
+		var getdata={
+				"pageno":1,
+				"pagesize":20,
+				"city":"",
+				"territorys":"",
+				"hospitalUuids":""
+				};
+		for(var k in opt){
+			getdata[k]=opt[k];
+		}
+		$.getDateAjax({
+			page:"patient",
+			inter:"getDoctorsBySelect",
+			method:"POST",
+			dataType:"json",
+			data:getdata,
+			callback:function(data){
+				console.log(data);
+				var result=loadBindData(data);
+				if(result!=undefined ||result!=null)
+					$("#wrapper ul").prepend(result);
+			}
+			
+		});
+	}
+	function loadDoctor(opt){
+		var getdata={
+				"pageno":1,
+				"pagesize":20,
+				"city":"",
+				"territorys":"",
+				"hospitalUuids":""
+				};
+		for(var k in opt){
+			getdata[k]=opt[k];
+		}
+		$.getDateAjax({
+			page:"patient",
+			inter:"getDoctorsBySelect",
+			method:"POST",
+			dataType:"json",
+			data:getdata,
+			callback:function(data){
+				console.log(data);
+				var result=loadBindData(data);
+				if(result!=undefined ||result!=null)
+					$("#wrapper ul").append(result);
+			}
+			
+		});
+	}
+	/**加载更多医生信息**/
+	function loadBindData(data){
+		if(!data){
+			$.alert("服务器出错");
+			return;
+		}
+		if(data.code==200){
+			var doclist=data.value.reList;
+			var len=doclist.length;
+			if(doclist==null || len==0){
+				obj.html("<li style='text-align:center;padding:1rem;'>无医生信息<li>");
+				return false;
+			}
+			var obj = $(".looking_tofindthe ul");
+			var arr = [];
+			setTimeout(function(){
+				window._loading.hide();
+			},100);
+			var tmp = '<li id="bacjkloa"><div class="doctor"><a href="/patient/home/thedoctorlistdetails.shtml?return=tolist&doctorUuid={doctorUuid}"></a><div class="icon1"><img src="{img}"></div><div class="p_fbjn"><h3>{doctorName}<i class="{sexType}"></i></h3><p>{professional}</p></div><div class="p_yvbu"><p class="p_hjf">{hospitalName}</p><p>{departmentName}</p></div><div class="p_jlfk"><p>服务人次:</p><p>{serviceCount}</p></div></div><div class="menu">\
+				<a href="/patient/home/teleconsult_1.shtml?doctorUuid={doctorUuid}"><i class="zys-phone{telState}"></i><span>电话咨询</span></a>\
+				<a href="/patient/my_doctor/communicate_patient.shtml?doctorUuid={doctorUuid}"><i class="zys-wndsx{teletext}"></i><span>图文咨询</span></a>\
+				<a href="/patient/home/thedoctorappointmentplus.shtml?doctorUuid={doctorUuid}"><i class="zys-dcsos{plus}"></i><span>预约加号</span></a>\
+				<a href="/patient/home/package.shtml?doctorUuid={doctorUuid}"><i class="zys-grqxs{personal}"></i><span>私人医生</span></a></div></li>';
+			
+			$(doclist).each(function(i,o){
+				var professional=o.professional;
+				if(!isNaN(parseInt(professional)))//过滤数字 职称
+					professional=___professional[professional];
+				o.professional=professional;
+
+				o.telState = (o.telState || 0)*1 + 1;
+				o.teletext = (o.teletext || 0)*1 + 1;
+				o.plus = (o.plus || 0)*1 + 1;
+				o.personal = (o.personal || 0)*1 + 1;
+				if(o.img==undefined ||o.img==null){
+					o.img =window.___defaultImage;
+				}else{
+					if(o.img.small!=null)
+						o.img=o.img.small;
+					else if(o.img.large!=null)
+						o.img=o.img.large;
+					else
+						o.img =window.___defaultImage;
+				}
+				o.sexType = (!o.sex || o.sex == 1) ? "icon-boy" : "icon-girl";
+				arr.push(gm.replace(tmp,o));
+			});
+			return arr.join();
+		}else{
+			$.alert(data.message);
+			setTimeout(function(){
+				window._loading.hide();
+			},100);
+		}
+	}
+</script>
+<script src="../../static/js/lib/pullToRefresh.js"></script>
+<script src="../../static/js/lib/iscroll.js"></script>
+</body>
+</html>

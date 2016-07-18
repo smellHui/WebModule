@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+	<title>随访 - 敬请期待</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+<body class="followed_no cbox" id="followed">
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script>
+	gm.pul.returnurl=gm.pul.returnIndex;
+	</script>
+</body>
+</html>

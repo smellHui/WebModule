@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>账单</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="addacopy">
+		<div class="kinl_package">
+			<div class="theparcellayer">
+				<div class="incomestasy">
+					<span>收入</span>
+				</div>
+				<div class="toextractthestate">
+					<span>提取</span>
+				</div>
+				<div class="flag"></div>
+			</div>
+			<div class="the_remaining">
+				<strong>金额:<i>  0  </i>元</strong>
+				<p><!-- 提现时间:2015.09.2411:45:33  状态:处理中 --></p>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.clinic.zhangdan();
+	});
+	</script>
+	</body>
+</html>

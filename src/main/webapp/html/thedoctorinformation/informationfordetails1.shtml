@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<title>文章详情</title>
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_header.shtml"-->
+</head>
+
+<body class="task cbox" id="my_task">
+	<div class="_scdv">
+	<!-- 秋季进补的禁忌 -->
+		<a href="informationlayerthicknessfordetails_1.shtml">
+			<div class="tisnamg">
+				<i class="icon-jumppoint"></i>
+
+			</div>
+		</a>
+		<!-- 秋季进补的禁忌内容a -->
+		<div class="theauthor_introduce">
+			<div class="payatten_tiondetailed">
+				<div class="js_introduce">
+					<h2></h2>
+					<p></p>
+				</div>
+			</div>
+			<!-- 秋季进补的禁忌内容b -->
+			<div class="thearticley">
+				<p></p>
+			</div>
+		</div>
+
+		<!-- 秋季进补的禁忌内容遮罩 -->
+		<div class="quanzdp zhuenqw">
+			<!-- 秋季进补的禁忌内容遮罩 -->
+			<div class="mediationz-zhez">
+				<div class="zh_setthe">
+					<span>字号设置</span>
+				</div>
+				<div class="dazxinao">
+					<ul>
+						<li class="shenh"><span>小</span></li>
+						<li class="danh bghs"><span>中</span></li>
+						<li class="baml"><span>大</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 秋季进补的禁忌弹层 -->
+		<div class="ftollcas">
+			<a class="setthefontsize">
+				<div class="skalakd">
+					<i class="icon-shezhizh"></i><!--设置字号 -->
+				</div>
+				<span>设置字号</span>
+			</a>
+			<div class="shouc_set">
+				<div class="skalakda">
+				<i class="icon-greycollections"></i><!--灰收藏 -->
+				</div>
+				<span>收藏</span>
+			</div>
+			<div class="fx_share">
+				<div class="skalakdb">
+				<i class="logo-fxtba"></i><!--我的收藏灰 -->
+				</div>
+				<span>分享</span>
+			</div>
+		</div>
+	</div>
+
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_bottom.shtml"-->
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/psd_dian.png","menuevent":"gm.my_task.tanchu"}</div>
+
+	<script type="text/javascript">
+		$(function(){
+			gm.thedoctorinformation.informationfordetails();
+		})
+	</script>
+</body>
+</html>

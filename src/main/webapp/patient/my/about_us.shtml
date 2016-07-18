@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>关于我们</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cbox" id="about_us">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 内容 -->
+	<div class="scroll-y">
+		<!-- 图标 -->
+		<div class="logo"></div>
+		<p class="_bb">v1.0</p>
+		<!-- 文字 -->
+		<div class="nsdur">
+			<p>“江苏好欣晴移动医疗科技有限公司”主要从事精神心理领域互联网医疗服务产品研发和推广。“好欣晴”旨在打造国内精神心理领域移动医疗第一品牌，成为精神心理领域互联网医疗企业的领导者，实现患者、医生、医院、企业、政府共赢（愿景）；凭借不断创新的优质服务，建立完整、便捷、高效的医疗生态系统平台，提高人们的精神心理健康水平（使命）。</p>
+			<p>2013年卫生部统计数据表明，目前我国有各类精神疾病患者1亿多人，重性精神障碍患者超过1600万人。然而精神卫生服务资源十分短缺且分布不均，现有服务能力和水平远不能满足人民群众的健康需求及社会管理的需要。十二届全国人大三次会议上李克强总理提出“互联网+”概念。“江苏好欣晴移动医疗科技有限公司”于2015年10月应运而生，填补了互联网医疗市场在精神心理领域的空白。</p>
+			<p>“好欣晴”作为医患之间沟通的桥梁，方便患者就诊、咨询；便捷的随诊功能，降低患者复发率，促进患者回归社会。通俗易懂的疾病知识，提高大众对于精神心理问题的认知度，促进科学就医。“好欣晴”为医生打造学习交流的平台，传递国内外资深专家临床经验，提高医生诊疗水平并打造其个人品牌、更好地实现医生个人价值……</p>
+			<p>“好欣晴”将不断拓展创新服务，包括社区全科医生教育、重性精神病管理、在校医学生教育等以推进精神卫生事业改革发展为目的的互联网服务产品，建立起完备、高效、便捷的互联网医疗生态系统。“好欣晴”必将成为群众信赖、医生认可、政府满意的服务品牌。</p>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+		gm.pul.returnurl=function(){
+			gm.pul.toUrl('/patient/my/my_more.shtml');
+		}
+	</script>
+</body>
+</html>

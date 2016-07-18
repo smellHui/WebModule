@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+	<title>诊所</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+
+<body class="clinic cbox">
+	<div class="curpage" id="personal_center">
+		<!-- 收入 -->
+		<div class="statistical">
+			<div class="thelist_of">
+				<p class="allIncome">总收入: (元)<span></span></p>
+				<p class="accountAmount">账户余额:(元)<span></span></p>
+				<p class="yesterdayIncome">昨日收入:(元)<span></span></p>
+				<div class="clear"></div>
+			</div>
+			<div class="withdrawaly">
+				<a href="card_null.shtml" class="btn-def">提现</a>
+				<a href="bill.shtml" class="btn-defa">账单</a>
+			</div>
+		</div>
+		<!--我的出诊公告，时间 -->
+		<dlv class="options">
+			<dl>
+			    <dd id="mypoin">
+			    	<div class="solscd1">
+			    		<a href="/html/clinic/announcement.shtml"></a>
+			    		<i class="icon-thehorn"></i>
+			    		<span>我的公告</span>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+			    <dd class="dd_as" id="grlop">
+			    	<div class="solscd1">
+			    		<a href="/html/clinic/sheizhi1.shtml"></a>
+			    		<i class="icon-visittime"></i>
+			    		<span>我的出诊时间</span>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			    </dd>
+		    </dl>
+		</dlv>
+		<div class="openthecolumn">
+			<div class="kuangtiao"></div>
+			<div class=""> 
+				<dl class="options">
+				    <dd class="dd_as" id="grlop" packageUuid="teletext">
+				    	<div class="solscd1">
+				    		<i class="icon-byconsulting_off"></i><span><a href="###">开通图文咨询</a></span>
+							<div class="off" data="1"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div>
+				    	</div>
+				    </dd>
+				    <dd id="mypoin" packageUuid="plus">
+				    	<div class="solscd1">
+				    		<i class="icon-makeanappointment_off"></i><span><a href="/html/clinic/sheizhi2.shtml">开通加号预约</a></span>
+							<div class="off" data="2"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div>
+				    	</div>
+				    	<div class="solscda2">
+			    			<a href="/html/clinic/sheizhi2.shtml"><i class="icon-thearrowx"></i></a>
+			    		</div>
+				    </dd>
+				    <dd id="mypoin" packageUuid="phone">
+				    	<div class="solscd1">
+				    		<i class="icon-thephonebyconsulting_off"></i>
+				    		<span><a href="/html/clinic/sheizhi3.shtml">开通电话咨询</a></span>
+							<div class="off" data="3"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div>
+				    	</div>
+				    	<div class="solscda2">
+			    			<a href="/html/clinic/sheizhi3.shtml"><i class="icon-thearrowx"></i></a>
+			    		</div>
+				    </dd>
+				    <dd class="dd_as" id="grlop" packageUuid="personal">
+				    	<div class="solscd1">
+				    		<i class="icon-privatedoctors_off"></i><span><a href="/html/clinic/kaitong.shtml">开通私人医生</a></span>
+				    		<div class="off" data="4"><i class="switch"></i><span class="off-font">off</span><span class="on-font">on</span></div>				
+				    	</div>
+				    	<div class="solscda2">
+			    			<a href="/html/clinic/kaitong.shtml"><i class="icon-thearrowx"></i></a>
+			    		</div>
+				    </dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	//gm.pul.returnurl = gm.pul.returnIndex;
+	
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		window._loading = new mask("loading");
+		window._loading.show();
+
+		gm.clinic.index();
+		
+
+		$.getDate({
+			page:"doctor",
+			inter:"getDoctorInfo",
+			data:{doctorUuid:gm.user.getDoctor()},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success){
+					if (data.doctorInfo.sate == 1) {
+						$(".rzimg_box .certified").attr("class","certified certified1");
+					};
+					$("#personal_center .user_name").html(data.doctorInfo.doctorName);
+					$("#personal_center .user_avatar").html("<img src="+(data.doctorInfo.doctorIcon || window.___defaultImage)+">");
+					$("#personal_center .patients_visit i span").html(data.doctorInfo.customerNum);
+					$("#personal_center .patients_visit b span").html(data.doctorInfo.visitNum);
+				}else{
+					window.localStorage.clear();
+					$.alert(data.query.message);
+				}
+
+				setTimeout(function(){window._loading&&window._loading.hide();},300);
+			}
+		});
+		gm.pul.returnurl=function(){
+			
+			if(gm.para.get(window.location.href,"from")=="user"){//查看页面是否是从user过来的
+				gm.pul.toUrl('/html/user/index.shtml');
+			}else{
+				gm.isIndex = true;
+				gm.pul.returnurl=function(){//退回首页
+					if(!gm.isMobile){return;}
+						gm.pul.toUrl("goodm://returnIndexPage");
+				}
+			}
+			
+		}
+				
+	});
+	</script>
+</body>
+</html>

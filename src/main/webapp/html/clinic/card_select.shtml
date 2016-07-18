@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/clinic_header.shtml"-->
+</head>
+	
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+		<div class="title"><a href="index.shtml"><i class="fh"></i></a><h2>我的银行卡</h2><span>添加</span></div>
+	</body>
+	<!-- 银行卡 -->
+	<div class="liensbalo">
+		<div class="wd_bankcard">
+			<div class="commercial_logo">
+				<img src="/static/imgs/gongsyh.jpg">
+			</div>
+			<p>中国工商银行(尾号7508储蓄卡)</p>
+			<div class="solscd4">
+				<i class="icon-gouxuan"></i>
+			</div>
+		</div>
+		<!-- 按钮块 -->
+		<div class="queding_a">
+			<a href="card_list.shtml" class="btn-radius">确定</a><!-- 默认圆角按钮 -->
+		</div>
+	</div>
+</div>
+	<!--#include virtual="/html/template/clinic_bottom.shtml"-->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":http://year.vrued.com/static/imgs/psd_add.png","menuevent":""}</div>
+</html>

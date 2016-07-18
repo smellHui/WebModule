@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的收藏</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="coll">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<div class="alllive">
+			<ul>
+				<!-- <li>
+					<div class="live">
+						<img src="http://app.hxqydyl.com/imgs/live.jpg">
+					</div>
+					<div class="text">
+						<p>正在直播：吴雅峰-心脏超声在肺血栓栓塞症...</p>
+						<p class="time">2015.09.12 14:30</p>
+					</div>
+					<div class="ics">
+						<i class="icon-care">
+							<p class="care">112</p>
+						</i>
+						<i class="pts-greencollection"></i>
+					</div>
+				</li>
+				<li>
+					<div class="live">
+						<img src="http://app.hxqydyl.com/imgs/live2.jpg">
+					</div>
+					<div class="text">
+						<p>预告：杨媛华-如何能够想到病人患了肺血栓栓塞症</p>
+						<p class="time">2015.09.12 14:30</p>
+					</div>
+					<div class="ics">
+						<i class="icon-care">
+							<p class="care">112</p>
+						</i>
+						<i class="pts-greencollection"></i>
+					</div>
+				</li>
+				<li>
+					<div class="live">
+						<img src="http://app.hxqydyl.com/imgs/live.jpg">
+					</div>
+					<div class="text">
+						<p>正在直播：吴雅峰-心脏超声在肺血栓栓塞症...</p>
+						<p class="time">2015.09.12 14:30</p>
+					</div>
+					<div class="ics">
+						<i class="icon-care">
+							<p class="care">112</p>
+						</i>
+						<i class="pts-greencollection"></i>
+					</div>
+				</li> -->
+			</ul>
+			<p id="dont_show">您目前还没有收藏文章和视频</p>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.my_collection();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/index.shtml')
+		}
+	});
+	</script>
+</body>
+</html>

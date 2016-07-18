@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+	<title>文章详情</title>
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="../../static/css/common.css">
+<link rel="stylesheet" href="../../static/css/thedoctorinformation.css">
+</head>
+
+<body class="task cbox" id="my_task">
+	<div class="_scdv">
+	<!-- 秋季进补的禁忌 -->
+		<a href="informationlayerthicknessfordetails_1.shtml">
+			<div class="tisnamg">
+				<i class="icon-jumppoint"></i>
+
+			</div>
+		</a>
+		<!-- 秋季进补的禁忌内容a -->
+		<div class="theauthor_introduce">
+			<div class="payatten_tiondetailed">
+				<div class="js_introduce">
+					<h2></h2>
+					<p></p>
+				</div>
+			</div>
+			<!-- 秋季进补的禁忌内容b -->
+			<div class="thearticley">
+				<p></p>
+			</div>
+		</div>
+		<!-- 按钮 -->
+		<div class="dsds" style="display:none;">
+			<!-- <button>我要看全文</button> -->
+		</div>
+		<!-- 秋季进补的禁忌内容遮罩 -->
+		<div class="quanzdp zhuenqw">
+			<!-- 秋季进补的禁忌内容遮罩 -->
+			<div class="mediationz-zhez">
+				<div class="zh_setthe">
+					<span>字号设置</span>
+				</div>
+				<div class="dazxinao">
+					<ul>
+						<li class="shenh"><span>小</span></li>
+						<li class="danh bghs"><span>中</span></li>
+						<li class="baml"><span>大</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 秋季进补的禁忌弹层 -->
+		<div class="ftollcas">
+			<a class="setthefontsize">
+				<div class="skalakd">
+					<i class="icon-shezhizh"></i><!--设置字号 -->
+				</div>
+				<span>设置字号</span>
+			</a>
+			<div class="shouc_set">
+				<div class="skalakda">
+				<i class="icon-greycollections"></i><!--灰收藏 -->
+				</div>
+				<span>收藏</span>
+			</div>
+			<div class="fx_share">
+				<div class="skalakdb">
+				<i class="logo-fxtba"></i><!--我的收藏灰 -->
+				</div>
+				<span>分享</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="yxzzc">
+		<div class="tjob">
+			<p>请确认邮箱地址</p>
+			<input type="text" class="ipt-disabled">
+			<div>
+				<button class="btn-radius qr">确定</button>
+				<button class="btn-radius qx">取消</button>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<script src="../../static/js/jquery.min.js"></script>
+	<script src="../../static/js/config.js"></script>
+	<script src="../../static/js/common.js"></script>
+	<script src="../../static/js/module.js"></script>
+	
+	<script type="text/javascript" src="../../static/js/readInformation.js"></script>
+	<script type="text/javascript" src="../../static/js/clinic.js"></script>
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://172.168.1.46:8080/static/imgs/icon-share.png","menuevent":"gm.my_task.tanchu"}</div>
+
+	<script type="text/javascript">
+	
+		$(function(){
+			
+			setTimeout(function(){gm.pul.setTitle(document.title);},200);
+			if(navigator.userAgent.indexOf("apple") == -1){
+				gm.menu.clearRight();
+				
+				setTimeout(function(){
+					$("#viewport").attr("content","width=device-width, initial-scale=1.0, minimum-scale=1.000001, maximum-scale=1.0, user-scalable=no");
+				});
+			}
+			$("body").on("touchend","a",function(e){
+				var href = $(this).attr("href");
+				if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+				href = gm.para.set($(this).attr("href"),"rnd",window.______version || Math.random());
+				$(this).attr("href",href);
+			});
+			if(gm.para.get(window.location.href,"from")=="user"){//给所有的a加上from=user
+				$("body").on("touchend","a",function(e){
+					var href = $(this).attr("href");
+					if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+					href = gm.para.set($(this).attr("href"),"from",gm.para.get(window.location.href,"from"));
+					$(this).attr("href",href);
+				});
+			}
+			
+			
+			var _all = gm.para.get(window.location.href,"action");
+
+			if(_all && _all == "all"){
+				$(".dsds").show();
+			}
+			gm.user.EmailContentList();
+			gm.thedoctorinformation.informationfordetails();
+			
+			
+			
+		})
+		gm.pul.returnurl=function(){
+			if(gm.para.get(window.location.href,"from")=="user")
+				gm.pul.toUrl('/html/follow_up/toolbox/clinical_scale.shtml');
+			else if(gm.para.get(window.location.href,"from")=="collection")
+				gm.pul.toUrl('/html/user/my_collection.shtml?from=collection');
+			else if(gm.para.get(window.location.href,"from")=="patientrefer")
+				gm.pul.toUrl('patient/refer/refer_soul.shtml');
+			else
+				gm.pul.toUrl('/html/thedoctorinformation/index.shtml');
+		}
+		//gm.my_task.tanchu();
+		
+		//检查是否登录
+		function checkLogin(){
+			var from = gm.para.get(window.location.href,"from");
+			if(from == "patientrefer"){//患者端
+				if(gm.patient.isLogin()){
+					return true;	
+				}else{
+					return false;
+				}
+			}else{//医生端
+				if(gm.user.isLoginDoctor()){
+					return true;	
+				}else{
+					return false;
+				}
+			}
+		}
+		
+		gm.my_task.tanchu=function (){
+			//未登录情况无法分享
+			if(!checkLogin()){
+				gm.pul.toUrl("goodm://login");
+				return;	
+			}
+			
+			var _ = $(this);
+			var p = _.parent().parent();
+			var _shareUuid = gm.para.get(window.location.href,"contentUuid");
+			var _shareType = $(this).parents("ul").attr("data");
+			var _title="";
+			var _img="";
+			if(obj_text_doc){
+				_img=obj_text_doc.img;
+				_title=obj_text_doc.contentTitle;
+			}
+			var obj = {
+				title:_title,//获取文章title
+				desc:_title,//获取文章desc
+				img:_img,//获取文章img
+				link:window._interfacePath + "/html/thedoctorinformation/informationfordetails.shtml?contentUuid=" + gm.para.get(window.location.href,"contentUuid")
+			}
+			
+			gm.share(obj,function(){
+				$.getDate({
+					page:"doctor",
+					inter:"addDoctorShare",
+					data:{contentUuid:contentUuid,doctorUuid:gm.user.getDoctor()},
+					callback:function(data){	}
+				});
+			});
+		}
+		
+	</script>
+</body>
+</html>

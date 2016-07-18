@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+	<title>个人信息</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox" id="personal_information">
+	<!-- 2-个人简介、个人信息 -->
+	<!-- 内容 -->
+	<div class="">
+		<dl class="options">
+			<!--  -->
+			<dt id="devbfs">
+			<a href="/html/user/edit_user_info.shtml"></a>
+				<div class="left_box">
+					<div class="certified certified2"></div>
+			   		<div class="user_avatar"><img src=""></div>
+			    	<div class="user_unpv">
+						<h2 class="user_name"></h2>
+						<span class="sdogpan">
+							<p></p>
+						</span>
+					</div>
+				</div>
+				<div class="right_box"><i class="icon-thearrow"></i></div>
+			</dt>
+			<!--  -->
+		    <dd id="sate">
+		    	<div class="solscd1">
+		    		<i class="icon-rzn"></i>
+		    		<p>医生认证</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b></b>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    </dd>
+		    <dd id="swmmp">
+		    	<a href="/html/user/personal_curpage.shtml?from=user"></a>
+		    	<div class="solscd1">
+		    		<i class="icon-ewmn"></i>
+		    		<p>二维码名片</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b><i class="icon-qrcode"></i></b>
+		    </dd>
+		    <dd>
+		    	<div class="solscd1">
+		    		<i class="icon-csn"></i>
+		    		<p>所在城市</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b></b>
+		    </dd>
+		    <dd class="dints">
+		    	<div class="solscd1">
+		    		<i class="icon-yymcn"></i>
+		    		<p>医院名称</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b></b>
+		    </dd>
+		    <dd class="dints">
+		    	<div class="solscd1">
+		    		<i class="icon-ksmcn"></i>
+		    		<p>科室名称</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b></b>
+		    </dd>
+		    <dd>
+		    	<div class="solscd1">
+		    		<i class="icon-dhn"></i>
+		    		<p>科室电话</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    	<b></b>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    </dd>
+
+		    <dd class="sfe_jdg">
+		    	<div class="solscd1">
+		    		<i class="icon-jbn"></i>
+		    	</div>
+		    	<div class="namj">
+		    		<p>擅长疾病</p>
+		    		<i></i>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    </dd>
+		    <dd class="sfe_jdg">
+		    	<div class="solscd1">
+		    		<i class="icon-jjn"></i>
+		    	</div>
+		    	<div class="namj">
+		    		<p>个人简介</p>
+		    		<i></i>
+	    		</div>
+		    	<div class="solscd2">
+		    		<i class="icon-thearrowx"></i>
+		    	</div>
+		    </dd>
+
+		</dl>
+	</div>
+
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(function(){
+		$.getDateAjax({
+			page:"doctor",
+			inter:"getServiceStaffInfo",
+			data:{doctorUuid:'35223f71d7bc4484bc3a677b35b5f07b' || "customerLunBoTuId"},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				} 
+				if(data.query.success=="1"){
+					callback && callback(data);
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		gm.user.getUserInfo(gm.user.getDoctor(),function(data){
+
+			$("#devbfs .user_name").html(data.doctorInfo.doctorName);
+			$("#devbfs .user_unpv .sdogpan").html(data.doctorInfo.professional);
+			var getDefaultImage=data.doctorInfo.sex=="1"?window.___defaultImage:window.___defaultImage_d_woman;
+			$("#devbfs .user_avatar").html("<img src="+(data.doctorInfo.doctorIcon || getDefaultImage)+">");
+			var professional=data.doctorInfo.professional;
+			if(!isNaN(parseInt(professional)))
+				professional=___professional[professional];
+			$("#devbfs .sdogpan").html(professional);
+			$(".options dd").eq(2).find("b").html(data.doctorInfo.address || "");
+			if (data.doctorInfo.sate == 0) {
+				$("#sate b").html("未认证");
+				$("#sate").ontouch(function(){
+					gm.pul.toUrl( "/html/reg/addreginfo_license.shtml?source=user");
+				});
+			}else if (data.doctorInfo.sate == 1) {
+				$(".certified").attr("class","certified certified1");
+				$("#sate b").html("已认证");
+				$("#sate").ontouch(function(){
+					gm.pul.toUrl( "/html/reg/editreginfo_license.shtml");
+				});
+			}else{
+				$("#sate b").html("待认证");
+			}
+			$(".options dd").eq(3).find("b").html(data.doctorInfo.hospital);
+			$(".options dd").eq(4).find("b").html(data.doctorInfo.department);
+			$(".options dd").eq(5).find("b").html(data.doctorInfo.departmentLine);
+			$(".options dd").eq(6).find(".namj i").html(data.doctorInfo.territory);
+			$(".options dd").eq(7).find(".namj i").html(data.doctorInfo.synopsis);
+		});
+
+		$(".options dd").eq(1).nextAll().ontouch(function(){
+			gm.pul.toUrl( "/html/reg/addreginfo_qt.shtml?gsfa=1");
+		});
+	});
+	</script>
+</body>
+</html>
+

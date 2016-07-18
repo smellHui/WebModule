@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>测试结果</title>
+	<!--#include virtual="/html/template/patient/tools_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="test_results">
+	<!-- 内容 -->
+	<div class="scroll-y">
+		<div class="_uevd">
+			<div class="_scs">
+				<h3 class="p_dfdf">分数<span></span>分</h3>
+				<h3 class="p_bnjv">测试结果<b></b></h3>
+			</div>
+			<div class="_fjb0">
+				<p class="p_nfjd"></p>
+			</div>
+		</div>
+
+		<h4>推荐医生</h4>
+		<ul>
+		</ul>
+		<a id="reset"><button class="btn-zyradius">重新测试</button></a>
+	</div>
+	<!--#include virtual="/html/template/patient/tools_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/refer.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+		$(function(){
+			gm.refer.results();
+			gm.pul.returnurl = function(){
+				gm.pul.toUrl('/patient/refer/index.shtml')
+
+			}
+		});
+	</script>
+</body>
+</html>

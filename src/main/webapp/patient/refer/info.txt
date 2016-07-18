@@ -1,0 +1,6 @@
+/patient/refer/refer_soul.shtml				ĞÄÁéÑõ°É
+/patient/refer/refer_cpta.shtml				¿Î³ÌÏêÏ¸
+/patient/refer/intheheart.shtml				Ñ¡Ôñ²âÊÔ
+/patient/refer/testsubjectsa.shtml			²âÊÔ
+/patient/refer/index.shtml				×ÔÕï×Ô²â
+/patient/refer/refer_video.shtml			Ö±²¥

@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+	<title>阅读</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="../../static/css/lib/pullToRefresh.css" />
+<link rel="stylesheet" href="../../static/css/read.css" />
+<link rel="stylesheet" href="../../static/css/common.css" />
+<script src="../../static/js/lib/iscroll.js"></script>
+<script src="../../static/js/lib/pullToRefresh.js"></script>
+<script src="../../static/js/lib/colorful.js"></script>
+
+<style type="text/css" media="all">
+        body, html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            font-family: Arial, Microsoft YaHei;
+            color: #111;
+        }
+    </style>
+</head>
+<body class="cbox" id="read">
+<header class="diswngu">
+		<div class="clinical_screening">
+			<!-- 切换 -->
+			<div class="qhs_box">
+				<div class="clinical_medical">
+					<div class="menulist">
+						<span class="cur" contentCategoryUuid="D">最新资讯</span>
+						<span contentCategoryUuid="F">专家言论</span>
+					</div>
+					<b></b>
+				</div>
+			</div>
+		</div>
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+					<span class="sx2">筛选</span>
+				</a>
+			</form>
+		</div>
+	</header>
+
+	<!-- 列表内容 -->
+	<div class="pvdow">
+		<div class="btsr">
+			<!-- 临床推荐内容 -->
+			<div class="gsid_1" id="wrapper">
+				<!-- 正在播放 -->
+				<ul class="varioustype fnio_thereis">
+
+				</ul>
+			</div>
+
+			<!-- 医学医用内容 -->
+			<div class="gsid_2">
+				<!-- 最新资讯 -->
+				<ul class="varioustype fnio_thereis">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 遮罩层 -->
+	<div class="cuisd">
+		<!-- 临床推荐 -->
+		<div class="quanzdp sds1">
+			<div class="filterlayer_a">
+				<div class="sdnes">
+					<h2><p>取消</p>筛选<b>确定</b></h2>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>疾病</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="illness">
+								<span>全部</span>
+								<span>精神分裂症</span>
+								<span>双相障碍</span>
+								<span>抑郁障碍</span>
+								<span>焦虑障碍</span>
+								<span>强迫症</span>
+								<span>创伤后应激障碍</span>
+								<span>睡眠障碍</span>
+								<span>物质依赖</span>
+								<span>其他</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 医学医用 -->
+		<div class="quanzdp sds2">
+			<div class="filterlayer_a">
+				<div class="sdnes">
+					<h2><p>取消</p>筛选<b>确定</b></h2>
+				</div>
+				<div class="categoryar_jb">
+					<div class="aisieqer">
+						<div class="type">
+							<span>疾病</span>
+						</div>
+						<div class="slekascvg">
+							<div class="soerlsda">
+								<div class="aioerk">
+
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/thedoctorinformation_bottom.shtml"-->
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<script type="text/javascript">
+	
+		$(function(){
+			gm.menu.hiddenBottomBar();//隐藏菜单
+			gm.thedoctorinformation.init();
+			gm.isIndex = true;
+			gm.pul.returnurl=function(){//退回首页
+				if(!gm.isMobile){return;}
+					gm.pul.toUrl("goodm://returnIndexPage");
+			}
+			
+		 
+		});
+        
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+<!--#include virtual="/html/template/doctor_header.shtml"-->
+<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/follow_up.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>

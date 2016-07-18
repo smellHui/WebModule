@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<title>健康指导</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+<body class="visit cbox">
+	<div class="cbox">
+		<div class="health">
+			<div class="dict">
+				<h2><span class="ico"><i class="icon-diet"></i></span>饮食指导</h2>
+				<textarea placeholder="输入内容"></textarea>
+			</div>
+			<div class="dict">
+				<h2><span class="ico"><i class="icon-sport"></i></span>运动指导</h2>
+				<textarea placeholder="输入内容"></textarea>
+			</div>
+			<div class="dict">
+				<h2><span class="ico"><i class="icon-dirc"></i></span>睡眠指导</h2>
+				<textarea placeholder="输入内容"></textarea>
+			</div>
+		</div>
+		<button class="btn-zyradius dirc">发送</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		if(!gm.isIndex)history.go(-1);
+		//gm.pul.toUrl('/html/follow_up/patient_follow_up_form/follow_list.shtml?applyUuid='+_applyUuid + "&customerUuid=" + customerUuid)
+	}
+	$(function(){
+		var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+		
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var _diet = $(".health div").eq(0).find("textarea").val();
+				var _sports = $(".health div").eq(1).find("textarea").val();
+				var _rest = $(".health div").eq(2).find("textarea").val();
+
+				$.getDate({
+					page:"follow_up",
+					inter:"saveOrUpdateHealthGuide",
+					data:{doctorUuid:gm.user.getDoctor(),visitRecordUuid:_applyUuid,diet:_diet,sports:_sports,rest:_rest,callback:"gm.follow_up.saveOrUpdateHealthGuide"},
+					method:"POST",
+					dataType:"script"
+				});
+			}
+		});
+
+		$.getDate({
+			page:"doctor",
+			inter:"getHealthGuides",
+			data:{visitRecordUuid:_applyUuid},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错");
+				}
+
+				if(data.query.success == "1"){
+					if(data.relist.length == 0){
+						return;
+					}
+					data = data.relist[0];
+
+					$(".dict textarea:eq(0)").val(data.diet);
+					$(".dict textarea:eq(1)").val(data.sports);
+					$(".dict textarea:eq(2)").val(data.rest);
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		})
+		
+	})
+	</script>
+</body>
+</html>

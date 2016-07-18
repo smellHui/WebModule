@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>药品详情</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 药品详情 -->
+<body class="followed cbox" id="drug_details">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="ypxq_box cbox">
+		<dl>
+			<dt>
+				<div class="yp_img">
+					<img src="http://app.hxqydyl.com/imgs/yp_img.jpg">
+				</div>
+				<div class="yp_name">
+					<h2>药品名称：<span></span></h2>
+					<P>英文：<span></span></P>
+				</div>
+			</dt>
+		</dl>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/drugs_manual.shtml')
+	}
+	$(function(){
+		var _id = gm.para.get(window.location.href,"productUuid");
+		gm.follow_up.drugs_details(_id);
+	})
+	</script>
+</body>
+</html>

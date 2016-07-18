@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的医生</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/my_doctor.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+
+<body class="cbox" id="my_doctor">
+	<!-- 内容 -->
+	<div class="scroll-y">
+		<!--  -->
+		<div class="cnda">
+			<ul>
+				<li class="ck_li1 sfro"><p>服务记录</p></li>
+				<li class="ck_li2"><p>关注</p></li>
+				<li class="ck_li3"><p>随访</p></li>
+			</ul>
+		</div>
+		<!-- 服务记录 -->
+		<article class="dvcn laung">
+			<!-- 图文咨询 -->
+			<dl class="os_twzx">
+				<dt>
+					<i class="zys-wndsx2"></i>
+					<b>图文资讯</b>
+					<span><i class="logo-triangle"></i></span>
+				</dt>
+			</dl>
+			<!-- 电话咨询 -->
+			<dl class="os_dhzx">
+				<dt>
+					<i class="zys-phone2"></i>
+					<b>电话咨询</b>
+					<span><i class="logo-triangle"></i></span>
+				</dt>
+			</dl>
+			<!-- 预约加号 -->
+			<dl class="os_yyjh">
+				<dt>
+					<i class="zys-dcsos2"></i>
+					<b>预约加号</b>
+					<span><i class="logo-triangle"></i></span>
+				</dt>
+			</dl>
+			<!-- 私人医生 -->
+			<dl class="os_srys">
+				<dt>
+					<i class="zys-grqxs2"></i>
+					<b>私人医生</b>
+					<span><i class="logo-triangle"></i></span>
+				</dt>
+			</dl>
+		</article>
+		<!-- 关注 -->
+		<article class="duwr">
+			<ul>
+			</ul>
+			<p id="guanzhu_show" class="dont_show">您目前还没有关注任何医生</p>
+		</article>
+		<!-- 随访 -->
+		<article class="ngtuo">
+			<ul>
+				
+			</ul>
+			<p id="suifang_show" class="dont_show">目前还没有任何医生沟通随访</p>
+		</article>
+	</div>
+
+	<div class="hz_foot">
+		<ul>
+			<li class="in_1"><a href="/patient/index/page.shtml"><i class="dls-hxqsx"></i></a></li>
+			<li class="in_2"><a href="/patient/my_doctor/index.shtml"><i class="dls-wdyssx"></i></a></li>
+			<li class="in_3"><a href="/patient/refer/refer_soul.shtml"><i class="dls-xlybsx"></i></a></li>
+			<li class="in_4"><a href="/patient/my/index.shtml"><i class="dls-wdsx"></i></a></li>
+		</ul>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/my_doctor.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(function(){
+		gm.my_doctor.attention();
+		gm.pul.returnurl = gm.pul.returnIndex;
+	});
+	</script>
+</body>
+</html>

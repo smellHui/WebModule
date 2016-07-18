@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的公告</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body>
+	<div class="cbox announcement">
+		<!-- 标题 -->
+		
+	
+		<!-- 内容 -->
+		<div class="thene_cement">
+			<div class="cvenpas">
+				<strong><a href="announcement_add.shtml">添加新公告</a></strong>
+				<div class="solscd5">
+					<a href="announcement_add.shtml"><i class="icon-addya"></i></a>
+				</div>
+			</div>
+			<ul>
+				<!-- <li class="tingzhen">
+					<div class="tingzhen_tz">
+						<h2><a href="announcement_details.shtml">停诊通知</a></h2>
+						<span>2015.09.24</span>
+					</div>
+					<div class="tingzhen_zy">
+						<p>停诊通知：张医生于  2015.09.2- 2015.10.01 停诊一周 为您带来的不便敬请理解。</p>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	</script>
+	<script type="text/javascript">
+	$(function(){
+		gm.clinic.announcement();
+	});
+	</script>
+</body>
+</html>

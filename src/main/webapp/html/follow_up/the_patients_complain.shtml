@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<title>患者主诉</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 患者主诉 -->
+<body class="followed cbox" id="patient_description">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="hzxx_box">
+		<div class="vebng">
+			<textarea class="feedbackcontent" placeholder="病人主述"></textarea>
+			<i class="icon-voice"></i>
+		</div>
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but" page="user" inter="addMainsuit">
+		<button class="btn-zyradius">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_patients.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid");
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+		gm.addMainsuit = function(data){
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				$.alert({
+					val:"添加成功",
+					callback:function(){
+						window.location.href="/html/follow_up/add_patients.shtml?customerUuid="+customerUuid + "&medicalRecordUuid=" + medicalRecordUuid;
+					}
+				})
+			}else{
+				$.alert(data.query.message)
+			}
+		}
+
+		$(".btn-zyradius").bind({
+			touchend:function(e){
+				var _t = $(".feedbackcontent").val();
+				if(!_t){
+					$.alert("请填写主诉内容");
+					return false;
+				}
+				$.getDate({
+					page:"user",
+					inter:"addMainsuit",
+					method:"POST",
+					dataType:"script",
+					data:{
+						medicalRecordUuid:medicalRecordUuid,
+						mainsuit:_t,
+						callback:"gm.addMainsuit"
+					}
+				});
+
+			}
+		});
+	});
+	</script>
+</body>
+</html>

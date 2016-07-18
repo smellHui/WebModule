@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<title>医学美图</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 医学美图 -->
+<body class="followed cbox" id="medical_img">
+	<!-- 内容 -->
+	<div class="img_box"></div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		$.getDate({
+			page:"doctor",
+			inter:"getPlatformPic",
+			data:{adUuid:"medicalBeautyId"},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					var arr = [];
+					$(data.relist).each(function(i,o){
+						// href="'+o["url"]+'"
+						arr.push('<a><img src="'+o["imageUrl"]+'" imageUuid="'+o["imageUuid"]+'" position="'+o["position"]+'" note="'+o["note"]+'" ></a>');
+					});
+					$(".img_box").html(arr.join(""));
+					var i = 0;
+
+					$(".img_box img").bind({
+						load:function(){
+							var _ = $(this);
+							var _p  = _.parent();
+
+							var _w = _p.width();
+							var _h = _p.height();
+
+							var w = _.width();
+							var h = _.height();
+							// console.log(w,h);
+
+							if(w>=h){
+								h = (w-h)/2 * (w/_w);
+								w=0;
+							}else{
+								w = (h-w)/2 * (h/_h);
+								h=0;
+							}
+
+							setTimeout(function(){
+								_.css({
+									opacity:1,
+									"-webkit-transform":"translate3d(0,0,0)",
+									"margin-left":w,
+									"margin-top":h
+								})
+							},++i*50);
+
+							$(this).showWallpaper();
+						}
+					});
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/html/follow_up/toolbox/toolbox.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

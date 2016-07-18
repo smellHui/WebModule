@@ -1,0 +1,3 @@
+<!--#include virtual="/html/template/patient_bottom.shtml"-->
+
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/refer.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>

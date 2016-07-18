@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的病例</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="case">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="scroll-y">
+		<ul>
+			<!-- <li>
+				<h3>我的病例<i class="pts-thearrow"></i></h3>
+				<p>医生：<span>白金子</span></p>
+			</li>
+			<li>
+				<h3>我的病例<i class="pts-thearrow"></i></h3>
+				<p>医生：<span>白金子</span></p>
+			</li> -->
+		</ul>	
+		<p id="dont_show">您目前还没有任何病例</p>		
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+
+		$(function(){
+			gm.home._case();
+			gm.pul.returnurl = function(){
+				gm.pul.toUrl('/patient/home/advice_index.shtml')
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的患者</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/mypatient.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+<body class="mypatient" id="mypatient">
+<div class="cbox">
+	<!-- 内容 -->
+	<div class="content" page="doctor" inter="getcollectMeMSG">
+		<!-- 随访患者 -->
+		<dl class="patients1">
+			<dt><i class="icon-triangle"></i><b>随访患者<span></span></b></dt>
+			
+		</dl>
+
+		<!-- 电话咨询患者 -->
+		<dl class="patients2">
+			<dt><i class="icon-triangle"></i><b>电话咨询患者<span></span></b></dt>
+			
+		</dl>
+
+		<!-- 在线咨询患者 -->
+		<dl class="patients3">
+			<dt><i class="icon-triangle"></i><b>在线咨询患者<span></span></b></dt>
+			
+		</dl>
+		
+	</div>
+	
+	<!-- 底部 -->
+	<div class="foot">
+		<ul>
+			<li><a href="/html/index/page.shtml"></a><div class="_as1 _as"></div></li>
+			<li><a href="/html/mypatient/index.shtml"></a><div class="_as2 _as"></div></li>
+			<li><a href="/html/task/my_task.shtml"></a><div class="_as3 _as"></div></li>
+			<li><a href="/html/user/index.shtml"></a><div class="_as4 _as"></div></li>
+		</ul>
+	</div>
+
+</div>
+<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/mypatient.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		//获得未读消息
+		gm.user.getServiceStaffMessage();
+	})
+</script>
+</body>
+</html>

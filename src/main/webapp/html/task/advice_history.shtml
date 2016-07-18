@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>咨询历史</title>
+	<!--#include virtual="/html/template/doctor/task_header.shtml"-->
+</head>
+
+<!-- 预约加号-平台病历 -->
+<body class="task cbox" id="advice_history">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="vfesc">
+		<ul>
+			<!-- 患者 -->
+			<li class="patient_sd">
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>之前一直锻炼，膝盖有问题，腰疼，理疗后有了好转，之前膝盖这几天还是很疼之前一直有问题，一年前有过腰疼，理</p>
+				</div>
+			</li>
+
+			<!-- 时间 -->
+			<li class="sjrics"><p>2015-12-13  12:13:14结束</p></li>
+
+			<!-- 患者 -->
+			<li class="patient_sd">
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>之前一直锻炼，膝盖有问题，腰疼，理疗后有了好转，之前膝盖这几天还是很疼之前一直有问题，一年前有过腰疼，理</p>
+				</div>
+			</li>
+			<!-- 用户 -->
+			<li class="user_sd">
+				<div class="_p">
+					<div class="jiao"></div>
+					<p>做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！！
+					做得很好，请继续保持下去！~</p>
+				</div>
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+			</li>
+
+			<!-- 时间 -->
+			<li class="sjrics"><p>2015-12-13  12:13:14结束</p></li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/task_bottom.shtml"-->
+</body>
+</html>

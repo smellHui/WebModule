@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>意见反馈</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="opinion">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<div class="inputbox">
+			<textarea placeholder="请填写您的意见或建议，我们会及时更进"></textarea>
+			<p>联系方式</p>
+			<input type="tel" maxlength="11" class="customerMobile" placeholder="手机号码">
+			<input type="text" class="customerEmail" placeholder="邮箱">
+			<input type="tel" maxlength="12" class="customerQQ" placeholder="QQ号码">
+			<button class="btn-zyradius confirm">提交</button>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.menu.hiddenBottomBar();
+		gm.my.my_opinion();
+		gm.pul.returnurl = function(){
+			gm.pul.toUrl('/patient/my/index.shtml')
+		}
+	})
+	</script>
+</body>
+</html>

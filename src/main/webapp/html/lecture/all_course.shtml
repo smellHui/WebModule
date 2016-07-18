@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<title>讲堂</title>
+	<!--#include virtual="/html/template/doctor_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/lecture.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="forum">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 搜索 -->
+		<div class="search">
+			<form>
+				<input type="text" class="ipt-def search">
+				<i></i>
+			</form>
+		</div>
+		<!-- 视频 -->
+		<div class="focus_map" id="tabs">
+			<div class="border">
+				<ul class="atlas">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- 内容标题 -->
+		<div class="conti">
+			<div class="all cjj">
+				<h2>正在热播</h2>
+			</div>
+			<div class="playing">
+				<h2>全部课程</h2>
+			</div>
+		</div>
+		<div class="alllive">
+			<!-- 全部课程内容 -->
+			<ul class="ensn" style="display:block;">
+				
+			</ul>
+			<!-- 正在播放内容 -->
+			<ul class="ensss">
+				
+			</ul>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+	<!--#include virtual="/html/template/modules/tongji.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/lecture.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		
+		gm.lecture.getVideosByName();
+		$(".search i").bind({
+			touchend:function(){
+				var _p = $(".search input").val();
+				
+				// gm.lecture.getVideosByName(_p);
+				$(".playing").removeClass("cjj");
+				$(".all").addClass("cjj");
+				gm.pul.toUrl( "/html/lecture/search.shtml?name="+_p);
+			}
+		})
+		//获取焦点图
+		gm.lecture.all_course();
+		gm.isIndex = true;
+		gm.pul.returnurl=function(){//退回首页
+			if(!gm.isMobile){return;}
+				gm.pul.toUrl("goodm://returnIndexPage");
+		}
+	});
+	</script>
+</body>
+</html>

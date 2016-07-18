@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的</title>
+	<!--#include virtual="/html/template/patient_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/my.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="cbox" id="my">
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/p_img/setuser.png","menuevent":"gm.gotoSet"}</div>
+	<div id="______goodmoodbottommenu" class="appconfig">{"isShow":"YES"}</div>
+	<!-- 内容 -->
+	<div class="wode">
+		<div class="zzc_dl"><a href="/patient/reg/index.shtml"></a></div>
+		<dl class="options">
+			<!--  -->
+			<dt class="gnents">
+				<!-- 未登录 -->
+				<div class="wdl">
+					<div class="left_box">
+			   			<div class="user_avatar"><img src="http://app.hxqydyl.com/imgs/man2.png"></div>
+			   			<div class="dl_zc">
+			   				<p><span><a href="/patient/reg/index.shtml"></a>登录</span>/<span><a href="/patient/reg/registration.shtml"></a>注册</span></p>
+			   			</div>
+					</div>
+				</div>
+				<!-- 已登录 -->
+				<div class="ydl">
+					<a href="/patient/my/personal_information.shtml"></a>
+					<div class="left_box">
+				   		<div class="user_avatar"><img src="/static/imgs/ngudwda.png"></div>
+				    	<div class="user_unpv">
+							<h2 class="user_name"></h2>
+							<span class="sdogpan">
+								<p class="sex"><i class="icon-boy" sex="1"></i><span></span></p>
+								<p class="p_vkdamd"></p>
+							</span>
+						</div>
+					</div>
+					<div class="right_box"><i class="pts-thearrow"></i></div>
+				</div>
+			</dt>
+		<!--
+			账户余额
+			<dt class="zevnd">
+				<a href="/patient/my/account_balance.shtml"></a>
+				<h3>账户余额</h3>
+				<h4>0<span>元</span></h4>
+				<button><a href="/patient/my/recharge.shtml"></a>充值</button>
+			</dt>
+			表单选项
+			<dd>
+				<a href="/patient/my/myorder.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-myorder"></i></div>
+		    		<p>我的订单</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="pts-andthearow"></i>
+		    	</div>
+		    </dd>
+		    <dd>
+		    	<a href="/patient/my/my_integral.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-mypoints"></i></div>
+		    		<p>我的积分</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="pts-andthearow"></i>
+		    	</div>
+		    	<b>0</b>
+		    </dd>
+		    <dd>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-sharetheintegralof"></i></div>
+		    		<p>分享得积分</p>
+		    	</div>
+		    </dd>
+		    <dd>
+		    	<a href="/patient/my/my_system.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-systemmessage"></i></div>
+		    		<p>系统消息</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<i class="pts-andthearow"></i>
+		    	</div>
+		    </dd> 
+		-->
+			<dd class="dd_as">
+			    	<a href="/patient/my/myQeustion.shtml" class="nosate"></a>
+			    	<div class="solscd1">
+			    		<i class="icon-news"></i>
+			    		<p>我的提问</p>
+			    	</div>
+			    	<div class="solscd2">
+			    		<i class="icon-thearrowx"></i>
+			    	</div>
+			</dd>
+		    <dd>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-contactcustomerservice"></i></div>
+		    		<p>联系客服</p>
+		    	</div>
+		    	<div class="solscd2">
+		    		<h5 class="p_dgnms"><a href="tel:400-135-8858">400-135-8858</a></h5>
+		    	</div>
+		    </dd>
+		    <dd>
+		    	<a href="/patient/my/my_collection.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-mycollection"></i></div>
+		    		<p>我的收藏</p>
+		    	</div>
+		    </dd>
+		    <dd class="dd_as" id="dmvnw">
+		    	<a href="/patient/my/my_opinion.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-feedback"></i></div>
+		    		<p>意见反馈</p>
+		    	</div>
+		    </dd>
+		    <!-- <dd class="dd_as" id="dmvnw">
+		    	<a href="/patient/my/my_more.shtml"></a>
+		    	<div class="solscd1">
+		    		<div class="bao_box"><i class="pts-feedback"></i></div>
+		    		<p>更多</p>
+		    	</div>
+		    </dd> -->
+		</dl>
+	</div>
+
+	<!-- <div class="hz_foot">
+		<ul>
+			<li class="in_1"><a href="/patient/index/page.shtml"><i class="dls-hxqsx"></i></a></li>
+			<li class="in_2"><a href="/patient/my_doctor/index.shtml"><i class="dls-wdyssx"></i></a></li>
+			<li class="in_3"><a href="/patient/refer/refer_soul.shtml"><i class="dls-xlybsx"></i></a></li>
+			<li class="in_4"><a href="/patient/my/index.shtml"><i class="dls-wdsx"></i></a></li>
+		</ul>
+	</div> -->
+	
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+	<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_js/my.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+	<script type="text/javascript">
+	gm.gotoSet = function(){
+		gm.pul.toUrl('/patient/my/my_more.shtml');
+		// gm.pul.toUrl("/patient/my/personal_information.shtml");
+	}
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			gm.menu.showBottomBar();
+			gm.my.index();
+			//gm.pul.returnurl = gm.pul.returnIndex;
+		});
+	</script>
+</body>
+</html>

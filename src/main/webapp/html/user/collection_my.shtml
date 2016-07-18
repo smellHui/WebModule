@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<title>关注我的人</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 7-消息中心_收藏我的人 -->
+	<aside id="collection_my">
+		
+		<ul class="newszu">
+			<!-- <li>
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+				<div class="nagent">
+					<div class="duof">
+						<h3>王志文<i class="icon-boy"></i></h3>
+						<span>年龄：36岁</span>
+						<b class="date">2015-04-12</b>
+					</div>
+					<p class="comment">我来收藏您啦~</p>
+				</div>
+			</li>
+			<li>
+				<div class="head_portrait"><img src="http://app.hxqydyl.com/imgs/tx2.png"></div>
+				<div class="nagent">
+					<div class="duof">
+						<h3>王志文<i class="icon-boy"></i></h3>
+						<span>年龄：36岁</span>
+						<b class="date">2015-04-12</b>
+					</div>
+					<p class="comment">我来收藏您啦~</p>
+				</div>
+			</li> -->
+		</ul>
+	</aside>
+
+	<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/message_center.shtml');
+	}
+	$(function(){
+		gm.user.collection_my();
+	})
+	</script>
+</body>
+</html>

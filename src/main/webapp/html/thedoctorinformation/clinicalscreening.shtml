@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/thedoctorinformation_header.shtml"-->
+</head>
+
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+		<div class="title"><a href="index.shtml"><i class="fh"></i></a>
+			<div class="clinical_medical">
+				<div class="menulist">
+					<span class="cur">临床推荐</span>
+					<span>医学医用</span>
+				</div>
+				<b></b>
+			</div>
+		</div>
+		<div class="clinical_screening">
+			<!-- 筛选 -->
+			<div class="cklamngy">
+				<form>
+					<input type="text" class="ipt-def">
+					<button></button>
+					<div class="shaixuh">
+						<span>筛选</span>
+					</div>
+				</form>
+			</div>
+			<!-- 最新资讯 -->
+			<div class="fniortlist">
+				<div class="thelatest_zixu">
+					<span>最新资讯</span>
+				</div>
+				<div class="themedicalliterature">
+					<span>医学文献</span>
+				</div>
+				<div class="expertcomments">
+					<span>专家言论</span>
+				</div>		
+			</div>
+		</div>
+		<!-- 正在播放 -->
+		<div class="zlzn_box varioustype fnio_thereis">
+			<ul>
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<p>2015.11.12</p>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<p>2015.11.12</p>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-greystars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="kua">
+						<!-- 内容 -->
+						<div class="kua_cvnfus">
+							<div class="asbg">
+								<div class="scvideo"><img src="/static/imgs/spimg.png"></div>
+								<div class="videomz">
+									<h2>正在直播：吴雅峰-心脏超声在肺血栓栓塞症</h2>
+									<span>2015.11.12</span>
+									<span>白金子《今日健康》</span>
+								</div>
+							</div>
+							<div class="redmyu">
+							<i class="icon-redstars"></i>
+							<i class="icon-mycollection"></i>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+		<!-- 临床推荐遮罩 -->
+		<div class="quanzdp">
+			<div class="filterlayer_a">
+				<div class="shuaixfnea">
+					<div class="cancely"><span>取消</span></div>
+					<div class="saixuan"><span>筛选</span></div>
+					<div class="determine"><strong>确定</strong></div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>疾病</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="aioerk">
+								<span>智力障碍</span>
+								<span>交流障碍</span>
+								<span>运动障碍</span>
+								<span>分裂型障碍</span>
+								<span>妄想障碍</span>
+								<span>精神障碍</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>症状</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="aioerk">
+								<span>智力障碍</span>
+								<span>交流障碍</span>
+								<span>运动障碍</span>
+								<span>分裂型障碍</span>
+								<span>妄想障碍</span>
+								<span>精神障碍</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>作者</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="aioerk">
+								<span>智力障碍</span>
+								<span>交流障碍</span>
+								<span>运动障碍</span>
+								<span>分裂型障碍</span>
+								<span>妄想障碍</span>
+								<span>精神障碍</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="saixuan_disease">
+					<div class="type">
+						<span>病种</span>
+					</div>
+					<div class="slekascvg">
+						<div class="soerlsda">
+							<div class="aioerk">
+								<span>智力障碍</span>
+								<span>交流障碍</span>
+								<span>运动障碍</span>
+								<span>分裂型障碍</span>
+								<span>妄想障碍</span>
+								<span>精神障碍</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--#include virtual="/html/template/thedoctorinformation_bottom.shtml"-->
+		<script type="text/javascript">
+		$(function(){
+			$(".clinical_medical").clinical_medical_tab();
+		});
+		</script>
+	</body>
+</html>

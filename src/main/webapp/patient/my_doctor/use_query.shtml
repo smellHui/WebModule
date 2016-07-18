@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<title>用药查询</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="use_query">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="search">
+		<input type="text" class="ipt-def" name="word" align="center" placeholder="可按照药品名称">
+		<button class="btn-def"><i class="icon-fdjn1"></i></button>
+		<div class="sdw">
+			<div class="plist">
+				<ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var event2 = null,
+			_loading = new mask("loading");
+
+		gm.follow_up.getlist = function(){
+			var _key = $(".search input").val();
+			$.getDate({
+				page:"public",
+				inter:"getProductMainListByName",
+				data:{medicineName:_key},
+				callback:gm.follow_up.bindlist
+			});
+		}		
+
+		gm.follow_up.bindlist = function(data){
+			_loading.hide();
+			if(!data){
+				$.alert("服务器出错!");
+			}
+			if(data.query.success=="1"){
+				var arr = [];
+				var _obj = data.productMainModel;
+				var go2url = '';
+				var tmp = '<li>\
+						<a href="/html/follow_up/toolbox/drugs_details.shtml?productUuid={productUuid}"></a>\
+						<h2>{productName} <span>{productEnName}</span></h2>\
+					</li>';
+
+				$(data.relist).each(function(i,o){
+					o.imageUrl = o.imageUrl || "/static/imgs/yp_img.jpg";
+
+					arr.push(gm.replace(tmp,o));
+				});
+
+				$(".plist ul").html(arr.join(''));
+			}else{
+				$.alert(data.query.message);
+			}
+		}
+
+		$(".search button").on("touchend",function(){
+			_loading.show();
+			gm.follow_up.getlist();
+		});
+
+		$(".search input").bind({
+			keydown:function(){
+				clearTimeout(event2);
+				event2 = setTimeout(gm.follow_up.getlist,200);
+			}
+		})
+	});
+	</script>
+</body>
+</html>

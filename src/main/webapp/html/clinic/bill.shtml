@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<title>账单</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	
+	<!-- 内容 -->
+	<div class="addacopy">
+		<div class="kinl_package">
+			<div class="theparcellayer">
+				<div class="incomestasy">
+					<span>收入</span>
+				</div>
+				<div class="toextractthestate">
+					<span>提取</span>
+				</div>
+				<div class="flag"></div>
+			</div>
+			<ul class="ucvnd">
+				<!-- <li class="the_remaining">
+					<div class="geeril">
+						<strong>金额: <i>  687  </i>元</strong>
+						<p>提现时间:2015.09.2411:45:33 <i>状态:处理中</i></p>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){//判断是否是从user过来
+		if(gm.para.get(window.location.href,"from")=="user"){
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		}else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.bill();
+		gm.clinic.getOrderRouting();
+	});
+	</script>
+</body>
+</html>

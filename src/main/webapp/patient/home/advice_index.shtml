@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>医嘱指导</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="advice_index">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+			<li>
+				<a href="/patient/home/total_orders.shtml"><h4><i class="logo-djuwx"></i>重要医嘱</h4></a>
+			</li>
+			<li>
+				<a href="/patient/home/health_guide.shtml"><h4><i class="logo-vdjw"></i>健康指导</h4></a>
+			</li>
+			<li>
+				<a href="/patient/home/case.shtml"><h4><i class="logo-orui"></i>病历</h4></a>
+			</li>
+		</ul>			
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	<script type="text/javascript">
+		$(function(){
+			gm.pul.returnurl = gm.pul.returnIndex;
+		})
+	</script>
+</body>
+</html>

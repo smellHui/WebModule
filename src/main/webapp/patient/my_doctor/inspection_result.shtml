@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+	<title>其他检查及结果</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+	<style>
+		#inspection_result .p_cfs{margin-top:1.3rem;}
+		</style>
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox bad" id="inspection_result">
+	<!-- 标题 -->
+	
+	<div class="sheet">
+		<table id="list" style="display:none;">
+		</table>
+	</div>
+	<!-- 内容 -->
+	<div class="addform">
+		<h3>检查名称<span class="print"><input type="text"></span></h3>
+		<div class="symptom">
+			<h2>结果</h2>
+			<textarea></textarea>
+			<!-- <i class="logo-lsxjp"></i> -->
+		</div>
+		<div class="p_cfs">
+			<button class="btn-zyradius" id="add">添加</button>
+			<button class="btn-zyradius2" id="submit">提交</button>
+		</div>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+
+	<script type="text/javascript">
+    $(function() {
+        var visitRecordUuid = gm.para.get(window.location.href,"visitRecordUuid");
+        var doctorUuid= gm.para.get(window.location.href,"doctorUuid");
+        var state = 1;
+        var action = gm.para.get(window.location.href,"action");
+        if(action=="edit"){
+            $(".cbox").addClass("pointer-events");
+            $(".addform").hide();
+            getVisitPreceptExtendList();
+        }
+        gm.func = function(data) {
+            $.alert({
+                val:data.query.message,
+                type:"flash",
+                function(){
+                    $("textarea").val("");
+                    $(".print input").val("");
+                }
+            });
+
+            getVisitPreceptExtendList()
+        }
+
+        function getVisitPreceptExtendList(){
+            $.getDate({
+                page:"patient",
+                inter:"getVisitPreceptExtendList",
+                data:{
+                	type:4,
+                	preceptUuid:visitRecordUuid
+                },
+                callback:function(r){
+                    var relist  =r.relist, html = '<tr>\
+                        <th>检查名称</th>\
+                        <th>结果</th>\
+                    </tr>';
+                    
+                    if(!relist.length){
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }
+                    for(var i =0;i<relist.length;i++){
+                        html+= '<tr>\
+                            <td>'+relist[i].name+'</td>\
+                            <td>'+relist[i].result+'</td>\
+                    </tr>'
+                    }
+                    $("#list").show().html(html)
+                }
+            })
+        }
+        $("#submit").ontouch(function(){
+
+            gm.func = function(data) {
+                $.alert({
+                    val:"保存...",
+                    type:"flash"
+                });
+                setTimeout(function(){
+                    gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+                },800); 
+            }
+
+            var _result = $("textarea").val();
+            var _checkName = $(".print input").val();
+            if(!_result){
+                $.alert("请填写结果");
+                return false;
+            }
+            if(!_checkName){
+                $.alert("请填写检查名称");
+                return false;
+            }
+            window._loading = new mask("loading");
+            window._loading.show();
+            $.getDate({
+                page: "patient",
+                inter: "addVisitRecordExtend",
+                data: {
+                    callback: "gm.func",
+                    type:4,
+                    result:_result,
+                    checkName:_checkName,
+                    visitRecordUuid:visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        });
+
+        $("#add").on("touchend", function() {
+            var _result = $("textarea").val();
+            var _checkName = $(".print input").val();
+            if(!_checkName){
+                $.alert("请填写检查名称");
+                return false;
+            }
+            if(!_result){
+                $.alert("请填写结果");
+                return false;
+            }
+            $.getDate({
+                page: "patient",
+                inter: "addVisitRecordExtend",
+                data: {
+                    callback: "gm.func",
+                    type:4,
+                    result:_result,
+                    checkName:_checkName,
+                    visitRecordUuid:visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        })
+    })
+    </script>
+</body>
+</html>

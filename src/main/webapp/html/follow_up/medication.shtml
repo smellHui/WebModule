@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加重要医嘱</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="visit cbox">
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 添加重要医嘱 -->
+		<div class="add">
+			<div class="sheet2">
+				<table>
+					<tr>
+						<th class="header">药品名称</th>
+						<td class="header import"><input type="text" class="con" placeholder="(点击可编辑)"></td>
+					</tr>
+					<tr>
+						<th>单　　量</th>
+						<td class="import">
+							<input type="text" class="con single">
+							<select class="yz_pl">
+								<option value="1">粒</option>
+								<option value="2">袋</option>
+								<option value="3">mg</option>
+								<option value="4">ml</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>频　　率</th>
+						<td class="import">
+							<ul class="yz_pl">
+								<li frequency="1">早上</li>
+								<li frequency="2">中午</li>
+								<li frequency="3">晚上</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>用　　法</th>
+						<td class="import">
+							<select class="yz_yf">
+								<option value="1">饭前</option>
+								<option value="2">饭后</option>
+								<option value="3">随餐</option>
+								<option value="4">空腹</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="top_125">
+			<!-- <a href="remain.shtml"> -->
+			<button class="btn-zyradius dirc">保存</button>
+			<!-- </a> -->
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		$(".sheet2 .yz_pl li").bind({
+			touchend:function(){
+				if ($(this).hasClass("mzzt")) {
+			                    $(this).removeClass("mzzt");
+			                }else{
+			                    $(this).addClass("mzzt");
+			                }
+			}
+		});
+		var _applyUuid = gm.para.get(window.location.href,"_applyUuid") || 0;
+		var customerUuid = gm.para.get(window.location.href,"customerUuid") || 0;
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid") || 0;
+
+		gm.follow_up.addDoctorAdviceModel = function(data){
+			if(!data){
+				$.alert("服务器出错");
+			}
+
+			if(data.query.success == "1"){
+				gm.pul.toUrl("/html/follow_up/treatment_plan.shtml?medicalRecordUuid="+medicalRecordUuid+"&customerUuid="  + customerUuid);
+			}else{
+				$.alert(data.query.message);
+			}
+		}
+
+		$(".btn-zyradius").bind({
+			touchend:function(){
+				var _medicineUuid = $(".sheet2 tr").eq(0).find("input").val();
+				var _dosage = $(".sheet2 tr").eq(1).find("input").val();
+				var _unit = $(".sheet2 tr").eq(1).find(".yz_pl").val();
+				var _o = "";
+			            $(".sheet2 tr").eq(2).find(".mzzt").each(function(i,o){
+			                _o = _o + $(this).attr("frequency")+",";
+			            });
+			            var _frequency = _o.substring(0,_o.length-1);
+			            var _directions = $(".sheet2 tr").eq(3).find(".yz_yf").val();
+
+			            var data = {
+					type:"0",
+					medicineUuid:_medicineUuid,
+					doctorUuid:gm.user.getDoctor(),
+					dosage:_dosage,
+					frequency:_frequency,
+					directions:_directions,
+					unit:_unit,
+					callback:"gm.follow_up.addDoctorAdviceModel"
+				};
+
+				if(_applyUuid){
+					data.visitRecordUuid = _applyUuid;
+				}
+
+				if(medicalRecordUuid){
+					data.medicalRecordUuid = medicalRecordUuid;
+				}
+
+			            if (_medicineUuid && _dosage && _unit && _frequency && _directions) {
+					$.getDate({
+						page:"follow_up",
+						inter:"addDoctorAdviceModel",
+						data:data,
+						method:"POST",
+						dataType:"script"
+					});
+				}else{
+					$.alert("请填写完整！");
+				}
+			}
+		})
+	})
+	</script>
+</body>
+</html>

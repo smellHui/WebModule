@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的预约的课程</title>
+	<!--#include virtual="/html/template/doctor/user_header.shtml"-->
+</head>
+
+<body class="user cbox">
+	<!-- 9-我的预约的课程 -->
+	<aside id="reservation_course">
+		<!-- 内容 -->
+		<ul>
+			
+		</ul>
+	</aside>
+
+<!--#include virtual="/html/template/doctor/user_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/user/index.shtml');
+	}
+	$(function(){
+		gm.menu.hiddenBottomBar();//隐藏菜单
+		gm.user.reservation_course();
+	});
+	</script>
+</body>
+</html>

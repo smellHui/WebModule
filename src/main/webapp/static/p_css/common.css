@@ -1,0 +1,179 @@
+/* Reset - Mobile */
+
+/* All */
+html { font-size:33.3333333px; }
+/* iPhone 4/5 */
+@media (min-width:320px){
+	html { font-size:33.3333333px; }
+}
+/* Android */
+@media (min-width:360px){
+	html { font-size:37.5px; }
+}
+/* iPhone6 */
+@media (min-width:375px){
+	html { font-size:39.0625px; }
+}
+/* iPhone6 Plus */
+@media (min-width:414px){
+	html { font-size:43.125px; }
+}
+html,body{height: 100%;}
+body { overflow:hidden; color:#333; background:#fff;position: relative;overflow-y: auto;-webkit-overflow-scrolling:touch;}
+body,h1,h2,h3,h4,h5,h6,p,ol,ul,dl,dt,dd,li,cite,fieldset { margin:0; padding:0; list-style:none; font-size:.3rem; font-family:"SimHei","SimSun"; }
+sup,sub { vertical-align:baseline; }
+a { color:#333; text-decoration:none; }
+input,button,textarea{-webkit-appearance:none;}
+.section{width: 100%;height: 100%;overflow-x: hidden;}
+.cbox{margin: 0 auto;}
+aside{width: 100%;height: 100%;overflow-x: hidden;background-color: #fff;position: absolute;top: 0;}
+textarea {resize: none;}
+.clear {clear: both;font-size: 0;height: 0;line-height: 0;}
+
+/* 公共模块页配置 */
+.common { margin:.2rem; background-color: #d0d0d0;}
+	.common h1 { font-size:.4rem; line-height:2.5; }
+	.common h2 { font-size:.3rem; line-height:2; }
+	.common article { border-left:.08rem solid #000; padding:0 .2rem .2rem; }
+	.common section { border-bottom:.04rem solid #000; padding:.2rem 0; }
+
+/*标题*/
+.title{width: 100%;height: 1rem;background-color: #28c3b1;z-index: 999;/*display: none;*/}
+	.title b,.title i{display: inline-block;font-weight: normal;font-style: normal;}
+
+/* 表单类 */
+[class|=ipt] { height:.95rem; line-height:.95rem; box-sizing:border-box; border-radius:0; border:1px solid #63a6ce; vertical-align:middle; text-indent:.1rem; font-size:.32rem; color:#666;}
+	.ipt-def { border-color:#63a6ce; color:#666; }
+	.ipt-def::placeholder { color:#aaaaaa; }
+	.ipt-disabled { border-color:#e5e5e5; color:#acacac; }
+[class|=btn] { height:.95rem; line-height:.95rem;  box-sizing:border-box; border-radius:0; border:0; padding:0 .2rem; vertical-align:middle; background:#28c3b1; color:#fff; text-align:center;display: block;}
+	.btn-radius { border-radius:.1rem; }
+	.btn-checkbox { width:4.38rem; padding:0; overflow:hidden; }
+		.btn-checkbox-a,
+		.btn-checkbox-b { float:left; width:50%; border:solid #e5e5e5; background:#fff; color:#bababa; }
+		.btn-checkbox-a { border-width:1px 0 1px 1px;}
+		.btn-checkbox-a-on { border-color:#3595cf; background:#3595cf; color:#fff; }
+		.btn-checkbox-b { border-width:1px 1px 1px 0;}
+		.btn-checkbox-b-on { border-color:#f06d51; background:#f06d51; color:#fff; }
+	.btn-zyradius{border-radius:.5rem;}
+	.select-box{background-image: url(../imgs/bbs.png);background-size: 10rem;width: .53rem;height: .53rem;background-position: -1.39rem -.9rem;}
+		._mz{background-position: -2.01rem -.9rem;}
+
+/* 患者端图标类 */
+[class|=pts] { box-sizing:border-box; display:inline-block; vertical-align:middle; line-height:0; background:url(../p_img/patients.png) no-repeat; background-size:10rem;font-style: normal;}
+/* logo */
+.pts-logo{width: 2.2rem; height: 2.52rem;background-position: 0rem -.05rem;}
+/* 人物小图 */
+.pts-figureinsets{width: .44rem; height: .48rem; background-position: -2.38rem -.20rem;}
+/* 图又齿轮 */
+.pts-gear{width: .51rem; height: .43rem; background-position: -2.88rem -.20rem;}
+/* 绿箭头 */
+.pts-thearrow{width: .46rem; height: .83rem; background-position: -3.72rem -.21rem;}
+/* 我的订单 */
+.pts-myorder{width: .75rem; height: .75rem; background-position: -4.32rem -.2rem;}
+/* 我的积分 */
+.pts-mypoints{width: .75rem; height: .75rem; background-position: -6.07rem -.25rem;}
+/* 分享的积分 */
+.pts-sharetheintegralof{width: .70rem; height: .71rem; background-position: -7.04rem -.25rem;}
+/* 系统消息 */
+.pts-systemmessage{width: .75rem; height: .75rem; background-position: -8.0rem -.25rem;}
+/* 联系客服 */
+.pts-contactcustomerservice{width: .75rem; height: .75rem; background-position: -8.99rem -.25rem;}
+/* 红心我的收藏 */
+.pts-mycollection{width: .6rem; height: .6rem; background-position: -5.26rem -.33rem;}
+/* 意见反馈 */
+.pts-feedback{width: .75rem; height: .75rem; background-position: -2.8rem -1.32rem;}
+/* 白色收藏 */
+.pts-whitecollection{width: .51rem; height: .50rem; background-position: -3.83rem -1.4rem;}
+/* 左返回 */
+.pts-return{width: .59rem; height: .58rem; background-position: -8.78rem -1.48rem;}
+/* 抑郁测试 */
+.pts-depressiontest{width: .74rem; height: .72rem; background-position: -4.62rem -1.4rem;}
+/* 压力测试 */
+.pts-pressuretest{width: .74rem; height: .72rem; background-position: -5.55rem -1.4rem;}
+/* 焦虑测试 */
+.pts-anxietytest{width: .74rem; height: .72rem; background-position: -6.6rem -1.4rem;}
+/* MBTI测试 */
+.pts-mbtitest{width: .74rem; height: .72rem; background-position: -7.7rem -1.4rem;}
+/* 绿色收藏 */
+.pts-greencollection{width: .75rem;height: .75rem; background-position: -2.74rem -2.29rem;}
+/* 支付宝 */
+.pts-paytreasure{width: .63rem;height: .51rem;background-position: -3.83rem -2.43rem;}
+/* 微信 */
+.pts-wzechat{width: .63rem;height: .51rem;background-position: -4.71rem -2.43rem;}
+/* 银行卡 */
+.pts-bankcard{width: .63rem;height: .51rem;background-position: -5.56rem -2.43rem;}
+/* 绿色电话 */
+.pts-lvthephone{width: .59rem; height: .39rem;background-position: -6.43rem -2.43rem;}
+/* 右绿色箭头 */
+.pts-andthearow{width: .30rem; height: .51rem; background-position: -7.28rem -2.36rem;}
+/* 右绿色箭头 */
+.pts-downlvarrow{width: .50rem;height: .31rem;background-position: -7.77rem -2.46rem;}
+
+/*找医生图标*/
+[class|=zys] { box-sizing:border-box; display:inline-block; vertical-align:middle; line-height:0; background:url(../p_img/zys_icon.png) no-repeat;background-size:4rem;font-style: normal;width: .6rem;height: .6rem;}
+/*深灰*/
+.zys-phone1{background:url(../p_img/telephone.png) no-repeat;}
+.zys-wndsx1{background:url(../p_img/consultation.png) no-repeat;}
+.zys-dcsos1{background:url(../p_img/appointment.png) no-repeat;}
+.zys-grqxs1{background:url(../p_img/prvivate_doctor.png) no-repeat;}
+.zys-phone1,.zys-wndsx1,.zys-dcsos1,.zys-grqxs1{background-size:100%;}
+/*绿色*/
+.zys-phone2{background-position: 0rem top;width: .54rem;}
+.zys-wndsx2{background-position: -1.06rem top;}
+.zys-dcsos2{background-position: -2.24rem top;}
+.zys-grqxs2{background-position: -3.44rem top;}
+/*潜灰*/
+.zys-phone3{background-position: 0rem bottom;}
+.zys-wndsx3{background-position: -1.11rem bottom;}
+.zys-dcsos3{background-position: -2.25rem bottom;}
+.zys-grqxs3{background-position: -3.5rem bottom;}
+
+
+/*个人头像及基本信息*/
+body .vnuds{overflow: hidden;padding: .3rem 0;z-index: 999;}
+body .vnuds .user_avatar{ position:absolute; left:.6rem; width: 1.5rem;height: 1.5rem;border-radius: .78rem;border-color: #28c3b1;padding: 0;margin: 0;}
+body .vnuds span {float: none; display:block; margin: 0rem 0rem 0rem 1.9rem;padding-top: 1px;width:auto;box-sizing:border-box;min-height:1.6rem;}
+body .vnuds span *{font-weight: normal;font-style: normal;font-size: .337rem;color: #747474;}
+body .vnuds span h2{font-size: .42rem;color: #000;line-height: .6rem;min-width:0;max-width:auto;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+body .vnuds span i,body .vnuds span b{min-width:0;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+body .vnuds span i{max-width:auto;padding-right: .2rem;}
+body .vnuds span b{max-width:auto;}
+
+/*--- end ---*/
+
+/* 患者端-底部栏 */
+.hz_foot{position: fixed;bottom:0;left: 0;background-color: #ebebeb;border-top: 1px solid #c6c6c6;width: 100%;height: 1.28rem;z-index: 999;}
+	.hz_foot li{width: 25%;height: 100%;box-sizing:border-box;float: left;}
+	[class|=dls]{background: url(../imgs/foot_nav1.png) no-repeat;box-sizing:border-box; display: block; vertical-align:middle; line-height:0;background-size: 9.3rem;font-style: normal;width: 1.1rem;height: .95rem;}
+	.hz_foot li i{margin: .15rem auto 0 auto;}
+	.hz_foot .dls-hxqsx{background-position: -.7rem -.06rem;}
+	.hz_foot .dls-wdyssx{background-position: -3rem -.06rem;}
+	.hz_foot .dls-xlybsx{background-position: -5.3rem -.06rem;}
+	.hz_foot .dls-wdsx{background-position: -7.55rem -.06rem;}
+	/*首页*/
+	#home_page .hz_foot .dls-hxqsx{background-position: -.7rem -1.16rem;}
+	/*我的医生*/
+	#my_doctor .hz_foot .dls-wdyssx{background-position: -3rem -1.16rem;}
+	/*心灵氧吧*/
+	#refer_soul .hz_foot .dls-xlybsx{background-position: -5.3rem -1.16rem;}
+	/*我的*/
+	#my .hz_foot i.logo-wdsx{background-position: -2.85rem -6rem;}
+	#my .hz_foot .in_4 p{color: #28c3b1;}
+	#my .hz_foot .dls-wdsx{background-position: -7.55rem -1.16rem;}
+	#dont_show,.dont_show{font-size: .375rem;text-align: center;padding-top: 50%;}
+	
+
+/***多行文本样式***/
+.moretextarea{
+	width: 100%;
+    height: 4.4rem;
+    border-color: #7eaccf;
+    display: block;
+    box-sizing: border-box;
+    font-size: .33rem;
+}
+#personal_headerimg{
+	visibility: hidden;
+}
+/**********搜索页面***************/

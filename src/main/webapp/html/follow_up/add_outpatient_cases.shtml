@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<title>创建病历</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<body class="follow cbox" id="add_outpatient_cases">
+	<div class="cbox">
+		<!-- 患者名字 -->
+		<div class="name">
+			<p>患者<span class="na"></span></p>
+		</div>
+		<!-- 就诊信息 -->
+		<div class="diagnose">
+			<h2>就诊信息</h2>
+		</div>
+		<div class="information">
+			<table>
+				<tr>
+					<th>就诊类型</th>
+					<td class="char">
+						<div class="inhos">住院</div>
+						<div class="inhos coind">门诊</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tr class="_jz">
+					<th>就诊时间</th>
+					<td><input type="date"></td>
+				</tr>
+				<tr class="_ry" style="display:none;">
+					<th>入院时间</th><td><input type="date"></td>
+				</tr>
+				<tr class="_cy" style="display:none;">
+					<th>出院医院</th><td><input type="date"></td>
+				</tr>
+				<tr>
+					<th>就诊医院</th>
+					<td class="_jy"><input type="text" placeholder="请输入" maxlength="10"></td>
+				</tr>
+				<tr>
+					<th>医生</th>
+					<td class="_ys"><input type="text" placeholder="请输入" maxlength="10"></td>
+				</tr>
+			</table>
+		</div>
+		<!-- 病例记录 -->
+		<div class="diagnose">
+			<h2>病历记录<span class="selt"><!-- 请至少选择下面的一种方式 --></span></h2>
+		</div>
+		<div class="photo">
+			<h3>拍照 （&#8804;5张）</h3>
+			<div class="photos">
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+				<i class="logo-tjzpn"></i>
+			</div>
+		</div>
+		<div class="manual">
+			<div href="/html/follow_up/record_patient_detail.shtml"></div>
+			<p>手动输入<i class="icon-thearrowx"></i></p>
+		</div>
+		<button class="btn-zyradius dirc">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	var from=gm.para.get(window.location.href,"from");
+	gm.pul.returnurl = function(){
+		if(!gm.isIndex)history.go(-1);
+	}
+	$(function(){
+		//绑定事件
+		gm.follow_up.add_outpatient_cases();
+	});
+	</script>
+</body>
+</html>

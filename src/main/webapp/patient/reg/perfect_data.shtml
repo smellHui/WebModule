@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+	<title>完善资料</title>
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/reg.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<!--#include virtual="/html/template/patient/reg_sign_header.shtml"-->
+	<style type="text/css">
+	.tips {color: #666;}
+	#perfect_data .btn-checkbox{ width:100%; }
+	div.datebox,div.datebox2{background:none;position: relative;border:1px solid #28c3b1;box-sizing:border-box;}
+	div.datebox span,div.datebox2 span{ position:absolute; left:0; top:0; text-align: left; text-indent:.1rem; pointer-events:none; color:#999; }
+	div.datebox input,div.datebox2 input{border:0; text-indent:1rem;}
+
+	</style>
+</head>
+
+<body class="cbox" id="perfect_data">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="w645">
+		<!-- 输入框模块 -->
+		<div class="login_box2">
+			<input type="text" id="customerName" class="ipt-def" placeholder="*昵称" />
+			<input type="text" id="realName" class="ipt-def" placeholder="*真实姓名"/>
+			<div class="btn-checkbox addreginfo">
+				<span class="btn-checkbox-a">男士</span>
+				<span class="btn-checkbox-b btn-checkbox-b-on">女士</span>
+			</div>
+			<div class="btn-checkbox addreginfo datebox">
+				<span class="tips">出生日期</span>
+				<input type="date" id="birthday" class="ipt-def" placeholder="*出生日期" />
+			</div>
+			<!-- 后期添加 -->
+			<input type="text" id="diseaseTime" class="ipt-def" placeholder="*病程(如:4个月)" />
+			<input class="ipt-def" id="illnessDescription" placeholder="*病情描述" />
+			
+			<div class="btn-checkbox addreginfo datebox2">
+				<span class="tips">*首次就诊</span>
+				<input type="date" id="firstDiagnosis" class="ipt-def" placeholder="就诊时间" />
+			</div>
+			<select id="ifStart" class="ipt-def sel-married">
+				<option>*选择是否首发</option>
+				<option>非首发</option>
+				<option>首发</option>
+			</select>
+			
+			<input type="text" id="seizureTimes" class="ipt-def" placeholder="*复发次数"/>
+			<input type="text" id="patient_height" class="ipt-def" placeholder="*身高(m)"/>
+			<input type="text" id="patient_weight" class="ipt-def" placeholder="*体重(kg)"/>
+			
+			
+			<!-- 后期添加 -->
+			<select id="marryState" class="ipt-def sel-married">
+				<option>选择婚姻状况</option>
+				<option>已婚</option>
+				<option>未婚</option>
+				<option>离异</option>
+			</select>
+			<input type="text" id="idcard" class="ipt-def" placeholder="身份证号"/>
+			<input type="text" id="industry" class="ipt-def" placeholder="职业"/>
+			<input type="text" id="email" class="ipt-def" placeholder="邮箱"/>
+			<input type="text" id="address" class="ipt-def" placeholder="地址"/>
+			<textarea id="nearlyDrugs" class="moretextarea ipt-def" placeholder="近3月使用药物"></textarea>
+			<p class="tips">真实姓名、性别、出生日期填写后不可更改</p>
+		</div>
+	</div>
+	<!-- 按钮 -->
+	<div class="login_but">
+		<button id="perfect_usermessage" class="btn-radius w645">完成</button>
+		<!-- <button class="btn-radius w645 disfrg">跳过此步</button> -->
+	</div>
+	<!--#include virtual="/html/template/patient/reg_sign_bottom.shtml"-->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		gm.isIndex = true;
+		gm.pul.returnurl=function(){//退回首页
+			if(!gm.isMobile){return;}
+				gm.pul.toUrl("goodm://returnIndexPage");
+		}
+	});
+	$(function(){
+		gm.reg.perfect();
+		//根据是否首发选择复发次数是否存在
+		
+		$("#ifStart").change(function(){
+			var p1=$('#ifStart option:selected').val();//这就是selected的值 
+			if(p1=="首发")
+				$("#seizureTimes").hide();
+			else
+				$("#seizureTimes").show();
+		});
+		
+		
+		
+	})
+	</script>
+</body>
+</html>

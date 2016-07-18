@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>设置私人医生服务</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+
+<body class="task cbox" id="kaitong">
+	<!-- 标题 -->
+		
+	<div class="thene_cement">
+		<div class="package_price">
+			<h2>套餐及价格</h2>
+		</div>
+		<!-- 套餐列表 -->
+		<ul class="package_a">
+			
+		</ul>
+		<div class="sett">
+			<h2>设置平台托管</h2>
+			<div class="price_a"><div class="off">
+				<i class="switch"></i>					
+				<span class="off-font">OFF</span>
+				<span class="on-font">ON</span></div>					
+			</div>
+		</div>
+		<!-- <div class="queding_a">
+			<button class="btn-radius">保存</button>
+		</div> -->
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		if(gm.para.get(window.location.href,"from")=="user")
+			gm.pul.toUrl('/html/clinic/index.shtml?from=user');
+		else
+			gm.pul.toUrl('/html/clinic/index.shtml');
+	}
+	$(function(){
+		gm.clinic.kaitong();
+	});
+	</script>
+</body>
+</html>

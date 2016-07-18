@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+	<title>患者随访表单</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+
+	<style type="text/css">
+	.sheet3{padding: 0rem .2rem}
+	.sheet3 div{ border-bottom: 1px solid #999;}
+	.sheet3 div p{padding:.05rem .3rem .1rem;line-height: 1.5;}
+	</style>
+</head>
+
+<body class="visit cbox">
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<div class="cbox">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 随访表单 -->
+		<div class="list content">
+			<dl class="bqbh">
+				<dt class="bqbh">
+					<h2><i class="icon-status"></i>病情变化<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<!-- 下拉列表 -->
+					<div class="down">
+						<table></table>
+					</div>
+				</dd>
+			</dl>
+			<dl class="fyjl">
+				<dt>
+					<h2><i class="icon-record"></i>服药记录<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="sheet2">
+							<!-- <table>
+								<tr>
+									<th class="header">药品名称</th>
+									<td class="header">阿司匹林</td>
+								</tr>
+								<tr>
+									<th>用药时间</th>
+									<td>2015/10/1 至 2015/10/20</td>
+								</tr>
+								<tr>
+									<th>单　　量</th>
+									<td>0.5Mg</td>
+								</tr>
+								<tr>
+									<th>频　　率</th>
+									<td>0.5Mg</td>
+								</tr>
+								<tr>
+									<th>用　　法</th>
+									<td>随餐口服</td>
+								</tr>
+							</table> -->
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl class="ywblfy">
+				<dt>
+					<h2><i class="icon-reaction"></i>药物不良反应<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="sheet3">
+							<table>
+								<!-- <tr>
+									<th>发生时间</th>
+									<td>2015/10/1</td>
+								</tr>
+								<tr>
+									<th>持续时间</th>
+									<td>12小时30分钟</td>
+								</tr>
+								<tr>
+									<th>症状描述</th>
+									<td class="para"><textarea></textarea></td>
+								</tr>
+								<tr>
+									<th>影　　响</th>
+									<td class="para"><textarea></textarea></td>
+								</tr> -->
+							</table>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl class="smqk" type="1">
+				<dt>
+					<h2><i class="icon-sleep"></i>睡眠情况<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="sheet">
+							<table>
+								<!-- <tr>
+									<th>随访第二周</th>
+									<td>良好</td>
+								</tr>
+								<tr>
+									<th>随访第一周</th>
+									<td>良好</td>
+								</tr> -->
+							</table>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl class="jsqk" type="2">
+				<dt>
+					<h2><i class="icon-eat"></i>进食情况<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="sheet">
+							<table>
+								<!-- <tr>
+									<th>随访第二周</th>
+									<td>良好</td>
+								</tr>
+								<tr>
+									<th>随访第一周</th>
+									<td>良好</td>
+								</tr> -->
+							</table>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl class="qtqk" type="3">	
+				<dt>
+					<h2><i class="icon-other"></i>其他情况<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="desc">
+							<h2>其他情况描述</h2>
+							<p></p>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl class="qtjcjg" type="4">	
+				<dt>
+					<h2><i class="icon-result"></i>其他检查及结果<i class="icon-thearrowx"></i></h2>
+				</dt>
+				<dd>
+					<div class="down">
+						<div class="sheet">
+							<table>
+								<!-- <tr>
+									<th>检查名称</th>
+									<td>肾功能检查</td>
+								</tr>
+								<tr>
+									<th>结　　果</th>
+									<td>正常 <span class="color">(其他不正常的情况用红字)</span></td>
+								</tr> -->
+							</table>
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<a href="remain.shtml"><button class="btn-zyradius dirc adds">重要医嘱</button></a>
+			<a href="healthy_direct.shtml"><button class="btn-zyradius dirc zkzd">健康指导</button></a>
+		</div>
+	</div>
+	<!-- 左侧按钮 -->
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script>
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	var from=gm.para.get(window.location.href,"from");
+	gm.pul.returnurl = function(){
+		if(from=="mypatient1")
+			if(!gm.isIndex)history.go(-1);
+		else
+			gm.pul.toUrl('/html/follow_up/patient_details.shtml?customerUuid=' + customerUuid);
+	}
+	
+	$(function(){
+		var _applyUuid = gm.para.get(window.location.href,"applyUuid");
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+		$(".adds").parent("a").attr("href","remain.shtml?applyUuid="+_applyUuid + "&customerUuid="+ customerUuid);
+		$(".zkzd").parent("a").attr("href","healthy_direct.shtml?applyUuid="+_applyUuid + "&customerUuid="+ customerUuid);
+		// $(".list dl").bind({
+		// 	touchend:function(){
+		// 		var _o = $(this).attr("type");
+		// 		var _l = this;console.log(_o);
+		// 		if (_o) {
+		// 			gm.follow_up.getVisitPreceptExtendList(_applyUuid,_o);
+		// 		}else{
+		// 			gm.follow_up.getDoctorAdviceModelByVisitRecordUuid(_applyUuid);
+		// 		}
+		// 	}
+		// });
+		$(".list dl").each(function(i){
+			var _o = $(this).attr("type");
+			if (_o) {
+				gm.follow_up.getVisitPreceptExtendList(_applyUuid,_o,$(this));
+			}else if(i == 0){
+				gm.follow_up.disease_change(_applyUuid);
+			}else if(i == 1){
+				gm.follow_up.getDoctorAdviceModelByVisitRecordUuid(_applyUuid);
+			}else if(i == 2){
+				gm.follow_up.adverseArugReactions(_applyUuid);
+			}
+		})
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* 我的患者 */
+.mypatient{background-color: #f7f7f7;}
+	
+		/*随访患者*/
+		.mypatient .patients1{}
+		/*电话咨询患者*/
+		.mypatient .patients2{}
+		/*在线咨询患者*/
+		.mypatient .patients3{}
+
+.mypatient{}
+
+.content {padding-bottom: 1.1rem;}
+
+.mypatient .sydns{margin-bottom: 0;}
+.mypatient .sydns dl{}
+.mypatient .sydns dt i{transform: rotate(90deg);-webkit-transform: rotate(90deg);}
+.mypatient dd{padding:0.21rem 0rem;}
+.mypatient .sydns+dd{box-sizing:border-box;display: block;}

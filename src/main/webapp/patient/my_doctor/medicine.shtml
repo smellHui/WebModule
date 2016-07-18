@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+	<title>病情记录-服药记录</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<body class="medicine cbox bad">
+	<div class="">
+		<!-- 标题 -->
+		
+		<div class="sheet">
+			<table id="list" style="display:none;">
+			</table>
+		</div>
+		<!-- 内容 -->
+		<!-- 服药记录 -->
+		<div class="sheet">
+			<table class="addform">
+				<tr>
+					<th>药品名称</th>
+					<td><input type="text" class="con" id="medicineUuid" placeholder=""></td>
+				</tr>
+				<tr>
+					<th>单　　量</th>
+					<td>
+                        <input id="dosage" type="text" class="single con" placeholder="">
+                        <select class="selectage">
+                            <option value="1">粒</option>   
+                            <option value="2">袋</option>
+                            <option value="3">mg</option>
+                            <option value="4">ml</option>   
+                        </select>
+                    </td>
+				</tr>
+				<tr>
+					<th>频　　率</th>
+					<td class="xzsj">
+                        <div class="zao" data="1">早</div>
+                        <div class="zhong" data="2">中</div>
+                        <div class="wan" data="3">晚</div>
+                    </td>
+				</tr>
+				<tr>
+					<th>用　　法</th>
+					<td>
+                        <select class="selec">   
+                            <option value="1">饭前</option>   
+                            <option value="2">饭后</option>
+                            <option value="3">随餐</option>
+                            <option value="4">空腹</option>
+                        </select>
+                    </td>
+				</tr>
+			</table>
+		</div>
+        <div class="dsdm">
+    		<button class="btn-zyradius submit" id='add'>新增</button>
+    		<button class="btn-zyradius submit" id="submit">提交</button>
+        </div>
+	</div>
+    <!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+    $(function() {
+
+        var action = gm.para.get(window.location.href,"action");
+        var visitRecordUuid = gm.para.get(window.location.href,"visitRecordUuid");
+        var doctorUuid= gm.para.get(window.location.href,"doctorUuid");
+        if(action=="edit"){
+            $(".sheet").addClass("pointer-events");
+            $(".addform").hide();
+            getIllnessRecordByVisitRecordUuid();
+        }
+
+        $(".xzsj div").bind({
+            touchend:function(){
+                if ($(this).hasClass("csisd")) {
+                    $(this).removeClass("csisd");
+                }else{
+                    $(this).addClass("csisd");
+                }
+            }
+        });
+        
+        
+        gm.func = function(data) {
+            $.alert({
+                val:data.query.message,
+                type:"flash"
+            });
+            getIllnessRecordByVisitRecordUuid()
+        }
+
+        function getIllnessRecordByVisitRecordUuid(){
+            $.getDate({
+                page:"patient",
+                inter:"getDoctorAdviceModelByVisitRecordUuid",
+                data:{visitRecordUuid:visitRecordUuid},
+                callback:function(r){
+                    var relist  =r.relist, html = '<tr>\
+                        <th>药品名称</th>\
+                        <th>单量</th>\
+                        <th>频率</th>\
+                        <th>用法</th>\
+                    </tr>', arr= ['',"痊愈","好转","无效","其他"];
+                    
+                    if(!relist.length){
+                        $("#list").html('<tr><td>您没有填写任何信息</td></tr>').show();
+                        return false;
+                    }
+                    for(var i =0;i<relist.length;i++){
+                        var _l = "";
+                        var _k = "";
+                        if (relist[i].directions == "1") {
+                            _l = "饭前";
+                        }else if (relist[i].directions == "2") {
+                            _l = "饭后";
+                        }else if (relist[i].directions == "3") {
+                            _l = "随餐";
+                        }else{
+                            _l = "空腹";
+                        }
+                        var newstart = relist[i].frequency;
+                        re1 = new RegExp("1","g");
+                        re2 = new RegExp("2","g");
+                        re3 = new RegExp("3","g");
+                        newstart = newstart.replace(re1,"早");
+                        newstart = newstart.replace(re2,"中");
+                        newstart = newstart.replace(re3,"晚");
+                        var _directions = ["粒","袋","mg","ml"];
+                        html+= '<tr>\
+                            <td>'+relist[i].medicineName+'</td>\
+                            <td>'+relist[i].dosage + _directions[relist[i].directions-1] + '</td>\
+                            <td>'+newstart+'</td>\
+                            <td>'+_l+'</td>\
+                    </tr>'
+                    }
+                    $("#list").show().html(html)
+                }
+            })
+        }
+        getIllnessRecordByVisitRecordUuid();
+        $("#submit").ontouch(function(){
+
+            gm.func = function(data) {
+                $.alert({
+                    val:"保存...",
+                    type:"flash"
+                });
+                setTimeout(function(){
+                    gm.pul.toUrl( "/patient/my_doctor/follow_up_list.shtml?visitRecordUuid="+visitRecordUuid+"&doctorUuid="+doctorUuid);
+                },800); 
+            }
+
+            var _o = "";
+            $(".xzsj .csisd").each(function(i,o){
+                _o = _o + $(this).attr("data")+",";
+            })
+            var _frequency = _o.substring(0,_o.length-1);
+            var _directions = $(".sheet .selec").val();
+            var _unit = $(".sheet .selectage").val();
+            var _dosage = $("#dosage").val();
+            var _medicineUuid = $("#medicineUuid").val();
+            if(!_medicineUuid){
+                $.alert("请填写药品名称");
+                return false;
+            }
+            if(!_frequency){
+                $.alert("请选择频率（时间）");
+                return false;
+            }
+            if(!_dosage){
+                $.alert("请输入单量");
+                return false;
+            }
+            if(!_directions){
+                console.log(_directions)
+                $.alert("请选择用法");
+                return false;
+            }
+            window._loading = new mask("loading");
+            window._loading.show();
+            $.getDate({
+                page: "follow_up",
+                inter: "addMedicationRecord",
+                data: {
+                    callback: "gm.func",
+                    medicineUuid:_medicineUuid,
+                    dosage:_dosage,
+                    frequency:_frequency,
+                    directions:_directions,
+                    unit:_unit,
+                    customerUuid:gm.patient.getPatient(),
+                    visitRecordUuid:visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        });
+
+        $("#add").on("touchend", function() {
+            var _o = "";
+            $(".xzsj .csisd").each(function(i,o){
+                _o = _o + $(this).attr("data")+",";
+            })
+            var _frequency = _o.substring(0,_o.length-1);
+            var _directions = $(".sheet .selec").val();
+            var _unit = $(".sheet .selectage").val();
+            var _dosage = $("#dosage").val();
+            var _medicineUuid = $("#medicineUuid").val();
+            if(!_medicineUuid){
+                $.alert("请填写药品名称");
+                return false;
+            }
+            if(!_frequency){
+                $.alert("请选择频率（时间）");
+                return false;
+            }
+            if(!_dosage){
+                $.alert("请输入单量");
+                return false;
+            }
+            if(!_directions){
+                $.alert("请选择用法");
+                return false;
+            }
+
+            $("#medicineUuid").val("");
+            $("#dosage").val("");
+            $(".csisd").removeClass("csisd");
+
+            $.getDate({
+                page: "follow_up",
+                inter: "addMedicationRecord",
+                data: {
+                    callback: "gm.func",
+                    medicineUuid:_medicineUuid,
+                    dosage:_dosage,
+                    frequency:_frequency,
+                    directions:_directions,
+                    unit:_unit,
+                    customerUuid:gm.patient.getPatient(),
+                    visitRecordUuid:visitRecordUuid
+                },
+                method: "POST",
+                dataType: "script"
+            })
+        })
+    })
+    </script>
+</body>
+</html>

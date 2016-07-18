@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<title>完善注册信息</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 完善注册信息-医生执照 -->
+	<aside class="addreginfo_license">
+		
+		<div class="w810">
+			<p class="notes">请务必上传正确真实的照片。职业证书、职称证书、胸牌、工作证等均可作为医生审核凭证。如未上传，我们将无法为您审核。</p>
+			<!-- 上传图 -->
+			<div class="img_box">
+				<div class="upload_photo">
+					<p>最多可上传5张!</p>
+				</div>
+			</div>
+			<!-- 按钮 -->
+			<div class="login_but">
+				<button class="btn-radius tz2_zc">以后再说</button>
+				<button class="btn-radius tz1_zc">完成</button>
+			</div> 
+		</div>
+	</aside>
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+<script type="text/javascript">
+	$(function(){
+		
+		var source = gm.para.get(window.location.href,"source");
+
+		if(source == "user"){
+			$("title").html("上传资质认证信息");
+			setTimeout(function(){gm.pul.setTitle(document.title);},200);
+			$(".tz2_zc").hide();
+		}else{
+			$(".tz2_zc").bind({
+				touchend:function(){
+					gm.pul.toUrl( "/html/index/page.shtml");
+				}
+			});
+		}
+
+		$(".reg_protocol i").click(function(){
+			if(this.className == "gou"){
+				this.className = "";
+			}else{
+				this.className = "gou";
+			}
+		});
+
+		//添加上传头像绑定事件
+		gm.upimgmaxwidth = 750;
+		$(".upload_photo").upimage(function(data){
+
+				if(!data){
+					$.alert("服务器出错!");
+				}
+
+				if(data.query.success){
+					if ($(".img_box").find(".sc_gfd").size() == 4) {
+						$(".upload_photo").hide();
+					};
+
+					$(".img_box").prepend("<div class='sc_gfd'><img src="+data.imageUrl+" upsrc="+data.icon+"></div>");
+				}else{
+					$.alert(data.query.message);
+				}
+			// console.log(url);
+		});
+		
+		$(".tz1_zc").bind({
+			touchend:function(){
+				// $(".img_box .sc_gfd img").attr("upsrc");
+				var _upsrc = [];
+				$(".img_box .sc_gfd img").each(function(i,o){
+					_upsrc.push($(o).attr("upsrc"));
+				})
+
+				if (!_upsrc || _upsrc == "") {
+					$.alert("请上传图片!");
+					return;
+				}
+
+				$.getDate({
+					page:"user",
+					inter:"saveUserIconList",
+					data:{doctorUuid:gm.user.getDoctor(),userIconList:_upsrc.join(",")},
+					callback:function(data){
+						if(!data){
+							$.alert("服务器出错!");
+						}
+						if(data.query.success){
+							var gotourl = "/html/index/page.shtml";
+							if(source == "user"){
+								gotourl = "/html/user/personal_information.shtml";
+							}
+							gm.pul.toUrl( gotourl);
+						}else{
+							$.alert(data.query.message);
+						}
+					}
+				});
+			}
+		});
+	});
+</script>
+</body>
+</html>

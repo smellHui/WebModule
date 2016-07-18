@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的方案</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 随访方案-编辑方案 -->
+<body class="followed cbox" id="edit_scheme">
+	<div class="xzfa_box">
+		<ul class="tx_xang fnonne">
+			<!-- 方案名称 -->
+			<li class="xzfa_famc">
+				<h2>方案名称：</h2>
+				<h3 class="ipt-disabled"></h3>
+			</li>
+			<!-- 药物治疗 -->
+			<li class="xzfa_ywzk">
+				<h2>药物治疗</h2>
+				<p class="feedbackcontent"></p>
+			</li>
+			<!-- 药物不良反应处理 -->
+			<li class="xzfa_ywbnfy">
+				<h2>药物不良反应处理</h2>
+				<p class="feedbackcontent"></p>
+			</li>
+		</ul>
+
+
+		<ul class="tx_xang fnonne">
+			<!-- 方案名称 -->
+			<li class="xzfa_jkzd">
+				<h2>健康指导</h2>
+				<textarea placeholder="请输入健康指导"></textarea>
+			</li>
+			<!-- 药物治疗 -->
+			<li class="xzfa_yszd">
+				<h2>饮食指导</h2>
+				<textarea placeholder="请输入饮食指导"></textarea>
+			</li>
+			<!-- 药物不良反应处理 -->
+			<li class="xzfa_ydzd">
+				<h2>运动指导</h2>
+				<textarea placeholder="请输入运动指导"></textarea>
+			</li>
+		</ul>
+		
+		<ul class="tx_dsvba fnonne">
+			<li class="period">
+				<h2>随访周期</h2>
+				<p></p>
+			</li>
+			<li class="electrocardiogram">
+				<h2>心电图检查周期</h2>
+				<p></p>
+			</li>
+			<li class="bloodRoutine">
+				<h2>血常规</h2>
+				<p></p>
+			</li>
+			<li class="hepatic">
+				<h2>肝功能</h2>
+				<p></p>
+			</li>
+		</ul>
+		<!-- 添加检查项周期 -->
+		<!-- <div class="_tjqtjcxzq">已关联患者<i class="icon-thearrowx"></i></div>
+
+		<div data-index="0" class="dsasw">
+			<div class="kua">
+				<div class="newszu">
+					<i class="sdsv">已关联</i>
+				</div>
+			</div>
+			<div class="kua">
+				<div class="newszu">
+					<i class="sdsv">已关联</i>
+				</div>
+			</div>
+			<div class="kua">
+				<div class="newszu">
+					<i class="sdsv">已关联</i>
+				</div>
+			</div>
+			<div class="kua">
+				<div class="newszu">
+					<i class="sdsv">已关联</i>
+				</div>
+			</div>
+		</div> -->
+	</div>
+
+	<!-- 按钮 -->
+	<!-- <div class="bc_but" page="doctor" inter="editVisitPrecept">
+		<button class="btn-zyradius">保存</button>
+	</div> -->
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	
+	<!-- 右侧编辑按钮 -->
+	<div id="______goodmoodrightmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/bj_img.png","menuevent":"gm.follow_up.editVisitPrecept"}</div>
+	<script type="text/javascript">
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/plan_management.shtml');
+	}
+	$(function(){
+		var _visitUuid = gm.para.get(window.location.href,"visitUuid");
+		gm.follow_up.visitPreceptDetail(_visitUuid);
+		$("._tjqtjcxzq").bind({
+			touchend:function(){
+				if ($(".xzfa_box dd").hasClass("dsasw")) {
+					$(".xzfa_box dd").removeClass("dsasw");
+				}else{
+					$(".xzfa_box dd").addClass("dsasw");
+				}
+			}
+		})
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>患教库</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 工具箱-患教库2 -->
+<body class="followed cbox" id="patient_education_1">
+	<!-- 内容 -->
+	<div class="hjka_box gjx_box">
+		<ul class="fnonne">
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+<script type="text/javascript">
+	$(function(){
+		var _contentUuid = gm.para.get(window.location.href,"contentUuid");
+		
+		gm.content.getContentList(_contentUuid,function(data){
+
+			if(!data){
+				$.alert("服务器出错!");
+			}
+
+			if(data.query.success=="1"){
+				var arr = [];
+
+				$(data.relist).each(function(i,o){
+					arr.push('<li id="'+o.contextUuid+'"><a href="patient_content.shtml?contextUuid='+o.contextUuid+'"></a>'+o.contentTitle+'<i class="icon-thearrowx"></i></li>');
+				});
+
+				$(".fnonne").html(arr.join(''));
+			}else{
+				$.alert(data.query.message);
+			}
+		});
+
+		
+	});
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/toolbox/patient_education.shtml')
+	}
+</script>
+</body>
+</html>

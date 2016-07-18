@@ -1,0 +1,344 @@
+
+/* c */
+/* 我的医生 */
+#my_doctor{background-color: #f7f7f7;}
+	#my_doctor article{width: auto;height: auto;position: relative;display: none;}
+	.cnda{height: .96rem;width: 100%;border-bottom: 2px solid #dddddd;}
+		.cnda li{float: left;width: 33.3%;box-sizing:border-box;}
+		.cnda li p{margin: 0 auto;line-height: .96rem;display: table;color: #747474;font-size: .42rem;}
+		/*命中时的class*/
+		.sfro p{border-bottom: 2px solid #28c3b1;}
+	/*列表*/
+	#my_doctor .dvcn,#my_doctor .duwr,#my_doctor .ngtuo{display: block;margin-bottom: 1.28rem;}
+	.dvcn dt,.dvcn dd{box-sizing:border-box;width: 100%;padding: 0 6%;}
+	.dvcn dt{height: 1.07rem;width: 100%;line-height: 1.07rem;border-bottom: 1px solid #ddd;}
+	.dvcn dd{width: 100%;border-bottom: 1px solid #ddd;display: none;background-color: #fff;position: relative;}
+	.dvcn dd a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 11;}
+
+	.dvcn dt b{margin-left: .1rem;font-size: .42rem;color: #747474;font-weight: normal;}
+	.dvcn dt i{margin-bottom: .15rem;}
+	.dvcn dt span{float: right;}
+	.dvcn dt i.logo-triangle{margin-bottom: .1rem;}
+
+	#my_doctor li .vnuds span{}
+	#my_doctor article li{padding: 0 7%;box-sizing:border-box;background-color: #fff;border-bottom: 1px solid #ddd;position: relative;}
+	#my_doctor article li a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 11;}
+
+	/*再次咨询*/
+	.i_zxsj{margin-top:.3rem;padding:.3rem 0;border-top: 1px solid #f3f3f3;}
+		.i_zxsj p{ float:left; font-size:.337rem;color: #747474;}
+		.i_zxsj button{float: right;width: 2rem;height: .55rem;background-color: #ffa507;color: #fff;border-radius: .5rem;border: 0;font-size: .337rem;}
+
+
+/* 随访医生 */
+#follow_doctor{background-color: #f7f7f7;}
+	#follow_doctor .wecoto{width: 100%;border-bottom: 1px solid #e8e8e8;padding: 0 6%;box-sizing:border-box;background-color: #fff;position: relative;}
+	#follow_doctor li{font-size: .42rem;color: #747474;}
+	#follow_doctor li b{color: #28c3b1;}
+		#follow_doctor li b i{margin-bottom: .12rem;margin-right: .2rem;}
+	
+	#follow_doctor .wecoto i.pts-thearrow{position: absolute;right: 6%;top: 30%;}
+	/*按钮*/
+	#follow_doctor .hzxx_but{position: absolute;bottom: 0;margin: 1rem 0 1rem 0;}
+	#follow_doctor button{margin-bottom: .2rem;}
+
+
+/* 咨询记录详情 */
+#consultation_record{background-color: #e4e4e4;}
+	#consultation_record .ndsfid,
+	#communicate_patient .ndsfid{width: auto;margin-left: .3rem;}
+	#consultation_record .logo-lsxjp,
+	#communicate_patient .logo-lsxjp{position: absolute;right: .35rem;top: .3rem;}
+	#consultation_record .enter .logo-lsht,
+	#communicate_patient .enter .logo-lsht{margin: .24rem .1rem 0 .35rem;float: left;}
+
+
+/* 我的病历 */
+#my_records{background-color: #f7f7f7;}
+	#my_records dd p{color: #000;}
+	#my_records .ypxq_box{margin-top: .2rem;}
+	#my_records .ypxq_box dd.ssddo{padding-left: 0;border-bottom: 0;}
+	#my_records .ypxq_box .ssddo li{position: relative;border-bottom: 1px solid #e8e8e8;min-height: .78rem;}
+	#my_records .ypxq_box .ssddo li h3{display: inline-block;background-color: #e5fbf8;width: 2.6rem;height: 100%;line-height: .78rem;text-align: center;font-weight: normal;position: absolute;top: 0;left: 0;font-size: .375rem;}
+	#my_records .hzxx_box li p,#my_records .ypxq_box .ssddo li p{line-height: .78rem;margin: 0;display: inline-block;width: auto;padding-left: 3.8rem;color: #696969;}
+	
+	#my_records .gn_dgh{padding-bottom: .3rem;}
+		#my_records .gn_dgh p{line-height: .7rem;}
+		#my_records dd p{line-height: .5rem;position: relative;top: 1px;}
+		#my_records .gn_dgh ul li{display: inline-block;width: 1.5rem;height: 1.5rem;overflow: hidden;margin: 0 1px;}
+		#my_records .gn_dgh ul li img{width: 100%;height: 100%;}
+	#my_records .dt{background-color: #e5fbf8;}
+	#my_records .dt h2{border: 0;}
+	/*提示*/
+	#my_records .vnireh_io{background-color: transparent;border: 0;}
+	#my_records .vnireh_io p{line-height: .7rem;}
+	#my_records .vnireh_io p span{color: #000;font-size: .42rem;padding-right: .2rem;}
+
+	#my_records .hzxx_box{padding: 0;}
+	#my_records .hzxx_box li h2{line-height: .78rem;}
+	/*按钮*/
+	.botbut{margin: .8rem 0;}
+		.botbut button{width: 8.3rem;display: block;margin: 0 auto;}
+
+
+/* 重要医嘱 */
+#great_doctor{background-color: #f7f7f7;}
+	#great_doctor .p_nbwkf{padding: .2rem 0;width: 100%;border-bottom: 1px solid #e8e8e8;margin-bottom: .2rem;background-color: #fff;}
+		#great_doctor .p_nbwkf p{font-size: .42rem;color: #000;padding-left: .6rem;}
+	#great_doctor .ypxq_box dt{height: auto;}
+
+	#great_doctor dt{background-color: #fff;width: 9.18rem;border: 1px solid #e8e8e8;padding-left: .42rem;display: block;margin: 0 auto .16rem auto;box-sizing: border-box;}
+	#great_doctor dt h2 {font-size: .42rem;color: #28c3b1;display: inline-block;width: 100%;border-bottom: 1px solid #e8e8e8;line-height: 1.25rem;font-weight: normal;}
+	#great_doctor dt p {font-size: .375rem;color: #000;margin: .2rem 0;line-height: .45rem;width: 8.3rem;}
+	#great_doctor dt span.frequency{font-size: .375rem;}
+	#great_doctor dt span.directions{font-size: .375rem;}
+	/*已过期*/
+	ul.vdja{width: 9.18rem;margin: 1rem auto 2rem auto;}
+		ul.vdja li{background-color: #e4e4e4;width: 100%;padding: .2rem .42rem .45rem .42rem;box-sizing: border-box;position: relative;margin-bottom: .2rem;}
+		ul.vdja li *{color: #696969;font-size: .375rem;font-weight: normal;font-style: normal;}
+		ul.vdja li h2{line-height: .84rem;}
+		ul.vdja li span{float: right;}
+		ul.vdja li .logo-ygqs{position: absolute;right: 0;top: 50%;margin-top: -.73rem;}
+
+
+/* 健康指导 */
+#health_guide{background-color: #f7f7f7;}
+	#health_guide ul li{background-color: #fff;width: 100%;padding-left: .6rem;box-sizing: border-box;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;margin-bottom: .15rem;position: relative;}
+	#health_guide ul li.adivce::after { content:""; font-size:0; position:absolute; right:.2rem; bottom:.2rem; width:1.5rem; height:1.5rem; background:url(../imgs/bbs.png) no-repeat 0 -2.65rem; background-size:10rem; }
+	#health_guide ul li div{height: 1rem;width: 100%;border-bottom: 1px solid #e8e8e8;line-height: 1rem;}
+		#health_guide ul li div h2{font-size: .42rem;font-weight: normal;display: inline;padding-left: .3rem;}
+		#health_guide ul li div span{font-weight: .375rem;color: #696969;float: right;padding-right: .6rem;}
+		#health_guide ul li div i{margin-bottom: .15rem;}
+	#health_guide ul li p{padding: .3rem 0rem .4rem 0rem;width: 8.45rem;}
+	/*添加的class*/
+	#health_guide .yguq_ioi{background-color: #e4e4e4;}
+	#health_guide .yguq_ioi .logo-ygqs{position: absolute;right: .5rem;top: 50%;margin-top: -.73rem;}
+	#health_guide .yguq_ioi div{border:0;}
+	#health_guide .yguq_ioi div h2{color: #696969;}
+	#health_guide .yguq_ioi p{padding-top: 0;color: #696969;}
+
+
+/* 医患沟通 */
+#communicate_patient{background-color: #e4e4e4;}
+	.tu_dfs{height: 4.5rem;width: 6.7rem;position: absolute;left: 50%;top:60%;margin: -2.25rem 0rem 0rem -3.3rem;background-color: #fff;border-radius: .2rem;box-sizing: border-box;padding-top: .9rem;-webkit-box-shadow: 1px 1px 10px -3px #828181;}
+	.tu_dfs p{text-align: center;font-size: .42rem;line-height: .55rem;}
+	.tu_dfs button{width: 4.7rem;margin: .8rem auto 0 auto;}
+
+
+
+/* 药品详情 */
+#use_query{}
+	#use_query dt .yp_name *{font-size: .42rem;color: #000;}
+	#use_query .yp_img{width: 1.4rem;height: 1.4rem;border-radius: .72rem;margin: .5rem;display: inline-block;float: left;border: 2px solid #93e1d8;overflow: hidden;margin-top: .4rem;box-sizing: border-box;padding: 2.5% 0;}
+	#use_query .yp_img img{width: 100%;height: auto;vertical-align: middle;}
+	#use_query dd h2{color: #28c3b1;}
+	#use_query dd p{color: #000;}
+
+
+/* w */
+/* 随访表单 */
+#list tr,#list td{text-align: center;}
+.followup{background-color: #f7f7f7;}
+	.followup .list{width: auto;height: 11.45rem;overflow: auto;}
+		.followup .list dl{width: 100%;}
+			.followup .list dt{width: 91.7%;height: 1.41rem;margin: .08rem 0 0 0;padding: 0 .4rem;border-bottom: 1px solid #e2e2e2;border-top: 1px solid #e2e2e2;background-color: #fff;position: relative;}
+				.followup .list h2{line-height: 1.41rem;font-size: .42rem;font-weight: normal;}
+					.followup .list i{margin-right: .44rem;top: -.04rem;position: relative;}
+					.followup .list i.pts-andthearow{position: absolute;right: .66rem;top: .46rem;}
+	.followup .btn-radius {  margin:0 2rem; }
+
+/* 病情记录 */
+.change{background-color: #f7f7f7;}
+	/* 病情变化 */
+	.change .condition dd,.change .condition dt{width: 100%;background-color: #fff;border-bottom: 1px solid #e0e0e0;height: 1.1rem;line-height: 1.1rem;}
+		.condition dd{display: none;}
+		.change .condition h2{font-size: .42rem;font-weight: normal;margin-left: .5rem;position: relative;}
+		.change .condition span.status{margin-left: 2.24rem;font-size: .375rem;color: #696969;}
+		.change .condition i.pts-andthearow{position: absolute;right: .66rem;top: .4rem;-webkit-transform:rotate(90deg);}
+		.change .condition dd.grey{background-color: #e4e4e4;text-align: center;font-size: .375rem;color: #696969;}
+		.change .condition dd.white{border-bottom: 1px solid #fff;}
+		._djsuc dd{display: block;}
+	/* 原因 */
+	.change .reason{box-sizing:border-box;width:9.15rem;height: auto;padding: .16rem .38rem;border: 1px solid #e0e0e0;background-color: #fff;margin: .36rem auto;}
+		.change .reason h2{font-size: .375rem;line-height: .575rem;color: #696969;font-weight: normal;}
+		.change .reason textarea{width: 100%;height: 1.5rem;border: 0;resize: none;font-size: .34rem;font-family: SimHei;}
+	/* 提交 */
+	.change button.submit{width: 86%;margin: .14rem auto;font-size: .36rem;font-family: SimHei;}
+
+/* 服药记录 */
+.medicine{background-color: #f7f7f7;}
+	.medicine .sheet table{width: 97.5%;border-spacing: 0;border-collapse: collapse;height: .73rem;margin: .16rem auto 8.4rem;}
+		.medicine .sheet tr{border: 1px solid #e9e9e9;border-left: none;border-right: none;}
+			.medicine .sheet th{background-color: #e4fbf8;line-height: .73rem;font-size: .375rem;text-align: center;font-weight: normal;padding: 0;width: 30%;}
+			.medicine .sheet td{line-height: .73rem;font-size: .375rem;width: auto;background-color: #fff;}
+			.medicine .sheet input.con{border: 0;height: .72rem;line-height: .72rem;font-size: .375rem;color: #696969;width: 100%;font-family: SimHei;background-color: transparent;padding: 0 .05rem;}
+			.medicine .sheet input.single{width: 12%;}
+			.medicine .sheet span.number{margin-left: .1rem;}
+	/* 提交 */
+	.medicine button.submit{width: 86%;margin: .14rem auto;font-size: .36rem;font-family: SimHei;}
+
+/* 其他治疗记录 */
+.cure{background-color: #f7f7f7;}
+	.cure .sheet table{width: 97.5%;border-spacing: 0;border-collapse: collapse;height: .73rem;margin: .16rem auto 8.4rem;}
+		.cure .sheet tr{border: 1px solid #e9e9e9;border-left: none;border-right: none;}
+			.cure .sheet th{background-color: #e4fbf8;line-height: .73rem;font-size: .375rem;text-align: center;font-weight: normal;padding: 0;width: 30%;}
+			.cure .sheet td{line-height: .73rem;font-size: .375rem;width: auto;background-color: #fff;}
+			.cure .sheet input.con{border: 0;height: .72rem;line-height: .72rem;font-size: .375rem;color: #696969;width: 100%;font-family: SimHei;background-color: transparent;padding: 0 .05rem;}
+			.cure .sheet input.single{width: 12%;}
+			.cure .sheet span.number{margin-left: .1rem;}
+	/* 提交 */
+	.cure button.submit{width: 86%;margin: .14rem auto;font-size: .36rem;font-family: SimHei;}
+
+/* 药物不良反应 */
+.bad{background-color: #f7f7f7;}
+	.bad .sheet table{width: 95%;border-spacing: 0;border-collapse: collapse;height: .73rem;margin: .16rem auto 0;}
+		.bad .sheet tr{border: 1px solid #e9e9e9;border-left: none;border-right: none;}
+			.bad .sheet th{background-color: #e4fbf8;line-height: .73rem;font-size: .375rem;text-align: center;font-weight: normal;padding: 0;width: 30%;}
+			.bad .sheet td{line-height: .73rem;font-size: .375rem;width: auto;background-color: #fff;}
+			.bad .sheet input.con{border: 0;height: .72rem;line-height: .72rem;font-size: .375rem;color: #696969;width: 100%;font-family: SimHei;background-color: transparent;padding: 0 .1rem;}
+			
+			.medicine .sheet input.con{width: 3.2rem;}
+			.selectage{height: .72rem;line-height: .72rem;font-size: .375rem;border: 0;width: 2.3rem;}
+			.zao,.zhong,.wan{float: left;width: 1.65rem;line-height: .7rem;margin: .1rem .2rem;border: 1px solid #f1f1f1;text-align: center;}
+			.selec{width: 90%;margin-left: .3rem;border: 0;line-height: .73rem;font-size: .375rem;}
+			.csisd{background-color: #28c3b1;color: #fff;}
+	/* 描述 */
+	.bad .desc{padding-bottom:.5rem;width: 100%;}
+		.bad .influence{width: 97.5%;min-height: 3.15rem;border:1px solid #e0e0e0;margin:0 auto;background-color: #fff;margin-top: .25rem;position: relative;}
+			.bad .influence h2{width: 8.94rem;float: right;border-bottom:1px solid #e0e0e0;font-size: .42rem;line-height: 1.14rem;font-weight: normal;}
+			.bad .influence textarea{width: 8.74rem;float: right;height: 1.8rem;border: 0;font-family: SimHei;font-size: .375rem;margin-right: .2rem;}
+	.bad button.submit{width: 86%;margin: .14rem auto;font-size: .36rem;font-family: SimHei;}
+	
+/* 服药提醒 */
+.remind{background-color: #f7f7f7;}
+	.remind .sheet table{width: 97.5%;border-spacing: 0;border-collapse: collapse;height: .73rem;margin: .16rem auto .61rem;}
+		.remind .sheet tr{border: 1px solid #e9e9e9;border-left: none;border-right: none;}
+			.remind .sheet th{background-color: #e4fbf8;line-height: .73rem;font-size: .375rem;text-align: center;font-weight: normal;padding: 0;width: 30%;}
+			.remind .sheet td{line-height: .73rem;font-size: .375rem;width: auto;background-color: #fff;padding-left: .2rem;}
+			.remind .sheet input.con{border: 0;height: .72rem;line-height: .72rem;font-size: .375rem;color: #000;font-family: SimHei;background-color: transparent;float: left;box-sizing:border-box;width: 4rem;}
+			.remind .sheet span.right{float: right;margin-right: .8rem;}
+			.remind .sheet span.ico{float: right;margin: -.04rem 1rem 0 0;}
+	.remind button.submit{width: 86%;margin: .14rem auto;font-size: .36rem;font-family: SimHei;}
+	.remind input{border: 0;padding-left: .5rem;}
+
+/* 私人医生 */
+.personal{background-color: #f7f7f7;}
+	.personal .doc{height: 1.89rem;border-top: 1px solid #cfcfcf;border-bottom: 1px solid #cfcfcf;}
+		.personal .doc p{font-size: .3375rem;}
+		/* 医师头像 */
+		.personal .icon1{width: 2.2rem;height: 1.4rem;border-radius: .94rem;overflow: hidden;float: left;padding-top: .29rem;}
+			.personal .icon1 img{height: 1.23rem;width: 1.22rem;float: right;}
+		/* 医师姓名、医院 */
+		.personal .p_fbjn{padding-left: .6rem;padding-top: .5rem;float: left;}
+			.personal .p_fbjn h3{font-size: .375rem;margin-bottom: .1rem;}
+			.personal .p_fbjn i{margin-left: .1rem;}
+			/* 医师职称、科室 */
+			.personal .p_yvbu{margin-left: .42rem;padding-top: .5rem;float: left;}
+			.personal .p_hjf{margin-bottom: .15rem;}
+			/* 服务人次 */
+			.personal .p_jlfk{padding-top: .5rem;padding-left: 1.07rem;float: left;}
+				.personal .p_jlfk p{color: #bebebe;margin-bottom: .15rem;}
+	/* 服务时间 */
+	.personal .service{width: 97.2%;height: 3.94rem;border: 1px solid #cfcfcf;margin: .22rem auto;}
+		.personal .ti{padding-left: .34rem;background-color: #e5fbf8;}
+			.personal .ti h2{line-height: .72rem;font-size: .34rem;font-weight: normal;}
+		.personal .package{width: 100%;height: 1.28rem;}
+			.personal .package h2{float: left;margin-left: .34rem;font-size: .42rem;line-height: 1.14rem;margin-top: .14rem;font-weight: normal;}
+			.personal .package p{float: right;margin-right: 2.24rem;font-size: .525rem;color: #f36c4e;font-family: Arial;line-height: 1.14rem;margin-top: .14rem;}
+			.personal .package span.price{font-size: .34rem;font-family: SimHei;color: #696969;}
+		.personal .times ul{margin-left: .85rem;}
+			.personal .times li{font-size: .34rem;line-height: .54rem;height: .54rem;color: #696969;}
+
+
+/* f */
+/* 其他情况 */
+#other_situations{background-color: #f7f7f7;}
+	.symptom{width: 95%;height: 3.15rem;border:1px solid #e0e0e0;margin:0 auto;background-color: #fff;margin-top: .25rem;position: relative;}
+		.symptom h2{width: 8.74rem;float: right;border-bottom:1px solid #e0e0e0;height: 1.14rem;font-size: .42rem;line-height: 1.14rem;}
+		.symptom textarea{width: 8.74rem;float: right;height: 1.8rem;border: 0;}
+	/* 按钮 */
+	#other_situations .btn-zyradius{width: 85%;margin:0 auto;display: block;margin-bottom: .25rem;}
+	.dsdm{position: relative;width: 100%;top: 1rem;}
+
+/* 其他检查及结果 */
+#inspection_result{background-color: #f7f7f7;}
+	/*检查名称*/
+	#inspection_result h3{width:95%;box-sizing:border-box;margin:0 auto;height: 1rem;border-bottom: 1px solid #e0e0e0;padding-left: .5rem;line-height: 1rem;font-size: .42rem;background-color: #fff;overflow:hidden;}
+	#inspection_result span.print input{border: 0;height: 1rem;line-height: 1rem;font-size: .42rem;padding-left: .1rem;margin-left:.2rem;}
+		#inspection_result .logo-lsxjp{position: absolute;bottom: .16rem;right: .25rem;}
+	/* 按钮 */
+	#inspection_result .p_cfs{margin-top:1.3rem}
+		#inspection_result .btn-zyradius{width: 85%;margin:.2rem auto;}
+		#inspection_result .btn-zyradius2{width: 85%;margin:0 auto;border-radius: .5rem;font-family: SimHei;}
+
+/* 图文、电话咨询记录 */
+#records_img{background-color: #f7f7f7;}
+#telephone_counseling{background-color: #f7f7f7;}
+#appointment{background-color: #f7f7f7;}		
+	#records_img li{background-color: #fff;margin-bottom: .15rem;}
+	#telephone_counseling li{background-color: #fff;margin-bottom: .15rem;}
+	#appointment li{background-color: #fff;margin-bottom: .15rem;}
+
+	/* 医师信息 */
+	#records_img .doctor{height: 1.89rem;border-top: 1px solid #cfcfcf;border-bottom: 1px solid #cfcfcf;}
+	#telephone_counseling .doctor{height: 1.89rem;border-top: 1px solid #cfcfcf;} 
+	#appointment .doctor{height: 1.89rem;border-top: 1px solid #cfcfcf;}
+	.doctor{height: 1.89rem;border-top: 1px solid #cfcfcf;border-bottom: 1px solid #cfcfcf;}
+	/* 医师头像 */
+	.icon1{width: 2.2rem;height: 1.4rem;border-radius: .94rem;overflow: hidden;float: left;padding-top: .29rem;box-sizing:padding-box;}
+		.icon1 img{height: 1.23rem;width: 1.22rem;float: right;}
+
+	/* 医师介绍 */
+	.doctor{height: 1.89rem;border-top: 1px solid #cfcfcf;border-bottom: 1px solid #cfcfcf;}
+	.doctor p{font-size: .3375rem;}
+
+	/* 医师姓名、医院 */
+	.p_fbjn{padding-left: .6rem;padding-top: .5rem;float: left;}
+		.p_fbjn h3{font-size: .375rem;margin-bottom: .1rem;}
+		.p_fbjn p{font-size: .3375rem;}
+
+	/* 医师职称、科室 */
+	.p_yvbu{margin-left: .42rem;padding-top: .5rem;float: left;}
+	.p_yvbu p{font-size: .3375rem;}
+	.p_hjf{margin-bottom: .15rem;}
+	.p_hjf p{font-size: .3375rem;}
+
+	/* 服务人次 */
+	.p_jlfk{padding-top: .5rem;padding-left: .6rem;position: absolute;top: 0;right: .7rem;}
+		.p_jlfk p{color: #bebebe;margin-bottom: .15rem;font-size: .3375rem;}
+
+	.p_jlf{padding-top: .3rem;padding-left: .4rem;float: left;}
+	.p_jlf p{color: #bebebe;margin-bottom: .15rem;font-size: .3375rem;}
+
+	/* 功能菜单 */
+	#telephone_counseling .menu{height: .73rem;}
+	#appointment .menu{height: .73rem;}
+	#records_img .menu{height: .73rem;border-bottom: 1px solid #cfcfcf;margin-bottom: .25rem;}
+		#records_img .menu img{width: .52rem;height: .52rem;padding: .12rem .11rem 0 .3rem;float: left;line-height: .73rem;margin-left: 3.3rem;}
+		#records_img .menu span{color: #b1b1b1;line-height: .73rem;float: left;font-size: .3375rem;}
+		#telephone_counseling .menu p{line-height: .73rem;font-size: .3375rem;margin-left: .55rem;margin-right: .75rem;border-top: 1px solid #cfcfcf; }
+		#appointment .menu p{line-height: .73rem;font-size: .3375rem;margin-left: .55rem;margin-right: .75rem;border-top: 1px solid #cfcfcf; }
+		#appointment .btn-zyradius{background-color: #ffa507;height: .5rem;width: 1.98rem;line-height: .5rem;float: right;margin-top: .1rem;}
+		#telephone_counseling .btn-zyradius{background-color: #ffa507;height: .5rem;width: 1.98rem;line-height: .5rem;float: right;margin-top: .1rem;}
+
+/* 用药查询 */
+#use_query{background-color: #f7f7f7;}
+	#use_query .search input{width: 7.58rem;height: .76rem;margin:.4rem 0 0 .5rem; border: 1px solid #c3c3c3;font-size: .3375rem;padding-left: .3rem;display: block;float: left;line-height: .76rem;}
+
+	/* 放大镜 */
+	#use_query .search button{width: 1rem;height: .76rem;border: 0;float: left;margin:.4rem 0 0 0;}
+	.sdw .plist {width: 8.58rem;position: absolute;top: 1.15rem;left: .5rem;overflow: hidden;background-color: #fff;}
+		.sdw .plist li {min-height: 1rem;padding-right: .2rem;position: relative;border-bottom:1px solid #999}
+		.sdw .plist li a{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 1111;}
+		.sdw .plist li a:hover,.sdw .plist li a:active {background-color: #000;opacity: .2;}
+		.sdw .plist .imgshow{position: absolute;left: 0;top: 0;width: 40%;}
+		.sdw .plist .imgshow img{padding:.2rem;width: auto;max-height: 1.5rem;}
+		.sdw .plist h2,.sdw .plist p{padding-left: .5rem;font-size: .36rem;text-align: left;line-height: 1rem;}
+		.sdw .plist p{font-size: .24rem;padding-top: .1rem;}
+	.icon-fdjn1{width: .46rem;height: .7rem;background-position: -9.24rem -4.12rem;}
+
+.ngtuo .vnuds span {width: auto;}
+
+#dont_show,.dont_show {display: none;}
+
+.addform {padding-top: .2rem;}

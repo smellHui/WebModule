@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<title>直播</title>
+	<!--#include virtual="/html/template/patient/refer_header.shtml"-->
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/refer.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+	<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/p_css/common.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">
+</head>
+
+<body class="refer cbox">
+	<!-- 内容 -->
+	<div>
+		<!-- 视频 -->
+		<div class="video2"></div>
+		<!-- 视频介绍 -->
+		<div class="intro">
+			<h2>吴雅峰-心脏超声在肺血栓栓塞症诊断中的应用</h2>
+			<p>时间： <span class="color">2015-09-22 20:00</span></p>
+			<p>主讲人：<span class="color">吴雅峰</span></p>
+			<p><span class="color">毕业于北京中医药大学，毕业于北京中医药大学，博士毕业</span></p>
+			<p>课程简介：<span class="color">课程简介课程简介课程简介课程简介课程简介课简介课程简介课程简介课程简介</span></p>
+		</div>
+		<!-- 评论 -->
+		<div class="comment">
+			<div class="comti">
+				<h2>评论：</h2>
+			</div>
+			<div class="comcon">
+				<p>白金子<span class="time">2015-09-21</span></p>
+				<p class="content">视频讲的啥？？？</p>
+			</div>
+			<div class="comcon">
+				<p>白金子<span class="time">2015-09-21</span></p>
+				<p class="content">视频讲的啥？？？</p>
+			</div>
+			<!-- 加载更多 -->
+			<div class="load">
+				<p>加载更多...</p>
+			</div>
+			<!-- 发送 -->
+			<div class="receive">
+				<form>
+					<input type="text" class="ipt-def">
+					<button class="btn-def">发送</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/patient/refer_bottom.shtml"-->
+</body>
+</html>

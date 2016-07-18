@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 患者详情 -->
+<body class="followed cbox" id="patient_details">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="sfsqxq_box">
+		<div class="gercnsd">
+			<div class="newszu">
+				<p class="date"></p>
+				<!-- 头像 -->
+				<div class="head_portrait"></div>
+				<!-- 名字、性别、年龄、评论 -->
+				<div class="nagent">
+					<div class="duof">
+						<h3><i class="icon-girl"></i></h3>
+						<span></span>
+
+					</div>
+					<p class="comment"></p>
+				</div>
+				<!-- <i class="icon-thearrowx"></i> -->
+			</div>
+		</div>
+		<ul></ul>
+	</div>
+	<!-- 按钮 -->
+	<div class="hzxx_but">
+		<button class="btn-zyradius hhzgt">和患者沟通</button>
+		<button class="btn-zyradius tjbl">添加病历</button>
+		<button class="btn-zyradius custUuid">为患者选择新的随访方案</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var from=gm.para.get(window.location.href,"from");
+	if(from=="mypatient"){
+		gm.pul.returnurl=function(){
+				gm.pul.toUrl("/html/mypatient/index.shtml");
+		}
+	}else{
+		gm.pul.returnurl = function(){
+			if(!gm.isIndex)history.go(-1);
+		}
+	}
+	
+ 	$(function(){
+ 		var _customerUuid = gm.para.get(window.location.href,"customerUuid");
+ 		var from=gm.para.get(window.location.href,"from");
+ 		$(".hzxx_but .custUuid").bind({
+			touchend:function(){
+				gm.pul.toUrl( "/html/follow_up/selective_up_program.shtml?from="+from+"1&customerUuid="+_customerUuid);
+			}
+		});
+
+		$(".hzxx_but .tjbl").bind({
+			touchend:function(){
+				gm.pul.toUrl( "/html/follow_up/add_outpatient_cases.shtml?from="+from+"1&customerUuid="+_customerUuid);
+			}
+		});
+
+		$(".hzxx_but .hhzgt").bind({
+			touchend:function(){
+				gm.pul.toUrl( "/html/task/consultation_page.shtml?from="+from+"1&customerUuid="+_customerUuid);
+			}
+		})
+
+
+		if(_customerUuid){
+			$(".hzxx_but a").each(function(i,o){
+				$(o).attr("href",$(o).attr("href") + "?customerUuid=" + _customerUuid);
+			});
+
+			var _loading = new mask("loading");
+			_loading.show();
+
+			$.getDate({
+				page:"user",
+				inter:"getCustomerByCostomerUuid",
+				data:{hid:_customerUuid,doctorUuid:gm.user.getDoctor()},
+				callback: function(data){
+					_loading.hide();
+					if(!data){
+						$.alert("服务器出错!");
+					}
+					if(data.query.success=="1"){
+						var d = new Date();
+
+						//绑定详细信息
+						document.title = data.info.customerName;
+
+						//日期
+						$("#patient_details .gercnsd .date").html(data.info.time || (d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()));
+						//头像
+						$("#patient_details .gercnsd .head_portrait").html('<img src="' + (data.info.customerImg || (o.info.sex == "1" ? window.___defaultImage_p_man : window.___defaultImage_p_woman))+ '">');
+						//名称
+					$("#patient_details .gercnsd .nagent h3").html(data.info.customerName + '<i></i>');
+					//性别
+					if (data.info.sex ==1) {
+						$("#patient_details .nagent h3 i").attr("class","icon-boy");
+					}else{
+						$("#patient_details .nagent h3 i").attr("class","icon-girl");
+					}
+					$("#patient_details .nagent span").html("年龄："+(data.info.age || 0)+"岁");//年龄
+					$("#patient_details .comment").html(data.info.customerMessage);//留言
+
+						var tmp = {
+							// 'visitList':'<li><a href="patient_follow_up_form/follow_list.shtml?medicalRecordUuid={visitRecordUuid}"></a>{createTime}<b><i class="logo-zybln"></i>随访表单</b></li>',
+							// 'medicalRecordList':'<li><a href="{url}={medicalRecordUuid}"></a>{createTime}{caseCategoryType}</li>'
+							'visitList':'<li><a href="patient_follow_up_form/follow_list.shtml?from="+from+"1&applyUuid={visitRecordUuid}&customerUuid={customerUuid}"></a>{createTime}<b><i class="logo-sfbdn"></i>随访表单</b></li>',
+							'medicalRecordList':'<li><a href="{url}={curePreceptUuid}{urls}={customerUuid}"></a>{createTime}{caseCategoryType}</li>'
+						}
+
+
+						// 随访表单
+						var arr = [];
+						$(data.visitList).each(function(i,o){
+							o.customerUuid = _customerUuid;
+							arr.push(gm.replace(tmp["visitList"],o));
+						});
+
+						$(data.medicalRecordList).each(function(i,o){
+							if(o.type == "1"){
+								o.url = "patient_case.shtml?medicalRecordUuid";
+								o.caseCategoryType = '<b><i class="logo-mzbln"></i>门诊病历</b>';
+							}else{
+								o.url = "patient_case.shtml?medicalRecordUuid";
+								o.caseCategoryType = '<b><i class="logo-zybln"></i>住院病历</b>';
+							}
+							o.urls = "&customerUuid"
+							o.customerUuid = _customerUuid;
+							o.curePreceptUuid= o.medicalRecordUuid;
+							arr.push(gm.replace(tmp["medicalRecordList"],o));
+						});
+
+						$("#patient_details .sfsqxq_box ul").append(arr.join(""));
+						
+						$(".gercnsd .newszu").bind({
+							touchend:function(){
+								return;
+								gm.pul.toUrl( "/html/follow_up/add_patients.shtml?customerUuid="+_customerUuid);
+							}
+						})
+					}else{
+						$.alert(data.query.message);
+					}
+				}
+			});
+		}
+
+			 		
+ 	});
+ 	</script>
+</body>
+</html>

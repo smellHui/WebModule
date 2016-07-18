@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<title>好心情</title>
+<!--#include virtual="/html/template/doctor/reg_header.shtml"-->
+</head>
+
+<body class="cbox" id="logon_register">
+	<!-- 忘记密码 -->
+	<aside class="login_forget">
+		<div class="w645">
+			<div class="login_box1">
+				<div class="icon-aut6"></div>
+			</div>
+			<!-- 输入框模块 -->
+			<div class="login_box2">
+				<h2>忘记密码</h2>
+				<input type="text" class="ipt-def mobile" placeholder="请输入手机号码">
+				<div class="verify_code" page="user" inter="getForgetPassword">
+					<input type="text" class="ipt-def captcha" placeholder="请输入验证码">
+					<div class="baobe">
+						<button class="btn-def" id="findv">获取手机验证码</button>
+					</div>
+				</div>
+				<input type="password" class="ipt-def password" placeholder="请输入登录密码">
+			</div>
+			<!-- 按钮块 -->
+			<div class="login_but" page="user" inter="uppwd">
+				<button class="btn-radius">下一步</button>
+				<p><a href="/html/reg/index.shtml">登录</a></p>
+			</div>
+		</div>
+	</aside>
+<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+
+<!--#include virtual="/html/template/doctor/reg_bottom.shtml"-->
+<script type="text/javascript">
+	$(function(){
+		$(".reg_protocol i").click(function(){
+			if(this.className == "gou"){
+				this.className = "";
+			}else{
+				this.className = "gou";
+			}
+		});
+
+		$(".login_box2").verify();
+
+		//忘记密码
+		$(".login_forget .login_but .btn-radius").bind({
+			touchend:function(){
+				var _submitObj = $(this).parent();
+				var _mobile = $(".login_forget .login_box2 .mobile").val();
+				var _v = $(".login_forget .verify_code input").val();
+				var _password = $(".login_forget .login_box2 .password").val();
+
+				$.getDate({
+					page:_submitObj.attr("page"),
+					inter:_submitObj.attr("inter"),
+					data:{mobile:_mobile,password:_password,captcha:_v},
+					method:"POST",
+					dataType:"JSON",
+					callback:function(data){
+						if(!data){
+							$.alert("服务器出错!");
+						}
+						if(data.query.success){
+							$.alert({
+								val : "修改成功！",
+								type : "flash",
+								callback:function(){
+									gm.pul.toUrl("/html/reg/index.shtml");
+								}
+							});
+						}else{
+							$.alert(data.query.message);
+						}
+					}
+				});
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

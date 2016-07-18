@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<title>预约加号</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<!-- 预约加号-加号详情-同意加号&删除 -->
+<body class="cbox" id="appointment">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div>
+		<ul>
+			<li>
+				<div class="doctor">
+					<div class="icon1">
+						<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+					</div>
+					<div class="p_fbjn">
+						<h3>王志玲<i class="pts-figureinsets"></i></h3>
+						<p>北医三院</p>
+					</div>
+					<div class="p_yvbu">
+						<p class="p_hjf">主治医师</p>
+						<p>早期干预科</p>
+					</div>
+					<div class="p_jlfk">
+	                    <p>服务人次:</p>
+	                    <p>458</p>
+	                </div>
+				</div>
+				<div class="menu">
+					<p>2015-11-27 上午<button class="btn-zyradius">再次下单</button></p>
+				</div>
+			</li>
+			<li>
+				<div class="doctor">
+					<div class="icon1">
+						<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+					</div>
+					<div class="p_fbjn">
+						<h3>李梅<i class="pts-figureinsets"></i></h3>
+						<p>北医三院</p>
+					</div>
+					<div class="p_yvbu">
+						<p class="p_hjf">主治医师</p>
+						<p>早期干预科</p>
+					</div>
+					<div class="p_jlfk">
+	                    <p>服务人次:</p>
+	                    <p>458</p>
+	                </div>
+				</div>
+				<div class="menu">
+					<p>2015-11-27 上午<button class="btn-zyradius">再次下单</button></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+
+</body>
+</html>

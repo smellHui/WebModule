@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>添加新公告</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+	<body>
+		<div class="cbox addannouncement">
+			<div class="title">
+				<a href="announcement.shtml"><i class="fh"></i></a>
+				<h2>添加新公告</h2>
+			</div>
+			<!-- 内容 -->
+			<div class="thene_cement">
+				<div class="cement_tetx">
+					<strong>标题</strong>
+					<input type="text" class="ipt-def"><!-- placeholder = 默认提示文本 -->
+				</div>
+				<div class="contentof_the">
+					<strong>公告内容</strong>
+					<textarea name="message" placeholder=""></textarea>
+				</div>
+				<div class="tminsc">
+					<strong>时间</strong>
+					<input type="date" class="ipt-def"><!-- placeholder = 默认提示文本 -->
+				</div>
+			</div>
+			<!-- 按钮块 -->
+			<div class="queding_a">
+				<a href="announcement.shtml" class="btn-radius">发布</a><!-- 默认圆角按钮 -->
+			</div>
+		</div>
+		<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+		<script type="text/javascript">
+		gm.pul.returnurl = function(){
+			if(gm.para.get(window.location.href,"from")=="user")
+				gm.pul.toUrl('/html/clinic/announcement.shtml?from=user');
+			else
+				gm.pul.toUrl('/html/clinic/announcement.shtml');
+		}
+		$(function(){
+			gm.clinic.announcement_add();
+		});
+		</script>
+	</body>
+</html>

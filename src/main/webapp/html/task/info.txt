@@ -1,0 +1,21 @@
+/** 任务结构 **/
+
+/html/task/my_task.shtml			我的任务
+/html/task/online_consultation.shtml		在线咨询
+/html/task/consultation_page.shtml		在线咨询-咨询页面
+/html/task/quick_reply.shtml			在线咨询-快捷回复
+/html/task/phone_consultation.shtml		电话咨询
+/html/task/to_consult_why.shtml			电话咨询-拒绝咨询理由
+/html/task/booking_plus.shtml                   预约加号
+/html/task/plus_details.shtml			预约加号-加号详情
+/html/task/patient_record.shtml			预约加号-加号详情-患者病历
+/html/task/agreed_plus_delete.shtml		预约加号-同意加号-删除
+/html/task/check_med_reco.shtml			预约加号-审核查看病历&平台病历
+/html/task/advice_history.shtml			预约加号-咨询历史
+
+
+/** 任务脚本 **/
+/static/tack.js
+
+/** 任务样式 **/
+/static/tack.css

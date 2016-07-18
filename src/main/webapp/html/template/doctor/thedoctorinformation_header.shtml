@@ -1,0 +1,2 @@
+<!--#include virtual="/html/template/common_header.shtml"-->
+<link rel="stylesheet" href="<!--#include virtual="/html/template/modules/domain.shtml"-->/css/thedoctorinformation.css?v=<!--#include virtual="/html/template/modules/v.shtml"-->">

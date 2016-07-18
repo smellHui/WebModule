@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<title>基本检查</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 详细记录基本检查 -->
+<body class="followed cbox" id="detailed_inspection">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="jbjc_box">
+		<ul>
+			<li>
+				<h2>既往史</h2>
+				<textarea class="feedbackcontent" placeholder="请输入内容"></textarea>
+			</li>
+			<li>
+				<h2>个人史</h2>
+				<textarea class="feedbackcontent" placeholder="请输入内容"></textarea>
+			</li>
+			<li>
+				<h2>家族史</h2>
+				<textarea class="feedbackcontent" placeholder="请输入内容"></textarea>
+			</li>
+			<li>
+				<h2>体格检查</h2>
+				<textarea class="feedbackcontent" placeholder="请输入内容"></textarea>
+			</li>
+			<li>
+				<h2>精神检查</h2>
+				<textarea class="feedbackcontent" placeholder="请输入内容"></textarea>
+			</li>
+		</ul>
+	</div>
+	<!-- 按钮 -->
+	<div class="hzxx_but">
+		<button class="btn-zyradius">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+		var medicalRecordUuid = gm.para.get(window.location.href,"medicalRecordUuid");
+
+		$.getDate({
+			page:"patient",
+			inter:"getMedicalRecordDetail",
+			data:{customerUuid:customerUuid,medicalRecordUuid:medicalRecordUuid},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					m = data.relist[0];
+
+					var arr = ["previous","personal","family","somastate","spiritCheck"];
+					for(var i =0;i<arr.length;i++){
+						$("textarea").eq(i).val(m[arr[i]])
+					}
+
+					$(".btn-zyradius").bind({
+						touchend:function(){
+							var obj = {};
+							
+							$("textarea").each(function(i){
+								if($.trim($(this).val())!=""){
+									obj[arr[i]] = $(this).val()
+								}
+							})
+
+							if($.isEmptyObject(obj)){
+								return
+							}
+							obj.medicalRecordUuid = medicalRecordUuid;
+							gm.user.addBasicCheck(obj,function(data){
+								if(!data){
+									$.alert("服务器出错!");
+								}
+								if(data.query.success=="1"){
+									$.alert({
+										val:"操作成功!",
+										type:"flash",
+										callback:function(){
+											gm.pul.toUrl( "/html/follow_up/add_patients.shtml?customerUuid=" + customerUuid + "&medicalRecordUuid=" + medicalRecordUuid);
+										}
+									});
+								}else{
+									$.alert(data.query.message);
+								}
+							})
+						}	
+					});
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	})
+	</script>
+</body>
+</html>

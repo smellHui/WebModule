@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+	<title>找医生</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+	<link rel="stylesheet" href="../../static/css/common.css" />
+	<link rel="stylesheet" href="../../static/css/lib/pullToRefresh.css" />
+	<link rel="stylesheet" href="../../static/css/lib/reset.css" />
+	<style>
+		.scroller{
+			padding-bottom:1.48rem !important;/***头部的高度****/
+		}
+	</style>
+</head>
+
+<body class="cbox" id="home_doctor">
+	<div id="______goodmoodleftmenu" class="appconfig">{"menuimg":"http://app.hxqydyl.com/imgs/udni_img.png","menuevent":"gm.pul.returnurl"}</div>
+	<!-- 找医生帅选 -->
+	<div class="looking_tofindthe">
+		<!-- 筛选 -->
+		<div class="cklamngy">
+			<form>
+				<input type="text" class="ipt-def">
+				<b><i class="icon-fdjn"></i></b>
+				<a class="shaixuh">
+					<span class="sx1">筛选</span>
+				</a>
+			</form>
+		</div>
+	</div>
+	<div id="wrapper" class="findDoctorList">
+		<ul id="DoctorList_ul">
+		</ul>
+	</div>
+	
+
+	<!-- 医生列表帅选遮罩 -->
+	<div class="quanzdp sdc">
+		<div class="filterlayer_a">
+			<div class="shuaixfnea">
+				<div class="cancely"><a><span>取消</span></a></div>
+				<div class="saixuan"><span>筛选</span></div>
+				<div class="determine"><a><strong>确定</strong></a></div>
+			</div>
+			<div class="addreginfo_qt">
+				<ul>
+					<li id="select_province" style="width:3.2rem;">
+						<p>选择省/直辖市</p>
+						<div class="ajiaska" style="left:2.7rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<li id="select_city" style="width:2.1rem;">
+						<p>选择市</p>
+						<div class="ajiaska" style="left:1.5rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<li id="select_county" style="width:2.5rem;">
+						<p>选择区/县</p>
+						<div class="ajiaska" style="left:1.95rem;">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+					<!-- <li id="sele_alsp" for="yiyuan" style="clear:both;">
+						<p>医院</p>
+						<div class="ajiaska_op">
+							<i class="pts-downlvarrow"></i>绿色下拉箭头
+						</div>
+					</li> -->
+					<li id="zc" for="tags">
+						<p>医生擅长</p>
+						<div class="ajiaska">
+							<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="city baijinzi">
+			<p>点击选择地区</p>
+			</div>
+			<div class="yiyuan baijinzi">
+			医院
+			</div>
+			<div class="tags baijinzi">
+			医生专长
+			</div>
+		</div>
+	</div>
+	
+
+	
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	
+	<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../static/js/config.js"></script>
+	<script type="text/javascript" src="../../static/js/common.js"></script>
+	<script src="../../static/p_js/FindDoctor.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../../static/js/module.js"></script>
+	<script src="../../static/js/lib/iscroll.js"></script>
+	<script src="../../static/js/lib/pullToRefresh.js"></script>
+<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){gm.menu.setLeft("http://app.hxqydyl.com/imgs/udni_img.png","gm.pul.returnurl");},1000);
+	});
+</script>
+</body>
+</html>

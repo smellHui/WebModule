@@ -1,0 +1,31 @@
+<!--底部文件-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/jquery.min.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/config.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/common.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/module.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>
+<script type="text/javascript">
+$(function(){
+	setTimeout(function(){gm.pul.setTitle(document.title);},200);
+	if(navigator.userAgent.indexOf("apple") == -1){
+		gm.menu.clearRight();
+		
+		setTimeout(function(){
+			$("#viewport").attr("content","width=device-width, initial-scale=1.0, minimum-scale=1.000001, maximum-scale=1.0, user-scalable=no");
+		});
+	}
+	$("body").on("touchend","a",function(e){
+		var href = $(this).attr("href");
+		if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+		href = gm.para.set($(this).attr("href"),"rnd",window.______version || Math.random());
+		$(this).attr("href",href);
+	});
+	if(gm.para.get(window.location.href,"from")=="user"){//给所有的a加上from=user
+		$("body").on("touchend","a",function(e){
+			var href = $(this).attr("href");
+			if(!href || href.indexOf("#") > -1 || href.indexOf("tel:") > -1){return;}
+			href = gm.para.set($(this).attr("href"),"from",gm.para.get(window.location.href,"from"));
+			$(this).attr("href",href);
+		});
+	}
+});
+</script>

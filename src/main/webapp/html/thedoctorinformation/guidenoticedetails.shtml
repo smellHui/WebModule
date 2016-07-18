@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<title>好欣晴</title>
+	<!--#include virtual="/html/template/thedoctorinformation_header.shtml"-->
+</head>
+<div class="cbox">
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	<!-- 秋季进补的禁忌 -->
+		<div class="title"><a href="index.shtml"><i class="fh"></i></a><h2>秋季进补的禁忌</h2></div>
+		<div class="bjz_content">
+			<div class="theauthor_introduce">
+				<div class="payatten_tiondetailed">
+					<div class="js_introduce">
+						<h2>作者：白金子</h2>
+						<h2>出处：《今日科技》</h2>	
+					</div>
+					<p>简介:正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。乱补,因注意八忌。正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。乱补,因注意八忌。正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。乱补,因注意八忌。正俗话说,"一夏无病三分虚",由此在民间素有"秋补" 习俗。万物正可谓:"春生、夏长、秋收、冬藏"。尽管秋季有必要进补,但也要不能乱补,因注意八忌。乱补,因注意八忌。</p>
+				</div>
+			</div>
+		</div>
+		<a href="medicinemedicine_seethefultext.shtml">
+			<div class="clickonthes">
+				<div class="wichaka">
+					<button class="btn-def">我要看全文</button><!-- 默认按钮 -->
+				</div>
+			</div>
+		</a>
+</div>
+	<!--#include virtual="/html/template/thedoctorinformation_bottom.shtml"-->
+</body>
+</html>

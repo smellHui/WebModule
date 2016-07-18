@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的公告</title>
+	<!--#include virtual="/html/template/doctor/clinic_header.shtml"-->
+</head>
+	<body class="task cbox" id="my_task">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="thene_cement">
+		<div class="cvenpas">
+			<strong>添加新的公告</strong>
+			<div class="solscd5">
+				<i class="icon-addya"></i>
+			</div>
+		</div>
+		<div class="tingzhen">
+			<div class="tingzhen_tz">
+				<h2>停诊通知</h2>
+				<span>2015.09.24</span>
+			</div>
+			<div class="tingzhen_zy">
+				<p>停诊通知：张医生于  2015.09.2- 2015.10.01 停诊一周 为您带来的不便敬请理解。</p>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/html/template/doctor/clinic_bottom.shtml"-->
+	</body>
+</html>

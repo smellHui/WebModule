@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+	<title>找医生</title>
+	<!--#include virtual="/html/template/home_header.shtml"-->
+
+</head>
+<body id="home_doctor">
+	<section class="section">
+		<!-- 1-个人中心 -->
+		<aside class="cbox curpage" id="test_results">
+		<!-- 标题 -->
+		
+		<!-- 找医生帅选 -->
+		<div class="looking_tofindthe">
+			<!-- 筛选 -->
+			<div class="cklamngy">
+				<form>
+					<input type="text" placeholder="可按照医生姓名/疾病名/科室查询"  class="ipt-def feedbackcontent">
+					<button></button>
+					<a href="" class="shaixuh">
+						<span>筛选</span>
+					</a>
+				</form>
+			</div>
+			<ul>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<div class="icon1">
+							<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+						</div>
+						<div class="p_fbjn">
+							<h3>王志玲<i class="pts-figureinsets"></i></h3>
+							<p>北医三院</p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf">北医三院</p>
+							<p>早期干预科</p>
+						</div>
+						<div class="p_jlfk">
+		                    <p>服务人次:</p>
+		                    <p>458</p>
+		                </div>
+					</div>
+					<div class="menu">
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/telephone.png"><span>电话咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/consultation.png"><span>图文咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/appointment.png"><span>预约加号</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/prvivate_doctor.png"><span>私人医生</span></a>
+					</div>
+				</li>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<div class="icon1">
+							<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+						</div>
+						<div class="p_fbjn">
+							<h3>王志玲<i class="pts-figureinsets"></i></h3>
+							<p>北医三院</p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf">北医三院</p>
+							<p>早期干预科</p>
+						</div>
+						<div class="p_jlfk">
+		                    <p>服务人次:</p>
+		                    <p>458</p>
+		                </div>
+					</div>
+					<div class="menu">
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/telephone.png"><span>电话咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/consultation.png"><span>图文咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/appointment.png"><span>预约加号</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/prvivate_doctor.png"><span>私人医生</span></a>
+					</div>
+				</li>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<div class="icon1">
+							<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+						</div>
+						<div class="p_fbjn">
+							<h3>王志玲<i class="pts-figureinsets"></i></h3>
+							<p>北医三院</p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf">北医三院</p>
+							<p>早期干预科</p>
+						</div>
+						<div class="p_jlfk">
+		                    <p>服务人次:</p>
+		                    <p>458</p>
+		                </div>
+					</div>
+					<div class="menu">
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/telephone.png"><span>电话咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/consultation.png"><span>图文咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/appointment.png"><span>预约加号</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/prvivate_doctor.png"><span>私人医生</span></a>
+					</div>
+				</li>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<div class="icon1">
+							<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+						</div>
+						<div class="p_fbjn">
+							<h3>王志玲<i class="pts-figureinsets"></i></h3>
+							<p>北医三院</p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf">北医三院</p>
+							<p>早期干预科</p>
+						</div>
+						<div class="p_jlfk">
+		                    <p>服务人次:</p>
+		                    <p>458</p>
+		                </div>
+					</div>
+					<div class="menu">
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/telephone.png"><span>电话咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/consultation.png"><span>图文咨询</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/appointment.png"><span>预约加号</span></a>
+						<a href="#"><img src="http://app.hxqydyl.com/p_img/prvivate_doctor.png"><span>私人医生</span></a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 医生列表帅选遮罩 -->
+		<div class="quanzdp">
+			<div class="filterlayer_a">
+				<div class="shuaixfnea">
+					<div class="cancely"><a href="thedoctorlist.shtml"><span>取消</span></a></div>
+					<div class="saixuan"><span>筛选</span></div>
+					<div class="determine"><a><strong>确定</strong></a></div>
+				</div>
+				<div class="addreginfo_qt">
+					<ul>
+						<li id="selectp">
+							<p>选择地区</p>
+							<div class="ajiaska">
+								<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+							</div>
+							<select id="p">
+								<option value="0">白金子</option>
+							</select>
+						</li>
+						<li id="selectp">
+							<p>医生专长</p>
+							<div class="ajiaska">
+								<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+							</div>
+							<select id="p">
+								<option value="0">白金子</option>
+							</select>
+						</li>
+						<li id="sele_alsp">
+							<p>医院</p>
+							<div class="ajiaska_op">
+								<i class="pts-downlvarrow"></i><!-- 绿色下拉箭头 -->
+							</div>
+							<select id="p">
+								<option value="0">白金子</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+				<div class="baijinzi">
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+					<ul><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li><li>白金子</li></ul>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

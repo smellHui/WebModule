@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<title>电话咨询</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+
+</head>
+<body class="cbox" id="telephone_counseling">
+	<!-- 关注医生 -->
+	<div>
+		<div class="cklamngy">
+			<form>
+				<input type="text" placeholder="可按照医生姓名/疾病名/科室查询"  class="ipt-def feedbackcontent">
+				<b><i class="icon-fdjn"></i></b>
+			<a class="shaixuh">
+				<span class="sx1">筛选</span>
+			</a>
+			</form>
+		</div>
+		<ul>
+			<li>
+				<div class="doctor">
+					<div class="icon1">
+						<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+					</div>
+					<div class="p_fbjn">
+						<h3>王志玲<i class="pts-figureinsets"></i></h3>
+						<p>北医三院</p>
+					</div>
+					<div class="p_yvbu">
+						<p class="p_hjf">北医三院</p>
+						<p>早期干预科</p>
+					</div>
+					<div class="p_jlfk">
+	                    <p>服务人次:</p>
+	                    <p>458</p>
+	                </div>
+				</div>
+				<div class="menu">
+					<a href="#"><img src="http://app.hxqydyl.com/p_img/pencil.png"><span>电话咨询</span></a>
+				</div>
+			</li>
+			<li>
+				<div class="doctor">
+					<div class="icon1">
+						<img src="http://app.hxqydyl.com/p_img/cstouxiang.png">
+					</div>
+					<div class="p_fbjn">
+						<h3>王志玲<i class="pts-figureinsets"></i></h3>
+						<p>北医三院</p>
+					</div>
+					<div class="p_yvbu">
+						<p class="p_hjf">北医三院</p>
+						<p>早期干预科</p>
+					</div>
+					<div class="p_jlfk">
+	                    <p>服务人次:</p>
+	                    <p>458</p>
+	                </div>
+				</div>
+				<div class="menu">
+					<a href="#"><img src="http://app.hxqydyl.com/p_img/pencil.png"><span>电话咨询</span></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+</body>
+</html>

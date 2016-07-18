@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	<title>服药提醒</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<body class="remind cbox" id="remind">
+	<div class="">
+	<div class="sheet">
+			<table id="list" style="display:none;">
+			</table>
+		</div>
+		<!-- 内容 -->
+		<!-- 服药提醒 -->
+		<div class="sheet">
+			<table id="list2">
+				<tr>
+					<th>药物名称</th>
+					<td><input class="drfss"/></td>
+				</tr>
+				<tr>
+					<th>次数</th>
+					<td><input class="drfss" type="tel"></td>
+				</tr>
+				<tr>
+					<th>剂量</th>
+					<td>
+                        <input id="dosage" type="tel" class="single con">
+                        <select class="selectage">
+                            <option value="1">粒</option>
+                            <option value="2">袋</option>
+                            <option value="3">mg</option>
+                            <option value="4">ml</option>
+                        </select>
+                    </td>
+				</tr>
+				<tr>
+					<th>用法</th>
+					<td>
+                        <select class="selec">
+                            <option value="1">饭前</option>
+                            <option value="2">饭后</option>
+                            <option value="3">随餐</option>
+                            <option value="4">空腹</option>
+                        </select>
+                    </td>
+				</tr>
+				<tr>
+					<th rowspan="3">提醒时间</th>
+					<td><input type="time" class="con"></td>
+				</tr>
+				<tr>
+					<td><input type="time" class="con"></td>
+				</tr>
+				<tr>
+					<td><input type="time" class="con"></td>
+				</tr>
+			</table>
+		</div>
+		<button class="btn-zyradius submit add">新增</button>
+		<button class="btn-zyradius submit fanhui">提交</button>
+	</div>
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+	<script type="text/javascript">
+	$(function(){
+		gm.my_doctor.remind();
+	})
+	</script>
+</body>
+</html>

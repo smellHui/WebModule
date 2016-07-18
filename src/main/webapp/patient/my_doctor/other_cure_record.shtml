@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>其他治疗记录</title>
+	<!--#include virtual="/html/template/patient/my_doctor_header.shtml"-->
+</head>
+
+<body class="cure cbox">
+	<div class="">
+		<!-- 标题 -->
+		
+		<!-- 内容 -->
+		<!-- 其他治疗记录 -->
+		<div class="sheet">
+			<table>
+				<tr>
+					<th>药品名称</th>
+					<td><input type="text" class="con"></td>
+				</tr>
+				<tr>
+					<th>单　　量</th>
+					<td><input type="text" class="single con"><span class="number">粒/袋/mg/ml</span></td>
+				</tr>
+				<tr>
+					<th>频　　率</th>
+					<td><input type="text" class="con"></td>
+				</tr>
+				<tr>
+					<th>用　　法</th>
+					<td><input type="text" class="con"></td>
+				</tr>
+			</table>
+		</div>
+		<button class="btn-zyradius submit">提交</button>
+	</div>
+	<!--#include virtual="/html/template/patient/my_doctor_bottom.shtml"-->
+</body>
+</html>

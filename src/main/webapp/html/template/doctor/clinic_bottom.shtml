@@ -1,0 +1,3 @@
+<!--#include virtual="/html/template/doctor_bottom.shtml"-->
+<!--频道底部-->
+<script src="<!--#include virtual="/html/template/modules/domain.shtml"-->/js/clinic.js?v=<!--#include virtual="/html/template/modules/v.shtml"-->"></script>

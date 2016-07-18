@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<title>设置支付密码</title>
+	<!--#include virtual="/html/template/patient/my_header.shtml"-->
+</head>
+
+<body class="cbox instead_password" id="set_paycipher">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="nusbag">
+		<!-- 注册手机号 -->
+		<h2>注册手机号 <span>13410865840</span></h2>
+		<!-- 填写密码获取验证 -->
+		<div class="login_box2">
+			<div class="verify_code">
+				<input type="text" class="ipt-def" placeholder="请输入验证码">
+				<button class="btn-def" id="findv">获取手机验证码</button>
+			</div>
+			<div class="dsnmion"><input type="password" class="ipt-def" placeholder="请输入支付密码"></div>
+		</div>
+	</div>
+	<!-- 按钮 -->
+	<div class="anbox" page="user" inter="uppwd">
+		<button class="btn-zyradius">确认</button>
+	</div>
+
+	<!--#include virtual="/html/template/patient/my_bottom.shtml"-->
+</body>
+</html>

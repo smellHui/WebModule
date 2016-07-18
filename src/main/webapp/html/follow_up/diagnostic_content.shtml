@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<title>诊断内容</title>
+	<!--#include virtual="/html/template/doctor/follow_up_header.shtml"-->
+</head>
+
+<!-- 诊断 -->
+<body class="followed cbox" id="diagnosis">
+	<!-- 标题 -->
+	
+	<!-- 内容 -->
+	<div class="hzxx_box">
+		<div class="vebng">
+			<textarea placeholder="诊断内容"></textarea>
+			<i class="icon-voice"></i>
+		</div>
+	</div>
+	<!-- 按钮 -->
+	<div class="xzfz_but">
+		<button class="btn-zyradius">保存</button>
+	</div>
+	<!--#include virtual="/html/template/doctor/follow_up_bottom.shtml"-->
+	<script type="text/javascript">
+	var customerUuid = gm.para.get(window.location.href,"customerUuid");
+	gm.pul.returnurl = function(){
+		gm.pul.toUrl('/html/follow_up/add_patients.shtml?customerUuid=' + customerUuid);
+	}
+	$(function(){
+		var customerUuid = gm.para.get(window.location.href,"customerUuid");
+
+		$.getDate({
+			page:"doctor",
+			inter:"getIllnessDescription",
+			data:{customerUuid:customerUuid},
+			callback:function(data){
+				if(!data){
+					$.alert("服务器出错!");
+				}
+				if(data.query.success=="1"){
+					$("textarea").val(data.illnessDescription || "");
+
+					$(".btn-zyradius").bind({
+						touchend:function(){
+							var obj = {};
+
+							obj["illnessDescription"] = $("textarea").val();
+							obj["customerUuid"] = customerUuid;
+							if(!obj["illnessDescription"]){
+								$.alert("请填写诊断内容");
+								return false;
+							}
+
+							$.getDate({
+								page:"doctor",
+								inter:"saveIllnessDescription",
+								data:obj,
+								callback:function(data){
+									if(!data){
+										$.alert("服务器出错!");
+									}
+									if(data.query.success=="1"){
+										$.alert({
+											val:"操作成功!",
+											type:"flash",
+											callback:function(){
+												gm.pul.toUrl( "/html/follow_up/add_patients.shtml?customerUuid=" + customerUuid);
+											}
+										});
+									}else{
+										$.alert(data.query.message);
+									}
+								}
+							})
+						}
+					});
+				}else{
+					$.alert(data.query.message);
+				}
+			}
+		});
+	});
+	</script>	
+</body>
+</html>

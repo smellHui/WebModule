@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+	<title>预约加号</title>
+	<!--#include virtual="/html/template/patient/home_header.shtml"-->
+
+</head>
+<body class="cbox" id="home_doctor">
+	<!-- 1-个人中心 -->
+	<aside class="curpage" id="test_results">
+		<!-- 标题 -->
+		
+		<!-- home医生列表预约加号 -->
+		<div id="thepls_start" style="background:#f7f7f7;">
+			<ul>
+				<li id="bacjkloa">
+					<div class="doctor">
+						<a href="/patient/home/detailsofthedoctor.shtml"></a>
+						<div class="icon1">
+							<img src="">
+						</div>
+						<div class="p_fbjn">
+							<h3></i></h3>
+							<p></p>
+						</div>
+						<div class="p_yvbu">
+							<p class="p_hjf"></p>
+							<p></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- home医生列表预约加号说明 -->
+			<!-- <div class="aplusignthat">
+				<h2>加号说明</h2>
+			</div>
+			<div class="Plus_elaborate">
+				<div class="elaborl">
+					<textarea placeholder="加号说明"></textarea>
+				</div>
+			</div> -->
+			<div class="rernelkal">
+				<div class="canplu_bt">
+					<h2>可加号患者类型</h2>
+				</div>
+				<div class="abvccanplu">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<!-- home医生列表预约加号说明就诊时间 -->
+			<div class="aplusignthat sarred">
+				<h2>就诊时间 <span class="timetype"></span> <span class="time" style="padding-right:.5rem"></span> </h2>
+				<div class="timetoclick">
+					<i class="pts-andthearow"></i><!-- 右绿色箭头 -->
+				</div>
+			</div>
+			<!-- home医生列表预约加号说明就诊信息 -->
+			<div class="aplusignthat">
+				<h2>就诊信息</h2>
+			</div>
+			<div class="booking_purposey" style="border-bottom:1px solid #d1d1d1;">
+				<div class="pusjank">
+					<label for="name">疾病</label>
+					<input id="jibing" type="text">
+				</div>
+				<div class="pusjank_soy">
+					<label for="name">本次预约目的</label>
+					<input id="mudi" type="text">
+				</div>
+			</div>
+			<!-- home医生列表预约加号说明基本信息 -->
+			<div class="aplusignthat">
+				<h2>基本信息</h2>
+			</div>
+			<div class="jb_information">
+				<div class="information_gs">
+					<dl>
+						<dt><span>真实姓名</span><span class="customerRealName"></span></dt>
+						<dt><span>性别</span><span class="customerSex"></span></dt>
+						<dt class="obny"><span>出生日期</span><span class="customerBirthday"></span></dt>
+					</dl>
+				</div>
+			</div>
+			<!-- home医生列表预约加号说明病情描述 -->
+			<div class="aplusignthat">
+				<h2>病情描述</h2>
+			</div>
+			<div class="il_ription">
+				<input placeholder="病情描述">
+			</div>
+			<!-- home医生列表预约加号说明按钮 -->
+			<div class="alpeqcv" style="height:auto;padding:1rem 0;position:static;background:#fff;">
+				<a class="btn-radius" style="margin:0 auto;">提 交</a><!-- 默认圆角按钮 -->
+			</div>
+		</div>
+		<!--#include virtual="/html/template/patient/home_bottom.shtml"-->
+	</aside>
+	<script type="text/javascript">
+	$(function(){
+		gm.home.appointment();
+
+		//预约加号标签载入处理
+		gm.clinic.getTags = function(data){
+			if(!data){
+				$.alert("服务器出错！")
+				return;
+			}
+			if (data.query.success == "1") {
+				var arr = [];
+				$(data.reList).each(function(i,o){
+					arr.push('<li tagUuid="'+o["tagUuid"]+'"><span>'+o["tagName"]+'</span></li>');
+					if (i >= 12) {
+						$(".queding_a").css({
+							"margin-top":"0%",
+							"margin-bottom" : "0",
+							"padding-bottom":"1rem",
+							"position":"relative",
+							"top":".5rem"
+						});
+					};
+				});
+
+				$(".abvccanplu ul").html(arr.join(""));
+			};
+		}
+
+		//获取预约加号标签
+		$.getDate({
+			page:"doctor",
+			inter:"getTags",
+			data:{callback:"gm.clinic.getTags"},
+			method:"POST",
+			dataType:"script"
+				
+		});
+	});
+	</script>
+</body>
+</html>
